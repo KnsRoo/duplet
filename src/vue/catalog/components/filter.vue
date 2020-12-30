@@ -1,5 +1,5 @@
 <template lang="pug">
-.wrapper
+.filter_wrapper
     .catalog-guns__title Каталог
     .catalog__filter
         .filter__show(v-if="show")

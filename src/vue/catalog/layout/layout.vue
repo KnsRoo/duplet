@@ -1,11 +1,13 @@
 <template lang="pug">
-.catalog
+section.catalog
     .wrapper
-        Product(
-            v-for="product in items"
-            :key="product.id"
-            :product="product"
-            )
+        catalog-filter
+        .cards
+            Product(
+                v-for="product in items"
+                :key="product.id"
+                :product="product"
+                )
     
     //- MobileItems
 </template>
