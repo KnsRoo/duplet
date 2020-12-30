@@ -21,6 +21,6 @@ use Parsers\Image\ImageParser;
 Config::init(include __ROOT.'/admin/config.php');
 
 $imgDir = PATH_TO_FILES.'/GoodsHierarchy.xml';
-$imageParser = new ImageParser($imgDir);
+$imageParser = new ImageParser();
 
 $imageParser->parse();

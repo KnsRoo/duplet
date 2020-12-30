@@ -1,62 +1,53 @@
 <template lang="pug">
-.catalog__item
-  .catalog__item__wrapper
-      .catalog__item-img(:style="{backgroundImage: `url(${itemImage})`}")
-      .catalog__item__content
-          .catalog__item-text
-              .catalog__item__content-title {{product.title}}
-              .catalog__item__content-subtitle {{product.subtitle}}
-          .catalog__item__price
-              .catalog__item__price-text {{product.count * product.price | fix-namber}} ₽ 
-              .catalog__item__price__count
-                  .catalog__item__price__count__btn-min(@click="minCart()")  
-                  .catalog__item__price__count__btn-text {{product.count}}
-                  .catalog__item__price__count__btn-plus(@click="addCart()")  
-                      
-      .catalog__item__btn.button(@click="addItemToCartt()") В корзину
-          
-                        
-                        
-
+.card
+	.discount__gun(v-if="product.props.discount") {{ product.props.discount.value }}
+	img.card__img(:src = "product.picture")
+	.card__content
+		.card__content_title
+			.card__content_title_name {{ product.title }}
+				.card__content_title_price
+					.first__price {{ product.price+' ₽' }}
+					.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
+		figure.icon-add(@click="addToCart")
 </template>
 
 <script>
 import { mapActions } from "vuex";
 export default {
-    props: {
-        product: Object
-    },
+	props: {
+		product: Object
+	},
 
-    methods: {
-        ...mapActions("cart", ["addItemToCart"]),
-        addItemToCartt() {
-            const dataItem = {
-                id: this.product.id,
-                count: this.product.count
-            };
-            this.addItemToCart(dataItem);
-        },
-        addCart() {
-            if (this.product.count < 100) {
-                this.product.count++;
-                this.product.total = this.product.count * this.product.price;
-            } else {
-                return;
-            }
-        },
-        minCart() {
-            if (this.product.count <= 1) {
-                return;
-            } else {
-                this.product.count--;
-                this.product.total -= this.product.price;
-            }
-        }
-    },
-    computed: {
-        itemImage() {
-            return this.product.picture;
-        }
-    }
+	methods: {
+		...mapActions("cart", ["addItemToCart"]),
+		addItemToCartt() {
+			const dataItem = {
+				id: this.product.id,
+				count: this.product.count
+			};
+			this.addItemToCart(dataItem);
+		},
+		addCart() {
+			if (this.product.count < 100) {
+				this.product.count++;
+				this.product.total = this.product.count * this.product.price;
+			} else {
+				return;
+			}
+		},
+		minCart() {
+			if (this.product.count <= 1) {
+				return;
+			} else {
+				this.product.count--;
+				this.product.total -= this.product.price;
+			}
+		}
+	},
+	computed: {
+		itemImage() {
+			return this.product.picture;
+		}
+	}
 };
 </script>

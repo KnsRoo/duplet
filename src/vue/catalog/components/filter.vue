@@ -1,14 +1,14 @@
 <template lang="pug">
+.filter_wrapper
+    .catalog-guns__title Каталог
     .catalog__filter
-        .catalog__filter__tilte
-            h1 Лекарства
-        ul
-            li(v-for="(filter, key) in catalogFilters")
-                label(@click="clickOnitem(filter.id)" :key="key")
-                    .checkbox
-                        input(type="radio" name="filter")
-                        .checkbox__mark
-                    span {{filter.title}}
+        .filter__show(v-if="show")
+            figure.icon-menu-burger
+            .filter_show_title Показать категории
+            .filter__show_number 5
+        .filter_sort
+            .filter__sort_title Сортировка по:
+            .filter__sort_type Популярности
 </template>
 
 <script>
@@ -20,6 +20,7 @@ export default {
     },
     data() {
         return {
+            show: true
             // filters: []
         };
     },
