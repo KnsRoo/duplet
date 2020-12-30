@@ -1,0 +1,43 @@
+openapi: "3.0.1"
+info:
+  title: news api
+  contact:
+    name: API Support
+    email: dmitrym.dev@websm.io
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      summary: get news item
+      responses:
+        '200':
+          description: news item
+          content:
+            application/hal+json:
+              schema:
+                type: any
+        '404':
+          description: index page or item page not found
+          content:
+            application/hal+json:
+              schema:
+                properties:
+                  errors:
+                    items:
+                      properties:
+                        message:
+                          type: string
+        '500':
+          description: server error
+          content:
+            application/hal+json:
+              schema:
+                properties:
+                  errors:
+                    items:
+                      properties:
+                        message:
+                          type: string
+
+

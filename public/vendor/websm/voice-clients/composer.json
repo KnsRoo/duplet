@@ -1,0 +1,14 @@
+{
+    "name": "websm/voice-clients",
+    "description": "voice clients",
+    "type": "library",
+    "require": {
+        "php": ">=5.6.0",
+        "google/cloud-text-to-speech": "^0.4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Websm\\VoiceClients\\": "src/"
+        }
+    }
+}

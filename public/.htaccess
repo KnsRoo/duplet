@@ -1,0 +1,17 @@
+SetEnv HTTPS "on"
+RewriteEngine on
+
+RewriteRule ^icons/(.*)$ /assets/icons/$1 [NS,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+DirectoryIndex index.php
+
+RewriteRule ^.*$ index.php [NS,L]
+#При продакшене, убрать эти строки, открывает доступ api с другого сайта
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "*"
+</IfModule>

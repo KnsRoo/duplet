@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div class="template">this is template block</div>
+
+	<div class="container"
+		data-template="body > .template"
+		data-add-button=".add"
+		data-rm-button=".rm">
+
+	</div>
+
+	<button class="add">add</button>
+	<button class="rm">remove</button>
+
+	<script src="clone-child.js"></script>
+	<script>
+		var elem = document.querySelector('.container');
+		var clones = new CloneChild(elem);
+
+		clones.onAdd(function(elem) {
+			elem.innerHTML = 'this is clone block';
+		});
+	</script>
+</body>
+</html>

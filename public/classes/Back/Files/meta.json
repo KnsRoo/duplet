@@ -1,0 +1,6 @@
+{
+	"title": "Файловый менеджер",
+	"icon": "icons/files_icon.svg",
+	"system": false,
+	"dependencies": []
+}

@@ -1,0 +1,22 @@
+{
+  "name": "websm-admin",
+  "version": "1.0.0",
+  "description": "websm cms",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "yarn run webpack --config webpack.dev.js",
+    "watch": "yarn run webpack --config webpack.dev.js --watch",
+    "build:prod": "yarn run webpack --config webpack.prod.js"
+  },
+  "dependencies": {
+    "@websm/admin-catalog-vue": "1.2.5",
+    "core-js": "^3.2.1",
+    "regenerator-runtime": "^0.13.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.2"
+  }
+}

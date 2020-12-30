@@ -1,0 +1,6 @@
+{
+    "title": "Пользователи сайта",
+    "icon": "icons/users-icon.svg",
+    "system": false,
+    "dependencies": ["FilesMin"]
+}

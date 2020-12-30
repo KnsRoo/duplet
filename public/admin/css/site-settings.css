@@ -1,0 +1,15 @@
+.block-title {
+    color: #5D5D62;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.row {
+    width: 500px;
+}
+
+.row span {
+    width: 30%;
+    display: inline-block;
+}

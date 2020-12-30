@@ -1,0 +1,70 @@
+#s_Settings .backups .table {
+width: 60%;
+background-color: #FFF;
+border-radius: 7px;
+border: 1px solid #ECECEC;
+border-bottom: 4px solid #ECECEC;
+color: #3B414F;
+overflow: hidden;
+	box-sizing: border-box;
+	font-size: 0;
+}
+#s_Settings .backups .table .tbl-header {
+	padding: 15px 0;
+	background-color: #64a9ec;
+	box-sizing: border-box;
+}
+#s_Settings .backups .table .zelle {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 10pt;
+	word-wrap: break-word;
+	user-select: text;
+	-webkit-user-select: text;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+#s_Settings .backups .table .zelle:nth-child(1){width: 35%;}
+#s_Settings .backups .table .zelle:nth-child(2){width: 35%; text-align: center;}
+#s_Settings .backups .table .zelle:nth-child(3){width: 30%; text-align: center;}
+#s_Settings .backups .table .tbl-header .zelle {
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12pt;
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
+}
+#s_Settings .backups .table .tbl-field {
+	padding: 12px 0px;
+	border-bottom: 1px dotted #ECECEC;
+	box-sizing: border-box;
+}
+#s_Settings .backups .table .icon {
+	width: 20px;
+	height: 20px;
+	border: none;
+	padding: 0;
+	margin: 0 5px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+	font-size: 0px;
+}
+#s_Settings .backups .table .icon.restore {background-image: url(icons/check.svg);}
+#s_Settings .backups .table .icon.remove {background-image: url(icons/remove.svg);}
+#s_Settings .backups .table .tbl-field:last-child {border-bottom: none;}
+#s_Settings .backups .goodBtn {
+	padding: 10px 15px;
+	border: none;
+	font-size: 11pt;
+	margin: 20px 0;
+	padding-left: 38px;
+	background-image: url(icons/add.svg);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	background-size: 20px;
+}

@@ -1,0 +1,7 @@
+{
+	"title": "Мини-файловый менеджер",
+	"icon": "icons/files_icon.svg",
+	"hidden": true,
+	"system": false,
+	"dependencies": ["Files"]
+}

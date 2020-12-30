@@ -1,0 +1,116 @@
+.module-data {
+	font-size: 0px;
+}
+
+.module-data .add-new-user {
+	width: 50%;
+	display: inline-block;
+	white-space: normal;
+	font-size: 12pt;
+	vertical-align: top;
+	max-width: 500px;
+	min-width: 450px;
+}
+
+.module-data h2 {
+	font-size: 18px;
+}
+
+.module-data .add-new-user .row { }
+
+.module-data .add-new-user .row > span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 30%;
+}
+
+.module-data .add-new-user .row > input {
+	width: 60%;
+}
+
+.module-data .add-new-user .row > input.add {
+	width: auto;
+}
+
+.module-data .add-new-user .row > .inline {
+	display: inline-block;
+	vertical-align: middle;
+	width: 60%;
+}
+
+.module-data .all-users {
+	width: 50%;
+	display: inline-block;
+	white-space: normal;
+	font-size: 12pt;
+	vertical-align: top;
+}
+
+.module-data .all-users > .row {}
+
+.module-data .all-users > .row > .sm-edit-frame {
+	width: 400px;
+}
+
+.module-data .all-users > .row > .sm-edit-frame .row {}
+
+.module-data .all-users > .row > .sm-edit-frame .row > span {
+	width: 30%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.module-data .all-users > .row > .sm-edit-frame .row > .inline {
+	display: inline-block;
+	vertical-align: middle;
+	width: 60%;
+}
+
+.module-data .all-users > .row > .sm-edit-frame .row > input {
+	vertical-align: middle;
+	width: 60%;
+}
+
+.module-data .all-users > .row > .sm-edit-frame .row > .sm-button {
+	width: auto;
+}
+
+.module-data .all-users > .row > .sm-item {
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	min-height: 60px;
+}
+
+.module-data .all-users > .row > .sm-item > div {
+	display: inline-block;
+	vertical-align: middle;
+	width: 35%;
+}
+
+.module-data .all-users > .row > .sm-item > .login {
+	text-align: left;
+}
+
+.module-data .all-users > .row > .sm-item > .phone {}
+
+.module-data .all-users > .row > .sm-item > .actions {
+	text-align: right;
+}
+
+.module-data .all-users > .row > .sm-item > .actions form {
+	display: inline-block;
+	vertical-align: middle;
+}

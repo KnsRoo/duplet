@@ -1,0 +1,73 @@
+openapi: "3.0.1"
+info:
+  title: orders api
+  contact:
+    name: API Support
+    email: dmitrym.dev@websm.io
+  description: "attention !!! usage of this api requires cookies"
+  version: 1.0.0
+
+paths:
+  /api/orders/orders:
+    post:
+      summary: append new order
+      requestBody:
+        description: specifies metadata of order
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Имя:
+                  type: "string"
+                  pattern: "^.{1,50}$"
+                Фамилия: 
+                  type: "string"
+                  pattern: "^.{1,50}$"
+                Отчество:
+                  type: "string"
+                  pattern: "^.{1,50}$"
+                Телефоны:
+                  type: "array"
+                  items:
+                    type: "string"
+                    pattern: "(?:7|8)\\d{10}"
+                  minItems: 1
+                  maxItems: 5
+                "Электронные почты":
+                  type: "array"
+                  items: 
+                    type: "string"
+                    pattern: "^.+@.+\\..+$"
+                  minItems: 1
+                  maxItems: 5
+                "Способ получения":
+                  type: "string"
+                  enum:
+                    - "Самовывоз"
+                    - "Доставка"
+                "Способ оплаты":
+                  type: "string"
+                  enum: 
+                    - "При получении"
+                    - "Онлайн"
+                "Согласие на обработку персональных данных":
+                  enum: 
+                    - true
+              additionalProperties: true
+              required:
+                - "Имя"
+                - "Фамилия"
+                - "Отчество"
+                - "Телефоны"
+                - "Электронные почты"
+                - "Способ получения"
+                - "Способ оплаты"
+      responses:
+        '200':
+          description: created order
+          content:
+            application/hal+json:
+              schema:
+                type: any

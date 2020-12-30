@@ -1,0 +1,6 @@
+{
+	"title": "Страницы",
+	"icon": "icons/pages_icon.svg",
+	"system": false,
+	"dependencies": ["FilesMin"]
+}

@@ -1,0 +1,82 @@
+.table {
+	overflow: hidden;
+}
+
+.table .header {
+	padding: 15px 0;
+	background-color: #039BE6;
+	font-size: 0;
+}
+
+.table .zelle {
+	font-size: 12px;
+	word-wrap: break-word;
+	user-select: text;
+	-webkit-user-select: text;
+	padding: 0 30px;
+}
+
+.table .zelle * {
+	font-size: 12px;
+}
+
+.table .zelle span.user-login {
+	font-weight: bold; font-style: normal;
+}
+
+.table .zelle span.ban-reason {
+	font-style: oblique; color: #000;
+}
+
+.table .zelle span.ban-reason:hover {
+	text-decoration: underline;
+}
+
+.table .zelle:nth-child(1) {
+	width: 25%; text-align: center;
+}
+
+.table .zelle:nth-child(2) {
+	width: 55%;
+}
+
+.table .zelle:nth-child(3) {
+	width: 20%; font-weight: bold; text-align: center;
+}
+
+.table .header .zelle {
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+.table .line {
+	padding: 12px 0px;
+	border-bottom: 1px dotted #ECECEC;
+	font-size: 0;
+}
+
+.table .line:last-child {
+	border-bottom: none;
+}
+
+.table .line.notice {
+	background-color: #F5FFF5;
+}
+
+.table .line.warning {
+	background-color: #FFF4F4;
+}
+
+.table .line.error {
+	background-color: #FFDBDB;
+}
+
+.export-form .sm-input {
+	width: 100px;
+	text-align: center;
+}

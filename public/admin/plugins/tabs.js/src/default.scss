@@ -1,0 +1,17 @@
+.tab {
+
+	&.active {}
+
+	&.inactive {}
+
+}
+
+.tab-frame {
+
+	&.inactive {
+
+		display: none;
+
+	}
+
+}

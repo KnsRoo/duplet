@@ -1,0 +1,1 @@
+{"version":3,"sources":["default.scss"],"names":[],"mappings":"AAQA;EAIE,cAAa,EAEb","file":"../default.min.css","sourcesContent":[".tab {\n\n\t&.active {}\n\n\t&.inactive {}\n\n}\n\n.tab-frame {\n\n\t&.inactive {\n\n\t\tdisplay: none;\n\n\t}\n\n}\n"]}

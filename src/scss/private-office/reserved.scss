@@ -1,0 +1,59 @@
+.reserved {
+    font-family: FuturaBookC;
+    font-style: normal;
+    font-weight: normal;
+
+    &__title {
+        font-size: 24px;
+        line-height: 125%;
+        margin-bottom: 30px;
+    }
+
+    &__box {
+        .subtitles {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            line-height: 125%;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+
+            [class*='subtitles__']:not(:last-child) {
+                margin-right: 5px;
+            }
+
+            &__thing {
+                width: 350px;
+                border: solid red;
+            }
+
+            &__address {
+                width: 165px;
+                border: solid red;
+            }
+
+            &__info {
+                width: 240px;
+                border: solid red;
+            }
+
+            &__cost {
+                width: 110px;
+                border: solid red;
+            }
+
+            &__status {
+                width: 135px;
+                display: flex;
+                justify-content: flex-end;
+                border: solid red;
+            }
+        }
+
+        .reserved__things {
+            border-top: 1px solid #E0E0E0;
+            @import 'reserved__cart';
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tabs.js</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="public/default.min.css" type="text/css" />
+</head>
+<body>
+
+	<button class="tab" data-tab-frame="#frame-1"
+		data-tab-selected="true" >tab1</button>
+
+	<button class="tab" data-tab-frame="#frame-2" >tab2</button>
+	<button class="tab" data-tab-frame="#frame-3" >tab3</button>
+
+	<div class="tab-frame" id="frame-1">
+		tab content 1
+	</div>
+	<div class="tab-frame" id="frame-2">
+		tab content 2
+	</div>
+	<div class="tab-frame" id="frame-3">
+		tab content 3
+	</div>
+
+	<script src="public/tabs.min.js"></script>
+
+	<script charset="utf-8">
+		let tabs = new Tabs;
+		tabs.add('.tab');
+	</script>
+
+</body>
+</html>

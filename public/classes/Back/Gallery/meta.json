@@ -1,0 +1,6 @@
+{
+	"title": "Галерея",
+	"icon": "icons/gallerey.svg",
+	"system": false,
+	"dependencies": ["FilesMin"]
+}

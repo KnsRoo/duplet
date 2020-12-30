@@ -1,0 +1,6 @@
+{
+	"title": "Каталог",
+	"icon": "icons/catalog_icon.svg",
+	"system": false,
+	"dependencies": ["FilesMin"]
+}

@@ -1,0 +1,6 @@
+{
+	"title": "Заказы",
+	"icon": "icons/orders_icon.svg",
+	"system": false,
+	"dependencies": []
+}

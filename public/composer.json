@@ -1,0 +1,26 @@
+{
+    "name": "websm/engine",
+    "authors": [
+        {
+            "name": "websm",
+            "email": "developer@websm.io"
+        }
+    ],
+    "require": {
+        "justinrainbow/json-schema": "^5.2",
+        "php-jsonpatch/php-jsonpatch": "^3.0",
+        "websm/framework": "0.0.15",
+        "websm/voice-clients": "^1.0",
+        "fzaninotto/faker": "^1.9"
+    },
+    "repositories": [
+        { "type": "composer", "url": "http://packagist.websm.io/" }
+    ],
+    "config": {
+        "secure-http": false
+    },
+    "scripts": {
+        "post-package-install": "zsh -c 'rm -rdf vendor/**/.git' || true",
+        "post-package-update": "zsh -c 'rm -rdf vendor/**/.git' || true"
+    }
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>limit-char.js</title>
+</head>
+<body>
+	<div class="wrapper">
+		<textarea id="text" data-count-output="#text+.count-output" maxlength="300" cols="30" rows="10"></textarea>
+		<div class="count-output"></div>
+	</div>
+
+	<script src="limit-chars.js"></script>
+	<script>
+		var limitChars = new LimitChars(document.getElementById('text'));
+	</script>
+</body>
+</html>

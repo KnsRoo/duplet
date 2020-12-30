@@ -1,0 +1,171 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "News API",
+    "version": "v1",
+    "contact": {
+      "name": "Dmitry",
+      "email": "gdima.dev@websm.io"
+    }
+  },
+  "paths": {
+    "/news": {
+      "get": {
+        "operationId": "listVersionsv1",
+        "summary": "Получить список новостей",
+        "parameters": [{
+          "in": "query",
+          "name": "limit",
+          "description": "Количество новостей на странице (не больше 50)",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "in": "query",
+          "name": "page",
+          "description": "Номер страницы",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "in": "query",
+          "name": "sort",
+          "description": "Поле для сортировки",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": ["def", "dating", "name"]
+          }
+        }, {
+          "in": "query",
+          "name": "order",
+          "description": "Тип сортировки",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": ["asc", "desc"]
+          }
+        }, {
+          "in": "query",
+          "name": "fromDate",
+          "description": "Фильтр по дате (Начальная дата), формат - dd.mm.yyyy",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }, {
+          "in": "query",
+          "name": "toDate",
+          "description": "Фильтр по дате (Конечная дата), формат - dd.mm.yyyy",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "список Новостей",
+            "content": {
+              "application/json": {
+                  "examples": {
+                      "example": {
+                          "value": {
+                              "total": 142,
+                              "limit": 2,
+                              "count": 2,
+                              "links": {
+                                  "current": "https://domen.local/news/api/v1/?page=1&limit=2&sort=dating",
+                                  "start": "https://domen.local/news/api/v1/news?page=1&limit=2&sort=dating",
+                                  "finish": "https://domen.local/news/api/v1/news?page=71&limit=2&sort=dating",
+                                  "next": "https://domen.local/news/api/v1/news?page=2&limit=2&sort=dating",
+                                  "prev": "https://domen.local/news/api/v1/news?page=1&limit=2&sort=dating"
+                              },
+                              "fields": {
+                                  "0": {
+                                       "id": "7810576dfc571185fca1509483eda521",
+                                       "title": "9 августа 2018",
+                                       "picture": "https://domen.local/data/2e477169343d0fe74146edc0b1da6845.jpg",
+                                       "announce": "В августе 2018 г. в Пермском государственном хореографическом училище будут проходить мастер-классы по классическому танцу",
+                                       "date": "09.08.2018",
+                                       "sort": "1",
+                                       "link": "https://domen.local/Novosti/9-avgusta-2018-"
+                                  },
+                                  "1": {
+                                       "id": "e93c7b2abd60a0c1a406e281066f6b0e",
+                                       "title": "18 июля 2018 ",
+                                       "picture": null,
+                                       "announce": "С 29 октября по 1 ноября 2018 г. в Пермском государственном",
+                                       "date": "18.07.2018",
+                                       "sort": "2",
+                                       "link": "https://domen.local/Novosti/18-iyulya-2018-"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+            }
+          },
+          "422": {
+            "description": "некорректный формат данных",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example": {
+                    "value": {
+                      "0": {
+                        "text": "Проверьте правильность заполнения поля limit.",
+                        "type": "error"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "news/{id}": {
+      "get": {
+        "operationId": "getVersionDetailsv2",
+        "summary": "Получить новость",
+        "parameters": [ {
+          "in": "path",
+          "name": "id",
+          "description": "Идентификатор новости.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "Информация о новости",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "example": {
+                    "value": {
+                      "id": "7810576dfc571185fca1509483",
+                      "title": "9 августа 2018",
+                      "text": "В августе 2018 в городе",
+                      "date": "2018.08.09",
+                      "picture": null,
+                      "link": "https://domen.local/Novosti/9-avgusta-2018"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Новость с таким идентификатором не найдена"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "title": "Рассылка",
+    "icon": "icons/mailing.svg",
+    "system": false,
+    "dependencies": []
+}

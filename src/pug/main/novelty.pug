@@ -1,0 +1,73 @@
+section.novelty
+    .wrapper
+        .novelty__block    
+            .novelty__block_title
+                h2.title_main Новинки
+                p.title_description Лучшие новинки отчественных и зарубежных производителей
+            .novelty__block_cards
+                form(action="").choose
+                    input#for__all.for__all.custom-radio(type="radio", name="take")
+                    label.for__all_label(for="for__all") Все товары
+                    input#for__hunting.for__hunting.custom-radio(type="radio", name="take" )
+                    label.for__hunting_label(for="for__hunting") Для охоты
+                    input#for__fishing.for__fishing.custom-radio(type="radio", name="take" )
+                    label.for__fishing_label(for="for__fishing") Для рыбалки
+                    input#for__tourism.for__tourism.custom-radio(type="radio", name="take" )
+                    label.for__tourism_label(for="for__tourism") Для рыбалки
+                .choose__mobile Все товары
+                .image__slider.swiper-container
+                    .image__slider_wrapper.swiper-wrapper
+                        .swiper-slide
+                            a.card.discount(href="../card/card.html")
+                                .discount__gun 15%
+                                .bookmark
+                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
+                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
+                                .card__content
+                                    .card__content_title
+                                        .card__content_title_name Franchi Affinity
+                                        .card__content_title_price
+                                            .first__price ₽ 77 900
+                                            .discount__price ₽ 34 999
+                                    figure.icon-add
+                        .swiper-slide
+                            a.card.discount(href="../card/card.html")
+                                .discount__gun 15%
+                                .bookmark
+                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
+                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
+                                .card__content
+                                    .card__content_title
+                                        .card__content_title_name Franchi Affinity
+                                        .card__content_title_price
+                                            .first__price ₽ 77 900
+                                            .discount__price ₽ 34 999
+                                    figure.icon-add
+                        .swiper-slide
+                            a.card.discount(href="../card/card.html")
+                                .discount__gun 15%
+                                .bookmark
+                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
+                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
+                                .card__content
+                                    .card__content_title
+                                        .card__content_title_name Franchi Affinity
+                                        .card__content_title_price
+                                            .first__price ₽ 77 900
+                                            .discount__price ₽ 34 999
+                                    figure.icon-add
+                        .swiper-slide
+                            a.card.discount(href="../card/card.html")
+                                .discount__gun 15%
+                                .bookmark
+                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
+                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
+                                .card__content
+                                    .card__content_title
+                                        .card__content_title_name Franchi Affinity
+                                        .card__content_title_price
+                                            .first__price ₽ 77 900
+                                            .discount__price ₽ 34 999
+                                    figure.icon-add
+                    .swiper-pagination
+            a.novelty__block_to-catalog(href="#") Больше товаров

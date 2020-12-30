@@ -1,0 +1,63 @@
+openapi: "3.0.1"
+info:
+  title: cart api
+  contact:
+    name: API Support
+    email: dmitrym.dev@websm.io
+  description: "attention !!! usage of this api requires cookies"
+  version: 1.0.0
+
+paths:
+  /api/cart/items:
+    get:
+      summary: get list of cart items
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          description: first cart item number
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit cart item number
+      responses:
+        '200':
+          description: list of products
+          content:
+            application/hal+json:
+              schema:
+                type: any
+    post:
+      summary: append product to cart
+      requestBody:
+        description: specifies product and count added to cart
+        required: true
+        content:
+          application/json:
+            schema:
+              parameters:
+                id:
+                  type: string
+                count:
+                  type: number
+                pharmacy:
+                  type: string
+                  enum:
+                    - старокубанская
+                    - юбилейная
+                    - фестивальная
+                    - зиповская
+                    - сормовская
+            example:
+              id: 0012542615908fb841b72ee4e77dc4a9
+              count: 1
+              pharmacy: зиповская
+      responses:
+        '200':
+          description: created cart item
+          content:
+            application/hal+json:
+              schema:
+                type: any

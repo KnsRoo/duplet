@@ -1,0 +1,65 @@
+openapi: "3.0.1"
+info:
+  title: catalog api
+  contact:
+    name: API Support
+    email: dmitrym.dev@websm.io
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      summary: get list of subgroups
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          description: first news item number
+          example: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit news items number
+          example: 30
+        - name: order
+          in: query
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+          explode: true
+          style: deepObject
+          example:
+            sort: asc
+            title: desc
+        - name: tags
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+            - discount 30%
+            - root
+      responses:
+        '200':
+          description: list of subgroups
+          content:
+            application/hal+json:
+              schema:
+                type: any
+        '500':
+          description: server error
+          content:
+            application/hal+json:
+              schema:
+                properties:
+                  errors:
+                    items:
+                      properties:
+                        message:
+                          type: string
+
+

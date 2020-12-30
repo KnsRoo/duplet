@@ -1,0 +1,41 @@
+{
+  "cart": {
+    "css": "/assets/css/cart.463639ea.css",
+    "js": "/assets/js/cart.js"
+  },
+  "catalog": {
+    "js": [
+      "/assets/js/8.ea6c6c54.chunk.js",
+      "/assets/js/catalog.js"
+    ],
+    "css": "/assets/css/catalog.8337a28a.css"
+  },
+  "contacts": {
+    "css": "/assets/css/contacts.dfb8e37e.css",
+    "js": "/assets/js/contacts.js"
+  },
+  "index": {
+    "css": [
+      "/assets/css/9.46c00b98.css",
+      "/assets/css/index.7b0b36ba.css"
+    ],
+    "js": [
+      "/assets/js/9.46c00b98.chunk.js",
+      "/assets/js/index.js"
+    ]
+  },
+  "lk": {
+    "css": "/assets/css/lk.17319331.css",
+    "js": "/assets/js/lk.js"
+  },
+  "news": {
+    "css": "/assets/css/news.2272cd8e.css",
+    "js": "/assets/js/news.js"
+  },
+  "pages": {
+    "js": "/assets/js/pages.js"
+  },
+  "stocks": {
+    "js": "/assets/js/stocks.js"
+  }
+}

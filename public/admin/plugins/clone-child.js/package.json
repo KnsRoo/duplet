@@ -1,0 +1,26 @@
+{
+  "name": "clone-child.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolgotko/clone-child.js.git"
+  },
+  "author": "kolgotcko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kolgotko/clone-child.js/issues"
+  },
+  "homepage": "https://github.com/kolgotko/clone-child.js#readme",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-rename": "^1.2.2"
+  }
+}

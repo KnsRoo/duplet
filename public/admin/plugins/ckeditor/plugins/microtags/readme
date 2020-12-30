@@ -1,0 +1,4 @@
+#Плагин для вставки микроразметки
+#Папку с плагином положить в : имя_сайта/admin/plugins/ckeditor/plugins
+#В файле config.js (Путь:имя_сайта/admin/plugins/ckeditor/config.js) 
+#В Блоке CKEDITOR.editorConfig = function(config){} внутри прописать config.extraPlugins = 'microtags'

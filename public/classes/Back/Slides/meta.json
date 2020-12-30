@@ -1,0 +1,6 @@
+{
+    "title": "Главный слайдер",
+    "icon": "icons/slides_icon.svg",
+    "system": false,
+    "dependencies": ["FilesMin"]
+}

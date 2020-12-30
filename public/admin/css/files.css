@@ -1,0 +1,103 @@
+.module-data .repeat .add-new {
+	font-size: 0;
+	white-space: nowrap;
+	margin: 10px 0;
+	margin-right: 300px;
+	vertical-align: middle;
+}
+
+.module-data .repeat .add-new > * {
+	vertical-align: middle;
+}
+
+.module-data .repeat .add-new .new-file {
+	cursor: pointer;
+	margin-right: 10px;
+	color: #5D5D62;
+}
+
+.module-data .repeat .add-new .new-file:hover {
+	text-decoration: underline;
+}
+
+.module-data .repeat .add-new .goodBtn {
+	border: none;
+	padding: 10px;
+	padding-left: 40px;
+	background-image: url(../icons/new_file.svg);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	font-size: 14px;
+}
+
+.module-data .data-place .line-box {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.module-data .data-place .line-box .short-row {
+	font-size: 0;
+	vertical-align: middle;
+}
+
+.module-data .data-place .line-box .short-row:nth-child(1) {
+	width: 62px;
+	margin-right: 10px;
+}
+
+.module-data .data-place .line-box .short-row:nth-child(2) {
+	width: 11vw;
+	padding-right: 5px;
+}
+
+.module-data .data-place .line-box .short-row:nth-child(3),
+.module-data .data-place .line-box .short-row:nth-child(4) {
+	width: 9.5vw;
+}
+
+.module-data .data-place .line-box .short-row:nth-child(5) .quest {
+	width: 20.5vw;
+}
+
+.module-data .data-place .line-box .short-row:nth-child(5) .quest .rename-input {
+	width: 12vw;
+}
+
+.module-data .data-place .line-box .short-row .hand-mover {
+	width: 10px;
+}
+
+.module-data .data-place .line-box .short-row .mini-image {
+	width: 42px;
+	height: 42px;
+	vertical-align: middle;
+	font-size: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../icons/mime_none.svg);
+	background-color: #FFF;
+	margin-left: 10px;
+	cursor: default;
+}
+
+.module-data .data-place .line-box .short-row.info-block > * {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
+}
+
+.module-data .data-place .line-box .short-row .title {
+	margin-bottom: 3px;
+}
+
+.module-data .data-place .line-box .short-row .info {
+	color: #9E9E9E;
+	font-size: 10px;
+}
+
+.module-data .data-place .preRename:checked + * + .line-box .short-row.info-block {
+	display: none;
+}

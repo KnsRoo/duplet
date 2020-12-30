@@ -1,0 +1,154 @@
+.filesMin {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: auto;
+    background-color: #FFF;
+    min-width: auto;
+    min-height: auto;
+    height: 100%;
+    text-align: left;
+    box-sizing: border-box;
+}
+.filesMin > .files-content {
+    padding: 25px;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+.filesMin.no-padding > .files-content {
+    padding: 0px;
+    /* padding-bottom: 45px; */
+}
+.filesMin .path {
+    font-size: 10pt;
+    color: #64A9EC;
+    cursor: default;
+    margin-left: 5px;
+}
+.filesMin .path a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.filesMin .path a:hover {text-decoration: underline;}
+.filesMin .file-block {
+    width: 52px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 0 !important;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+.filesMin .hidden:checked + .file-block {
+    background-color: #F1F8FF;
+}
+.filesMin .file-block .file-block-icon {
+    width: 100%;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(../icons/mime_none.svg);
+}
+.filesMin .file-block .file-block-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 8pt;
+    color: gray;
+    text-align: center;
+    white-space: nowrap;
+}
+.filesMin .uploadBtn {
+    width: 42px;
+    height: 42px;
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url(../icons/plus.svg);
+    background-size: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5px;
+    font-size: 0;
+    border: none;
+}
+.files-min-manager{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    background: #fff;
+}
+
+.filesMin > .fot {
+    width: 100%;
+    height: 42px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    background-color: #ECECEC;
+    color: #3C3C3C;
+    font-size: 11pt;
+    font-weight: bold;
+    /* position: absolute; */
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0px;
+    text-align: center;
+}
+
+
+.filesMin > .fot > *{
+    display: inline-block;
+    vertical-align: middle;
+}
+.filesMin > .fot .arrow {
+    vertical-align: middle;
+    text-align: center;
+    color: #5D5D62;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.files-min-manager.absolute{ position: absolute; }
+.files-min-manager>.tit{
+    width: 100%;
+    height: 36px;
+    background-color: #3B414F;
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 10px 25px;
+    color: #FFF;
+    font-size: 11pt;
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.files-min-manager>.tit>.close{
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    background-image: url(../icons/close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+.filesMin .off-message { }

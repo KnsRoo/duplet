@@ -1,0 +1,103 @@
+*{
+	outline: none;
+	border-collapse: collapse;
+}
+html,body{
+	margin: 0;
+	padding: 0;
+	color: #666;
+	font-family: helvetica, arial;
+	background-color: #3B414F;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-focus-ring-color: rgba(255, 255, 255, 0);
+	outline: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	resize: none;
+	-webkit-text-size-adjust: none;
+}
+input, textarea{
+	-moz-user-select: text;
+	-o-user-select: text;
+	-khtml-user-select: text;
+	-webkit-user-select: text;
+	user-select: text;
+	resize: none;
+}
+.anim{
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+	-ms-transition: 0.2s;
+}
+.form{
+	width: 250px;
+	margin: 0 auto;
+	padding-top: 30vh;
+}
+.form .login,
+.form .password{
+	background-color: #495166;
+	padding-left: 50px;
+	box-sizing: border-box;
+	margin: 8px 0;
+	border-radius: 3px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: 17px center;
+	background-size: 15px;
+}
+.form .login{background-image: url("../icons/user.svg");}
+.form .password{background-image: url("../icons/password.svg");}
+.form input[type="text"],
+.form input[type="submit"],
+.form input[type="password"]{
+	width: 100%;
+	border: none;
+	background-color: #5E6678;
+	padding: 10px;
+	font-size: 0.9em;
+	box-sizing: border-box;
+	color: #fff;
+}
+.form input[type="submit"]{
+	width: 100%;
+	text-align: center;
+	background-color: #64a9ec;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 3px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.1s;
+}
+.form input[type="submit"]:hover{
+	background-color: #308fc5;
+}
+.logo{
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin: 0px auto;
+	position: relative;
+	left: 21px;
+}
+@media all and (orientation: portrait) {
+	.form{
+		width: 45vw;
+	}
+	.form .login,
+	.form .password{
+		margin: 1.2vw 0;
+	}
+	.form input[type="text"],
+	.form input[type="submit"],
+	.form input[type="password"]{
+		padding: 2.5vw;
+		font-size: 1.5em;
+	}
+}

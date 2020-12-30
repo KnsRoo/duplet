@@ -1,0 +1,158 @@
+.card__box {
+    width: 100%;
+    //border: solid red;
+    margin-bottom: 60px;
+
+    /*     .card__item {
+        border: solid green;
+    } */
+
+    .card__grid {
+        height: 670px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 51.1% 42.6%;
+        column-gap: 6.29%;
+        margin-bottom: 60px;
+
+        .card-slider {
+            //border: solid blue;
+            display: flex;
+
+            .main__slider {
+                background: #E0E0E0;
+                width: 575px;
+                height: 643px;
+                padding: 100px 45px;
+
+                &__img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .card-common {
+            height: 585px;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            //border: solid green;
+
+            .common__title {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+
+                &_name {
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 125%;
+                    color: #888888;
+                }
+
+                &_brand {
+                    display: flex;
+
+                    &_name {
+                        color: #888888;
+                    }
+                }
+            }
+
+            .common__name {
+                font-weight: normal;
+                font-size: 48px;
+                line-height: 125%;
+                margin-bottom: 30px;
+            }
+
+            .common__text {
+                margin-bottom: 40px;
+            }
+
+            .common__price {
+                display: flex;
+                align-items: center;
+
+                &_discount {
+                    font-weight: normal;
+                    font-size: 24px;
+                    line-height: 125%;
+                    text-decoration: line-through;
+                    margin-right: 30px;
+                }
+
+                &_cost {
+                    font-weight: normal;
+                    font-size: 48px;
+                    line-height: 125%;
+                    color: #9D2F2F;
+                    margin-right: 45px;
+                }
+
+                &_available {
+                    color: #5A9E08;
+                }
+            }
+
+            .common__order {
+                display: flex;
+                align-items: center;
+                margin-bottom: 100px;
+
+                * {
+                    margin-right: 30px;
+                }
+
+                .input__number {
+                    width: 85px;
+                    height: 70px;
+                    padding-left: 25px;
+                }
+
+                .input__submit {
+                    width: 230px;
+                    height: 70px;
+                    background: #333333;
+                    cursor: pointer;
+                    font-size: 18px;
+                    line-height: 20px;
+                    text-transform: uppercase;
+                    color: #E0E0E0;
+                    border: none;
+                }
+
+                .icon-liked {
+                    cursor: pointer;
+                    font-size: 22px;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+
+            .common__category {
+                display: flex;
+                font-size: 18px;
+                line-height: 125%;
+
+                &_title {
+                    color: #888888;
+                    margin-right: 20px;
+                }
+
+                &_name {
+                    color: #333333;
+                }
+            }
+        }
+    }
+
+    @import "card__wrapper";
+}
+
+@import "card-similar-things";
+@import "card-recently-seen";

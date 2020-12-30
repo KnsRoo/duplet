@@ -1,0 +1,11 @@
+{
+    "name": "websm/tests",
+    "description": "test for websm framework",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Websm\\Framework\\": "../src/"
+        }
+    }
+}

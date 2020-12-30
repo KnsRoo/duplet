@@ -1,0 +1,11 @@
+.block-title {
+	color: #5D5D62;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.table {
+	border: none;
+	border-collapse: collapse;
+}

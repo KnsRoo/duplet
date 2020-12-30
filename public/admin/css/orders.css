@@ -1,0 +1,163 @@
+.module-data {
+    width: 100% !important;
+}
+
+.table {
+    overflow: hidden;
+}
+
+.table .header {
+    padding: 15px 0;
+    background-color: #039BE6;
+    font-size: 0;
+}
+
+.table .zelle {
+    font-size: 12px;
+    word-wrap: break-word;
+    text-align: center;
+    -moz-user-select: text;
+     -ms-user-select: text;
+         user-select: text;
+    -webkit-user-select: text;
+    padding: 0 15px;
+}
+
+.table .zelle:nth-child(1) {
+    width: 10%;
+}
+
+.table .zelle:nth-child(2) {
+    width: 15%;
+}
+
+.table .zelle:nth-child(3) {
+    width: 15%;
+}
+
+.table .zelle:nth-child(4) {
+    width: 20%;
+}
+
+.table .zelle:nth-child(5) {
+    width: 10%;
+}
+
+.table .zelle:nth-child(6) {
+    width: 15%;
+}
+
+.table .zelle:nth-child(7) {
+    width: 15%;
+}
+
+.table .zelle:nth-child(8) {
+    width: 15%;
+}
+
+.table .header .zelle {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    text-align: center;
+}
+
+.table .line {
+    border-bottom: 1px dotted #ECECEC;
+    font-size: 0;
+}
+
+.table .line.green {
+
+    background-color: #cafcf1;;
+
+}
+
+.table .line:last-child {
+    border-bottom: none;
+}
+
+.table .line .short-info {
+    padding: 5px 0px;
+    font-size: 0;
+}
+
+.table .line .full-info {
+    padding: 0 50px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #F7FFF7;
+}
+
+.table .line .info-togler:checked ~ .short-info .action.more {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+.table .line .info-togler:checked ~ .full-info {
+    max-height: 1000px;
+    padding: 20px 50px
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.receipt {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.receipt td {
+    padding: 5px 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.user-data {
+    font-size: 0;
+    margin-bottom: 30px;
+}
+
+.user-data > * {
+    margin-right: 50px;
+}
+
+.user-data > *:last-child {
+    margin-right: 0;
+}
+
+.fixed {
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 !important;
+
+}
+
+.additional-actions__input {
+    width: 100%;
+}
+
+.additional-actions__textarea {
+    width: 100%;
+}

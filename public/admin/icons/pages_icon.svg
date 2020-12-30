@@ -1,0 +1,12 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 18 24" enable-background="new 0 0 18 24" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#FFF" d="M16,2v20H2V2H16 M18,0H0v24h18V0L18,0z"/>
+	</g>
+	<rect fill="#FFF" x="4" y="7" width="10" height="1"/>
+	<rect fill="#FFF" x="4" y="10" width="10" height="1"/>
+	<rect fill="#FFF" x="4" y="13" width="10" height="1"/>
+	<rect fill="#FFF" x="4" y="16" width="10" height="1"/>
+</g>
+</svg>

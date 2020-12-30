@@ -1,0 +1,146 @@
+@media(max-width: 1200px) {
+    .action {
+        &__blocks {
+            .wrap {
+
+                .discount-first,
+                .discount-second {
+                    .title {
+                        &_sale {
+                            font-size: 36px;
+                        }
+                    }
+                }
+
+                .email {
+                    &__title {
+                        &_main {
+                            font-size: 36px;
+                        }
+                    }
+
+                    &__send {
+                        .input_email {
+                            width: 80%;
+                        }
+
+                        .input_send {
+                            width: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .action {
+        height: auto;
+
+        &__blocks {
+            flex-wrap: wrap;
+
+            .wrap {
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+
+                &:first-child {
+                    margin-right: 0;
+                }
+
+                .title {
+                    max-width: 100%;
+                    margin-bottom: 30px;
+
+                    &__text {
+                        font-size: 48px;
+                    }
+                }
+
+                .discount-first {
+                    height: 400px;
+
+                }
+
+                .discount-second {
+                    margin-bottom: 20px;
+                }
+
+            }
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .action {
+
+        &__blocks {
+
+            .wrap {
+                .title {
+                    max-width: 100%;
+                    margin-bottom: 30px;
+
+                    &__text {
+                        font-size: 28px;
+                    }
+                }
+
+                .discount-first,
+                .discount-second {
+                    height: 250px;
+
+                    .title {
+                        top: 20px;
+                        font-size: 16px;
+                        height: auto;
+
+                        &_company {
+                            margin-bottom: 20px;
+                        }
+
+                        &_sale {
+                            margin-bottom: 20px;
+                            font-size: 24px;
+                        }
+                    }
+
+                }
+
+                .email {
+                    height: auto;
+
+                    &__send {
+                        max-width: 495px;
+                        height: 120px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        .input_email {
+                            width: 100%;
+                            height: 50px;
+                            border: 1px solid #888888;
+                            outline: none;
+                            background-color: #e0e0e0;
+                            padding-left: 20px;
+                            margin-right: 20px;
+
+                            &::placeholder {
+                                color: #888888;
+                            }
+                        }
+
+                        .input_send {
+                            width: 180px;
+                            height: 50px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

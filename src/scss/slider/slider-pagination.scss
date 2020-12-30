@@ -1,0 +1,26 @@
+.swiper-pagination-bullets {
+    bottom: 10px;
+}
+
+.swiper-pagination-bullet {
+    background: #333333;
+    position: relative;
+    margin-right: 30px;
+    width: 10px;
+    height: 10px;
+    background-repeat: 50%;
+}
+
+.swiper-pagination-bullet-active {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 30px;
+        height: 30px;
+        background: url("../img/icons/slider.svg");
+    }
+}

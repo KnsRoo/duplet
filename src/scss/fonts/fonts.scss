@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'FuturaBookC';
+  src: url('../fonts/futurabookc.woff2') format('woff2'),
+    url('../fonts/futurabookc.woff') format('woff');
+}
+
+@font-face {
+  font-family: "fontello";
+  src: url("../fonts/fontello.woff2?85887906") format("woff2"),
+    url("../fonts/fontello.woff?85887906") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'),
+    url('../fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/open-sans-v18-latin_cyrillic-600.woff2') format('woff2'),
+    url('../fonts/open-sans-v18-latin_cyrillic-600.woff') format('woff');
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.icon-add:before {
+  content: "\e800";
+}
+
+/* '' */
+.icon-basket:before {
+  content: "\e801";
+}
+
+/* '' */
+.icon-fb:before {
+  content: "\e802";
+}
+
+/* '' */
+.icon-inst:before {
+  content: "\e803";
+}
+
+/* '' */
+.icon-liked:before {
+  content: "\e804";
+}
+
+/* '' */
+.icon-logo:before {
+  content: "\e805";
+}
+
+/* '' */
+.icon-menu-burger:before {
+  content: "\e806";
+}
+
+/* '' */
+.icon-menu-cancel:before {
+  content: "\e807";
+}
+
+/* '' */
+.icon-profile:before {
+  content: "\e808";
+}
+
+/* '' */
+.icon-search:before {
+  content: "\e809";
+}
+
+/* '' */
+.icon-vk:before {
+  content: "\e80a";
+}
+
+/* '' */
