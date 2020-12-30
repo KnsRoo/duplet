@@ -1,7 +1,7 @@
 <template lang="pug">
 .card
 	.discount__gun(v-if="product.props.discount") {{ product.props.discount.value }}
-	img.card__img(src = "product.picture")
+	img.card__img(:src = "product.picture")
 	.card__content
 		.card__content_title
 			.card__content_title_name {{ product.title }}
