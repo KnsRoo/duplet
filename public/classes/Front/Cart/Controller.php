@@ -50,7 +50,7 @@ class Controller extends Response
         $html = $this->render(self::PATH . 'cart.tpl', $data);
 
         $this->layout
-            ->setSrc('catalog')
+            ->setSrc('cart')
             ->setContent($html);
     }
 
@@ -70,7 +70,7 @@ class Controller extends Response
         $html = $this->render(self::PATH . 'group.tpl', $data);
 
         $this->layout
-            ->setSrc('catalog')
+            ->setSrc('cart')
             ->setContent($html);
     }
 
@@ -87,7 +87,7 @@ class Controller extends Response
         $html = $this->render(self::PATH . 'product.tpl', $data);
 
         $this->layout
-            ->setSrc('catalog')
+            ->setSrc('cart')
             ->setContent($html);
     }
 }

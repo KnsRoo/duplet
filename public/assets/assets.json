@@ -1,35 +1,45 @@
 {
   "cart": {
-    "css": "/assets/css/cart.463639ea.css",
+    "css": "/assets/css/cart.d53d6ea2.css",
     "js": "/assets/js/cart.js"
   },
   "catalog": {
     "js": [
-      "/assets/js/8.ea6c6c54.chunk.js",
+      "/assets/js/10.527fa246.chunk.js",
       "/assets/js/catalog.js"
     ],
-    "css": "/assets/css/catalog.4105c310.css"
+    "css": "/assets/css/catalog.4ec20439.css"
   },
   "contacts": {
-    "css": "/assets/css/contacts.dfb8e37e.css",
-    "js": "/assets/js/contacts.js"
+    "css": [
+      "/assets/css/0.ea4ba89c.css",
+      "/assets/css/contacts.5a4863e9.css"
+    ],
+    "js": [
+      "/assets/js/0.ea4ba89c.chunk.js",
+      "/assets/js/contacts.js"
+    ]
+  },
+  "favorite": {
+    "css": "/assets/css/favorite.85af67fe.css",
+    "js": "/assets/js/favorite.js"
   },
   "index": {
     "css": [
-      "/assets/css/9.46c00b98.css",
-      "/assets/css/index.7b0b36ba.css"
+      "/assets/css/0.ea4ba89c.css",
+      "/assets/css/index.24f2e53c.css"
     ],
     "js": [
-      "/assets/js/9.46c00b98.chunk.js",
+      "/assets/js/0.ea4ba89c.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "lk": {
-    "css": "/assets/css/lk.17319331.css",
+    "css": "/assets/css/lk.45f85f3b.css",
     "js": "/assets/js/lk.js"
   },
   "news": {
-    "css": "/assets/css/news.2272cd8e.css",
+    "css": "/assets/css/news.d5ae8467.css",
     "js": "/assets/js/news.js"
   },
   "pages": {

@@ -16,7 +16,6 @@
 
         .info {
             width: 315px;
-            border: solid red;
 
             &__title {
                 font-size: 24px;
@@ -52,7 +51,6 @@
 
         .cart {
             width: 891px;
-            border: solid red;
             @import '../basket/scrollbar';
 
             &__now {

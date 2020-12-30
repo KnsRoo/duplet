@@ -14,15 +14,15 @@
           <div class="cards__items">
             <div class="card">
               <div class="card__act">
-                <div class="card__bookmark"><img class="card__icon" src="../../assets/img/icons/bookmark.svg" alt="">
+                <div class="card__bookmark"><img class="card__icon" src="/assets/img/bookmark.svg" alt="">
                   <div class="card__title">Отложить</div>
                 </div>
-                <div class="card__delete"><img class="card__icon" src="../../assets/img/icons/delete.svg" alt="">
+                <div class="card__delete"><img class="card__icon" src="/assets/img/delete.svg" alt="">
                   <div class="card__title">Удалить</div>
                 </div>
               </div>
               <div class="card__des">
-                <div class="card__img"><img src="../../assets/img/big-gun.png" alt=""></div>
+                <div class="card__img"><img src="/assets/img/big-gun.png" alt=""></div>
                 <div class="card__text">
                   <div class="card__text_title">
                     <div class="card__text_title_subtitle">ТОЗ-34Р (орех)</div>
@@ -50,15 +50,15 @@
             </div>
             <div class="card">
               <div class="card__act">
-                <div class="card__bookmark"><img class="card__icon" src="../../assets/img/icons/bookmark.svg" alt="">
+                <div class="card__bookmark"><img class="card__icon" src="/assets/img/bookmark.svg" alt="">
                   <div class="card__title">Отложить</div>
                 </div>
-                <div class="card__delete"><img class="card__icon" src="../../assets/img/icons/delete.svg" alt="">
+                <div class="card__delete"><img class="card__icon" src="/assets/img/delete.svg" alt="">
                   <div class="card__title">Удалить</div>
                 </div>
               </div>
               <div class="card__des">
-                <div class="card__img"><img src="../../assets/img/wear.png" alt=""></div>
+                <div class="card__img"><img src="/assets/img/wear.png" alt=""></div>
                 <div class="card__text">
                   <div class="card__text_title">
                     <div class="card__text_title_subtitle">Термобелье Remington Extreme</div>
@@ -83,15 +83,15 @@
             </div>
             <div class="card">
               <div class="card__act">
-                <div class="card__bookmark"><img class="card__icon" src="../../assets/img/icons/bookmark.svg" alt="">
+                <div class="card__bookmark"><img class="card__icon" src="/assets/img/bookmark.svg" alt="">
                   <div class="card__title">Отложить</div>
                 </div>
-                <div class="card__delete"><img class="card__icon" src="../../assets/img/icons/delete.svg" alt="">
+                <div class="card__delete"><img class="card__icon" src="/assets/img/delete.svg" alt="">
                   <div class="card__title">Удалить</div>
                 </div>
               </div>
               <div class="card__des">
-                <div class="card__img"><img src="../../assets/img/big-gun.png" alt=""></div>
+                <div class="card__img"><img src="/assets/img/big-gun.png" alt=""></div>
                 <div class="card__text">
                   <div class="card__text_title">
                     <div class="card__text_title_subtitle">ТОЗ-34Р (орех)</div>
@@ -171,7 +171,7 @@
             <label class="custom__label" for="pay">Картой онлайн</label></div>
           <div class="delivery__payment_cards">
             <div class="delivery__payment_cards_title">Мы принимаем:</div>
-            <div class="delivery__payment_cards_block"><img class="payment-card" src="../../assets/img/card-visa.png" alt=""><img class="payment-card" src="../../assets/img/card-mastercard.png" alt=""><img class="payment-card" src="../../assets/img/card-maestro.png" alt=""><img class="payment-card" src="../../assets/img/card-mir.png" alt=""></div>
+            <div class="delivery__payment_cards_block"><img class="payment-card" src="/assets/img/card-visa.png" alt=""><img class="payment-card" src="/assets/img/card-mastercard.png" alt=""><img class="payment-card" src="/assets/img/card-maestro.png" alt=""><img class="payment-card" src="/assets/img/card-mir.png" alt=""></div>
           </div>
         </div>
       </div>

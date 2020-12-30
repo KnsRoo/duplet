@@ -32,6 +32,9 @@ $router->mount('/news', (new Front\News\Controller)->getRoutes());
 $router->mount('/catalog', (new Front\Catalog\Controller)->getRoutes());
 $router->mount('/sitemap.xml', (new Front\Sitemap\Sitemap)->getRoutes());
 $router->mount('/cart', (new Front\Cart\Controller)->getRoutes());
+$router->mount('/favorite', (new Front\Favorite\Controller)->getRoutes());
+$router->mount('/lk', (new Front\lk\Controller)->getRoutes());
+$router->mount('/Contacts', (new Front\Contacts\Controller)->getRoutes());
 
 $router->mount('/', (new Front\Main\Controller)->getRoutes());
 $router->mount('/', (new Front\Pages\Controller)->getRoutes());

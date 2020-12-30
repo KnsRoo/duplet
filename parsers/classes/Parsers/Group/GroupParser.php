@@ -70,8 +70,8 @@ class GroupParser
     {
         $rawId = $xmlGroup->Ид->__toString();
         $groupId = md5($rawId);
-        $groupCid = $xmlGroup->Группы->Ид->__toString();
-        $groupCid = ($groupCid == '00000000-0000-0000-0000-000000000000') ? NULL : md5($groupCid);
+        $groupCid = $xmlGroup->Ид->Группы->__toString();
+        $groupCid = md5($groupCid);
         $name = $xmlGroup->Наименование->__toString();
         $rawImage = $xmlGroup->Картинка->__toString();
         $image = $rawImage ? md5(

@@ -29,7 +29,7 @@
             <figure class="icon-menu-cancel"></figure>
           </div>
         </div>
-        <div class="profile"><a class="icon-profile" href="../private-office/private-office.html"></a><a class="icon-liked" href="#">
+        <div class="profile"><a class="icon-profile" href="/lk"></a><a class="icon-liked" href="/favorite">
             <div class="icon-liked_number">99</div>
           </a><a class="icon-basket" href="/cart">
             <div class="icon-basket_number">2</div>

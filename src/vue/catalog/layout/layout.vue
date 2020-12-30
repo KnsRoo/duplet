@@ -1,19 +1,37 @@
 <template lang="pug">
-section.catalog
+.catalog
     .wrapper
-        catalog-filter
-        .cards
-            Product(
-                v-for="product in items"
-                :key="product.id"
-                :product="product"
-                )
+        .catalog__view
+            .catalog__view-wrapper
+                .catalog__view-text Вид: 
+                .catalog__view-icon(
+                    @click="catalogBaseView = false"
+                    :class="{'action': catalogBaseView == false}"
+                    )
+                    svg.icon
+                        use(href="/icons/icons.svg#list")
+                .catalog__view-icon(
+                    @click="catalogBaseView = true"
+                    :class="{'action': catalogBaseView == true}"
+                    )
+                    svg.icon
+                        use(href="/icons/icons.svg#tile")
+
+        .catalog__wrapper
+            catalog-filter
+            .catalog__items(:class="[{'catag__base-view': catalogBaseView}, {'catag__list-view' : catalogBaseView==false}]")
+                .catalog__items-title(v-if="items.length <= 0 ") 
+                Product(
+                    v-for="product in items"
+                    :key="product.id"
+                    :product="product"
+                    )
     
-    //- MobileItems
+    MobileItems
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex';
+import { mapGetters, mapActions, mapMutations } from "vuex";
 import Product from "../components/catalog-item.vue";
 import Filter from "../components/filter.vue";
 import Pager from "../components/pager.vue";
@@ -29,7 +47,7 @@ export default {
             items: [],
             offset: 0,
             limit: 30,
-            filterGroupId: '',
+            filterGroupId: ""
         };
     },
     components: {
@@ -47,7 +65,7 @@ export default {
         }
     },
     methods: {
-        ...mapGetters("catalog",["getFilterGroupId","getGroupId"]),
+        ...mapGetters("catalog", ["getFilterGroupId", "getGroupId"]),
         ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
         handleResize() {
             this.resizeConut = document.body.clientWidth;
@@ -74,11 +92,11 @@ export default {
                     });
                 });
         },
-        fetchProducts() {
+        fetchProductsFromGroups() {
             const id = this.getGroupId();
 
             const origin = document.location.origin;
-            const link = `${origin}/api/catalog/products`;
+            const link = `${origin}/api/catalog/groups/${id}/subproducts`;
             this.items = [];
             fetch(link)
                 .then(response => response.json())
@@ -97,10 +115,9 @@ export default {
                     // let items = result._embedded.items;
                 });
         },
-        loadProducts()
-        {
+        loadProducts() {
             if (localStorage.getItem("filterId")) {
-                this.fetchProducts();
+                this.fetchProductsFromGroups();
             } else {
                 if (localStorage.getItem("items")) {
                     this.items = [];
@@ -118,9 +135,9 @@ export default {
                 } else {
                     this.fetchItems();
                 }
-        }
+            }
 
-        window.addEventListener("resize", this.handleResize);
+            window.addEventListener("resize", this.handleResize);
         }
     },
 
@@ -129,9 +146,7 @@ export default {
         this.setGroupId(localStorage.getItem("filterId"));
         this.loadProducts();
     },
-    computed:{
-
-    },
+    computed: {},
     destroyed() {
         window.removeEventListener("resize", this.handleResize);
     }
