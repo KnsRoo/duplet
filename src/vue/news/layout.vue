@@ -3,7 +3,7 @@ section.news
 	.wrapper(v-if="loaded")
 		.news__title Новости
 		.news__block
-			img.news__block_img(:src='first.picture' alt='')
+			img.news__block_img(:src="first.picture" alt='')
 			.news__block_instruction
 				.news__block_instruction_flex
 					.instruction__title {{ first.title }}

@@ -5,7 +5,7 @@
 	.news__card_read
 		a.news__card_read_title(:href='newsItem.pageRef') Читать
 		.news__card_read_data
-			img.news__card_read_data_svg(:src='newsItem.picture' alt='')
+			img.news__card_read_data_svg(:src="newsItem.picture" alt='')
 			.news__card_read_data_number {{ format(newsItem.creationDate) }}
 </template>
 
