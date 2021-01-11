@@ -26,7 +26,9 @@ $di = Di::instance();
 $router = Router::init();
 
 $catalogAPI = new API\Catalog\V2\Controller;
+$newsAPI = new API\News\V4\Controller;
 $router->mount('/api/catalog', $catalogAPI->getRoutes());
+$router->mount('/api/news', $newsAPI->getRoutes());
 
 $router->mount('/news', (new Front\News\Controller)->getRoutes());
 $router->mount('/catalog', (new Front\Catalog\Controller)->getRoutes());

@@ -2,7 +2,7 @@
 
 namespace API\News\V4\Factory\HAL;
 
-use Core\Router\Router;
+use Websm\Framework\Router\Router;
 
 class Line {
 

@@ -49,62 +49,21 @@
 					<div class="choose__mobile">Все товары</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
+							<?php foreach ($new as $item) : ?>
+							<div class="swiper-slide"><a class="card discount" href="">
+									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="">
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
+											<div class="card__content_title_name"><?=$item->title?></div>
 											<div class="card__content_title_price">
-												<div class="first__price">₽ 77 900</div>
-												<div class="discount__price">₽ 34 999</div>
+												<div class="second__price">₽ <?= $item->price ?></div>
 											</div>
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
-											<div class="card__content_title_price">
-												<div class="first__price">₽ 77 900</div>
-												<div class="discount__price">₽ 34 999</div>
-											</div>
-										</div>
-										<figure class="icon-add"></figure>
-									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
-											<div class="card__content_title_price">
-												<div class="first__price">₽ 77 900</div>
-												<div class="discount__price">₽ 34 999</div>
-											</div>
-										</div>
-										<figure class="icon-add"></figure>
-									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
-											<div class="card__content_title_price">
-												<div class="first__price">₽ 77 900</div>
-												<div class="discount__price">₽ 34 999</div>
-											</div>
-										</div>
-										<figure class="icon-add"></figure>
-									</div>
-								</a></div>
+								</a>
+							</div>
+						<?php endforeach ?>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>

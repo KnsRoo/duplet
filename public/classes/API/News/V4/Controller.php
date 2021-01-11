@@ -84,7 +84,7 @@ class Controller extends Response {
 
         try {
 
-            $qb = \Model\Page::find();
+            $qb = \Model\Page::find(['cid' => 'e813e4e7e7d947c5b0c14b75d82fa6a4']);
             $qb = Factory\Filters\QB::filterTags($qb, $tags);
             $qb = $qb->andWhere(['visible' => true]);
             $qbCnt = clone $qb;

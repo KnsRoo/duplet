@@ -43,6 +43,7 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.10",
     "assets-webpack-plugin": "^7.0.0",
+    "ky": "^0.26.0",
     "manifest-webpack-plugin": "^0.2.0",
     "pug-plain-loader": "^1.1.0",
     "svg-sprite-loader": "^5.2.1",
