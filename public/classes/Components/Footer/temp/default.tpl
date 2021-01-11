@@ -9,12 +9,14 @@
             <p class="markets__title">Магазины</p>
             <div class="markets__block">
               <ul class="markets__topic">
-                <li>ул. Южная, 6</li>
-                <li>ул. Гаражная, 27</li>
+                <?php foreach ($options['Адрес'] as $address): ?>
+                <li><?=$address?></li>
+              <?php endforeach ?>
               </ul>
               <ul class="markets__topic">
-                <li>8 (8212) 40-00-70</li>
-                <li>8 (8212) 26-40-00</li>
+                <?php foreach ($options['Телефоны'] as $phone): ?>
+                <li><?=$phone?></li>
+              <?php endforeach ?>
               </ul>
             </div>
           </div>
@@ -36,11 +38,11 @@
       <div class="footer__social">
         <div class="footer__social_title">Социальные сети</div>
         <div class="footer__social_block">
-          <div class="footer__social_topic"><a class="footer__social_link" href="#">
+          <div class="footer__social_topic"><a class="footer__social_link" href="<?=$social['vkontakte']?>">
               <figure class="icon-vk"></figure>
-            </a><a class="footer__social_link" href="#">
+            </a><a class="footer__social_link" href="<?=$social['instagram']?>">
               <figure class="icon-inst"></figure>
-            </a><a class="footer__social_link" href="#">
+            </a><a class="footer__social_link" href="<?=$social['facebook']?>">
               <figure class="icon-fb"></figure>
             </a></div>
         </div>

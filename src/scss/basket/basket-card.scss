@@ -16,10 +16,12 @@
         .card__bookmark {
             display: flex;
             margin-right: 30px;
+            cursor: poointer
         }
 
         .card__delete {
             display: flex;
+            cursor: pointer;
         }
 
         .card__icon {
@@ -35,6 +37,10 @@
             font-size: 14px;
             line-height: 125%;
             margin-left: 10px;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

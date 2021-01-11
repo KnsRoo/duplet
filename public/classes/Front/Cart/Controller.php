@@ -13,11 +13,13 @@ class Controller extends Response
     const PATH = __DIR__ . '/temp/';
     private $di;
     private $layout;
+    private $cart;
 
     public function __construct()
     {
         $this->di = Di::instance();
         $this->layout = $this->di->get('layout');
+        $this->cart = $this->di->get('cart');
     }
 
     public function getRoutes()
@@ -38,13 +40,14 @@ class Controller extends Response
 
     public function getDefault($req)
     {
-        $groups = Group::find()
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
+
+        $items = $this->cart->getItems();
+        foreach($items as $item){
+            $item->product = Product::find(['id' => $item->id])->get();
+        }
 
         $data = [
-            'groups' => $groups,
+            'items' => $items,
         ];
 
         $html = $this->render(self::PATH . 'cart.tpl', $data);

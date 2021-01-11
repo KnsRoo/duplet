@@ -27,8 +27,11 @@ $router = Router::init();
 
 $catalogAPI = new API\Catalog\V2\Controller;
 $newsAPI = new API\News\V4\Controller;
+$cartAPI = new API\Cart\V1\Controller;
 $router->mount('/api/catalog', $catalogAPI->getRoutes());
 $router->mount('/api/news', $newsAPI->getRoutes());
+$router->mount('/api/cart', $cartAPI->getRoutes());
+
 
 $router->mount('/news', (new Front\News\Controller)->getRoutes());
 $router->mount('/catalog', (new Front\Catalog\Controller)->getRoutes());

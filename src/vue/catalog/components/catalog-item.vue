@@ -8,7 +8,7 @@
 				.card__content_title_price
 					.first__price {{ product.price+' ₽' }}
 					.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
-		figure.icon-add(@click="addToCart")
+		figure.icon-add(@click="addItemToCart")
 </template>
 
 <script>
@@ -19,13 +19,13 @@ export default {
 	},
 
 	methods: {
-		...mapActions("cart", ["addItemToCart"]),
-		addItemToCartt() {
+		...mapActions("cart", ["addToCart"]),
+		addItemToCart() {
 			const dataItem = {
 				id: this.product.id,
 				count: this.product.count
 			};
-			this.addItemToCart(dataItem);
+			this.addToCart(dataItem);
 		},
 		addCart() {
 			if (this.product.count < 100) {
