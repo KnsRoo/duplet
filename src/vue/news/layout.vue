@@ -11,6 +11,8 @@ section.news
 					a.instruction__link(:href='first.pageRef') Читать
 		.news__cards
 			newItem(v-for="item in news" :newsItem = "item")
+		.news__next
+			a.link(v-if="urls.next" @click="next") Загрузить еще
 </template>
 
 <script>
@@ -41,8 +43,11 @@ export default {
 			this.loaded = true
 		},
 		async next(){
-			let result = await ky.get(this.urls.next).json()
-			this.news.push(result._embedded.items)
+			let result = await ky.get(this.urls.next.href).json()
+			result._embedded.items.forEach(val => {
+				this.news.push(val)
+			})
+			console.log(this.news)
 			this.urls.next = result._links.next
 		}
 	},

@@ -1,6 +1,6 @@
 {
   "cart": {
-    "css": "/assets/css/cart.9d4c033d.css",
+    "css": "/assets/css/cart.c80f9d0a.css",
     "js": "/assets/js/cart.js"
   },
   "catalog": {
@@ -9,12 +9,12 @@
       "/assets/js/11.69754994.chunk.js",
       "/assets/js/catalog.js"
     ],
-    "css": "/assets/css/catalog.0d698961.css"
+    "css": "/assets/css/catalog.eb669f0d.css"
   },
   "contacts": {
     "css": [
       "/assets/css/1.55e23635.css",
-      "/assets/css/contacts.aa7e643a.css"
+      "/assets/css/contacts.86eb5770.css"
     ],
     "js": [
       "/assets/js/1.55e23635.chunk.js",
@@ -22,13 +22,13 @@
     ]
   },
   "favorite": {
-    "css": "/assets/css/favorite.09f8bd9c.css",
+    "css": "/assets/css/favorite.1e4258e7.css",
     "js": "/assets/js/favorite.js"
   },
   "index": {
     "css": [
       "/assets/css/1.55e23635.css",
-      "/assets/css/index.9806ff31.css"
+      "/assets/css/index.b20b255a.css"
     ],
     "js": [
       "/assets/js/1.55e23635.chunk.js",
@@ -36,7 +36,7 @@
     ]
   },
   "lk": {
-    "css": "/assets/css/lk.951b857b.css",
+    "css": "/assets/css/lk.1928ff6a.css",
     "js": "/assets/js/lk.js"
   },
   "news": {
@@ -44,7 +44,7 @@
       "/assets/js/0.f09fbb23.chunk.js",
       "/assets/js/news.js"
     ],
-    "css": "/assets/css/news.1a0919de.css"
+    "css": "/assets/css/news.e9665ace.css"
   },
   "pages": {
     "js": "/assets/js/pages.js"
