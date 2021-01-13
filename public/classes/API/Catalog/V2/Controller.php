@@ -7,6 +7,7 @@ use Websm\Framework\Router\Router;
 
 use Model\Catalog\Group;
 use Model\Catalog\Product;
+use Model\Catalog\Structure;
 
 use Websm\Framework\Exceptions\HTTP as HTTPException;
 
@@ -29,6 +30,9 @@ class Controller extends Response {
 
         $group->addGet('/groups', [$this, 'getGroups'])
             ->setName('api:catalog:v2:groups');
+
+        $group->addGet('/struct', [$this, 'getStructure'])
+            ->setName('api:catalog:v2:structure');
 
         $group->addGet('/groups/:id', [$this, 'getGroup'])
             ->setName('api:catalog:v2:group');
@@ -317,8 +321,6 @@ class Controller extends Response {
         $props = Factory\QueryParams::getProps();
         $query = Factory\QueryParams::getQuery();
 
-        $qb = Product::find([ 'visible' => true ]);
-
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
         $qb = Factory\Filters\QB\Props::filter($qb, $props);
         $qb = Factory\Filters\QB\Query::filter($qb, $query);
@@ -373,5 +375,35 @@ class Controller extends Response {
                 die(file_get_contents(__DIR__ . "/doc/${rel}.yml"));
                 break;
         }
+    }
+
+
+// Extension for Duplet Only
+
+    public function getStructure($req, $next) {
+
+
+        $qb = Structure::getDb()->query("SELECT `cid` FROM `catalog_structure`");
+        $qb->execute();
+        $result = $qb->fetchAll();
+
+        foreach ($result as $value) {
+            $arr[] = $value['cid'];
+        }
+
+        $arr = array_unique($arr);
+        $newarr = [];
+
+        foreach ($arr as $value) {
+            $qb = Structure::getDb()->query("SELECT `title` FROM `catalog_group` WHERE id = '".$value."';");
+            $qb->execute();
+            $result = $qb->fetch();
+            $newarr[] = [ 
+                'name' => $result['title'],
+                'id' => $value,
+                ];
+        }
+
+        $this->hal($newarr);
     }
 }

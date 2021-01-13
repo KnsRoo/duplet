@@ -1,6 +1,6 @@
 import Noty from 'noty';
 import 'noty/src/noty.scss';
-import '~/scss/components/noty-custom-theme.scss';
+import '../../scss/noty-custom-theme.scss';
 
 let defaults = {
     theme: 'custom',

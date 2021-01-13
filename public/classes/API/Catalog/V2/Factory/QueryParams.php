@@ -71,4 +71,12 @@ class QueryParams {
 
         return $_GET['query'];
     }
+
+    public static function getCategory() {
+
+        if (!isset($_GET['category']) || !is_string($_GET['category']))
+            $_GET['category'] = null;
+
+        return $_GET['category'];
+    }
 }

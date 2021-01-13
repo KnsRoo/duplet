@@ -21,4 +21,5 @@ Config::init(include __ROOT.'/admin/config.php');
 
 $file = PATH_TO_FILES.'/GoodsHierarchy.xml';
 $groupParser = new GroupParser($file);
-$groupParser->parse();
+//$groupParser->parse();
+$groupParser->parseStructure();

@@ -81,10 +81,10 @@ class Controller extends Response
         
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(__DIR__ . '/temp/news.tpl', $data);
+        $html = $this->render(__DIR__ . '/temp/new.tpl', $data);
 
         $this->layout
-            ->setSrc('pages')
+            ->setSrc('news')
             ->setContent($html);   
     }
 }

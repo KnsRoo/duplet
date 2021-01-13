@@ -45,6 +45,7 @@
     "assets-webpack-plugin": "^7.0.0",
     "ky": "^0.26.0",
     "manifest-webpack-plugin": "^0.2.0",
+    "noty": "^3.2.0-beta",
     "pug-plain-loader": "^1.1.0",
     "svg-sprite-loader": "^5.2.1",
     "swiper": "^6.3.5",

@@ -86,8 +86,8 @@ transition(name="fade")
 </template>
 <script>
 
-import authfetch from '../../js/App/Auth/authfetch';
-import noty from '../../js/App/Noty';
+import authfetch from '../../js/components/authfetch';
+import noty from '../../js/components/noty';
 
 
 export default {

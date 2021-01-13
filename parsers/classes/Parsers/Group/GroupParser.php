@@ -10,10 +10,13 @@ use Websm\Framework\Chpu;
 use Websm\Framework\Sort;
 
 use Model\Catalog\Group;
+use Model\Catalog\Structure;
 
 use Exceptions\FileNotFoundException;
 use Exceptions\InvalidFileException;
 use Exceptions\MainException;
+
+use Parsers\Connection;
 
 class GroupParser
 {
@@ -39,6 +42,8 @@ class GroupParser
             print_r("Trace:\n");
             print_r($e->getTraceAsString());
         }
+        $connection = new Connection();
+        $this->pdo = $connection->getPdo();
     }
 
     private function checkFile(string $path)
@@ -125,8 +130,52 @@ class GroupParser
         // }
     }
 
-    public function parse()
+    private function parseOneS(SimpleXMLElement $xmlGroup, $cid = null)
     {
+        $data = $this->getData($xmlGroup);
+
+        $group = Structure::find([ 'id' => $data['groupId'] ])
+            ->get();
+        $group->scenario('update');
+
+        if ($group->isNew()) {
+            $group->scenario('create');
+            $group->id = $data['groupId'];
+        }
+
+        $group->cid = $data['groupCid'];
+
+        if (!$group->save()) {
+            $this->errors[$group->id] = [
+                'title' => $group->id,
+                'error' => [
+                    'message' => 'Unable to save group',
+                    'ModelLog' => $group->getErrors(),
+                ],
+            ];
+            return false;
+        }
+
+        // foreach ($data['xmlSubGroups'] as $xmlSubGroup) {
+        //     $this->parseOne($xmlSubGroup, $group->id);
+        // }
+    }
+
+
+
+    public function parseStructure(){
+        $xmlGroups = $this->getXmlGroups();
+        var_dump($xmlGroups);
+        $progressTotal = count($xmlGroups);
+        $progressBar = new ProgressBar($progressTotal, 'Groups parser');
+        foreach ($xmlGroups as $xmlGroup) {
+            $this->parseOneS($xmlGroup);
+            $progressBar->makeStep();
+        }
+        $progressBar->close($this->errors);
+    }
+
+    public function parse(){
         $xmlGroups = $this->getXmlGroups();
         $progressTotal = count($xmlGroups);
         $progressBar = new ProgressBar($progressTotal, 'Groups parser');

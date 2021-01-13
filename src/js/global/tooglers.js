@@ -5,11 +5,12 @@ export class burgerToogler{
             '.header__popup': 'header__popup_show', 
             'body': 'lock__scroll',
         };
+        document.querySelector('.menu__btn').onclick = this.toogle
     }
 
     toogle = () => {
         for (let [key, value] of Object.entries(this.tooglers)){
-            document.querySelector(key).classList.toogle(value)
+            document.querySelector(key).classList.toggle(value)
         }
     }
 }
@@ -42,7 +43,7 @@ export class searchToogler{
     }
 }
 
-export class mobileSearchToogler extends searchToogler{
+export class mobileSearchToogler{
     constructor(){
         this.tooglers = {
             '.search__box_mobile' : 'active',
@@ -55,5 +56,17 @@ export class mobileSearchToogler extends searchToogler{
         }
         document.querySelector('.search__btn_mobile').onclick = this.show
         document.querySelector('.cancel__btn_mobile').onclick = this.close
+    }
+
+    show = () => {
+        for (let [key, value] of Object.entries(this.tooglers)){
+            document.querySelector(key).classList.add(value)
+        }      
+    }
+
+    close = () => {
+        for (let [key, value] of Object.entries(this.tooglers)){
+            document.querySelector(key).classList.remove(value)
+        }      
     }
 }

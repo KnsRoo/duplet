@@ -1,54 +1,85 @@
 {
   "cart": {
-    "js": [
-      "/assets/js/0.626f7c57.chunk.js",
-      "/assets/js/2.cf94f863.chunk.js",
-      "/assets/js/cart.js"
+    "css": [
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/cart.26c5d63b.css"
     ],
-    "css": "/assets/css/cart.b479adc6.css"
+    "js": [
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/3.dbf51ea1.chunk.js",
+      "/assets/js/cart.js"
+    ]
   },
   "catalog": {
-    "js": [
-      "/assets/js/0.626f7c57.chunk.js",
-      "/assets/js/2.cf94f863.chunk.js",
-      "/assets/js/catalog.js"
+    "css": [
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/catalog.3844e090.css"
     ],
-    "css": "/assets/css/catalog.856bae50.css"
+    "js": [
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/3.dbf51ea1.chunk.js",
+      "/assets/js/catalog.js"
+    ]
   },
   "contacts": {
     "css": [
-      "/assets/css/1.8b9ddca3.css",
-      "/assets/css/contacts.a412e6da.css"
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/2.ae73eb5a.css",
+      "/assets/css/contacts.5a93af0e.css"
     ],
     "js": [
-      "/assets/js/1.8b9ddca3.chunk.js",
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/2.ae73eb5a.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
-    "css": "/assets/css/favorite.a2e662a8.css",
-    "js": "/assets/js/favorite.js"
+    "css": [
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/1.bad710d8.css",
+      "/assets/css/favorite.9f8a700b.css"
+    ],
+    "js": [
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/1.bad710d8.chunk.js",
+      "/assets/js/favorite.js"
+    ]
   },
   "index": {
     "css": [
-      "/assets/css/1.8b9ddca3.css",
-      "/assets/css/index.7b14200d.css"
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/2.ae73eb5a.css",
+      "/assets/css/index.2055b22e.css"
     ],
     "js": [
-      "/assets/js/1.8b9ddca3.chunk.js",
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/2.ae73eb5a.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "lk": {
-    "css": "/assets/css/lk.0dd02524.css",
-    "js": "/assets/js/lk.js"
+    "css": [
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/1.bad710d8.css",
+      "/assets/css/lk.5e9fcad4.css"
+    ],
+    "js": [
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/1.bad710d8.chunk.js",
+      "/assets/js/lk.js"
+    ]
   },
   "news": {
-    "js": [
-      "/assets/js/0.626f7c57.chunk.js",
-      "/assets/js/news.js"
+    "css": [
+      "/assets/css/0.876d5e00.css",
+      "/assets/css/1.bad710d8.css",
+      "/assets/css/news.1e92262e.css"
     ],
-    "css": "/assets/css/news.6da8cbed.css"
+    "js": [
+      "/assets/js/0.876d5e00.chunk.js",
+      "/assets/js/1.bad710d8.chunk.js",
+      "/assets/js/news.js"
+    ]
   },
   "pages": {
     "js": "/assets/js/pages.js"

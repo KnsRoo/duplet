@@ -3,8 +3,11 @@ import { burgerToogler,
          mobileSearchToogler 
 } from './tooglers.js'
 
-export default function headerSearch() {
+import ModalLogin from '../../vue/ModalLogin'
+
+export default function initGlobalScripts() {
     new burgerToogler()
     new searchToogler()
     new mobileSearchToogler()
+    new ModalLogin()
 }

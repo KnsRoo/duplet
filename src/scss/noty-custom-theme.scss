@@ -1,0 +1,88 @@
+$bg-success: #54a747;
+$font-success: #fff;
+$border-success: mix($bg-success, #000, 75%);
+
+$bg-warn: #ffd645;
+$font-warn: #333;
+$border-warn: mix($bg-warn, #000, 75%);
+
+$bg-error: #CA1313;
+$font-error: #fff;
+$border-error: mix($bg-error, #000, 75%);
+
+$bg-info: #EEE;
+$font-info: #333;
+$border-info: mix($bg-info, #000, 75%);
+
+$bg-alert: #EEE;
+$font-alert: #333;
+$border-alert: mix($bg-alert, #000, 75%);
+
+
+.noty_theme__custom.noty_bar {
+    margin: 4px 0;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+
+    .noty_body {
+        padding: 15px;
+    }
+
+    .noty_buttons {
+        border-top: 1px solid #e7e7e7;
+        padding: 5px 10px;
+    }
+}
+
+.noty_theme__custom.noty_type__alert,
+.noty_theme__custom.noty_type__notification {
+    background-color: $bg-alert;
+    border: 1px solid $border-alert;
+    color: $font-alert;
+
+    .noty_buttons {
+        border-color: $border-alert;
+    }
+}
+
+.noty_theme__custom.noty_type__warning {
+    background-color: $bg-warn;
+    border: 1px solid $border-warn;
+    color: $font-warn;
+
+    .noty_buttons {
+        border-color: $border-warn;
+    }
+}
+
+.noty_theme__custom.noty_type__error {
+    background-color: $bg-error;
+    border: 1px solid $border-error;
+    color: $font-error;
+
+    .noty_buttons {
+        border-color: $border-error;
+    }
+}
+
+.noty_theme__custom.noty_type__info,
+.noty_theme__custom.noty_type__information {
+    background-color: $bg-info;
+    border: 1px solid $border-info;
+    color: $font-info;
+
+    .noty_buttons {
+        border-color: $border-info;
+    }
+}
+
+.noty_theme__custom.noty_type__success {
+    background-color: $bg-success;
+    border: 1px solid $border-success;
+    color: $font-success;
+
+    .noty_buttons {
+        border-color: $border-success;
+    }
+}
