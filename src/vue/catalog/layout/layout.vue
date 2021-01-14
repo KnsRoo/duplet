@@ -15,7 +15,7 @@ section.catalog
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
 import Product from "../components/catalog-item.vue";
-import Filter from "../components/filter.vue";
+import Filter from "../components/categories.vue";
 import Pager from "../components/pager.vue";
 import MobileItems from "../components/mobile-items.vue";
 

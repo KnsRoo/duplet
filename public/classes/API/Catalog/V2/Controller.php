@@ -314,6 +314,8 @@ class Controller extends Response {
 
     public function getProducts($req, $next) {
 
+        $qb = Product::find(['visible' => true ]);
+
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
         $order = Factory\QueryParams::getOrder();
@@ -381,7 +383,6 @@ class Controller extends Response {
 // Extension for Duplet Only
 
     public function getStructure($req, $next) {
-
 
         $qb = Structure::getDb()->query("SELECT `cid` FROM `catalog_structure`");
         $qb->execute();

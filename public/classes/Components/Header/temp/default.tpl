@@ -1,3 +1,4 @@
+<div id = "modal-login"></div>
 <header class="header">
   <div class="wrapper">
     <div class="header__flex">
@@ -54,5 +55,4 @@
       <div class="contacts_number">8 (8212) 40-00-70</div>
     </div>
   </div>
-  <div id = "modal-login"></div>
 </div>

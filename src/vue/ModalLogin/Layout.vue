@@ -3,84 +3,94 @@ transition(name="fade")
     .modal-login.js-modal-login(
         v-if="!$root.hidden"
     )
+        // -.debug
+            a.switch(@click="switchMode('login')") Вход
+            a.switch(@click="switchMode('registration')") Регистрация
+            a.switch(@click="switchMode('info')") Информация
+            a.switch(@click="switchMode('request')") Восстановление
+            a.switch(@click="switchMode('restore')") Подтверждение
         .registration
             .registration__wrapper(v-if="mode == 'login'")
-                a#close_btn_avtorisation.js-close(@click = "$root.toggle()")
-                    svg.registration__close
-                        use(href="/assets/icons/icons.svg#close")
-                .registration__tilte Введите E-mail и пароль для входа
+                a#close_btn_avtorisation.js-close(@click = "close")
+                    img.registration__close(src="/assets/img/icons/close.svg")
+                .registration__title Вход в личный кабинет
+                .registration__tip
+                    span.noaccount Ещё нет аккаунта?
+                    span.noaccount__tip(@click="switchMode('registration')") Зарегистрироваться
                 .registration__inner
                     .registration__item
-                        .registration__label.phone E-mail
-                        input.registration__input.phone(v-model="email")
+                        input.registration__input.phone(v-model="email" placeholder="e-mail")
+                    .registration__error {{ (isValidMail) ? '' : 'Некорректно введен email' }} 
                     .registration__item
-                        .registration__label.phone Пароль
-                        input.registration__input.password(type = "password" v-model="password")
-                        br
-                        pre.registration__error(v-if="!isValidMail") Неверно введен email
-                    .forget_password(@click="switchMode('restore')") Забыли пароль?
-                    .go_to_registration(@click="switchMode('registration')") Зарегистрироваться
-                button.registration__btn.button(:disabled ="!isValidMail" @click="login") Войти
-            .login__wrapper(v-else-if = "mode == 'request'")
-                a#close_btn_avtorisation.js-close(@click = "$root.toggle()")
-                    svg.registration__close
-                        use(href="/assets/icons/icons.svg#close")
-                .registration__tilte Введите новый пароль
+                        input.registration__input.password(type = "password" v-model="password" placeholder = "Пароль")
+                    .registration__error {{ (password.length > 0 && password.length < 6) ? 'Пароль слишком короткий' : '' }} 
+                .registration__tip
+                    span.restore Забыли пароль?
+                    span.restore__tip(@click="switchMode('request')") Восстановление
+                .registration__button_wrapper
+                    button.registration__btn.button(:disabled ="!isValidMail || password.length < 6" @click="login") ВОЙТИ
+            .registration__wrapper(v-else-if = "mode == 'restore'")
+                a#close_btn_avtorisation.js-close(@click = "close")
+                    img.registration__close(src="/assets/img/icons/close.svg")
+                .registration__title.long Введите новый пароль
                 .registration__inner
                     .registration__item
-                        .registration__label.password Пароль
-                        input.registration__input.password(type="password" v-model="password")
+                        input.registration__input.password(@input = "checkValid" type="password" v-model="password" placeholder = "Пароль")
+                    .registration__error {{ passErrorText }} 
                     .registration__item
-                        .registration__label.password Подтверждение пароля
-                        input.registration__input.password(type="password" v-model = "verifiedPassword")
-                        pre.registration__error(v-if="!equal") Пароли не совпадают
-                        br
-                        pre.registration__error(v-if="!isValidPass") Пароль должен содержать буквы и цифры
-                    button.registration__btn.button(:disabled ="!isValidPass || !agree || !equal" @click="changePassword") Сохранить
-            .login__wrapper(v-else-if = "mode == 'registration'")
-                a#close_btn_avtorisation.js-close(@click = "$root.toggle()")
-                    svg.registration__close
-                        use(href="/assets/icons/icons.svg#close")
-                .registration__tilte Регистрация
+                        input.registration__input.password(type="password" v-model = "verifiedPassword" placeholder = "Подтверждение пароля")
+                    .registration__error {{ (equal || (password.length == 0 || verifiedPassword.length == 0)) ? '' : 'Пароли не совпадают' }} 
+                .registration__button_wrapper
+                        button.registration__btn.button.save(:disabled ="!isValidPass || !agree || !equal" @click="changePassword") СОХРАНИТЬ
+            .registration__wrapper(v-else-if = "mode == 'registration'")
+                a#close_btn_avtorisation.js-close(@click = "close")
+                    img.registration__close(src="/assets/img/icons/close.svg")
+                .registration__title.long Регистрация
                 .registration__inner
                     .registration__item
-                        .registration__label.email E-mail
-                        input.registration__input.email(v-model="email")
+                        input.registration__input.email(v-model="email" placeholder = "e-mail")
+                    .registration__error {{ (isValidMail) ? '' : 'Неверно введен email' }} 
                     .registration__item
-                        .registration__label.password Пароль
-                        input.registration__input.password(type="password" v-model="password")
+                        input.registration__input.password(@input = "checkValid" type="password" v-model="password" placeholder = "Пароль")
+                    .registration__error {{ passErrorText }} 
                     .registration__item
-                        .registration__label.password Подтверждение пароля
-                        input.registration__input.password(type="password" v-model = "verifiedPassword")
-                        pre.registration__error(v-if="!equal") Пароли не совпадают
-                        br
-                        pre.registration__error(v-if="!isValidPass") Пароль должен содержать буквы и цифры
+                        input.registration__input.password(type="password" v-model = "verifiedPassword" placeholder = "Подтверждение пароля")
+                    .registration__error {{ (equal || (password.length == 0 || verifiedPassword.length == 0)) ? '' : 'Пароли не совпадают' }} 
                     .registration__agreement
                         input(type="checkbox" v-model="agree")
                         .registration__agreement-text Cогласие на обработку персональных данных 
-                            br
                             span Политика конфиденциональности
-                    a.go_to_registration(@click= "switchMode('login')") К авторизации
-                    button.registration__btn.button(:disabled ="!isValidMail || !isValidPass || !agree || !equal" @click="register") Зарегистрироваться
-            .login__wrapper(v-else-if = "mode == 'info'")
-                a#close_btn_avtorisation.js-close(@click = "$root.toggle()")
-                    svg.registration__close
-                        use(href="/assets/icons/icons.svg#close")
-                .login__tilte Подтвердите E-mail
+                    .registration__tip
+                        span.noaccount__tip(@click="switchMode('login')") К авторизации
+                    .registration__button_wrapper
+                        button.registration__btn.button(:disabled ="!isValidMail || !isValidPass || !agree || !equal" @click="register") ЗАРЕГИСТРИРОВАТЬСЯ
+            .registration__wrapper(v-else-if = "mode == 'info'")
+                a#close_btn_avtorisation.js-close(@click = "close")
+                    img.registration__close(src="/assets/img/icons/close.svg")
+                .registration__title.long Подтвердите E-mail
                 .registration__inner
-                    .registration__label.email На Вашу почту выслан код с подтверждением
-            .login__wrapper(v-else-if = "mode == 'restore'")
-                a#close_btn_avtorisation.js-close(@click = "$root.toggle()")
+                    .registration__label На Вашу почту выслан код с подтверждением
+            .registration__wrapper(v-else-if = "mode == 'success'")
+                a#close_btn_avtorisation.js-close(@click = "close")
                     svg.registration__close
                         use(href="/assets/icons/icons.svg#close")
-                .login__tilte Введите E-mail
+                .registration__title.long Подтверждение E-mail
+                .registration__inner
+                    .registration__label Учетная запись успешно активирована
+                .registration__button_wrapper
+                    button.registration__btn.button(@click= "switchMode('login')") ВОЙТИ
+            .registration__wrapper(v-else-if = "mode == 'request'")
+                a#close_btn_avtorisation.js-close(@click = "close")
+                    img.registration__close(src="/assets/img/icons/close.svg")
+                .registration__title.long Введите E-mail
                 .registration__inner
                     .registration__item
-                        .registration__label.email E-mail
-                        input.registration__input.email(v-model = "email")
-                        pre.registration__error(v-if="!isValidMail") Неверно введен email
-                    a.go_to_registration(@click= "switchMode('login')") К авторизации
-                    button.registration__btn.button(:class = "{disabled: !isValidMail}" @click="requestRestore") Восстановление
+                        input.registration__input.email(v-model = "email" placeholder = "e-mail")
+                .registration__error {{ (isValidMail) ? '' : 'Неверно введен email' }} 
+                .registration__tip
+                    span.noaccount__tip(@click="switchMode('login')") К авторизации
+                .registration__button_wrapper
+                    button.registration__btn.button(:disabled = "!isValidMail || email.length == 0" @click="requestRestore") ВОССТАНОВЛЕНИЕ
 
 
 </template>
@@ -106,6 +116,7 @@ export default {
             email: "",
             password: "",
             verifiedPassword: "",
+            passErrorText: "",
             mode: "login",
             agree: false,
             isError: false,
@@ -125,16 +136,17 @@ export default {
     computed: {
         isValidMail() {
             const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+            if (this.email.length == 0 ) return true;
             return this.email.match(re)
         },
         isValidPass(){
-            const re = /(?=.*[0-9])[0-9a-zA-Z!@#$%^&*]{6,}/g
+            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/
+            return this.password.match(re)
             // const re = /(?=.*[0-9])(?=.*[!@#$%^&;*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g
-             return this.password.match(re)
             //return this.password.length > 0
         },
         equal(){
-            return (this.password === this.verifiedPassword && this.password.length != 0);
+            return (this.password === this.verifiedPassword && this.password.length != 0 && this.verifiedPassword.length != 0);
         },
         caption(){
             return this.modes[this.mode]
@@ -145,6 +157,36 @@ export default {
 
         switchMode(mode){
             this.mode = mode
+            this.password = ""
+            this.verifiedPassword = ""
+            this.email = ""
+        },
+
+        checkValid(){
+            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/
+            if (this.password.length == 0){
+                this.passErrorText = ""
+            } else {
+                if (this.password.length > 0 && this.password.length < 6){
+                    this.passErrorText = "Пароль слишком короткий"
+                } else {
+                    if (!this.password.match(re)){
+                        this.passErrorText = "Пароль должен содержать буквы и цифры"
+                    } else {
+                        this.passErrorText = ""
+                    }
+                }
+            }
+            
+        },
+
+        close() {
+            if (this.mode == "info" || this.mode == "success" || this.mode == "request"){
+                this.switchMode('login')
+            } else if (this.mode = "restore"){
+                window.location.href = '/lk'
+            }
+            this.$root.toggle();
         },
 
         closeSuccessfully() {
@@ -248,14 +290,6 @@ export default {
 
     },
 
-    watch: {
-
-    },
-
-    mounted() {
-
-    },
-
     async created() {
         let urlParams = new URL(window.location.href).searchParams
         let mode = urlParams.get('mode')
@@ -280,8 +314,7 @@ export default {
                     })
                 })
                 if (response.ok){
-                    this.switchMode("login")
-                    noty('success', 'Учетная запись успешно активирована');  
+                    this.switchMode("success") 
                 } else {
                     result = await response.json();
                     throw result.errors[0].message;
@@ -320,14 +353,17 @@ export default {
 
 
 <style scoped lang="scss">
-.passwordinvalid{
-    color: red;
-    font-size: 12px;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-  opacity: 0;
+
+.debug {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    z-index: 9999;
+
+    .switch {
+        color: white;
+        background-color: red;
+    }
 }
 </style>
