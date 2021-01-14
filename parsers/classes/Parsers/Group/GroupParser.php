@@ -11,6 +11,7 @@ use Websm\Framework\Sort;
 
 use Model\Catalog\Group;
 use Model\Catalog\Structure;
+use Model\Catalog\Childs;
 
 use Exceptions\FileNotFoundException;
 use Exceptions\InvalidFileException;
@@ -161,9 +162,54 @@ class GroupParser
         // }
     }
 
-
+    private function getChildrenGroups($group,$groups){
+        $groups[] = $group->id;
+        foreach ($group->getGroups() as $group){
+            $groups = $this->getChildrenGroups($group, $groups);
+        }
+        return $groups;
+    }
 
     public function parseStructure(){
+        $groups = Group::find()
+            ->getAll();
+        $progressTotal = count($groups);
+        $progressBar = new ProgressBar($progressTotal, 'Groups parser');
+        foreach ($groups as $group) {
+            $groupslist = [];
+            $groupslist = $this->getChildrenGroups($group,$groupslist);
+            $childs = "('".implode("','",$groupslist)."')";
+            $record = new Childs();
+            $record->id = $group->id;
+            $record->childs = $childs;
+            $record->save();
+            $progressBar->makeStep();
+        }
+        $progressBar->close($this->errors);
+    }
+
+    public function parseStructure2(){
+        $groups = Group::find()
+            ->getAll();
+        foreach ($groups as $group) {
+            if ($group->cid == NULL) continue;
+            $temp = clone $group;
+            while($temp->cid != NULL){
+                $temp = Group::find(['id' => $temp->cid])->get();  
+            }
+            $record = new Structure();
+            $record->id = $group->id;
+            $record->cid = $temp->id;
+
+            if (!$record->save()) {
+                echo "error saving";
+                var_dump($record);
+            }
+        }
+    }
+
+    public function parseStructure1(){
+
         $xmlGroups = $this->getXmlGroups();
         var_dump($xmlGroups);
         $progressTotal = count($xmlGroups);

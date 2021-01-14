@@ -26,21 +26,21 @@ export default {
         return {
             show: true,
             title: 'Каталог',
-            cats: []
         };
     },
 
     methods: {
-        ...mapActions("catalog", ["fetchCatalogGroups"]),
+        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems"]),
         ...mapMutations("catalog", ["setFilterGroupId" ,"setGroupId"]),
 
         toggleCats(){
             this.show = !this.show
         },
         
-        setGroup(item){
+        async setGroup(item){
             this.title = item.title
-            this.fetchCatalogGroups(item._links.subgroups.href)
+            await this.fetchCatalogGroups(item._links.subgroups.href)
+            await this.fetchCatalogItems(item._links.subproducts.href)
         }
     },
     computed: {
@@ -48,7 +48,6 @@ export default {
     },
     async created() {
         await this.fetchCatalogGroups(`${window.location.origin}/api/catalog/base/groups`);
-        this.cats = this.catalogGroups;
     }
 };
 </script>

@@ -1,17 +1,17 @@
+import ky from 'ky'
 
 export default {
-    init({dispatch, commit}, id ){
-      commit("setFilterGroupId", id);
-      commit("setGroupId", id);
-    },
-  
-    fetchCatalogGroups({ commit }, link) {
-      fetch(link).then(response => {
-        return response.json();
-      })
-        .then(result => {
-          let items = result._embedded.items
-          commit('setCatalogGroups', items);
-        });
-    },
-  };
+
+	async fetchCatalogGroups({ commit }, link) {
+		let result = await ky.get(link).json()
+		console.log(result)
+		commit('setCatalogGroups', result._embedded.items)
+	},
+
+	async fetchCatalogItems({ commit }, link) {
+		let result = await ky.get(link).json()
+		console.log(result)
+		commit('setCatalogProducts', result._embedded.items)
+	},
+
+};

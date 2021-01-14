@@ -8,6 +8,7 @@ use Websm\Framework\Router\Router;
 use Model\Catalog\Group;
 use Model\Catalog\Product;
 use Model\Catalog\Structure;
+use Model\Catalog\Childs;
 
 use Websm\Framework\Exceptions\HTTP as HTTPException;
 
@@ -40,7 +41,7 @@ class Controller extends Response {
         $group->addGet('/groups/:id/subgroups', [$this, 'getSubgroups'])
             ->setName('api:catalog:v2:subgroups');
 
-        $group->addGet('/groups/:id/subproducts', [$this, 'getSubproducts'])
+        $group->addGet('/groups/:id/subproducts', [$this, 'getAllSubproducts'])
             ->setName('api:catalog:v2:subproducts');
 
         $group->addGet('/products', [$this, 'getProducts'])
@@ -379,32 +380,148 @@ class Controller extends Response {
         }
     }
 
+    private function getChildrenGroups($group,$groups){
+        $groups[] = $group->id;
+        foreach ($group->getGroups() as $group){
+            $groups = $this->getChildrenGroups($group, $groups);
+        }
+        return $groups;
+    }
 
-// Extension for Duplet Only
+    public function getAllSubproducts($req, $next) {
 
-    public function getStructure($req, $next) {
+        $offset = Factory\QueryParams::getOffset();
+        $limit = Factory\QueryParams::getLimit();
+        $order = Factory\QueryParams::getOrder();
+        $tags = Factory\QueryParams::getTags();
+        $props = Factory\QueryParams::getProps();
+        $query = Factory\QueryParams::getQuery();
 
-        $qb = Structure::getDb()->query("SELECT `cid` FROM `catalog_structure`");
-        $qb->execute();
-        $result = $qb->fetchAll();
+        $groupId = $req['id'];
 
-        foreach ($result as $value) {
-            $arr[] = $value['cid'];
+        $group = Group::find([ 'id' => $groupId, 'visible' => true ])
+            ->get();
+
+        try {
+
+            if ($group->isNew())
+                throw new Exceptions\HTTP('group not found', 404);
+
+        } catch(Exceptions\HTTP $e) {
+
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
         }
 
-        $arr = array_unique($arr);
-        $newarr = [];
+        $starttime = microtime(true);
 
-        foreach ($arr as $value) {
-            $qb = Structure::getDb()->query("SELECT `title` FROM `catalog_group` WHERE id = '".$value."';");
-            $qb->execute();
-            $result = $qb->fetch();
-            $newarr[] = [ 
-                'name' => $result['title'],
-                'id' => $value,
-                ];
+        $childs = Childs::find(['id' => $groupId])
+                    ->get();
+
+        $qb = Product::find()
+            ->where("`cid` IN ".$childs->childs)
+            ->andWhere(['visible' => true]);
+
+        $endtime = microtime(true);
+
+        $timediff = $endtime - $starttime;
+
+
+        $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
+        $qb = Factory\Filters\QB\Props::filter($qb, $props);
+        $qb = Factory\Filters\QB\Query::filter($qb, $query);
+        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+
+        $qbCnt = clone $qb;
+
+        $products = $qb->limit([ $offset, $limit ])
+            ->getAll();
+
+        $total = (Integer)$qbCnt->count();
+
+        $result = Factory\HAL\Subproducts::get([
+            'group' => $group,
+            'items' => $products,
+            'offset' => $offset,
+            'limit' => $limit,
+            'total' => $total,
+        ]);
+
+        $result['elapsed time'] = $timediff;
+
+        $this->hal($result);
+    }
+
+    public function getSubproductsRecursive($req, $next) {
+
+        $offset = Factory\QueryParams::getOffset();
+        $limit = Factory\QueryParams::getLimit();
+        $order = Factory\QueryParams::getOrder();
+        $tags = Factory\QueryParams::getTags();
+        $props = Factory\QueryParams::getProps();
+        $query = Factory\QueryParams::getQuery();
+
+        $groupId = $req['id'];
+
+        $group = Group::find([ 'id' => $groupId, 'visible' => true ])
+            ->get();
+
+        try {
+
+            if ($group->isNew())
+                throw new Exceptions\HTTP('group not found', 404);
+
+        } catch(Exceptions\HTTP $e) {
+
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
         }
 
-        $this->hal($newarr);
+        $groupslist = [];
+
+        $starttime = microtime(true);
+
+        $groupslist = $this->getChildrenGroups($group,$groupslist);
+        $qb = Product::find(['cid' => $groupslist])
+            ->andWhere(['visible' => true]);
+
+        // $childs = "('".implode("','",$groupslist)."')";
+
+        $endtime = microtime(true);
+
+        $timediff = $endtime - $starttime;
+
+
+        $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
+        $qb = Factory\Filters\QB\Props::filter($qb, $props);
+        $qb = Factory\Filters\QB\Query::filter($qb, $query);
+        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+
+        $qbCnt = clone $qb;
+
+        $products = $qb->limit([ $offset, $limit ])
+            ->getAll();
+
+        $total = (Integer)$qbCnt->count();
+
+        $result = Factory\HAL\Subproducts::get([
+            'group' => $group,
+            'items' => $products,
+            'offset' => $offset,
+            'limit' => $limit,
+            'total' => $total,
+        ]);
+
+        $result['elapsed time'] = $timediff;
+
+        $this->hal($result);
     }
 }

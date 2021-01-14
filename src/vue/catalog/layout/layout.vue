@@ -4,7 +4,7 @@ section.catalog
         catalog-filter
         .cards
             Product(
-                v-for="product in items"
+                v-for="product in catalogItems"
                 :key="product.id"
                 :product="product"
                 )
@@ -26,7 +26,6 @@ export default {
             isvisible: true,
             catalogBaseView: true,
             pagesNumber: [],
-            items: [],
             offset: 0,
             limit: 30,
             filterGroupId: '',
@@ -39,98 +38,28 @@ export default {
         MobileItems
     },
     watch: {
-        offset() {
-            this.fetchItems();
-        },
-        resizeConut() {
-            this.resizeConut < 576 ? (this.catalogBaseView = true) : "";
-        }
+        // offset() {
+        //     this.fetchItems();
+        // },
+        // resizeConut() {
+        //     this.resizeConut < 576 ? (this.catalogBaseView = true) : "";
+        // }
+    },
+    computed: {
+        ...mapGetters("catalog",["catalogItems"]),
     },
     methods: {
-        ...mapGetters("catalog",["getFilterGroupId","getGroupId"]),
-        ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
+        ...mapActions("catalog", ["fetchCatalogItems"]),
         handleResize() {
             this.resizeConut = document.body.clientWidth;
         },
-
-        fetchItems() {
-            this.items = [];
-            fetch(
-                `${api.catalog}?offset=${this.offset * this.limit}&limit=${
-                    this.limit
-                }`
-            )
-                .then(response => {
-                    return response.json();
-                })
-                .then(result => {
-                    const products = result._embedded.items;
-                    const pageNumber = Math.floor(result.total / result.limit);
-                    this.pagesNumber = pageNumber;
-
-                    products.forEach(element => {
-                        element.count = 1;
-                        this.items.push(element);
-                    });
-                });
-        },
-        fetchProducts() {
-            const id = this.getGroupId();
-
-            const origin = document.location.origin;
-            const link = `${origin}/api/catalog/products`;
-            this.items = [];
-            fetch(link)
-                .then(response => response.json())
-                .then(result => {
-                    const products = result._embedded.items;
-                    const pageNumber = Math.floor(result.total / result.limit);
-                    this.pagesNumber = pageNumber;
-                    // this.pagesNumber = pageNumber;
-
-                    // console.log(result);
-
-                    products.forEach(element => {
-                        element.count = 1;
-                        this.items.push(element);
-                    });
-                    // let items = result._embedded.items;
-                });
-        },
-        loadProducts()
-        {
-            if (localStorage.getItem("filterId")) {
-                this.fetchProducts();
-            } else {
-                if (localStorage.getItem("items")) {
-                    this.items = [];
-                    const response = localStorage.getItem("items");
-                    const result = JSON.parse(response);
-                    const products = result._embedded.items;
-                    const pageNumber = Math.floor(result.total / result.limit);
-                    this.pagesNumber = pageNumber;
-
-                    products.forEach(element => {
-                        element.count = 1;
-                        this.items.push(element);
-                    });
-                    localStorage.removeItem("items");
-                } else {
-                    this.fetchItems();
-                }
-        }
-
-        window.addEventListener("resize", this.handleResize);
+        loadProducts(){
+            window.addEventListener("resize", this.handleResize);
         }
     },
 
-    created() {
-        this.setFilterGroupId(localStorage.getItem("filterId"));
-        this.setGroupId(localStorage.getItem("filterId"));
-        this.loadProducts();
-    },
-    computed:{
-
+    async created() {
+        await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`)
     },
     destroyed() {
         window.removeEventListener("resize", this.handleResize);
