@@ -1,0 +1,85 @@
+@media (max-width: 1640px) {
+  .news {
+    &__cards {
+      grid-template-columns: repeat(3, minmax(280px, 430px));
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .news {
+    &__block {
+      height: auto;
+      .img__item {
+        width: 48.5%;
+        position: relative;
+        padding: 0 0 30% 0;
+        .img__news {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      &_instruction {
+        &_flex {
+          height: auto;
+          .instruction__title {
+            font-size: 38px;
+          }
+          .instruction__text {
+            display: none;
+          }
+        }
+      }
+    }
+    &__cards {
+      grid-template-columns: repeat(2, minmax(180px, 480px));
+    }
+  }
+}
+@media (max-width: 992px) {
+  .news {
+    margin-top: 40px;
+    &__block {
+      &_instruction {
+        &_flex {
+          .instruction__title {
+            font-size: 28px;
+            line-height: 34px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 695px) {
+  .news {
+    &__block {
+      flex-direction: column;
+      .img__item {
+        width: 100%;
+        padding: 0 0 70% 0;
+      }
+      &_instruction {
+        width: 100%;
+        margin-top: 20px;
+        &_flex {
+          .instruction__text {
+            display: block;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+    &__cards {
+      grid-template-columns: repeat(1, minmax(180px, 100%));
+    }
+  }
+}
+@media (max-width: 480px) {
+  .news {
+    margin-top: 30px;
+    &__title {
+      font-size: 30px;
+    }
+  }
+}

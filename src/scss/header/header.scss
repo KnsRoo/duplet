@@ -15,13 +15,11 @@
     .mobile__block {
       width: 68px;
       display: none;
-
       .menu__btn {
         width: 30px;
         height: 30px;
         position: relative;
         margin-right: 10px;
-
         span {
           position: absolute;
           top: 50%;
@@ -31,30 +29,24 @@
           height: 2px;
           transition: 0.2s;
         }
-
         span:first-child {
           transform: translateY(-10px);
         }
-
         span:last-child {
           transform: translateY(10px);
         }
       }
-
       .menu__btn_active {
         span:nth-of-type(2) {
           height: 0;
         }
-
         span:first-child {
           transform: rotate(45deg);
         }
-
         span:last-child {
           transform: rotate(-45deg);
         }
       }
-
       @import "./search";
     }
 
@@ -112,11 +104,9 @@
         }
       }
     }
-
     .block__first_hidden {
       display: none;
     }
-
     .block__second {
       //width: 548px;
       width: 650px;
@@ -137,12 +127,10 @@
         margin-right: auto;
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
-
       .phone__hidden {
         display: none;
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
-
       @import "./search";
 
       .profile {
@@ -160,7 +148,6 @@
         .icon-search,
         .icon-profile {
           font-size: 22px;
-          cursor: pointer;
         }
 
         .icon-liked,
@@ -193,6 +180,5 @@
     }
   }
 }
-
-@import "../header-popup/header-popup";
 @import "./header-media";
+@import "../header-popup/header-popup";

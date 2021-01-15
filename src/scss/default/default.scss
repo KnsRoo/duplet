@@ -1,5 +1,3 @@
-@import './auth';
-
 *,
 *:before,
 *:after {
@@ -23,6 +21,12 @@ body {
 main {
   flex: 1 0 auto;
   padding-top: 90px;
+  // @media (max-width: 768px) {
+  //   padding-top: 130px;
+  // }
+  // @media (max-width: 480px) {
+  //   padding-top: 120px;
+  // }
 }
 
 footer {
@@ -31,5 +35,6 @@ footer {
 
 .wrapper {
   width: 82.3%;
+  height: 100%;
   margin: 0 auto;
 }

@@ -1,0 +1,23 @@
+@media (max-width: 1230px) {
+  .catalog {
+    .cards {
+      grid-template-columns: repeat(3, minmax(220px, 315px));
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .catalog {
+    .cards {
+      grid-template-columns: repeat(2, minmax(220px, 315px));
+    }
+  }
+}
+
+@media (max-width: 549px) {
+  .catalog {
+    .cards {
+      grid-template-columns: repeat(1, minmax(220px, 315px));
+    }
+  }
+}
