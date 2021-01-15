@@ -17,7 +17,7 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
 }
 
-const PAGES_DIR = `${PATHS.src}/pug/contacts`
+const PAGES_DIR = `${PATHS.src}/pug/news`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 const PUBLIC_PATH = path.join(__dirname, '..', 'public', 'assets');
 
@@ -152,8 +152,8 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            postcssOptions:{
-                                plugins:[
+                            postcssOptions: {
+                                plugins: [
                                     'autoprefixer',
                                     'cssnano'
                                 ]

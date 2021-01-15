@@ -2,7 +2,7 @@
   "cart": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-      "/assets/css/cart.fc4e8331.css"
+      "/assets/css/cart.9080842a.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
@@ -13,7 +13,7 @@
   "catalog": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-      "/assets/css/catalog.4ea8cf93.css"
+      "/assets/css/catalog.45beba80.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
@@ -25,7 +25,7 @@
     "css": [
       "/assets/css/0.b8092ce0.css",
       "/assets/css/2.ae73eb5a.css",
-      "/assets/css/contacts.bba851fa.css"
+      "/assets/css/contacts.e05c3055.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
@@ -36,12 +36,12 @@
   "favorite": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-      "/assets/css/1.cd0d8425.css",
-      "/assets/css/favorite.fdca5e20.css"
+      "/assets/css/1.20c1ab90.css",
+      "/assets/css/favorite.27b7727d.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
-      "/assets/js/1.cd0d8425.chunk.js",
+      "/assets/js/1.20c1ab90.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
@@ -49,7 +49,7 @@
     "css": [
       "/assets/css/0.b8092ce0.css",
       "/assets/css/2.ae73eb5a.css",
-      "/assets/css/index.37f79f85.css"
+      "/assets/css/index.fb65bf8a.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
@@ -60,24 +60,24 @@
   "lk": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-      "/assets/css/1.cd0d8425.css",
-      "/assets/css/lk.88b47a0f.css"
+      "/assets/css/1.20c1ab90.css",
+      "/assets/css/lk.6f314c98.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
-      "/assets/js/1.cd0d8425.chunk.js",
+      "/assets/js/1.20c1ab90.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-      "/assets/css/1.cd0d8425.css",
-      "/assets/css/news.7e49ec00.css"
+      "/assets/css/1.20c1ab90.css",
+      "/assets/css/news.448c6b69.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
-      "/assets/js/1.cd0d8425.chunk.js",
+      "/assets/js/1.20c1ab90.chunk.js",
       "/assets/js/news.js"
     ]
   },

@@ -12,7 +12,7 @@ transition(name="fade")
         .registration
             .registration__wrapper(v-if="mode == 'login'")
                 a#close_btn_avtorisation.js-close(@click = "close")
-                    img.registration__close(src="/assets/img/icons/close.svg")
+                    img.registration__close(src="/assets/img/icons/delete.svg")
                 .registration__title Вход в личный кабинет
                 .registration__tip
                     span.noaccount Ещё нет аккаунта?
@@ -95,22 +95,16 @@ transition(name="fade")
 
 </template>
 <script>
-
-import authfetch from '../../js/components/authfetch';
-import noty from '../../js/components/noty';
-
+import authfetch from "../../js/components/authfetch";
+import noty from "../../js/components/noty";
 
 export default {
+    components: {},
 
-    components: {
-    },
+    props: {},
 
-    props: {
-
-    },
-    
     data() {
-        return { 
+        return {
             id: null,
             restoreToken: null,
             email: "",
@@ -121,239 +115,245 @@ export default {
             agree: false,
             isError: false,
             modes: {
-                'login': 'Вход',
-                'registration': 'Регистрация',
-                'loading': 'Загрузка',
-                'info': 'Подтверждение email',
-                'success': 'Подтверждение email',
-                'request': 'Подтверждение email',
-                'restore': 'Восстановление пароля',
+                login: "Вход",
+                registration: "Регистрация",
+                loading: "Загрузка",
+                info: "Подтверждение email",
+                success: "Подтверждение email",
+                request: "Подтверждение email",
+                restore: "Восстановление пароля"
             }
-        }
-
+        };
     },
 
     computed: {
         isValidMail() {
-            const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-            if (this.email.length == 0 ) return true;
-            return this.email.match(re)
+            const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+            if (this.email.length == 0) return true;
+            return this.email.match(re);
         },
-        isValidPass(){
-            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/
-            return this.password.match(re)
+        isValidPass() {
+            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/;
+            return this.password.match(re);
             // const re = /(?=.*[0-9])(?=.*[!@#$%^&;*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g
             //return this.password.length > 0
         },
-        equal(){
-            return (this.password === this.verifiedPassword && this.password.length != 0 && this.verifiedPassword.length != 0);
+        equal() {
+            return (
+                this.password === this.verifiedPassword &&
+                this.password.length != 0 &&
+                this.verifiedPassword.length != 0
+            );
         },
-        caption(){
-            return this.modes[this.mode]
+        caption() {
+            return this.modes[this.mode];
         }
     },
 
     methods: {
-
-        switchMode(mode){
-            this.mode = mode
-            this.password = ""
-            this.verifiedPassword = ""
-            this.email = ""
+        switchMode(mode) {
+            this.mode = mode;
+            this.password = "";
+            this.verifiedPassword = "";
+            this.email = "";
         },
 
-        checkValid(){
-            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/
-            if (this.password.length == 0){
-                this.passErrorText = ""
+        checkValid() {
+            const re = /^(?=.*\d)(?=.*[a-zA-Z])(?!.*\s)(?=^.{6,}$).*$/;
+            if (this.password.length == 0) {
+                this.passErrorText = "";
             } else {
-                if (this.password.length > 0 && this.password.length < 6){
-                    this.passErrorText = "Пароль слишком короткий"
+                if (this.password.length > 0 && this.password.length < 6) {
+                    this.passErrorText = "Пароль слишком короткий";
                 } else {
-                    if (!this.password.match(re)){
-                        this.passErrorText = "Пароль должен содержать буквы и цифры"
+                    if (!this.password.match(re)) {
+                        this.passErrorText =
+                            "Пароль должен содержать буквы и цифры";
                     } else {
-                        this.passErrorText = ""
+                        this.passErrorText = "";
                     }
                 }
             }
-            
         },
 
         close() {
-            if (this.mode == "info" || this.mode == "success" || this.mode == "request"){
-                this.switchMode('login')
-            } else if (this.mode = "restore"){
-                window.location.href = '/lk'
+            if (
+                this.mode == "info" ||
+                this.mode == "success" ||
+                this.mode == "request"
+            ) {
+                this.switchMode("login");
+            } else if ((this.mode = "restore")) {
+                window.location.href = "/lk";
             }
             this.$root.toggle();
         },
 
         closeSuccessfully() {
-            this.$emit('toggle');
-            this.email = '';
-            this.password = '';
-            this.verifiedPassword = '';
-            this.switchMode('login');
+            this.$emit("toggle");
+            this.email = "";
+            this.password = "";
+            this.verifiedPassword = "";
+            this.switchMode("login");
         },
 
-        async register(){
+        async register() {
             try {
-                let response = await fetch('api/auth/basic/register', {
-                    method: 'POST',
+                let response = await fetch("api/auth/basic/register", {
+                    method: "POST",
                     body: JSON.stringify({
-                        'email': this.email,
-                        'password': this.password
+                        email: this.email,
+                        password: this.password
                     })
-                })
-                if ( response.ok ) {
+                });
+                if (response.ok) {
                     this.switchMode("info");
                 } else {
                     result = await response.json();
                     throw result.errors[0].message;
                 }
-               
-            } catch (err){
-                const message = typeof(err) == 'string' ?  err : 'Неизвестная ошибка'
-                noty('error', message);
+            } catch (err) {
+                const message =
+                    typeof err == "string" ? err : "Неизвестная ошибка";
+                noty("error", message);
             }
         },
 
-        async login(){  
-            let result = null
+        async login() {
+            let result = null;
             try {
-                let response = await fetch('api/auth/basic/login', {
-                    method: 'POST',
+                let response = await fetch("api/auth/basic/login", {
+                    method: "POST",
                     body: JSON.stringify({
-                        'email': this.email,
-                        'password': this.password
+                        email: this.email,
+                        password: this.password
                     })
-                }) 
-                if ( response.ok ) {
+                });
+                if (response.ok) {
                     result = await response.json();
-                    localStorage.setItem('jwt', JSON.stringify(result));
+                    localStorage.setItem("jwt", JSON.stringify(result));
                     this.closeSuccessfully();
-                    document.location.href = '/lk'
-                } else {
-                    result = await response.json();
-                    throw result.errors[0].message
-                }
-
-            } catch(err) {
-                const message = typeof(err) == 'string' ?  err : 'Ошибка авторизации'
-                noty('error', message);
-            }
-        },
-
-        async changePassword(){
-            try {
-                let response = await fetch('/api/auth/basic/restore', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        'token': this.restoreToken,
-                        'id': this.id,
-                        'password': this.password
-                    })
-                })
-                if (response.ok){
-                    this.switchMode("login")
-                    noty('success', 'Пароль успешно изменен');  
-                } else {
-                    result = await response.json();
-                    throw result.errors[0].message;
-                }
-            } catch (err){
-                const message = typeof(err) == 'string' ?  err : 'Неизвестная ошибка'
-                noty('error', message);     
-            }
-        },
-
-        async requestRestore(){
-            try{
-                let response = await fetch('/api/auth/basic/restore/request', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        'email': this.email,
-                    })
-                })
-                if (response.ok){
-                    this.switchMode("info")  
-                } else {
-                    result = await response.json();
-                    throw result.errors[0].message;
-                }
-            } catch (err){
-                const message = typeof(err) == 'string' ?  err : 'Неизвестная ошибка'
-                noty('error', message);       
-            }    
-        }
-
-    },
-
-    async created() {
-        let urlParams = new URL(window.location.href).searchParams
-        let mode = urlParams.get('mode')
-        let token = urlParams.get('token')
-        let id = urlParams.get('id')
-        let result = null
-        if (!(token && id && mode)) return
-        else {
-            if (localStorage.getItem('jwt')){
-                noty('error', 'Ошибка');  
-            return
-            }
-        }
-        this.mode = 'loading'
-        if (mode == "confirm"){
-            try{
-                let response = await fetch('/api/auth/basic/confirm', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        'token': token,
-                        'id': id
-                    })
-                })
-                if (response.ok){
-                    this.switchMode("success") 
-                } else {
-                    result = await response.json();
-                    throw result.errors[0].message;
-                }
-            } catch (err){
-                const message = typeof(err) == 'string' ?  err : 'Неизвестная ошибка'
-                noty('error', message);       
-            }
-        } else if (mode == "restore"){
-            try{
-                let response = await fetch('/api/auth/basic/valid', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        'token': token,
-                        'id': id
-                    })
-                })
-                if (response.ok){
-                    this.switchMode("restore")
-                    this.restoreToken = token
-                    this.id = id
+                    document.location.href = "/lk";
                 } else {
                     result = await response.json();
                     throw result.errors[0].message;
                 }
             } catch (err) {
-                const message = typeof(err) == 'string' ?  err : 'Неизвестная ошибка'
-                noty('error', message);
+                const message =
+                    typeof err == "string" ? err : "Ошибка авторизации";
+                noty("error", message);
+            }
+        },
+
+        async changePassword() {
+            try {
+                let response = await fetch("/api/auth/basic/restore", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        token: this.restoreToken,
+                        id: this.id,
+                        password: this.password
+                    })
+                });
+                if (response.ok) {
+                    this.switchMode("login");
+                    noty("success", "Пароль успешно изменен");
+                } else {
+                    result = await response.json();
+                    throw result.errors[0].message;
+                }
+            } catch (err) {
+                const message =
+                    typeof err == "string" ? err : "Неизвестная ошибка";
+                noty("error", message);
+            }
+        },
+
+        async requestRestore() {
+            try {
+                let response = await fetch("/api/auth/basic/restore/request", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email: this.email
+                    })
+                });
+                if (response.ok) {
+                    this.switchMode("info");
+                } else {
+                    result = await response.json();
+                    throw result.errors[0].message;
+                }
+            } catch (err) {
+                const message =
+                    typeof err == "string" ? err : "Неизвестная ошибка";
+                noty("error", message);
             }
         }
+    },
 
-    },    
-
-}
+    async created() {
+        let urlParams = new URL(window.location.href).searchParams;
+        let mode = urlParams.get("mode");
+        let token = urlParams.get("token");
+        let id = urlParams.get("id");
+        let result = null;
+        if (!(token && id && mode)) return;
+        else {
+            if (localStorage.getItem("jwt")) {
+                noty("error", "Ошибка");
+                return;
+            }
+        }
+        this.mode = "loading";
+        if (mode == "confirm") {
+            try {
+                let response = await fetch("/api/auth/basic/confirm", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        token: token,
+                        id: id
+                    })
+                });
+                if (response.ok) {
+                    this.switchMode("success");
+                } else {
+                    result = await response.json();
+                    throw result.errors[0].message;
+                }
+            } catch (err) {
+                const message =
+                    typeof err == "string" ? err : "Неизвестная ошибка";
+                noty("error", message);
+            }
+        } else if (mode == "restore") {
+            try {
+                let response = await fetch("/api/auth/basic/valid", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        token: token,
+                        id: id
+                    })
+                });
+                if (response.ok) {
+                    this.switchMode("restore");
+                    this.restoreToken = token;
+                    this.id = id;
+                } else {
+                    result = await response.json();
+                    throw result.errors[0].message;
+                }
+            } catch (err) {
+                const message =
+                    typeof err == "string" ? err : "Неизвестная ошибка";
+                noty("error", message);
+            }
+        }
+    }
+};
 </script>
 
 
 <style scoped lang="scss">
-
 .debug {
     position: absolute;
     top: 20px;

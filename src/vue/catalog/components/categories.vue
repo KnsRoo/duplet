@@ -3,8 +3,10 @@
     .catalog-guns__title {{ title }}
     .catalog__cat
         .catalog__cat__show(@click = "toggleCats()")
-            img.cat_button(v-if = "show" src="/assets/img/icons/menu-cancel.svg")
-            img.cat_button(v-else src="/assets/img/icons/menu-burger.svg")
+            .menu__btn(v-bind:class='{menu__btn_active: show }')
+                span
+                span
+                span
             .catalog__cat__title {{ (show) ? 'Скрыть категории' : 'Показать категории' }}
         .catalog__sort
             .catalog__sort_title Сортировка по:
@@ -24,30 +26,32 @@ export default {
     },
     data() {
         return {
-            show: true,
-            title: 'Каталог',
+            show: false,
+            title: "Каталог"
         };
     },
 
     methods: {
         ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems"]),
-        ...mapMutations("catalog", ["setFilterGroupId" ,"setGroupId"]),
+        ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
 
-        toggleCats(){
-            this.show = !this.show
+        toggleCats() {
+            this.show = !this.show;
         },
-        
-        async setGroup(item){
-            this.title = item.title
-            await this.fetchCatalogGroups(item._links.subgroups.href)
-            await this.fetchCatalogItems(item._links.subproducts.href)
+
+        async setGroup(item) {
+            this.title = item.title;
+            await this.fetchCatalogGroups(item._links.subgroups.href);
+            await this.fetchCatalogItems(item._links.subproducts.href);
         }
     },
     computed: {
         ...mapGetters("catalog", ["catalogFilters", "catalogGroups"])
     },
     async created() {
-        await this.fetchCatalogGroups(`${window.location.origin}/api/catalog/base/groups`);
+        await this.fetchCatalogGroups(
+            `${window.location.origin}/api/catalog/base/groups`
+        );
     }
 };
 </script>
