@@ -174,7 +174,7 @@ class GroupParser
         $groups = Group::find()
             ->getAll();
         $progressTotal = count($groups);
-        $progressBar = new ProgressBar($progressTotal, 'Groups parser');
+        $progressBar = new ProgressBar($progressTotal, 'Structure parser');
         foreach ($groups as $group) {
             $groupslist = [];
             $groupslist = $this->getChildrenGroups($group,$groupslist);

@@ -50,6 +50,9 @@ class Controller extends Response {
         $group->addGet('/products/:id', [$this, 'getProduct'])
             ->setName('api:catalog:v2:product');
 
+        $group->addGet('/search/:query', [$this, 'getFound'])
+            ->setName('api:catalog:v2:search');
+
         $group->addGet('/doc/rels/:rel', [$this, 'getRelDoc'])
             ->setName('api:catalog:v2:docs');
 
@@ -417,19 +420,12 @@ class Controller extends Response {
             ]);
         }
 
-        $starttime = microtime(true);
-
         $childs = Childs::find(['id' => $groupId])
                     ->get();
 
         $qb = Product::find()
             ->where("`cid` IN ".$childs->childs)
             ->andWhere(['visible' => true]);
-
-        $endtime = microtime(true);
-
-        $timediff = $endtime - $starttime;
-
 
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
         $qb = Factory\Filters\QB\Props::filter($qb, $props);
@@ -450,8 +446,6 @@ class Controller extends Response {
             'limit' => $limit,
             'total' => $total,
         ]);
-
-        $result['elapsed time'] = $timediff;
 
         $this->hal($result);
     }
@@ -487,17 +481,12 @@ class Controller extends Response {
 
         $groupslist = [];
 
-        $starttime = microtime(true);
-
         $groupslist = $this->getChildrenGroups($group,$groupslist);
         $qb = Product::find(['cid' => $groupslist])
             ->andWhere(['visible' => true]);
 
         // $childs = "('".implode("','",$groupslist)."')";
 
-        $endtime = microtime(true);
-
-        $timediff = $endtime - $starttime;
 
 
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
@@ -519,8 +508,6 @@ class Controller extends Response {
             'limit' => $limit,
             'total' => $total,
         ]);
-
-        $result['elapsed time'] = $timediff;
 
         $this->hal($result);
     }

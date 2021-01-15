@@ -32,6 +32,7 @@
     display: block;
     width: 107px;
     cursor: pointer;
+
     &::before {
       content: "";
       position: absolute;
@@ -45,17 +46,29 @@
       align-items: center;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
+
     &:hover::before {
       width: 100%;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
   }
 }
-.better__category {
-  .category__title {
-    font-size: 48px;
-    line-height: 125%;
-    margin-bottom: 40px;
+
+.breadcrumbs {
+
+  &__wrapper {
+    display: flex;
   }
+
+  .link {
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .separator {
+    margin: 0px 5px 0px 5px;
+  }
+
 }
-@import "./catalog-media";
