@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 ini_set('error_reporting', E_ALL);
 
 const __ROOT = __DIR__.'/../public';
-const PATH_TO_FILES = __DIR__.'/../Sync/webdata';
+const PATH_TO_FILES = __DIR__.'/../Sync/';
 
 $loader = require_once __ROOT.'/vendor/autoload.php';
 
