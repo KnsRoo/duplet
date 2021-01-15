@@ -2,11 +2,7 @@
   "cart": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-<<<<<<< HEAD
-      "/assets/css/cart.9080842a.css"
-=======
-      "/assets/css/cart.4bc0c6e2.css"
->>>>>>> b00f161b963aaa68007d0bf2146ef24c3e414b24
+      "/assets/css/cart.93bf41b2.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
@@ -17,11 +13,7 @@
   "catalog": {
     "css": [
       "/assets/css/0.b8092ce0.css",
-<<<<<<< HEAD
-      "/assets/css/catalog.45beba80.css"
-=======
-      "/assets/css/catalog.abf180a2.css"
->>>>>>> b00f161b963aaa68007d0bf2146ef24c3e414b24
+      "/assets/css/catalog.0806e878.css"
     ],
     "js": [
       "/assets/js/0.b8092ce0.chunk.js",
