@@ -1,7 +1,7 @@
 <template lang="pug">
 section.catalog
     .wrapper
-        catalog-filter
+        catalog-cats(:mode = "mode" :query = "query" @switchToCatalog="switchCat")
         .cards
             Product(
                 v-for="product in catalogItems"
@@ -15,7 +15,7 @@ section.catalog
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex';
 import Product from "../components/catalog-item.vue";
-import Filter from "../components/categories.vue";
+import Cats from "../components/categories.vue";
 import Pager from "../components/pager.vue";
 import MobileItems from "../components/mobile-items.vue";
 
@@ -29,21 +29,16 @@ export default {
             offset: 0,
             limit: 30,
             filterGroupId: '',
+            query: null
         };
     },
     components: {
         Product,
-        "catalog-filter": Filter,
+        "catalog-cats": Cats,
         "catalog-pager": Pager,
         MobileItems
     },
     watch: {
-        // offset() {
-        //     this.fetchItems();
-        // },
-        // resizeConut() {
-        //     this.resizeConut < 576 ? (this.catalogBaseView = true) : "";
-        // }
     },
     computed: {
         ...mapGetters("catalog",["catalogItems"]),
@@ -55,11 +50,19 @@ export default {
         },
         loadProducts(){
             window.addEventListener("resize", this.handleResize);
-        }
+        },
     },
 
     async created() {
-        await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`)
+        let query = new URL(document.location).searchParams.get("query")
+        this.mode = 'catalog'
+        if (query){
+            await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products?query=${query}`)
+            this.mode = 'search'
+            this.query = query
+        } else {
+            await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`)
+        }
     },
     destroyed() {
         window.removeEventListener("resize", this.handleResize);
