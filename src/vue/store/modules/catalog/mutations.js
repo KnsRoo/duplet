@@ -10,7 +10,6 @@ export default {
 
 	addCatalogProducts(state, {items, next}) {
 		state.catalogItems = state.catalogItems.concat(items)
-		console.log(state.catalogItems)
 		state.next = next
 	},
 };
