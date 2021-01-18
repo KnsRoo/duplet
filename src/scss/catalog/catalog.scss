@@ -1,5 +1,6 @@
 .catalog {
   width: 100wh;
+  margin-bottom: 60px;
 
   .catalog-guns__title {
     text-align: center;
@@ -18,41 +19,27 @@
     justify-content: center;
     column-gap: 30px;
     row-gap: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 
+  @import '../mixins/to__catalog_link';
+
   .show__more {
-    color: #888;
     font-size: 18px;
     line-height: 20px;
     position: relative;
-    padding-bottom: 5px;
-    text-decoration: none;
     margin: 0 auto;
     display: block;
     width: 107px;
     cursor: pointer;
+  }
 
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: #888;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    &:hover::before {
-      width: 100%;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
+  .better__category {
+    @import '../mixins/mixin__card';
   }
 }
+
+
 
 .breadcrumbs {
 

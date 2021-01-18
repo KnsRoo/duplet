@@ -2,6 +2,11 @@
     .action {
         &__blocks {
             .wrap {
+                .title {
+                    &__text {
+                        font-size: 62px;
+                    }
+                }
 
                 .discount-first,
                 .discount-second {
@@ -73,10 +78,19 @@
     }
 }
 
+@media(max-width: 768px) {
+    .action {
+        margin-bottom: 60px;
+    }
+}
+
+
 @media(max-width: 480px) {
     .action {
+        margin-bottom: 40px;
 
         &__blocks {
+            margin-bottom: 30px;
 
             .wrap {
                 .title {
@@ -96,6 +110,7 @@
                         top: 20px;
                         font-size: 16px;
                         height: auto;
+                        left: 10px;
 
                         &_company {
                             margin-bottom: 20px;
@@ -111,6 +126,18 @@
 
                 .email {
                     height: auto;
+
+                    &__title {
+                        margin-bottom: 40px;
+
+                        &_main {
+                            font-weight: normal;
+                            font-size: 24px;
+                            line-height: 135%;
+                            margin-bottom: 10px;
+                        }
+
+                    }
 
                     &__send {
                         max-width: 495px;
@@ -130,6 +157,10 @@
 
                             &::placeholder {
                                 color: #888888;
+                            }
+
+                            &:focus {
+                                box-shadow: 0 0 10px 5px #9D2F2F;
                             }
                         }
 
