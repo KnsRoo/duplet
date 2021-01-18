@@ -14,4 +14,7 @@ export default {
 	getGroupId(state) {
 		return state.groupId;
 	},
+	isNext(state) {
+		return state.next
+	}
 };

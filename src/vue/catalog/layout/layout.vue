@@ -8,6 +8,8 @@ section.catalog
                 :key="product.id"
                 :product="product"
                 )
+        .catalog__next(v-if="isNext")
+            a.link(@click="nextItems()") Загрузить еще
     
     //- MobileItems
 </template>
@@ -41,10 +43,10 @@ export default {
     watch: {
     },
     computed: {
-        ...mapGetters("catalog",["catalogItems"]),
+        ...mapGetters("catalog",["catalogItems", "isNext"]),
     },
     methods: {
-        ...mapActions("catalog", ["fetchCatalogItems"]),
+        ...mapActions("catalog", ["fetchCatalogItems", "nextItems"]),
         handleResize() {
             this.resizeConut = document.body.clientWidth;
         },
