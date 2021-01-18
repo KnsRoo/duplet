@@ -3,5 +3,6 @@ export default {
     catalogItems: [],
     filters: [],
     groupId: '',
-    filterGroupId:''
+    filterGroupId:'',
+    next: undefined
   };

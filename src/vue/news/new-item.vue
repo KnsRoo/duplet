@@ -1,28 +1,39 @@
 <template lang = "pug">
-.news__card
-	.img__item
-		img.img__news(:src="newsItem.picture" alt='')
-	.news__card_title {{ newsItem.title }}
-	.news__card_read
-		a.news__link(:href='newsItem.pageRef')
-			span.news__link_title Читать
-		span.news__data {{ format(newsItem.creationDate) }}
+.news_wrapper
+	.news__block
+		.img__item
+			img.img__news(:src="newsItem[0].picture" alt='')
+		.news__block_instruction
+			.news__block_instruction_flex
+				.instruction__title {{ newsItem[0].title }}
+				.instruction__text {{ newsItem[0].announce }}
+				a.news__link(:href='newsItem[0].pageRef')
+					span.news__link_title Читать
+	.news__cards
+		.news__card(v-for="(item, index) in newsItem" v-if = "index !=0")
+			.img__item
+				img.img__news(:src="item.picture" alt='')
+			.news__card_title {{ item.title }}
+			.news__card_read
+				a.news__link(:href='item.pageRef')
+					span.news__link_title Читать
+				span.news__data {{ format(item.creationDate) }}
 </template>
 
 <script>
 export default {
-    data() {
-        return {};
-    },
-    methods: {
-        format(toFormat) {
-            let [date, time] = toFormat.split(" ");
-            let [year, month, day] = date.split("-");
-            return `${day}.${month}.${year}`;
-        }
-    },
-    props: {
-        newsItem: Object
-    }
+	data() {
+		return {};
+	},
+	methods: {
+		format(toFormat) {
+			let [date, time] = toFormat.split(" ");
+			let [year, month, day] = date.split("-");
+			return `${day}.${month}.${year}`;
+		}
+	},
+	props: {
+		newsItem: Array,
+	}
 };
 </script>

@@ -9,7 +9,17 @@ export default {
 
 	async fetchCatalogItems({ commit }, link) {
 		let result = await ky.get(link).json()
-		commit('setCatalogProducts', result._embedded.items)
+		let items = result._embedded.items
+		let next = result._links.next.href
+		commit('setCatalogProducts', { items, next})
+	},
+
+	async nextItems({ commit, state }) {
+		console.log(state.next)
+		let result = await ky.get(state.next).json()
+		let items = result._embedded.items
+		let next = result._links.next.href
+		commit('addCatalogProducts', { items, next})
 	},
 
 };

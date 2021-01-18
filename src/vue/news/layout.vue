@@ -2,17 +2,7 @@
 section.news
 	.wrapper(v-if="loaded")
 		.news__title Новости
-		.news__block
-			.img__item
-				img.img__news(:src="first.picture" alt='')
-			.news__block_instruction
-				.news__block_instruction_flex
-					.instruction__title {{ first.title }}
-					.instruction__text {{ first.announce }}
-					a.news__link(:href='first.pageRef')
-						span.news__link_title Читать
-		.news__cards
-			newItem(v-for="item in news" :newsItem = "item")
+		newItem(v-for="item in newsChunked" :newsItem = "item")
 		.news__next
 			a.link(v-if="urls.next" @click="next") Загрузить еще
 </template>
@@ -36,11 +26,22 @@ export default {
     components: {
         newItem
     },
+    computed: {
+        newsChunked(){
+            let arr = [...this.news],
+                result = [];
+            let i = parseInt(arr.length / 4)+1
+            let temp = [...Array(i)]
+            temp.forEach(val => {
+                result.push(arr.splice(0,4))
+            })
+            return result        
+        }
+    },
     methods: {
         async fetchNews() {
             let result = await ky.get("/api/news/lines").json();
-            this.news = result._embedded.items;
-            this.first = this.news.shift();
+            this.news = result._embedded.items
             this.urls.next = result._links.next;
             this.loaded = true;
         },
@@ -49,7 +50,6 @@ export default {
             result._embedded.items.forEach(val => {
                 this.news.push(val);
             });
-            console.log(this.news);
             this.urls.next = result._links.next;
         }
     },
