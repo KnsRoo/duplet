@@ -1,64 +1,13 @@
+include ../mixins/card.pug
 section.liked
     .wrapper
         p.liked__title Отложенные товары
         .liked__wrap
-            a.card(href="../card/card.html")
-                .discount__gun 15%
-                .bookmark
-                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                img.card__img(src=require("../../img/gun.png").default, alt="Ружьё")
-                .card__content
-                    .card__content_title
-                        .card__content_title_name Franchi Affinity
-                        .card__content_title_price
-                            .first__price ₽ 77 900
-                            .discount__price ₽ 34 999
-                    figure.icon-add
-            a.card.discount(href="../card/card.html")
-                .discount__gun 15%
-                .bookmark
-                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                .card__content
-                    .card__content_title
-                        .card__content_title_name Franchi Affinity
-                        .card__content_title_price
-                            .first__price ₽ 77 900
-                            .discount__price ₽ 34 999
-                    figure.icon-add
-            a.card.discount(href="../card/card.html")
-                .discount__gun 15%
-                .bookmark 
-                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                .card__content
-                    .card__content_title
-                        .card__content_title_name Franchi Affinity
-                        .card__content_title_price
-                            .first__price ₽ 77 900
-                            .discount__price ₽ 34 999
-                    figure.icon-add
-            a.card.discount(href="../card/card.html")
-                .discount__gun 15%
-                .bookmark 
-                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                .card__content
-                    .card__content_title
-                        .card__content_title_name Franchi Affinity
-                        .card__content_title_price
-                            .first__price ₽ 77 900
-                            .discount__price ₽ 34 999
-                    figure.icon-add
-            a.card.discount(href="../card/card.html")
-                .discount__gun 15%
-                .bookmark 
-                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                .card__content
-                    .card__content_title
-                        .card__content_title_name Franchi Affinity
-                        .card__content_title_price
-                            .first__price ₽ 77 900
-                            .discount__price ₽ 34 999
-                    figure.icon-add
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +favorite('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')

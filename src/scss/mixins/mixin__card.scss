@@ -11,13 +11,11 @@
     display: none;
     z-index: 100;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
     &:hover {
       background: #000;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
   }
-
   &__block {
     position: relative;
     background: url("../img/default.png") 50% 50% no-repeat;
@@ -26,7 +24,6 @@
     padding: 0 0 100% 0;
     margin-bottom: 20px;
     display: block;
-
     .card__img {
       background: #e0e0e0;
       max-width: 100%;
@@ -60,7 +57,6 @@
         text-transform: uppercase;
         color: #888888;
         display: flex;
-        margin-top: 15px;
 
         .first__price {
           margin-right: 10px;
@@ -123,7 +119,6 @@
     display: block;
   }
 }
-
 .favorite {
   .favorite__cross {
     display: flex;
@@ -142,5 +137,4 @@
     line-height: 16px;
   }
 }
-
 @import "./mixin__card__media";

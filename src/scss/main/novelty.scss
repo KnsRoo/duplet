@@ -33,7 +33,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
 
       .choose {
         max-width: 620px;
@@ -48,7 +48,7 @@
           opacity: 0;
         }
 
-        .custom-radio + label {
+        .custom-radio+label {
           background: #e0e0e0;
           text-align: center;
           line-height: 46px;
@@ -76,7 +76,7 @@
         }
 
         /* стили для радиокнопки, находящейся в состоянии checked */
-        .custom-radio:checked + label {
+        .custom-radio:checked+label {
           background: #333;
           color: white;
 
@@ -86,7 +86,7 @@
         }
 
         /* стили для радиокнопки, находящейся в состоянии disabled */
-        .custom-radio:disabled + label {
+        .custom-radio:disabled+label {
           background-color: red;
         }
       }
@@ -95,15 +95,12 @@
         display: none;
       }
 
+      @import '../mixins/mixin__card';
+
       @import "../slider/main-slider";
     }
 
-    &_to-catalog {
-      text-decoration: none;
-      color: #888888;
-      border-bottom: 1px solid #888888;
-      padding-bottom: 5px;
-    }
+    @import '../mixins/to__catalog_link';
   }
 }
 

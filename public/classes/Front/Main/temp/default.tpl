@@ -9,7 +9,7 @@
 					<div class="example__block">
 						<div class="example__block_title">Tedna Prime S12С</div>
 						<div class="example__block_price">стоимость от 39990 руб</div>
-					</div><a class="example__link" href="#">
+					</div><a class="example__link" href="/404">
 						<figure class="icon-add"></figure>
 					</a>
 				</div>
@@ -49,25 +49,74 @@
 					<div class="choose__mobile">Все товары</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
-							<?php foreach ($new as $item) : ?>
-							<div class="swiper-slide"><a class="card discount" href="">
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="">
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name"><?=$item->title?></div>
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="card__content_title_price">
-												<div class="second__price">₽ <?= $item->price ?></div>
+												<div class="first__price">₽ 77 900</div>
+												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a>
-							</div>
-						<?php endforeach ?>
+								</a></div>
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"></div>
+									<div class="card__content">
+										<div class="card__content_title">
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
+											<div class="card__content_title_price">
+												<div class="first__price">₽ 77 900</div>
+												<div class="discount__price">₽ 34 999</div>
+											</div>
+										</div>
+										<figure class="icon-add"></figure>
+									</div>
+								</a></div>
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
+									<div class="card__content">
+										<div class="card__content_title">
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
+											<div class="card__content_title_price">
+												<div class="first__price">₽ 77 900</div>
+												<div class="discount__price">₽ 34 999</div>
+											</div>
+										</div>
+										<figure class="icon-add"></figure>
+									</div>
+								</a></div>
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"></div>
+									<div class="card__content">
+										<div class="card__content_title">
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
+											<div class="card__content_title_price">
+												<div class="first__price">₽ 77 900</div>
+												<div class="discount__price">₽ 34 999</div>
+											</div>
+										</div>
+										<figure class="icon-add"></figure>
+									</div>
+								</a></div>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
-				</div><a class="novelty__block_to-catalog" href="#">Больше товаров</a>
+				</div><a class="to__catalog_link" href="/catalog">Больше товаров</a>
 			</div>
 		</div>
 	</section>
@@ -133,12 +182,14 @@
 					<div class="choose__mobile">Все товары</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="card__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
@@ -147,12 +198,14 @@
 										<figure class="icon-add"></figure>
 									</div>
 								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"></div>
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="card__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
@@ -161,12 +214,14 @@
 										<figure class="icon-add"></figure>
 									</div>
 								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="card__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
@@ -175,12 +230,14 @@
 										<figure class="icon-add"></figure>
 									</div>
 								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="../card/card.html">
-									<div class="discount__gun">15%</div>
-									<div class="bookmark"><img class="bookmark__delete" src="/assets/img/liked__delete.svg" alt=""></div><img class="card__img" src="/assets/img/second-gun.png" alt="Ружьё">
+							<div class="swiper-slide"><a class="card discount" href="#">
+									<div class="discount__percent">15%</div>
+									<div class="favorite__cross icon-menu-cancel"></div>
+									<div class="card__block"></div>
 									<div class="card__content">
 										<div class="card__content_title">
-											<div class="card__content_title_name">Franchi Affinity</div>
+											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="card__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>

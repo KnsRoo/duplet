@@ -1,3 +1,4 @@
+include ../mixins/card.pug
 section.popular
     .wrapper
         .popular__block    
@@ -18,56 +19,12 @@ section.popular
                 .image__slider.swiper-container
                     .image__slider_wrapper.swiper-wrapper
                         .swiper-slide
-                            a.card.discount(href="../card/card.html")
-                                .discount__gun 15%
-                                .bookmark
-                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                                .card__content
-                                    .card__content_title
-                                        .card__content_title_name Franchi Affinity
-                                        .card__content_title_price
-                                            .first__price ₽ 77 900
-                                            .discount__price ₽ 34 999
-                                    figure.icon-add
+                            +card('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
                         .swiper-slide
-                            a.card.discount(href="../card/card.html")
-                                .discount__gun 15%
-                                .bookmark
-                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                                .card__content
-                                    .card__content_title
-                                        .card__content_title_name Franchi Affinity
-                                        .card__content_title_price
-                                            .first__price ₽ 77 900
-                                            .discount__price ₽ 34 999
-                                    figure.icon-add
+                            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
                         .swiper-slide
-                            a.card.discount(href="../card/card.html")
-                                .discount__gun 15%
-                                .bookmark
-                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                                .card__content
-                                    .card__content_title
-                                        .card__content_title_name Franchi Affinity
-                                        .card__content_title_price
-                                            .first__price ₽ 77 900
-                                            .discount__price ₽ 34 999
-                                    figure.icon-add
+                            +card__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
                         .swiper-slide
-                            a.card.discount(href="../card/card.html")
-                                .discount__gun 15%
-                                .bookmark
-                                    img.bookmark__delete(src=require("../../img/liked__delete.svg").default, alt="")
-                                img.card__img(src=require("../../img/second-gun.png").default, alt="Ружьё")
-                                .card__content
-                                    .card__content_title
-                                        .card__content_title_name Franchi Affinity
-                                        .card__content_title_price
-                                            .first__price ₽ 77 900
-                                            .discount__price ₽ 34 999
-                                    figure.icon-add
+                            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
                     .swiper-pagination
             a.popular__block_to-catalog(href="#") Больше товаров
