@@ -5,9 +5,9 @@
 }
 
 @font-face {
-  font-family: "fontello";
-  src: url("../fonts/fontello.woff2?85887906") format("woff2"),
-    url("../fonts/fontello.woff?85887906") format("woff");
+  font-family: 'fontello';
+  src: url('../fonts/fontello.woff2?73098256') format('woff2'),
+    url('../fonts/fontello.woff?73098256') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,6 +28,8 @@
     url('../fonts/open-sans-v18-latin_cyrillic-600.woff') format('woff');
 }
 
+
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "fontello";
@@ -36,58 +38,111 @@
   display: inline-block;
 }
 
-.icon-add:before {
-  content: "\e800";
+.icon-filter:before {
+  content: '\e800';
 }
 
 /* '' */
-.icon-basket:before {
-  content: "\e801";
+.icon-slider__mini:before {
+  content: '\e801';
 }
 
 /* '' */
-.icon-fb:before {
-  content: "\e802";
+.icon-working-time:before {
+  content: '\e802';
 }
 
 /* '' */
-.icon-inst:before {
-  content: "\e803";
+.icon-vk:before {
+  content: '\e803';
 }
 
 /* '' */
-.icon-liked:before {
-  content: "\e804";
+.icon-slider:before {
+  content: '\e804';
 }
 
 /* '' */
-.icon-logo:before {
-  content: "\e805";
+.icon-search:before {
+  content: '\e805';
 }
 
 /* '' */
-.icon-menu-burger:before {
-  content: "\e806";
+.icon-profile:before {
+  content: '\e806';
 }
 
 /* '' */
-.icon-menu-cancel:before {
-  content: "\e807";
+.icon-phone:before {
+  content: '\e807';
 }
 
 /* '' */
-.icon-profile:before {
-  content: "\e808";
+.icon-payment:before {
+  content: '\e808';
 }
 
 /* '' */
-.icon-search:before {
-  content: "\e809";
+.icon-menu-cancel:before {
+  content: '\e809';
 }
 
 /* '' */
-.icon-vk:before {
-  content: "\e80a";
+.icon-menu-burger:before {
+  content: '\e80a';
 }
 
 /* '' */
+.icon-logo:before {
+  content: '\e80b';
+}
+
+/* '' */
+.icon-location:before {
+  content: '\e80c';
+}
+
+/* '' */
+.icon-liked:before {
+  content: '\e80d';
+}
+
+/* '' */
+.icon-inst:before {
+  content: '\e80e';
+}
+
+/* '' */
+.icon-fb:before {
+  content: '\e80f';
+}
+
+/* '' */
+.icon-delete:before {
+  content: '\e810';
+}
+
+/* '' */
+.icon-data:before {
+  content: '\e811';
+}
+
+/* '' */
+.icon-bookmark:before {
+  content: '\e812';
+}
+
+/* '' */
+.icon-basket:before {
+  content: '\e813';
+}
+
+/* '' */
+.icon-arrow-down:before {
+  content: '\e814';
+}
+
+/* '' */
+.icon-add:before {
+  content: '\e815';
+}

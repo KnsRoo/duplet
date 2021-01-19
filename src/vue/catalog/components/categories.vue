@@ -16,7 +16,15 @@
                 a.link__last(v-else) {{ item.title }}
         .catalog__sort
             .catalog__sort_title Сортировка по:
-            .catalog__sort_type Популярности
+            .catalog__sort_type
+                .sort__name 
+                    .sort__name_title  Названию
+                    .sort__up.icon-filter(@click = "toggleSort()" v-bind:class='{sort__active: up}')
+                    .sort__down.icon-filter
+                .sort__price
+                    .sort__price_title  Цене
+                    .sort__up.icon-filter
+                    .sort__down.icon-filter
     .catalog__cat(v-else)
         .catalog__cat__show(@click = "switchToCatalog")
             img.cat_button( src="/assets/img/icons/menu-cancel.svg")
@@ -38,6 +46,7 @@ export default {
     data() {
         return {
             show: false,
+            up: false,
             breadCrumbs: []
         };
     },
@@ -48,6 +57,9 @@ export default {
 
         toggleCats() {
             this.show = !this.show;
+        },
+        toggleSort() {
+            this.up = !this.up;
         },
 
         switchToCatalog() {
