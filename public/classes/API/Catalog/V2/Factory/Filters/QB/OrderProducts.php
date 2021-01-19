@@ -18,6 +18,12 @@ class OrderProducts {
         'sort' => 'sort',
     ];
 
+    public static function easyFilter($qb, $order, $sort){
+        if ($order && $sort)
+            $qb = $qb->order(['`'.$order.'` '.$sort]);
+        return $qb;
+    }
+
     public static function filter($qb, $order) {
 
         $res = [];

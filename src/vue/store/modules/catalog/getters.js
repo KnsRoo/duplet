@@ -16,5 +16,8 @@ export default {
 	},
 	isNext(state) {
 		return state.next
+	},
+	isEnd(state) {
+		return state.end
 	}
 };

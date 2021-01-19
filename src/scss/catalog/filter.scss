@@ -121,6 +121,7 @@
             flex-wrap: wrap;
 
             .sort__name {
+                cursor: pointer;
                 display: flex;
                 margin-right: 10px;
 
@@ -130,6 +131,7 @@
             }
 
             .sort__price {
+                cursor: pointer;
                 display: flex;
 
                 &_title {
@@ -186,6 +188,13 @@
         }
     }
 }
+
+.active {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
 
 @import '../catalog/filter-media';
 

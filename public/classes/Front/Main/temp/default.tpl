@@ -2,7 +2,7 @@
 	<section class="welcome">
 		<div class="welcome__catalog hidden__992">
 			<div class="welcome__title">
-				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="../catalog/catalog.html">в каталог</a>
+				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="/catalog">в каталог</a>
 			</div>
 			<div class="welcome__image">
 				<div class="example">
@@ -18,7 +18,7 @@
 		<div class="welcome__laptop">
 			<div class="welcome__laptop__image">
 				<div class="welcome__laptop__title">
-					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="../catalog/catalog.html">в каталог</a>
+					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="/catalog">в каталог</a>
 				</div>
 			</div>
 			<div class="example__laptop">

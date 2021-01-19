@@ -4,5 +4,6 @@ export default {
     filters: [],
     groupId: '',
     filterGroupId:'',
-    next: undefined
+    next: undefined,
+    end: false
   };

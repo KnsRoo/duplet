@@ -322,7 +322,8 @@ class Controller extends Response {
 
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
-        $order = Factory\QueryParams::getOrder();
+        $order = Factory\QueryParams::getEasyOrder();
+        $sort = Factory\QueryParams::getSort();
         $tags = Factory\QueryParams::getTags();
         $props = Factory\QueryParams::getProps();
         $query = Factory\QueryParams::getQuery();
@@ -330,7 +331,7 @@ class Controller extends Response {
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
         $qb = Factory\Filters\QB\Props::filter($qb, $props);
         $qb = Factory\Filters\QB\Query::filter($qb, $query);
-        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+        $qb = Factory\Filters\QB\OrderProducts::easyFilter($qb, $order, $sort);
 
         $qbCnt = clone $qb;
 
@@ -395,7 +396,8 @@ class Controller extends Response {
 
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
-        $order = Factory\QueryParams::getOrder();
+        $order = Factory\QueryParams::getEasyOrder();
+        $sort = Factory\QueryParams::getSort();
         $tags = Factory\QueryParams::getTags();
         $props = Factory\QueryParams::getProps();
         $query = Factory\QueryParams::getQuery();
@@ -430,7 +432,7 @@ class Controller extends Response {
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
         $qb = Factory\Filters\QB\Props::filter($qb, $props);
         $qb = Factory\Filters\QB\Query::filter($qb, $query);
-        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+        $qb = Factory\Filters\QB\OrderProducts::easyFilter($qb, $order, $sort);
 
         $qbCnt = clone $qb;
 
