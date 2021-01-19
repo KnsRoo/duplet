@@ -35,6 +35,7 @@
     "vue-loader": "^15.9.5",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.12",
+    "vuelidate": "^0.7.6",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.1.10",
@@ -50,6 +51,7 @@
     "svg-sprite-loader": "^5.2.1",
     "swiper": "^6.3.5",
     "vue": "^2.6.12",
+    "vue-the-mask": "^0.11.1",
     "vuex": "^3.6.0",
     "webpack-manifest-plugin": "^3.0.0"
   }

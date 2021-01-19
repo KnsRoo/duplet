@@ -15,7 +15,6 @@ export default {
 	},
 
 	async nextItems({ commit, state }) {
-		console.log(state.next)
 		let result = await ky.get(state.next).json()
 		let items = result._embedded.items
 		let next = result._links.next.href

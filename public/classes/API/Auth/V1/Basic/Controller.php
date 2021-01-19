@@ -34,7 +34,7 @@ class Controller extends Response {
               ->setName('api:auth:v1:basic:restore');
 
         $group->addPost('/restore/request', [$this, 'restoreRequest'])
-              ->setName('api:auth:v1:basic:restore');
+              ->setName('api:auth:v1:basic:restore_request');
 
         $group->addPost('/valid', [$this, 'isValidLink'])
               ->setName('api:auth:v1:basic:valid');
@@ -49,7 +49,74 @@ class Controller extends Response {
     }
 
     public function default(){
+        $this->hal([
+            "description" => "API Basic auth v1.0",
+            "version" => "1.0",
+            "updateDate" => "Dec, 2020",
+            "author" => [ "name" => "KnsRoo",
+                          "gitea" => "http://gitea.websm.io/KnsRoo"
+                        ],
+            "usage" => [
+                "login" => [
+                    "link" => Router::byName('api:auth:v1:basic:login')->getUrl(),
+                    "required payload" => [ "email", "password" ],
+                    "codes" => [
+                        "200" => "OK",
+                        "500" => "Account is not activated",
+                        "501" => "User not found",
+                        "422" => "login or password is invalid",
+                    ],
+                ],
+                "register" => [
+                    "link" => Router::byName('api:auth:v1:basic:register')->getUrl(),
+                    "required payload" => [ "email", "password" ],
+                    "codes" => [
+                        "200" => "OK",
+                        "500" => "Unable to save data",
+                        "501" => "User already exists",
+                    ],
+                ],
+                "confirm" => [
+                    "link" => Router::byName('api:auth:v1:basic:confirm')->getUrl(),
+                    "required payload" => [ "token", "id" ],
+                    "codes" => [
+                        "200" => "OK",
+                        "500" => "Unable to save data",
+                        "501" => "ConfirmToken is invalid",
+                        "502" => "Token or id is not exists",
+                    ],
+                ],
+                "restore request" => [
+                    "link" => Router::byName('api:auth:v1:basic:restore_request')->getUrl(),
+                    "required payload" => [ "email" ],
+                    "codes" => [
+                        "200" => "OK",
+                        "500" => "Unable to save data",
+                        "501" => "User not found",
+                    ],
+                ],
+                "check valid link" => [
+                    "link" => Router::byName('api:auth:v1:basic:valid')->getUrl(),
+                    "required payload" => [ "token", "id" ],
+                    "codes" => [
+                        "200" => "OK",
+                        "500" => "RestoreToken is not exists",
+                        "501" => "User not found",
+                        "502" => "RestoreToken is invalid",
+                    ],
+                ],
+                "restore confirm" => [
+                    "link" => Router::byName('api:auth:v1:basic:restore')->getUrl(),
+                    "required payload" => [ "token", "id" ],
+                    "codes" => [
+                        "500" => "Unable to save data",
+                        "501" => "User not found",
+                        "502" => "Old password equal new password",
+                    ]
+                ],
 
+            ],
+            ]);
     }
 
     public function restorePassword(){
@@ -61,7 +128,7 @@ class Controller extends Response {
                         ->get();
 
             if ($user->isNew()) {
-                throw new HTTPException('Пользователя с таким email не существует', 500);
+                throw new HTTPException('Пользователя с таким email не существует', 501);
             }
 
             $di = Di::instance();
@@ -69,7 +136,7 @@ class Controller extends Response {
 
             $password = $crypt->encrypt($bodyArr->password);
             if ($user->password == $password){
-                throw new HTTPException('Новый пароль должен отличаться от предыдущего', 500);
+                throw new HTTPException('Новый пароль должен отличаться от предыдущего', 502);
             }
             $user->password = $password;  
 
@@ -105,7 +172,7 @@ class Controller extends Response {
             $user = User::find(['id' => $bodyArr->id])
                         ->get();
             if ($user->isNew()) {
-                throw new HTTPException('Ссылка не действительна', 500);
+                throw new HTTPException('Ссылка не действительна', 501);
             }
 
             $props = json_decode($user->props);
@@ -114,7 +181,7 @@ class Controller extends Response {
                 throw new HTTPException('Время жизни ссылки истекло', 500);
 
             if ($props->restoreToken != $bodyArr->token)
-                throw new HTTPException('Время жизни ссылки истекло', 500);
+                throw new HTTPException('Время жизни ссылки истекло', 502);
 
             $this->code(200);
             die();
@@ -143,7 +210,7 @@ class Controller extends Response {
                         ->get();
 
             if ($user->isNew()) {
-                throw new HTTPException('Пользователя с таким email не существует', 500);
+                throw new HTTPException('Пользователя с таким email не существует', 501);
             }
 
             $restoreToken = hash('sha256',$bodyArr->email.uniqid());
@@ -203,7 +270,7 @@ class Controller extends Response {
             $props = json_decode($user->props);
 
             if ($props->confirmToken != $token){
-                throw new HTTPException('Неверный запрос', 502);
+                throw new HTTPException('Неверный запрос', 501);
             }
 
             unset($props->confirmToken);
@@ -231,6 +298,8 @@ class Controller extends Response {
     public function login(){
     	 try {
 
+
+
     		$body = file_get_contents('php://input');
             $bodyArr = json_decode($body);
 
@@ -238,11 +307,12 @@ class Controller extends Response {
             $di = Di::instance();
             $crypt = $di->get('crypt');
 
+
             $user = User::find(['email' => $crypt->encrypt($bodyArr->email)])
             			->get();
 
             if ($user->isNew()){
-                throw new HTTPException('Пользователя с таким логином не существует', 500);
+                throw new HTTPException('Пользователя с таким логином не существует', 501);
             }    
 
             $props = json_decode($user->props);
@@ -253,7 +323,7 @@ class Controller extends Response {
             }  
 
             if ($user->password !== $crypt->encrypt($bodyArr->password)){
-            	throw new HTTPException('Неправильный логин или пароль', 500);
+            	throw new HTTPException('Неправильный логин или пароль', 422);
             }
 
             $email = $crypt->encrypt($bodyArr->email);
@@ -343,7 +413,7 @@ class Controller extends Response {
                 die();
 
                 } else {
-            	   throw new HTTPException('Пользователь с таким email уже существует', 500);
+            	   throw new HTTPException('Пользователь с таким email уже существует', 501);
             }
         } catch (HTTPException $e) {
 

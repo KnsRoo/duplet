@@ -21,6 +21,7 @@ class User extends ActiveRecord {
         return [
             ['id', 'pass'],
             ['email', 'pass'],
+            ['password', 'pass'],
             ['phone', 'pass'],
             ['props', 'pass'],
         ];
