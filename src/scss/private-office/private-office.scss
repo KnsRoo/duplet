@@ -16,7 +16,7 @@
 
         .info {
             width: 315px;
-            border: solid red;
+            //border: solid red;
 
             &__title {
                 font-size: 24px;
@@ -47,12 +47,17 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
+
+                &:disabled {
+                    background: #888;
+                }
             }
         }
 
         .cart {
             width: 891px;
-            border: solid red;
+            //border: solid red;
             @import '../basket/scrollbar';
 
             &__now {

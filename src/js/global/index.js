@@ -9,5 +9,5 @@ export default function initGlobalScripts() {
     new burgerToogler()
     new searchToogler()
     new mobileSearchToogler()
-    new ModalLogin()
+    window.modalLogin = new ModalLogin()
 }

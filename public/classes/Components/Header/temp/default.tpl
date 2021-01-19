@@ -1,4 +1,4 @@
-<div id = "modal-login"></div>
+<div id="modal-login"></div>
 <header class="header">
   <div class="wrapper">
     <div class="header__flex">
@@ -45,10 +45,10 @@
       <div class="private-office__text">Личный кабинет</div>
     </a>
     <ul class="mobile__links">
-      <li><a href="#">Каталог</a></li>
+      <li><a href="/catalog">Каталог</a></li>
       <li><a href="#">Акции</a></li>
-      <li><a href="#">Новости</a></li>
-      <li><a href="#">Контакты</a></li>
+      <li><a href="/news">Новости</a></li>
+      <li><a href="/contacts">Контакты</a></li>
     </ul>
     <div class="contacts">
       <div class="contacts_number">8 (8212) 26-40-00</div>

@@ -9,6 +9,7 @@
     width: 10px;
     height: 10px;
     background-repeat: 50%;
+
 }
 
 .swiper-pagination-bullet-active {
@@ -22,5 +23,25 @@
         width: 30px;
         height: 30px;
         background: url("../img/icons/slider.svg");
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-pagination-bullet {
+        width: 5px;
+        height: 5px;
+    }
+
+    .swiper-pagination-bullet-active {
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            width: 20px;
+            height: 20px;
+            background: url("../img/icons/slider__mini.svg");
+        }
     }
 }

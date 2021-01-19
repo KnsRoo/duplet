@@ -7,9 +7,9 @@
 	.card__content
 		.card__content_title
 			.card__content_title_name {{ product.title.replace('\"','"') }}
-				.card__content_title_price
-					.first__price {{ product.price+' ₽' }}
-					.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
+			.card__content_title_price
+				.first__price {{ product.price+' ₽' }}
+				.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
 		figure.icon-add(@click="addItemToCart")
 </template>
 
