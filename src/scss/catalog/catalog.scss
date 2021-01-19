@@ -39,23 +39,4 @@
   }
 }
 
-
-
-.breadcrumbs {
-
-  &__wrapper {
-    display: flex;
-  }
-
-  .link {
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-
-  .separator {
-    margin: 0px 5px 0px 5px;
-  }
-
-}
+@import './catalog-media';

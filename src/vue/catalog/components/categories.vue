@@ -25,10 +25,6 @@
                     .sort__price_title  Цене
                     .sort__up.icon-filter
                     .sort__down.icon-filter
-    .catalog__cat(v-else)
-        .catalog__cat__show(@click = "switchToCatalog")
-            img.cat_button( src="/assets/img/icons/menu-cancel.svg")
-            .catalog__cat__title В каталог
     .catalog__cat__list(v-if="show")
         .catalog__cat__item(v-for="item in catalogGroups" @click = "setGroup(item)")
             .catalog__cat__item_title {{ item.title }}
