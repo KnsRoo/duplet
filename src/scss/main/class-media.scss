@@ -1,5 +1,16 @@
 @media (max-width:768px) {
-    .class__title {
-        margin-top: 60px;
+    .class {
+        .class__title {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width:480px) {
+    .class {
+        .class__title {
+            margin-top: 40px;
+        }
     }
 }

@@ -14,8 +14,26 @@
   }
 }
 
+@media (max-width: 768px) {
+  .catalog {
+    .cards {
+      margin-bottom: 40px;
+    }
+  }
+}
+
 @media (max-width: 549px) {
   .catalog {
+    .cards {
+      grid-template-columns: repeat(1, minmax(220px, 315px));
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog {
+    margin-bottom: 40px;
+
     .cards {
       grid-template-columns: repeat(1, minmax(220px, 315px));
     }

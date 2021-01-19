@@ -1,8 +1,17 @@
 @media (max-width: 767px) {
     .popular {
+        margin-bottom: 60px;
 
         &__block {
+            &_title {
+
+                .title_main {
+                    font-size: 48px;
+                }
+            }
+
             &_cards {
+                margin-bottom: 40px;
 
                 .choose {
                     width: 100%;
@@ -54,6 +63,7 @@
 
 @media (max-width: 480px) {
     .popular {
+        margin-bottom: 40px;
 
         &__block {
             &_title {

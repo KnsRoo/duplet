@@ -3,11 +3,12 @@
 .action {
   width: 100wh;
   height: 740px;
+  margin-bottom: 80px;
 
   &__blocks {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
     .wrap {
       width: 660px;
@@ -22,6 +23,7 @@
 
       .title {
         max-width: 460px;
+        margin-bottom: 20px;
 
         &__text {
           font-weight: normal;
@@ -49,6 +51,11 @@
         height: 460px;
         background: linear-gradient(129.35deg, #cad8cd 9.78%, #8e9b7f 87.39%);
         @include discount("../img/tent.png");
+
+        &:hover .title_buy::before {
+          width: 100%;
+          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
       }
 
       .discount-second {
@@ -61,6 +68,11 @@
         height: 400px;
         background: linear-gradient(110.17deg, #a7d4f4 0%, #77b4e0 100%);
         @include discount("../img/blue-tent.png");
+
+        &:hover .title_buy::before {
+          width: 100%;
+          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
       }
 
       .email {
@@ -120,16 +132,14 @@
     }
   }
 
-  &__link {
+  @import '../mixins/to__catalog_link';
+
+  .link__center {
     width: 103px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #888;
     font-size: 18px;
     line-height: 20px;
     display: block;
     margin: 0 auto;
-    color: #888888;
-    text-decoration: none;
   }
 }
 

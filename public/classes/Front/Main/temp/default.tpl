@@ -9,7 +9,7 @@
 					<div class="example__block">
 						<div class="example__block_title">Tedna Prime S12С</div>
 						<div class="example__block_price">стоимость от 39990 руб</div>
-					</div><a class="example__link" href="/404">
+					</div><a class="example__link" href="#">
 						<figure class="icon-add"></figure>
 					</a>
 				</div>
@@ -249,7 +249,7 @@
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
-				</div><a class="popular__block_to-catalog" href="#">Больше товаров</a>
+				</div><a class="to__catalog_link" href="#">Больше товаров</a>
 			</div>
 		</div>
 	</section>
@@ -287,7 +287,7 @@
 						<div class="email__send"><input class="input_email" type="email" placeholder="Ваш e-mail" required> <button class="input_send" type="submit">Отправить</button></div>
 					</form>
 				</div>
-			</div><a class="action__link" href="#">Больше акций</a>
+			</div><a class="to__catalog_link link__center" href="#">Больше акций</a>
 		</div>
 	</section>
 	<section class="tidings">

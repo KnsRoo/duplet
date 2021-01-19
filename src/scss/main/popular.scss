@@ -1,5 +1,6 @@
 .popular {
   height: auto;
+  margin-bottom: 80px;
 
   &__block {
     display: flex;
@@ -18,6 +19,7 @@
         font-size: 72px;
         line-height: 125%;
         color: #333333;
+        margin-bottom: 10px;
       }
 
       .title_description {
@@ -33,7 +35,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 60px;
 
       .choose {
         max-width: 620px;
@@ -96,15 +98,10 @@
       }
 
       @import '../mixins/mixin__card';
-      @import "../slider/main-slider";
+      @import '../slider/main-slider';
     }
 
-    &_to-catalog {
-      text-decoration: none;
-      color: #888888;
-      border-bottom: 1px solid #888888;
-      padding-bottom: 5px;
-    }
+    @import '../mixins/to__catalog_link';
   }
 }
 
