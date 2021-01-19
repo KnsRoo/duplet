@@ -1,0 +1,14 @@
+@media(max-width: 768px) {
+    .catalog__cat {
+        .catalog__sort {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            &_type {
+                flex-direction: column;
+            }
+        }
+
+    }
+}
