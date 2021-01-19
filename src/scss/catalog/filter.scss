@@ -100,24 +100,26 @@
 
     .catalog__sort {
         display: flex;
-        width: 363px;
+        width: 380px;
         justify-content: space-between;
         font-weight: normal;
         font-size: 18px;
         line-height: 125%;
+        border: 1px solid #000;
 
 
         &_type {
             color: #888888;
             display: flex;
             justify-content: space-between;
+            margin-left: 10px;
 
             .sort__name {
                 display: flex;
-                margin-right: 25px;
+                margin-right: 10px;
 
                 &_title {
-                    margin-right: 5px;
+                    margin-right: 15px;
                 }
             }
 
@@ -125,14 +127,14 @@
                 display: flex;
 
                 &_title {
-                    margin-right: 5px;
+                    margin-right: 15px;
                 }
             }
 
             .sort__up {
                 cursor: pointer;
                 transform: rotate(-180deg);
-                padding-left: 10px;
+                padding-left: 15px;
             }
 
             .sort__down {

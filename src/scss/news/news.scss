@@ -96,7 +96,6 @@
 
   &__cards {
     width: 100%;
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 430px));
     row-gap: 30px;

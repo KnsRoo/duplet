@@ -1,9 +1,26 @@
 @media(max-width: 768px) {
     .catalog__cat {
         .catalog__sort {
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
+            justify-content: flex-end;
+            width: 45%;
+
+            &_type {
+                flex-direction: column;
+            }
+        }
+
+    }
+}
+
+@media(max-width: 600px) {
+    .catalog__cat {
+        .catalog__sort {
+            justify-content: flex-end;
+            width: auto;
+
+            &_title {
+                display: none;
+            }
 
             &_type {
                 flex-direction: column;
