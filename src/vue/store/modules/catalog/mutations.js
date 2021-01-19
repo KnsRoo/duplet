@@ -1,6 +1,10 @@
 export default {
 	setCatalogGroups(state, items) {
-		state.catalogGroups = items
+		state.end = true
+		if (items.length != 0){
+			state.catalogGroups = items
+			state.end = false
+		}
 		
 	},
 	setCatalogProducts(state, {items, next}) {
