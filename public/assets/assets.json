@@ -2,19 +2,19 @@
   "404": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/1.c57288d1.css",
+      "/assets/css/1.d445919a.css",
       "/assets/css/404.b7b844b4.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
-      "/assets/js/1.c57288d1.chunk.js",
+      "/assets/js/1.d445919a.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/cart.f9e98817.css"
+      "/assets/css/cart.136da4bc.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
@@ -25,7 +25,7 @@
   "catalog": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/catalog.d3a08d9d.css"
+      "/assets/css/catalog.7be6f19f.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
@@ -37,7 +37,7 @@
     "css": [
       "/assets/css/0.00f46ca2.css",
       "/assets/css/3.6c30a449.css",
-      "/assets/css/contacts.84264902.css"
+      "/assets/css/contacts.2682acf7.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
@@ -48,12 +48,12 @@
   "favorite": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/1.c57288d1.css",
+      "/assets/css/1.d445919a.css",
       "/assets/css/favorite.73c0b237.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
-      "/assets/js/1.c57288d1.chunk.js",
+      "/assets/js/1.d445919a.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
@@ -61,7 +61,7 @@
     "css": [
       "/assets/css/0.00f46ca2.css",
       "/assets/css/3.6c30a449.css",
-      "/assets/css/index.2a6a6697.css"
+      "/assets/css/index.69ec477e.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
@@ -72,7 +72,7 @@
   "lk": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/lk.5d1109f2.css"
+      "/assets/css/lk.4092840e.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
@@ -83,12 +83,12 @@
   "news": {
     "css": [
       "/assets/css/0.00f46ca2.css",
-      "/assets/css/1.c57288d1.css",
+      "/assets/css/1.d445919a.css",
       "/assets/css/news.5668aabb.css"
     ],
     "js": [
       "/assets/js/0.00f46ca2.chunk.js",
-      "/assets/js/1.c57288d1.chunk.js",
+      "/assets/js/1.d445919a.chunk.js",
       "/assets/js/news.js"
     ]
   },

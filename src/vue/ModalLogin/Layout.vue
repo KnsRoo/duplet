@@ -176,7 +176,10 @@ export default {
         },
 
         close() {
-            if (
+            if (this.mode === "login"){
+                window.location.href = "/";
+            }
+            else if (
                 this.mode == "info" ||
                 this.mode == "success" ||
                 this.mode == "request"
