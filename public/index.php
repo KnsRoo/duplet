@@ -25,7 +25,7 @@ $di = Di::instance();
 
 $router = Router::init();
 
-$catalogAPI = new API\Catalog\V2\Controller;
+$catalogAPI = new API\Catalog\V3\Controller;
 $newsAPI = new API\News\V4\Controller;
 $cartAPI = new API\Cart\V1\Controller;
 $authAPI = new API\Auth\V1\Basic\Controller;

@@ -1,6 +1,6 @@
 <?php
 
-namespace API\Catalog\V2\Factory;
+namespace API\Catalog\V3\Factory;
 
 class QueryParams {
 
@@ -44,6 +44,22 @@ class QueryParams {
 
         $order = (Object)json_decode($_GET['order'] ?? null);
         return $order;
+    }
+
+    public static function getEasyOrder() {
+
+        if (!isset($_GET['order']) || !is_string($_GET['order']))
+            $_GET['order'] = null;
+
+        return $_GET['order'];
+    }
+
+    public static function getSort() {
+
+        if (!isset($_GET['sort']) || !is_string($_GET['sort']))
+            $_GET['sort'] = null;
+
+        return $_GET['sort'];
     }
 
     public static function getTags() {

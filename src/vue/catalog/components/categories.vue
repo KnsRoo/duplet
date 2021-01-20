@@ -59,13 +59,14 @@ export default {
     },
 
     methods: {
-        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems"]),
+        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems", "sortItems"]),
         ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
 
         toggleCats() {
             this.show = !this.show;
         },
-        toggleSort(type) {
+
+        async toggleSort(type) {
             switch (this.sortType){
                 case 0: this.sortType = (type == 'name') ? 1 : 4; break
                 case 1: this.sortType = (type == 'name') ? 2 : 4; break
@@ -73,7 +74,7 @@ export default {
                 case 3: this.sortType = (type == 'name') ? 2 : 4; break
                 case 4: this.sortType = (type == 'name') ? 1 : 3; break
             }
-            console.log(this.sortType)
+            await this.sortItems(this.sortType);
         },
 
         switchToCatalog() {

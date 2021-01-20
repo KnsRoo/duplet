@@ -6,7 +6,7 @@
 		img.card__img(:src = "product.picture")
 	.card__content
 		.card__content_title
-			.card__content_title_name {{ product.title.replace('\"','"') }}
+			.card__content_title_name {{ product.title.replaceAll('\\\"','"') }}
 			.card__content_title_price
 				.first__price {{ product.price+' ₽' }}
 				.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
@@ -50,6 +50,9 @@ export default {
         itemImage() {
             return this.product.picture;
         }
+    },
+    created(){
+        console.log(this.$props.product.title)
     }
 };
 </script>
