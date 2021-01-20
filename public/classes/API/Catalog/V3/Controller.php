@@ -1,6 +1,6 @@
 <?php
 
-namespace API\Catalog\V2;
+namespace API\Catalog\V3;
 
 use Websm\Framework\Response;
 use Websm\Framework\Router\Router;
@@ -40,6 +40,9 @@ class Controller extends Response {
 
         $group->addGet('/groups/:id/subgroups', [$this, 'getSubgroups'])
             ->setName('api:catalog:v2:subgroups');
+
+        $group->addGet('/groups/:id/subproducts', [$this, 'getAllSubproducts'])
+            ->setName('api:catalog:v2:subproducts');
 
         $group->addGet('/products', [$this, 'getProducts'])
             ->setName('api:catalog:v2:products');
@@ -319,7 +322,8 @@ class Controller extends Response {
 
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
-        $order = Factory\QueryParams::getOrder();
+        $order = Factory\QueryParams::getEasyOrder();
+        $sort = Factory\QueryParams::getSort();
         $tags = Factory\QueryParams::getTags();
         $props = Factory\QueryParams::getProps();
         $query = Factory\QueryParams::getQuery();
@@ -327,7 +331,7 @@ class Controller extends Response {
         $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
         $qb = Factory\Filters\QB\Props::filter($qb, $props);
         $qb = Factory\Filters\QB\Query::filter($qb, $query);
-        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+        $qb = Factory\Filters\QB\OrderProducts::easyFilter($qb, $order, $sort);
 
         $qbCnt = clone $qb;
 
@@ -378,5 +382,135 @@ class Controller extends Response {
                 die(file_get_contents(__DIR__ . "/doc/${rel}.yml"));
                 break;
         }
+    }
+
+    private function getChildrenGroups($group,$groups){
+        $groups[] = $group->id;
+        foreach ($group->getGroups() as $group){
+            $groups = $this->getChildrenGroups($group, $groups);
+        }
+        return $groups;
+    }
+
+    public function getAllSubproducts($req, $next) {
+
+        $offset = Factory\QueryParams::getOffset();
+        $limit = Factory\QueryParams::getLimit();
+        $order = Factory\QueryParams::getEasyOrder();
+        $sort = Factory\QueryParams::getSort();
+        $tags = Factory\QueryParams::getTags();
+        $props = Factory\QueryParams::getProps();
+        $query = Factory\QueryParams::getQuery();
+
+        $groupId = $req['id'];
+
+        $group = Group::find([ 'id' => $groupId, 'visible' => true ])
+            ->get();
+
+        try {
+
+            if ($group->isNew())
+                throw new Exceptions\HTTP('group not found', 404);
+
+        } catch(Exceptions\HTTP $e) {
+
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
+        }
+
+        $childs = Childs::find(['id' => $groupId])
+                    ->get();
+
+        $qb = Product::find()
+            ->where("`cid` IN ".$childs->childs)
+            ->andWhere(['visible' => true]);
+
+        $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
+        $qb = Factory\Filters\QB\Props::filter($qb, $props);
+        $qb = Factory\Filters\QB\Query::filter($qb, $query);
+        $qb = Factory\Filters\QB\OrderProducts::easyFilter($qb, $order, $sort);
+
+        $qbCnt = clone $qb;
+
+        $products = $qb->limit([ $offset, $limit ])
+            ->getAll();
+
+        $total = (Integer)$qbCnt->count();
+
+        $result = Factory\HAL\Subproducts::get([
+            'group' => $group,
+            'items' => $products,
+            'offset' => $offset,
+            'limit' => $limit,
+            'total' => $total,
+        ]);
+
+        $this->hal($result);
+    }
+
+    public function getSubproductsRecursive($req, $next) {
+
+        $offset = Factory\QueryParams::getOffset();
+        $limit = Factory\QueryParams::getLimit();
+        $order = Factory\QueryParams::getOrder();
+        $tags = Factory\QueryParams::getTags();
+        $props = Factory\QueryParams::getProps();
+        $query = Factory\QueryParams::getQuery();
+
+        $groupId = $req['id'];
+
+        $group = Group::find([ 'id' => $groupId, 'visible' => true ])
+            ->get();
+
+        try {
+
+            if ($group->isNew())
+                throw new Exceptions\HTTP('group not found', 404);
+
+        } catch(Exceptions\HTTP $e) {
+
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
+        }
+
+        $groupslist = [];
+
+        $groupslist = $this->getChildrenGroups($group,$groupslist);
+        $qb = Product::find(['cid' => $groupslist])
+            ->andWhere(['visible' => true]);
+
+        // $childs = "('".implode("','",$groupslist)."')";
+
+
+
+        $qb = Factory\Filters\QB\Tags::filter($qb, $tags);
+        $qb = Factory\Filters\QB\Props::filter($qb, $props);
+        $qb = Factory\Filters\QB\Query::filter($qb, $query);
+        $qb = Factory\Filters\QB\OrderProducts::filter($qb, $order);
+
+        $qbCnt = clone $qb;
+
+        $products = $qb->limit([ $offset, $limit ])
+            ->getAll();
+
+        $total = (Integer)$qbCnt->count();
+
+        $result = Factory\HAL\Subproducts::get([
+            'group' => $group,
+            'items' => $products,
+            'offset' => $offset,
+            'limit' => $limit,
+            'total' => $total,
+        ]);
+
+        $this->hal($result);
     }
 }

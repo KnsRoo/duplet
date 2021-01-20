@@ -1,0 +1,74 @@
+openapi: "3.0.1"
+info:
+  title: catalog api
+  contact:
+    name: API Support
+    email: dmitrym.dev@websm.io
+  version: 1.0.0
+
+paths:
+  /:
+    get:
+      summary: get list of products
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: integer
+          description: first product number
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: limit products number
+        - name: order
+          in: query
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+          explode: true
+          style: deepObject
+          example:
+            sort: asc
+            title: desc
+            creationDate: asc
+            code: asc
+            price: desc
+        - name: tags
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          example:
+            - discount 30%
+        - name: props
+          in: query
+          schema:
+            type: string
+          description: json string
+          example: [["Высота", ">=", 300],["Местность", "contains", "Болото"],["Длина": 200]]
+          examples:
+            - [["Высота", ">=", 300],["Местность", "contains", "Болото"]]
+            - [["Высота", "=", 300]]
+            - [["Высота", ">", 300]]
+            - [["Высота", 300]]
+      responses:
+        '200':
+          description: list of products
+          content:
+            application/hal+json:
+              schema:
+                type: any
+        '500':
+          description: server error
+          content:
+            application/hal+json:
+              schema:
+                properties:
+                  errors:
+                    items:
+                      properties:
+                        message:
+                          type: string

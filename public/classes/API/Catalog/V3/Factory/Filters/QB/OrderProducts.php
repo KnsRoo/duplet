@@ -1,6 +1,6 @@
 <?php
 
-namespace API\Catalog\V2\Factory\Filters\QB;
+namespace API\Catalog\V3\Factory\Filters\QB;
 use Websm\Framework\Exceptions\BaseException;
 
 class OrderProducts {
@@ -17,6 +17,12 @@ class OrderProducts {
         'price' => 'price',
         'sort' => 'sort',
     ];
+
+    public static function easyFilter($qb, $order, $sort){
+        if ($order && $sort)
+            $qb = $qb->order(['`'.$order.'` '.$sort]);
+        return $qb;
+    }
 
     public static function filter($qb, $order) {
 

@@ -16,4 +16,8 @@ export default {
 		state.catalogItems = state.catalogItems.concat(items)
 		state.next = next
 	},
+
+	setCurrent(state, link){
+		state.current = link;
+	}
 };

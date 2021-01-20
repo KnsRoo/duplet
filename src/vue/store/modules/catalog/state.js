@@ -5,5 +5,6 @@ export default {
     groupId: '',
     filterGroupId:'',
     next: undefined,
+    current: undefined,
     end: false
   };

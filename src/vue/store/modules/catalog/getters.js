@@ -19,5 +19,8 @@ export default {
 	},
 	isEnd(state) {
 		return state.end
+	},
+	current(state){
+		return state.current
 	}
 };
