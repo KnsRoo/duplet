@@ -15,7 +15,7 @@
   .cards {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 315px));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 350px));
     justify-content: center;
     column-gap: 30px;
     row-gap: 40px;
@@ -39,23 +39,4 @@
   }
 }
 
-
-
-.breadcrumbs {
-
-  &__wrapper {
-    display: flex;
-  }
-
-  .link {
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-
-  .separator {
-    margin: 0px 5px 0px 5px;
-  }
-
-}
+@import './catalog-media';

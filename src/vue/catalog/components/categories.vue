@@ -1,6 +1,6 @@
 <template lang="pug">
 .filter_wrapper
-    .catalog-guns__title {{ title }}
+    .catalog__title {{ title }}
     .catalog__cat(v-if = "mode == 'catalog'")
         .catalog__cat__show(@click = "toggleCats()")
             .menu__btn(v-bind:class='{menu__btn_active: show }')
@@ -22,15 +22,11 @@
                     img(v-if = "[0,3,4].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
                     img(v-else-if = "sortType == 1" src="/assets/img/icons/sort_down.svg")
                     img(v-else-if = "sortType == 2" src = "/assets/img/icons/sort_up.svg")
-                    //- .sort__up.icon-filter
-                    //- .sort__down.icon-filter
                 .sort__price(@click = "toggleSort('price')")
                     .sort__price_title  Цене
                     img(v-if = "[0,1,2].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
                     img(v-else-if = "sortType == 3" src="/assets/img/icons/sort_down.svg")
                     img(v-else-if = "sortType == 4" src = "/assets/img/icons/sort_up.svg")
-                    //- .sort__up.icon-filter
-                    //- .sort__down.icon-filter
     .catalog__cat(v-else)
         .catalog__cat__show(@click = "switchToCatalog")
             img.cat_button( src="/assets/img/icons/menu-cancel.svg")
@@ -54,7 +50,7 @@ export default {
             show: false,
             sortType: 0,
             breadCrumbs: [],
-            active: ''
+            active: ""
         };
     },
 
@@ -94,19 +90,18 @@ export default {
             for (let i = 0; i < diff; i++) this.breadCrumbs.pop();
             await this.fetchCatalogGroups(item._links.subgroups.href);
             await this.fetchCatalogItems(item._links.subproducts.href);
-            this.active = ''
+            this.active = "";
         },
 
         async setGroup(item) {
             this.title = item.title;
             this.active = item.title;
-            if (this.isEnd){
+            if (this.isEnd) {
                 this.breadCrumbs.pop();
             }
             this.breadCrumbs.push(item);
             await this.fetchCatalogGroups(item._links.subgroups.href);
             await this.fetchCatalogItems(item._links.subproducts.href);
-            
         }
     },
     computed: {
