@@ -11,8 +11,7 @@ transition(name="fade")
             a.switch(@click="switchMode('restore')") Подтверждение
         .registration
             .registration__wrapper(v-if="mode == 'login'")
-                a#close_btn_avtorisation.js-close(@click = "close")
-                    img.registration__close(src="/assets/img/icons/delete.svg")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                 .registration__title Вход в личный кабинет
                 .registration__tip
                     span.noaccount Ещё нет аккаунта?

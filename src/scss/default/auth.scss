@@ -159,6 +159,17 @@ input[type=number] {
         max-width: 490px;
         transition-property: opacity;
         transition-duration: 3s;
+
+        .icon-menu-cancel {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 30px;
+            cursor: pointer;
+
+            &:hover {
+                color: #9D2F2F;
+            }
+        }
     }
 
     &__inner {
