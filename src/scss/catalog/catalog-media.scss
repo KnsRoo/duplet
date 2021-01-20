@@ -1,7 +1,15 @@
-@media (max-width: 1230px) {
+@media (max-width: 1680px) {
   .catalog {
     .cards {
-      grid-template-columns: repeat(3, minmax(220px, 315px));
+      grid-template-columns: repeat(4, minmax(220px, 315px));
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .catalog {
+    .cards {
+      grid-template-columns: repeat(3, minmax(220px, 415px));
     }
   }
 }
@@ -9,7 +17,7 @@
 @media (max-width: 992px) {
   .catalog {
     .cards {
-      grid-template-columns: repeat(2, minmax(220px, 315px));
+      grid-template-columns: repeat(2, minmax(220px, 350px));
     }
   }
 }
