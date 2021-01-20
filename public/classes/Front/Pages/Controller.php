@@ -57,6 +57,7 @@ class Controller extends Response
         $html = $this->render(__DIR__ . '/temp/404.tpl');
 
         $this->layout
+           ->setSrc('404')
            ->setContent($html);
     }
 }

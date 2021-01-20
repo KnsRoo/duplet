@@ -12,8 +12,8 @@
 			img(:src="cartItem.picture" alt='')
 		.card__text
 			.card__text_title
-				.card__text_title_subtitle {{ cartItem.title }}
-				.card__important !
+				.card__text_title_subtitle {{ cartItem.title.replaceAll('\\\"','"') }}
+				.card__important(v-if = "cartItem.status === 'reserved'") !
 	.card__discount 100%
 	.card__price ₽ {{ cartItem.price }}
 	.card__number {{ cartItem.count }}

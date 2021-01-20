@@ -1,9 +1,14 @@
 import ky from 'ky'
+import noty from '../../../../js/components/noty';
 
 export default {
 
 	async fetchCatalogGroups({ commit }, link) {
 		let result = await ky.get(link).json()
+		if (result.status === 'error') {
+			noty('error','Ошибка при получении данных. Код ошибки 1441')
+			return
+		}
 		commit('setCatalogGroups', result._embedded.items)
 	},
 
@@ -35,6 +40,10 @@ export default {
 	async fetchCatalogItems({ commit }, link) {
 		commit('setCurrent', link)
 		let result = await ky.get(link).json()
+		if (result.status === 'error') {
+			noty('error','Ошибка при получении данных. Код ошибки 1442')
+			return
+		}
 		let items = result._embedded.items
 		let next = result._links.next ? result._links.next.href : null
 		commit('setCatalogProducts', { items, next})
@@ -42,6 +51,10 @@ export default {
 
 	async nextItems({ commit, state }) {
 		let result = await ky.get(state.next).json()
+		if (result.status === 'error') {
+			noty('error','Ошибка при получении данных. Код ошибки 1443')
+			return
+		}
 		let items = result._embedded.items
 		let next = result._links.next ? result._links.next.href : null
 		commit('addCatalogProducts', { items, next})

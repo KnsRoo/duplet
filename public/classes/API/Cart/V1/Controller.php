@@ -17,6 +17,9 @@ use Rs\Json\Patch\InvalidTargetDocumentJsonException;
 use Rs\Json\Patch\InvalidOperationException;
 use Websm\Framework\Cart\Item;
 
+use Model\Catalog\Group;
+use Model\Catalog\Childs;
+
 class Controller extends Response
 {
     public function __construct()
@@ -75,12 +78,36 @@ class Controller extends Response
         return $group;
     }
 
+    private function getItemsStatus($items){
+
+        $statuses = [];
+        $specialArray = [];
+        $speacialGroups = Group::byTags(['Бронирование'])
+            ->getAll();
+
+        foreach ($speacialGroups as $group) {
+            $childs = Childs::find(['id' => $group->id])->get();
+            $arr = $childs->getChildArray();
+            $specialArray = array_merge($specialArray,$arr);
+        }
+
+        foreach ($items as $item) {
+            $statuses[$item->product->id] = (in_array($item->product->cid,$specialArray)) ? 'reserved' : 'ready';
+        }
+
+        return $statuses;
+    }
+
     public function getItems($req, $next)
     {
         try {
 
             $items = $this->cart->getItems();
-            $result = Factory\HAL\Items::get(['items' => $items]);
+            $statuses = $this->getItemsStatus($items);
+            $result = Factory\HAL\Items::get([
+                'items' => $items,
+                'statuses' => $statuses
+                ]);
             $this->hal($result);
         } catch (HTTPException $e) {
 

@@ -46,6 +46,7 @@ class Item {
 
         $item = $params['item'];
         $result = $item->asArray();
+        $result['status'] = $params['status'];
         $result['_links'] = self::getLinks(['item' => $item]);
         $result['_embedded'] = self::getEmbedded(['item' => $item]);
         return $result;

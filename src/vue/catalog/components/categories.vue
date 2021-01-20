@@ -62,15 +62,30 @@ export default {
             this.show = !this.show;
         },
 
+        /*
+            sort Types:
+            -----------
+            0 | not soted
+            1 | title A-Z
+            2 | title Z-A
+            3 | price 0-∞
+            4 | price ∞-0
+        */
+
         async toggleSort(type) {
-            switch (this.sortType){
-                case 0: this.sortType = (type == 'name') ? 1 : 4; break
-                case 1: this.sortType = (type == 'name') ? 2 : 4; break
-                case 2: this.sortType = (type == 'name') ? 1 : 3; break
-                case 3: this.sortType = (type == 'name') ? 2 : 4; break
-                case 4: this.sortType = (type == 'name') ? 1 : 3; break
+            try {
+                switch (this.sortType){
+                    case 0: this.sortType = (type == 'name') ? 1 : 4; break
+                    case 1: this.sortType = (type == 'name') ? 2 : 4; break
+                    case 2: this.sortType = (type == 'name') ? 1 : 3; break
+                    case 3: this.sortType = (type == 'name') ? 2 : 4; break
+                    case 4: this.sortType = (type == 'name') ? 1 : 3; break
+                    default: throw new Error(`Unsupported sort type (${this.sortType})`); break;
+                }
+                await this.sortItems(this.sortType);
+            } catch (e) {
+                console.error(e.message)
             }
-            await this.sortItems(this.sortType);
         },
 
         switchToCatalog() {

@@ -45,12 +45,14 @@ class Items {
     public static function getEmbedded($params) {
 
         $items = $params['items'];
+        $statuses = $params['statuses'];
         $result = [];
 
         foreach($items as $item) {
 
             $item = Item::get([
                 'item' => $item,
+                'status' => $statuses[$item->product->id]
             ]);
 
             $result[] = $item;
@@ -64,10 +66,11 @@ class Items {
     public static function get($params) {
 
         $items = $params['items'];
+        $statuses = $params['statuses'];
 
         return [
             '_links' => self::getLinks(['items' => $items]),
-            '_embedded' => self::getEmbedded(['items' => $items]),
+            '_embedded' => self::getEmbedded(['items' => $items, 'statuses' => $statuses]),
         ];
     }
 }

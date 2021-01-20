@@ -8,7 +8,7 @@ section.basket
 					.cards__titles_text(v-for="item in ['ПРОДУКТ','СКИДКА','Цена','Количество','Итого']") {{ item }}
 				.cards__items
 					cartItem(v-for="item in getItems" :cartItem="item")
-				.basket__attention
+				.basket__attention(v-if = "reservedExists")
 					.attention__title
 						.attention__title_important !
 						.attention__title_text Внимание!
@@ -88,6 +88,15 @@ export default {
 	},
 	computed: {
 		...mapGetters("cart",["getItems", "getCartStat"]),
+		reservedExists(){
+			let result = false;
+			this.getItems.forEach(val => {
+				if (val.status === 'reserved'){
+					result = true
+				}
+			})
+			return result
+		}
 	},
 	methods: {
 		...mapActions("cart", ["fetchItems"]),
