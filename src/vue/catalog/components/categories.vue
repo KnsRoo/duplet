@@ -55,7 +55,7 @@ export default {
     },
 
     methods: {
-        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems", "sortItems"]),
+        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems", "fetchSortedCatalogItems", "sortItems"]),
         ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
 
         toggleCats() {
@@ -98,13 +98,22 @@ export default {
             await this.fetchCatalogGroups(
                 `${window.location.origin}/api/catalog/base/groups`
             );
+            if (this.sortType){
+                await this.fetchSortedCatalogItems({ link: `${window.location.origin}/api/catalog/products`, sort: this.sortType });
+            } else {
+                await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`);
+            }
         },
 
         async back(index, item) {
             let diff = this.breadCrumbs.length - index - 1;
             for (let i = 0; i < diff; i++) this.breadCrumbs.pop();
             await this.fetchCatalogGroups(item._links.subgroups.href);
-            await this.fetchCatalogItems(item._links.subproducts.href);
+            if (this.sortType){
+                await this.fetchSortedCatalogItems({ link: item._links.subproducts.href, sort: this.sortType });
+            } else {
+                await this.fetchCatalogItems(item._links.subproducts.href);
+            }
             this.active = "";
         },
 
@@ -116,7 +125,11 @@ export default {
             }
             this.breadCrumbs.push(item);
             await this.fetchCatalogGroups(item._links.subgroups.href);
-            await this.fetchCatalogItems(item._links.subproducts.href);
+            if (this.sortType){
+                await this.fetchSortedCatalogItems({ link: item._links.subproducts.href, sort: this.sortType });
+            } else {
+                await this.fetchCatalogItems(item._links.subproducts.href);
+            }
         }
     },
     computed: {

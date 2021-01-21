@@ -37,6 +37,11 @@ export default {
 
 	},
 
+	async fetchSortedCatalogItems({commit, dispatch}, {link, sort}){
+		commit('setCurrent', link)
+		await dispatch('sortItems', sort)
+	},
+
 	async fetchCatalogItems({ commit }, link) {
 		commit('setCurrent', link)
 		let result = await ky.get(link).json()
