@@ -12,7 +12,7 @@
 			img(:src="cartItem.picture" alt='')
 		card__text
 			.card__text_title 
-				.card__text_title_subtitle {{ cartItem.title.replaceAll('\\\"','"') }}
+				.card__text_title_subtitle {{ cartItem.title }}
 				.card__important(v-if = "cartItem.status === 'reserved'")
 					.card__important_icon !
 					.card__important_text Товар доступен только для резервирования

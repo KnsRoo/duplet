@@ -41,7 +41,7 @@ class Product {
 
         return [
             'id' => (String)$item->id,
-            'title' => (String)$item->title,
+            'title' => mb_ereg_replace('\\\"','"',(String)$item->title),
             'pageRef' => $pageRef,
             'code' => (String)$item->code,
             'price' => (float)$item->price,
