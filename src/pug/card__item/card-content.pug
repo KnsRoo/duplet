@@ -1,0 +1,63 @@
+include ../mixins/card.pug
+//- section.card__box
+//-     .wrapper
+//-         .card__item
+//-             .card__grid
+//-                 .card-slider
+//-                     .side__slider
+//-                         .hz
+//-                         .hz
+//-                         .hz
+//-                         .hz
+//-                         .hz
+//-                     .main__slider
+//-                         img.slider-main__img(src="../../assets/img/big-gun.png", alt="")
+//-                 .card-common
+//-                     .common__title 
+//-                         .common__title_name Гладкоствольное ружье 
+//-                         .common__title_brand
+//-                             .common__title_brand_name Бренд:
+//-                             .common__title_brand_title Тульский оружейный завод
+//-                     h1.common__name ТОЗ-34Р (орех)
+//-                     p.common__text.
+//-                         Двухствольное охотничье ружьё лёгкого типа с низкой посадкой стволов,
+//-                         предназначенное для промысловой и любительской охоты, 
+//-                         разработанное  конструктором-оружейником Н. И. Коровяковым.
+//-                     .common__price
+//-                         .common__price_discount ₽ 45 999
+//-                         .common__price_cost ₽ 39 999
+//-                         .common__price_available В наличии
+//-                     .common__order
+//-                         input.input__number(type="number")
+//-                         button.input__submit(type="submit") в корзину
+//-                         figure.icon-liked
+//-                     .common__category
+//-                         .common__category_title Категория:
+//-                         .common__category_name Ружья
+//-             include card__wrapper.pug
+//- include card-similar-things.pug
+//- include card-recently-seen.pug
+.swiper-container.gallery-top
+    .swiper-wrapper
+        .swiper-slide
+            +card('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+    .swiper-button-next.swiper-button-white
+    .swiper-button-prev.swiper-button-white
+.swiper-container.gallery-thumbs
+    .swiper-wrapper
+        .swiper-slide
+            +card('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+        .swiper-slide
+            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+
+

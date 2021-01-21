@@ -78,20 +78,47 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    position: absolute;
-                    right: -35px;
-                    width: 25px;
+                    color: #000;
+                    overflow: hidden;
                     height: 25px;
-                    border-radius: 50%;
-                    background-color: #9D2F2F;
-                    color: white;
+                    cursor: pointer;
+                    background: #9D2F2F;
+                    border-radius: 50px;
+                    color: #fff;
+                    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                    &_icon {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 25px;
+                        height: 25px;
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
+
+                    &_text {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        line-height: 16px;
+                        width: 0;
+                        border-radius: 50px;
+                        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    }
+
+                    &:hover .card__important_text {
+                        width: 330px;
+                        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    }
                 }
 
                 &_subtitle {
-                    max-width: 235px;
+                    min-width: 160px;
                     height: 82px;
                 }
             }
+
 
             &_block {
                 .card__brand {

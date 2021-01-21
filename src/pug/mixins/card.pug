@@ -1,5 +1,5 @@
 mixin card(title)
-    a.card.discount(href="#")
+    .card.discount
         .discount__percent 15%
         .favorite__cross.icon-menu-cancel
         .card__block
@@ -12,7 +12,7 @@ mixin card(title)
                     .discount__price ₽ 34 999
             figure.icon-add
 mixin card__widthout(title)
-    a.card.discount(href="#")
+    .card.discount
         .discount__percent 15%
         .favorite__cross.icon-menu-cancel
         .card__block
@@ -24,7 +24,7 @@ mixin card__widthout(title)
                     .discount__price ₽ 34 999
             figure.icon-add
 mixin card__termos(title)
-    a.card.discount(href="#")
+    .card.discount
         .discount__percent 15%
         .favorite__cross.icon-menu-cancel
         .card__block
@@ -37,7 +37,7 @@ mixin card__termos(title)
                     .discount__price ₽ 34 999
             figure.icon-add
 mixin favorite(title)
-    a.card.discount.favorite(href="#")
+    .card.discount.favorite
         .discount__percent 15%
         .favorite__cross.icon-menu-cancel
         .card__block

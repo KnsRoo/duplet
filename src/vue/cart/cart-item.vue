@@ -10,10 +10,12 @@
 	.card__des
 		.card__img
 			img(:src="cartItem.picture" alt='')
-		.card__text
-			.card__text_title
+		card__text
+			.card__text_title 
 				.card__text_title_subtitle {{ cartItem.title.replaceAll('\\\"','"') }}
-				.card__important(v-if = "cartItem.status === 'reserved'") !
+				.card__important(v-if = "cartItem.status === 'reserved'")
+					.card__important_icon !
+					.card__important_text Товар доступен только для резервирования
 	.card__discount 100%
 	.card__price ₽ {{ cartItem.price }}
 	.card__number {{ cartItem.count }}
@@ -23,25 +25,24 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-	data(){
-		return{
-		}
-	},
-	computed: {
-		fullPrice: function () {
-			const count = parseInt(this.$props.cartItem.count)
-			const price = parseFloat(this.$props.cartItem.price)
-			return count*price
-		}
-	},
-	methods: {
-		...mapActions("cart", ["removeFromCart"]),
-	},
-	props: {
-		cartItem: Object
-	}
-}
+    data() {
+        return {};
+    },
+    computed: {
+        fullPrice: function() {
+            const count = parseInt(this.$props.cartItem.count);
+            const price = parseFloat(this.$props.cartItem.price);
+            return count * price;
+        }
+    },
+    methods: {
+        ...mapActions("cart", ["removeFromCart"])
+    },
+    props: {
+        cartItem: Object
+    }
+};
 </script>
