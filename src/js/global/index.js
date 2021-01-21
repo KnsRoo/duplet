@@ -1,29 +1,40 @@
 import { burgerToogler, 
-         searchToogler,
-         mobileSearchToogler 
+         searchToogler
 } from './tooglers.js'
 
 import ModalLogin from '../../vue/ModalLogin'
 
 export default function initGlobalScripts() {
     new burgerToogler()
-    new searchToogler()
-    new mobileSearchToogler()
+    new searchToogler({
+        box : '.search__box',
+        searchBtn : '.search__btn',
+        cancelBtn : '.cancel__btn',
+        input : '.js-query'
+    },
+    {
+        '.search__box' : 'active',
+        '.input__search' : 'input__active',
+        '.search__btn' : 'search__btn_active',
+        '.cancel__btn' : 'cancel__btn_active',
+        '.phone' : 'phone__hidden',
+        '.profile' : 'profile__hidden',
+        '.nav' : 'nav__hidden',
+    })
+
+    new searchToogler({
+        box : '.search__box_mobile',
+        searchBtn : '.search__btn_mobile',
+        cancelBtn : '.cancel__btn_mobile',
+        input : '.js-query-m'
+    },{
+        '.search__box_mobile' : 'active',
+        '.input__search_mobile' : 'input__active',
+        '.search__btn_mobile' : 'search__btn_active',
+        '.cancel__btn_mobile' : 'cancel__btn_active',
+        '.block__first' : 'block__first_hidden',
+        '.mobile__block' : 'mobile__block_active',
+        '.block__second' : 'block__second_active',
+    })
     window.modalLogin = new ModalLogin()
-
-    const rules = {
-    	'.js-search' : '.js-query',
-    	// '.js-search-m' : '.js-query-m'
-    }
-    for (let [k, v] of Object.entries(rules)){
-    	const button = document.querySelector(k),
-    		  input  = document.querySelector(v);
-
-    	button.addEventListener('click', (e) => {
-    		if (input.classList.contains('input__active')){
-    			window.location.href = `/catalog?query=${input.value}`
-    		}
-    		
-    	})
-    }
 }

@@ -51,8 +51,5 @@ export default {
             return this.product.picture;
         }
     },
-    created(){
-        console.log(this.$props.product.title)
-    }
 };
 </script>

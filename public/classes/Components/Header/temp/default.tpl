@@ -4,7 +4,7 @@
     <div class="header__flex">
       <div class="mobile__block">
         <div class="menu__btn"><span></span><span></span><span></span></div>
-        <div class="search__box_mobile"><input class="input__search_mobile js-query" placeholder="Введите для поиска ...">
+        <div class="search__box_mobile"><input class="input__search_mobile js-query-m" placeholder="Введите для поиска ...">
           <div class="search__btn_mobile js-search">
             <figure class="icon-search"></figure>
           </div>
@@ -22,7 +22,7 @@
             <div class="phone__number"><?= $phone ?></div>
           <?php endforeach ?>
         </div>
-        <div class="search__box"><input class="input__search js-query-m" placeholder="Введите для поиска ...">
+        <div class="search__box"><input class="input__search js-query" placeholder="Введите для поиска ...">
           <div class="search__btn js-search-m">
             <figure class="icon-search"></figure>
           </div>

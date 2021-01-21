@@ -16,52 +16,39 @@ export class burgerToogler{
 }
 
 export class searchToogler{
-    constructor(){
-        this.tooglers = {
-            '.search__box' : 'active',
-            '.input__search' : 'input__active',
-            '.search__btn' : 'search__btn_active',
-            '.cancel__btn' : 'cancel__btn_active',
-            '.phone' : 'phone__hidden',
-            '.profile' : 'profile__hidden',
-            '.nav' : 'nav__hidden',
+    constructor(selectors,tooglers){
+        this.selectors = selectors
+        this.tooglers = tooglers
+
+        document.querySelector(this.selectors.searchBtn).onclick = this.show
+        document.querySelector(this.selectors.cancelBtn).onclick = this.close
+
+        document.querySelector(this.selectors.input).addEventListener('keyup', (e) => {
+            if (e.key === 'Enter'){
+                this.goSearch()
+            }
+        })
+    }
+
+    get isActive(){
+        return document.querySelector(this.selectors.box).classList.contains('active')
+    }
+
+    goSearch = () => {
+        let value = document.querySelector(this.selectors.input).value
+        if (value.length > 3){
+            window.location.href = `/catalog?query=${value}`
         }
-        document.querySelector('.search__btn').onclick = this.show
-        document.querySelector('.cancel__btn').onclick = this.close
     }
 
     show = () => {
-        for (let [key, value] of Object.entries(this.tooglers)){
-            document.querySelector(key).classList.add(value)
-        }      
-    }
-
-    close = () => {
-        for (let [key, value] of Object.entries(this.tooglers)){
-            document.querySelector(key).classList.remove(value)
-        }      
-    }
-}
-
-export class mobileSearchToogler{
-    constructor(){
-        this.tooglers = {
-            '.search__box_mobile' : 'active',
-            '.input__search_mobile' : 'input__active',
-            '.search__btn_mobile' : 'search__btn_active',
-            '.cancel__btn_mobile' : 'cancel__btn_active',
-            '.block__first' : 'block__first_hidden',
-            '.mobile__block' : 'mobile__block_active',
-            '.block__second' : 'block__second_active',
-        }
-        document.querySelector('.search__btn_mobile').onclick = this.show
-        document.querySelector('.cancel__btn_mobile').onclick = this.close
-    }
-
-    show = () => {
-        for (let [key, value] of Object.entries(this.tooglers)){
-            document.querySelector(key).classList.add(value)
-        }      
+        if (this.isActive){
+            this.goSearch()
+        } else {
+            for (let [key, value] of Object.entries(this.tooglers)){
+                document.querySelector(key).classList.add(value)
+            }  
+        }    
     }
 
     close = () => {
