@@ -17,7 +17,6 @@ export default {
                 commit('setUser', data)
                 await dispatch('fetchProps', data._links.props.href)
                 await dispatch('fetchOrders', data._links.orders.href)
-                await dispatch('fetchDiscountCards', data._links['discount-cards'].href)
             }
         }
         catch {
@@ -60,78 +59,62 @@ export default {
             noty("error", "Ошибка получения данных Код ошибки 2443");
         } 
     },
-    async fetchDiscountCards({commit}, link){
-        try {
-            const response = await authfetch(link, {
-                method: 'GET',
-            })
 
-            if(response.errors) {
-                console.log(response.errors)
-            }
-            else {
-                const data = await response.json();
-                commit('setUserDiscountCards', data)
-            }
+    async saveUser({dispatch, getters}, changed){
+        if (changed.name != ''){
+            await dispatch('resetName',changed.name)
         }
-        catch {
-            noty("error", "Ошибка получения данных Код ошибки 2444");
-        } 
-    },
-    async saveUser({dispatch}, info){
-        await dispatch('resetEmail',info.email)
-        await dispatch('resetName',info.name)
-        await dispatch('resetPhone',info.phone)
-        await dispatch('resetCardNumber',info.discount)
+        if (changed.phone != ''){
+            await dispatch('resetPhone',changed.phone)
+        }
+        if (changed.email != ''){
+            await dispatch('resetEmail',changed.email)
+        }
+        if (changed.address != ''){
+            await dispatch('resetAddress',changed.address)
+        }
+        if (changed.dicount != ''){
+            await dispatch('resetCardNumber',changed.discount)
+        }    
         await dispatch('fetchUser')
     },
+
     async resetPhone(ctx, phone){
+        console.log(phone)
         try {
-            const response = await authfetch('/api/user/phone', {
+            const response = await authfetch(`${window.location.origin}/api/user/phone`, {
                 method: 'PUT',
                 body: JSON.stringify({
-                    email,
+                    phone: '7'+phone,
                 }),
             })
             if(response.errors) {
-                this.errors.push("Ошибка записи телефона!");
-                return false;
-            }
-            else {
-                this.errors = [];
-                return true;
+                console.log(response.errors)
             }
         }
         catch {
-            this.errors.push("Ошибка записи email!");
-            return false;
+            noty('error', 'Ошибка записи телефона')
         }
     },
     async resetEmail(ctx, email){
         try {
-            const response = await authfetch('/api/user/email', {
+            const response = await authfetch(`${window.location.origin}/api/user/email`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     email,
                 }),
             })
             if(response.errors) {
-                this.errors.push("Ошибка записи email!");
-                return false;
-            }
-            else {
-                this.errors = [];
-                return true;
+                console.log(response.errors)
             }
         }
         catch {
-            this.errors.push("Ошибка записи email!");
-            return false;
+            noty('error', 'Ошибка записи email')
         }
     },
     async resetName(ctx, name){
         try {
-            const response = await authfetch('/api/user/props', {
+            const response = await authfetch(`${window.location.origin}/api/user/props`, {
                 method: 'PATCH',
                 body: JSON.stringify([{
                     op: 'add',
@@ -140,22 +123,34 @@ export default {
                 }]),
             })
             if(response.errors) {
-                this.errors.push("Ошибка записи имени!");
-                return false;
-            }
-            else {
-                this.errors = [];
-                return true;
+                console.log(response.errors)
             }
         }
         catch {
-            this.errors.push("Ошибка записи имени!");
-            return false;
+            noty('error', 'Ошибка записи Имени')
+        }
+    },
+    async resetAddress(ctx, address){
+        try {
+            const response = await authfetch(`${window.location.origin}/api/user/props`, {
+                method: 'PATCH',
+                body: JSON.stringify([{
+                    op: 'add',
+                    path: '/address',
+                    value: address,
+                }]),
+            })
+            if(response.errors) {
+                console.log(response.errors)
+            }
+        }
+        catch {
+            noty('error', 'Ошибка записи адреса')
         }
     },
     async resetCardNumber(ctx, cardNumber){
         try {
-            const response = await authfetch('/api/user/props', {
+            const response = await authfetch(`${window.location.origin}/api/user/props`, {
                 method: 'PATCH',
                 body: JSON.stringify([{
                     op: 'add',
@@ -164,17 +159,11 @@ export default {
                 }]),
             })
             if(response.errors) {
-                this.errors.push("Ошибка записи номера карты 1!");
-                return false;
-            }
-            else {
-                this.errors = [];
-                return true;
+                console.log(response.errors)
             }
         }
         catch {
-            this.errors.push("Ошибка записи номера карты 2!");
-            return false;
+            noty('error', 'Ошибка записи номера карты')
         }
     }
 }

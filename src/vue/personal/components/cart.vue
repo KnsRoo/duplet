@@ -8,10 +8,10 @@
 				.card
 					.card__act
 						.card__bookmark
-							img.card__icon(src="/assets/img/bookmark.svg" alt="")
+							img.card__icon(src="/assets/img/icons/bookmark.svg" alt="")
 							.card__title Отложить
 						.card__delete
-							img.card__icon(src="/assets/img/delete.svg" alt="")
+							img.card__icon(src="/assets/img/icons/delete.svg" alt="")
 							.card__title Удалить
 					.card__des
 						.card__img

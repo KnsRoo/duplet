@@ -46,6 +46,7 @@ class Item {
 
         $item = $params['item'];
         $result = $item->asArray();
+        $result['title'] =mb_ereg_replace('\\\"','"',$result['title']);
         $result['status'] = $params['status'];
         $result['_links'] = self::getLinks(['item' => $item]);
         $result['_embedded'] = self::getEmbedded(['item' => $item]);

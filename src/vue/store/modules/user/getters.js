@@ -4,7 +4,8 @@ export default {
 			name: (state.properties.name) ? state.properties.name : '',
 			phone: (state.user.phone) ? state.user.phone : '',
 			email: (state.user.email) ? state.user.email : '',
-			discount: (state.discount._embedded.items[0]) ? state.discount._embedded.items[0] : ''
+			address: (state.properties.address) ? state.properties.address : '',
+			discount: (state.properties.discountCard) ? state.properties.discountCard : ''
 		}
 	},
 	getOrders(state) {

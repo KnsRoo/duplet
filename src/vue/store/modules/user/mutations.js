@@ -8,7 +8,4 @@ export default {
 	setUserOrders(state, data) {
 		state.orders = data
 	},
-	setUserDiscountCards(state, data) {
-		state.discount = data
-	}
 }

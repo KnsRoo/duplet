@@ -12,6 +12,9 @@
 			.input__title e-mail
 			input.input__box(:disabled = "!editable" :class = "{ invalid: !emailValid  }" v-model="info.email")
 		.input
+			.input__title Адрес
+			input.input__box(:disabled = "!editable" v-model="info.address")
+		.input
 			.input__title Номер дисконтной карты
 			the-mask.input__box(:disabled = "!editable" :mask="['#### #### #### ####']" v-model="info.discount")
 	.info__edit(v-if = "!editable" :disabled = "!loaded" @click = "toggleMode()") редактировать данные
@@ -31,7 +34,8 @@ export default {
 				name: '',
 				phone: '',
 				email: '',
-				discount: ''
+				discount: '',
+				address: ''
 			}
 		};
 	},
@@ -63,10 +67,7 @@ export default {
 	},
 	async created(){
 		await this.fetchUser()
-		this.info.name = this.getUser.name
-		this.info.phone = this.getUser.phone
-		this.info.email = this.getUser.email
-		this.info.discount = this.getUser.discount
+		this.info = Object.assign(this.getUser)
 		this.loaded = true
 	}
 }

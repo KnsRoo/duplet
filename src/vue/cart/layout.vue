@@ -47,7 +47,7 @@ section.basket
 					label.custom__label(for='yourself') Самовывоз (г. Сыктывкар)
 				.delivery__mail
 					input.mail__input(v-model = "orderData.name" placeholder='ФИО')
-					input.mail__input(v-model = "orderData.phone" placeholder='Телефон')
+					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон')
 					input.mail__input(v-model = "orderData.city" placeholder='Город')
 					input.mail__input(v-model = "orderData.address" placeholder='Адрес')
 			.delivery__payment
@@ -68,6 +68,7 @@ section.basket
 
 <script>
 import ky from 'ky'
+import { required } from 'vuelidate/lib/validators'
 import cartItem from './cart-item.vue'
 import { mapActions, mapGetters } from 'vuex';
 
@@ -86,8 +87,25 @@ export default {
 	components: {
 		cartItem
 	},
+	validations: {
+		orderData: {
+		 	name : {
+				required,
+			},
+		 	phone : {
+				required,
+			},
+		 	city : {
+				required,
+			},
+		 	address : {
+				required,
+			}
+		}
+	},
 	computed: {
 		...mapGetters("cart",["getItems", "getCartStat"]),
+		...mapGetters("user",["getUser"]),
 		reservedExists(){
 			let result = false;
 			this.getItems.forEach(val => {
@@ -100,9 +118,14 @@ export default {
 	},
 	methods: {
 		...mapActions("cart", ["fetchItems"]),
+		...mapActions("user", ["fetchUser"])
 	},
-		async created() {
-			await this.fetchItems();
-		},
+	async created() {
+		await this.fetchItems();
+		await this.fetchUser();
+		this.orderData.name = this.getUser.name
+		this.orderData.phone = this.getUser.phone
+		this.orderData.address = this.getUser.address
+	},
 }
 </script>
