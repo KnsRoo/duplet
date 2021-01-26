@@ -1,0 +1,34 @@
+.recently__seen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &_title {
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 125%;
+        color: #333333;
+        margin-bottom: 40px;
+    }
+
+    @import '../slider/main-slider';
+}
+
+.similar__things {
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+
+    &_title {
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 125%;
+        color: #333333;
+        margin-bottom: 40px;
+    }
+
+    @import "../slider/main-slider";
+}
+
+@import './card__item__sliders-media.scss';

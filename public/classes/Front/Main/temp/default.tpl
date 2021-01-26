@@ -2,7 +2,7 @@
 	<section class="welcome">
 		<div class="welcome__catalog hidden__992">
 			<div class="welcome__title">
-				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="/catalog">в каталог</a>
+				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn" href="#"><span class="btn__name">в каталог</span></a>
 			</div>
 			<div class="welcome__image">
 				<div class="example">
@@ -18,7 +18,7 @@
 		<div class="welcome__laptop">
 			<div class="welcome__laptop__image">
 				<div class="welcome__laptop__title">
-					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="welcome__to-catalog" href="/catalog">в каталог</a>
+					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn" href="#"><span class="btn__name">в каталог</span></a>
 				</div>
 			</div>
 			<div class="example__laptop">
@@ -49,7 +49,8 @@
 					<div class="choose__mobile">Все товары</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
-							<div class="swiper-slide"><a class="card discount" href="#">
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
@@ -64,8 +65,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"></div>
@@ -80,8 +83,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
@@ -96,8 +101,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"></div>
@@ -112,7 +119,8 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
+								</div>
+							</div>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -124,20 +132,20 @@
 		<div class="wrapper">
 			<h3 class="class__title">Категории товаров</h3>
 			<div class="class__flex">
-				<div class="main__block"><a class="card__item" href="#">
+				<div class="main__block"><a class="card__catalog_link" href="#">
 						<div class="block__title">
 							<div class="block__title_number">01</div>
 							<div class="block__title_main">Ружья</div>
 							<div class="block__title_to-catalog">В каталог</div>
 						</div>
 					</a>
-					<div class="block__cards"><a class="card__item" href="#">
+					<div class="block__cards"><a class="card__catalog_link" href="#">
 							<div class="block__title">
 								<div class="block__title_number">04</div>
 								<div class="block__title_main">Приманки</div>
 								<div class="block__title_to-catalog">В каталог</div>
 							</div>
-						</a><a class="card__item" href="#">
+						</a><a class="card__catalog_link" href="#">
 							<div class="block__title">
 								<div class="block__title_number">05</div>
 								<div class="block__title_main">Боеприпасы</div>
@@ -145,20 +153,20 @@
 							</div>
 						</a></div>
 				</div>
-				<div class="main__block"><a class="card__item" href="#">
+				<div class="main__block"><a class="card__catalog_link" href="#">
 						<div class="block__title">
 							<div class="block__title_number">06</div>
 							<div class="block__title_main">Одежда и обувь</div>
 							<div class="block__title_to-catalog">В каталог</div>
 						</div>
 					</a>
-					<div class="block__cards"><a class="card__item" href="#">
+					<div class="block__cards"><a class="card__catalog_link" href="#">
 							<div class="block__title">
 								<div class="block__title_number">02</div>
 								<div class="block__title_main">Спиннинги</div>
 								<div class="block__title_to-catalog">В каталог</div>
 							</div>
-						</a><a class="card__item" href="#">
+						</a><a class="card__catalog_link" href="#">
 							<div class="block__title">
 								<div class="block__title_number">03</div>
 								<div class="block__title_main">Удочки</div>
@@ -182,7 +190,8 @@
 					<div class="choose__mobile">Все товары</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
-							<div class="swiper-slide"><a class="card discount" href="#">
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
@@ -197,8 +206,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"></div>
@@ -213,8 +224,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
@@ -229,8 +242,10 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
-							<div class="swiper-slide"><a class="card discount" href="#">
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="card discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
 									<div class="card__block"></div>
@@ -245,7 +260,8 @@
 										</div>
 										<figure class="icon-add"></figure>
 									</div>
-								</a></div>
+								</div>
+							</div>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -284,7 +300,7 @@
 							<div class="email__title_main">Оставьте свой e-mail</div>
 							<div class="email__title_notification">И получайте уведомления</div>
 						</div>
-						<div class="email__send"><input class="input_email" type="email" placeholder="Ваш e-mail" required> <button class="input_send" type="submit">Отправить</button></div>
+						<div class="email__send"><input class="input_email" type="email" placeholder="Ваш e-mail" required><a class="btn" href="#"><span class="btn__name">Отправить</span></a></div>
 					</form>
 				</div>
 			</div><a class="to__catalog_link link__center" href="#">Больше акций</a>
@@ -304,7 +320,7 @@
 									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
 										встреча всё же состоялась, то будет полезным знать несколько несложных
 										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="instruction__link" href="#">Читать</a>
+										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
 								</div>
 							</div>
 						</div>
@@ -318,7 +334,7 @@
 									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
 										встреча всё же состоялась, то будет полезным знать несколько несложных
 										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="instruction__link" href="#">Читать</a>
+										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
 								</div>
 							</div>
 						</div>
@@ -332,7 +348,7 @@
 									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
 										встреча всё же состоялась, то будет полезным знать несколько несложных
 										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="instruction__link" href="#">Читать</a>
+										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
 								</div>
 							</div>
 						</div>

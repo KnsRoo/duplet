@@ -87,7 +87,7 @@ class Controller extends Response
         $html = $this->render(self::PATH . 'product.tpl', $data);
 
         $this->layout
-            ->setSrc('catalog')
+            ->setSrc('card__item')
             ->setContent($html);
     }
 }

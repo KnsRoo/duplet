@@ -1,6 +1,23 @@
 <div id="modal-login"></div>
 <header class="header">
   <div class="wrapper">
+    <div class="header__popup">
+      <div class="wrapper"><a class="private-office" href="/lk">
+          <figure class="icon-profile"></figure>
+          <div class="private-office__text">Личный кабинет</div>
+        </a>
+        <ul class="items__link">
+          <li class="item"><a class="catalog_link" href="/catalog">Каталог</a></li>
+          <li class="item"><a class="action_link" href="/404">Акции</a></li>
+          <li class="item"><a class="news_link" href="/news">Новости</a></li>
+          <li class="item"><a class="contacts_link" href="/contacts">Контакты</a></li>
+        </ul>
+        <div class="contacts">
+          <div class="contacts_number">8 (8212) 26-40-00</div>
+          <div class="contacts_number">8 (8212) 40-00-70</div>
+        </div>
+      </div>
+    </div>
     <div class="header__flex">
       <div class="mobile__block">
         <div class="menu__btn"><span></span><span></span><span></span></div>
@@ -39,20 +56,3 @@
     </div>
   </div>
 </header>
-<div class="header__popup">
-  <div class="wrapper"><a class="private-office js-login-btn">
-      <figure class="icon-profile"></figure>
-      <div class="private-office__text">Личный кабинет</div>
-    </a>
-    <ul class="mobile__links">
-      <li><a href="/catalog">Каталог</a></li>
-      <li><a href="#">Акции</a></li>
-      <li><a href="/news">Новости</a></li>
-      <li><a href="/contacts">Контакты</a></li>
-    </ul>
-    <div class="contacts">
-      <div class="contacts_number">8 (8212) 26-40-00</div>
-      <div class="contacts_number">8 (8212) 40-00-70</div>
-    </div>
-  </div>
-</div>
