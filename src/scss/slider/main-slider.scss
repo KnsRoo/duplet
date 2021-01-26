@@ -1,11 +1,12 @@
-.image__slider {
+.swiper-container {
   width: 100%;
   height: auto;
   position: relative;
   padding-bottom: 80px;
 
-  &_wrapper {
-    height: 100%;
+
+  .image__slider_wrapper {
+    //height: 100%;
 
     .swiper-slide {
       position: relative;

@@ -38,7 +38,7 @@ $router->mount('/api/news', $newsAPI->getRoutes());
 $router->mount('/api/cart', $cartAPI->getRoutes());
 $router->mount('/api/auth/JWT', $jwtAPI->getRoutes());
 $router->mount('/api/auth/basic', $authAPI->getRoutes());
-$router->mount('/api/dicount',$dcAPI->getRoutes());
+$router->mount('/api/dicount', $dcAPI->getRoutes());
 $router->mount('/api/user', $userAPI->getRoutes());
 
 

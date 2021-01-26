@@ -1,0 +1,46 @@
+@media(max-width: 992px) {
+    .recently__seen {
+        &_title {
+            font-size: 38px;
+        }
+    }
+
+    .similar__things {
+        margin-bottom: 60px;
+
+        &_title {
+            font-size: 38px;
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .recently__seen {
+        &_title {
+            font-size: 30px;
+        }
+    }
+
+    .similar__things {
+
+        &_title {
+            font-size: 30px;
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .recently__seen {
+        &_title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .similar__things {
+        &_title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+    }
+}

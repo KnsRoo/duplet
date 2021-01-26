@@ -49,3 +49,9 @@ mixin favorite(title)
                     .first__price ₽ 77 900
                     .discount__price ₽ 34 999
             figure.icon-add
+mixin card__item
+    .card
+        .discount__percent 15%
+        .favorite__cross.icon-menu-cancel
+        .card__block
+            img.card__img(src=require("../../img/termos.jpg").default, alt="Ружьё")

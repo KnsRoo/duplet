@@ -7,33 +7,33 @@
 			.news__block_instruction_flex
 				.instruction__title {{ newsItem[0].title }}
 				.instruction__text {{ newsItem[0].announce }}
-				a.news__link(:href='newsItem[0].pageRef')
-					span.news__link_title Читать
+				a.news__link.btn(:href='newsItem[0].pageRef')
+					span.btn__name Читать
 	.news__cards
 		.news__card(v-for="(item, index) in newsItem" v-if = "index !=0")
 			.img__item
 				img.img__news(:src="item.picture" alt='')
 			.news__card_title {{ item.title }}
 			.news__card_read
-				a.news__link(:href='item.pageRef')
-					span.news__link_title Читать
+				a.news__link.btn(:href='item.pageRef')
+					span.btn__name Читать
 				span.news__data {{ format(item.creationDate) }}
 </template>
 
 <script>
 export default {
-	data() {
-		return {};
-	},
-	methods: {
-		format(toFormat) {
-			let [date, time] = toFormat.split(" ");
-			let [year, month, day] = date.split("-");
-			return `${day}.${month}.${year}`;
-		}
-	},
-	props: {
-		newsItem: Array,
-	}
+    data() {
+        return {};
+    },
+    methods: {
+        format(toFormat) {
+            let [date, time] = toFormat.split(" ");
+            let [year, month, day] = date.split("-");
+            return `${day}.${month}.${year}`;
+        }
+    },
+    props: {
+        newsItem: Array
+    }
 };
 </script>

@@ -1,63 +1,68 @@
+include ../mixins/test.pug
 include ../mixins/card.pug
-//- section.card__box
-//-     .wrapper
-//-         .card__item
-//-             .card__grid
-//-                 .card-slider
-//-                     .side__slider
-//-                         .hz
-//-                         .hz
-//-                         .hz
-//-                         .hz
-//-                         .hz
-//-                     .main__slider
-//-                         img.slider-main__img(src="../../assets/img/big-gun.png", alt="")
-//-                 .card-common
-//-                     .common__title 
-//-                         .common__title_name Гладкоствольное ружье 
-//-                         .common__title_brand
-//-                             .common__title_brand_name Бренд:
-//-                             .common__title_brand_title Тульский оружейный завод
-//-                     h1.common__name ТОЗ-34Р (орех)
-//-                     p.common__text.
-//-                         Двухствольное охотничье ружьё лёгкого типа с низкой посадкой стволов,
-//-                         предназначенное для промысловой и любительской охоты, 
-//-                         разработанное  конструктором-оружейником Н. И. Коровяковым.
-//-                     .common__price
-//-                         .common__price_discount ₽ 45 999
-//-                         .common__price_cost ₽ 39 999
-//-                         .common__price_available В наличии
-//-                     .common__order
-//-                         input.input__number(type="number")
-//-                         button.input__submit(type="submit") в корзину
-//-                         figure.icon-liked
-//-                     .common__category
-//-                         .common__category_title Категория:
-//-                         .common__category_name Ружья
-//-             include card__wrapper.pug
-//- include card-similar-things.pug
-//- include card-recently-seen.pug
-.swiper-container.gallery-top
-    .swiper-wrapper
-        .swiper-slide
-            +card('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-    .swiper-button-next.swiper-button-white
-    .swiper-button-prev.swiper-button-white
-.swiper-container.gallery-thumbs
-    .swiper-wrapper
-        .swiper-slide
-            +card('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
-        .swiper-slide
-            +card__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+include ../popup/card__item__popup.pug
+section.card__item
+    .wrapper
+        .card__box
+            .card__item_name_mobile ТОЗ-34Р (орех)
+            .slider__box
+                .swiper-container.slider__sidebar
+                    .swiper-wrapper
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/gun.png").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/termos.jpg").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/ammo.png").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/bear.png").default, alt="")
+                .swiper-container.slider__main
+                    .swiper-wrapper
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/gun.png").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/termos.jpg").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/ammo.png").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/bear.png").default, alt="")
+            .card__benefits
+                .card__title 
+                    .card__title_name Гладкоствольное ружье 
+                    .card__title_brand
+                        .brand__title Бренд:
+                        .brand__name Тульский оружейный завод
+                h1.card__item_name ТОЗ-34Р (орех)
+                p.card__item_text.
+                    Двухствольное охотничье ружьё лёгкого типа с низкой посадкой стволов,
+                    предназначенное для промысловой и любительской охоты, 
+                    разработанное  конструктором-оружейником Н. И. Коровяковым.
+                .card__item_price
+                    .price__discount ₽ 45 999
+                    .price__box
+                        .price__cost ₽ 39 999
+                        .price__available В наличии
+                .order__box
+                    .order__container
+                        input.choose__number(type="number" min="1" max="50")
+                        button.to__cart.add__to__cart(type="submit") в корзину
+                    .to__favorite
+                        figure.icon-liked
+                        span.to__favorite_title Добавить в избранное
+                .card__item_category
+                    .category__title Категория:
+                    .category__name Ружья
+        include card__wrapper.pug
+include card-similar-things.pug
+include card-recently-seen.pug
+
 
 
