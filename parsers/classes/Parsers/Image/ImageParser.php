@@ -23,10 +23,11 @@ class ImageParser
 
     private $logfile = 'error.log';
 
-    public function errorLog($error, $data){
+    public function errorLog($error, $data = []){
         $text = '';
         $now = date("Y-m-d h:i:s");
         switch ($error){
+            case 0: $text = " start parsing ..."; break;
             case 1: $text = " ".$data['id']." ".$data['title']." WARNING! No Image founded for query ".$data['subject']; break;
             case 2: $text = " ".$data['id']." ".$data['title']." WARNING! No Attributes founded in ".$data['subject']." Try next image"; break;
             case 3: $text = " ".$data['id']." ".$data['title']." WARNING! No href founded in ".$data['subject']." Try next image"; break;
@@ -150,8 +151,6 @@ class ImageParser
 
             $json = (array)$json['@attributes'];
 
-            var_dump($json);
-
             if (!$json['href']){ 
                 $offset += $element[0];
                 $this->errorLog(3,['id' => $product['id'],
@@ -236,7 +235,9 @@ class ImageParser
 
     public function parse()
     {
-        unlink(__DIR__.'/'.$this->logfile);
+        //unlink(__DIR__.'/'.$this->logfile);
+
+        $this->errorLog(0);
 
         $sqlQuery = 'SELECT `id`,`title` FROM `catalog_product` WHERE `picture` IS NULL';
 
