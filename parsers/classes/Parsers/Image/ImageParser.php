@@ -191,6 +191,7 @@ class ImageParser
             }
 
             if (!$ext){
+                $offset += $element[0];
                 $this->errorLog(4,['id' => $product['id'],
                                    'title' => $product['title'],
                                    'subject' => $json['href']
@@ -271,7 +272,6 @@ class ImageParser
         }
 
         $progressBar->close();
-
         
     }
 }
