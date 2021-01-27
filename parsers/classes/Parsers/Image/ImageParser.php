@@ -32,7 +32,7 @@ class ImageParser
             case 3: $text = " ".$data['id']." ".$data['title']." WARNING! No href founded in ".$data['subject']." Try next image"; break;
             case 4: $text = " ".$data['id']." ".$data['title']." WARNING! Image has unsupported format ".$data['subject']." Try next image"; break;
             case 5: $text = " ".$data['id']." ".$data['title']." ERROR! Error for adding to SQlite Db Image ".$data['subject']; break;
-            case 6: $text = " ERROR! ".$data['id']." Error executing query ".$data['stm']." Details: ".$data['stm_error']; break;
+            case 6: $text = " ERROR! Error executing query ".var_export($data['subject'], true)." Details: ".var_export($data['stm_error'],true); break;
             case 7: $text = " ".$data['id']." ".$data['title']." WARNING! Request failed for URL ".$data['subject']." Try next image"; break;
         }
         $text = $now.$text."\n";
@@ -70,7 +70,7 @@ class ImageParser
     private function addRowToQuery(string $productId, string $pictureName)
     {
         $params = [];
-        $params['id'] = $productId;
+        $params['id'] = "'" . $productId . "'";
         $params['picture'] = "'" . $pictureName . "'";
 
         $sql = "(".implode(', ', $params)."),";
@@ -96,7 +96,7 @@ class ImageParser
     public function findImage($product){
         $productName = $product['title'];
         //$productName = str_replace(' ','+',$productName);
-        $productName = mb_ereg_replace('\\\"','"',$productName);
+        $productName = mb_ereg_replace('\\\"','',$productName);
         $newhtml = file_get_contents('https://www.bing.com/images/search?sp=-1&pq=%u0442%u0438%u0440%u043e%u043a%u0441%u0438%u043d&sc=8-8&cvid=D92F74779459403799EA96C297AC6C2C&tsc=ImageBasicHover&q='.urlencode($productName).'&qft=+filterui:imagesize-large&form=IRFLTR&first=1');
         #$newhtml = file_get_contents('https://www.bing.com/images/search?q='.urlencode($productName).'&form=QBLH&sp=-1&pq=%D1%82%D0%B8%D1%80%D0%BE%D0%BA%D1%81%D0%B8%D0%BD&sc=8-8&qs=n&cvid=D92F74779459403799EA96C297AC6C2C&first=1&tsc=ImageBasicHover');
         $noresults = mb_strpos($newhtml, 'не найдены.');
@@ -138,6 +138,7 @@ class ImageParser
             $json = json_encode($xml);
             $json = (array)json_decode($json);
 
+
             if (!$json['@attributes']){
                 $this->errorLog(2,['id' => $product['id'],
                                    'title' => $product['title'],
@@ -147,7 +148,9 @@ class ImageParser
                 continue;
             }
 
-            $json = (array)json_decode($json['@attributes']);
+            $json = (array)$json['@attributes'];
+
+            var_dump($json);
 
             if (!$json['href']){ 
                 $offset += $element[0];
@@ -235,7 +238,7 @@ class ImageParser
     {
         unlink(__DIR__.'/'.$this->logfile);
 
-        $sqlQuery = 'SELECT `id`,`title` FROM `catalog_product` WHERE `picture` IS NULL LIMIT 10';
+        $sqlQuery = 'SELECT `id`,`title` FROM `catalog_product` WHERE `picture` IS NULL';
 
         $stm = $this->Pdo->prepare($sqlQuery);
         $result = $stm->execute();
@@ -252,7 +255,6 @@ class ImageParser
 
         foreach ($products as $product) {
             $this->findImage($product);
-
             $progressBar->makeStep();
         }
 
