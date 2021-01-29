@@ -17,7 +17,7 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
 }
 
-const PAGES_DIR = `${PATHS.src}/pug/card__item`
+const PAGES_DIR = `${PATHS.src}/pug/liked`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 const PUBLIC_PATH = path.join(__dirname, '..', 'public', 'assets');
 

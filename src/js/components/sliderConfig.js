@@ -1,7 +1,6 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
-Swiper.use([Navigation, Pagination]);
 
 const config = {
 	imgs: {
@@ -39,6 +38,7 @@ const config = {
 			},
 		}
 	},
+
 	tidIngs: {
 		direction: 'horizontal',
 		loop: true,
@@ -52,39 +52,74 @@ const config = {
 			el: '.swiper-scrollbar',
 		},
 	},
-	galleryThumbsOne: {
-		spaceBetween: 10,
-		slidesPerView: 4,
-		loop: true,
-		freeMode: true,
-		loopedSlides: 5, //looped slides should be the same
-		watchSlidesVisibility: true,
-		watchSlidesProgress: true,
-	},
-	galleryTop: {
-		spaceBetween: 10,
-		loop: true,
-		loopedSlides: 5, //looped slides should be the same
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-	},
-	galleryThumbsTwo: {
+
+	contacts: {
 		slidesPerView: 1,
 		loop: true,
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true
 		},
-	}
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		}
+	},
+
+	cardItemSidebar: {
+		direction: 'vertical',
+		spaceBetween: 10,
+		slidesPerView: 4,
+		loop: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+		breakpoints: {
+			200: {
+				direction: 'horizontal',
+				slidesPerView: 3,
+			},
+			1201: {
+				direction: 'vertical',
+				spaceBetween: 10,
+				slidesPerView: 4,
+			}
+		}
+	},
+
+	cardItemMain: {
+		slidesPerView: 1,
+		loop: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+	},
+
+	cardItemSeen: {
+		spaceBetween: 20,
+		slidesPerView: 2,
+		loop: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true
+		},
+		breakpoints: {
+			200: {
+				slidesPerView: 1,
+			},
+			1201: {
+				slidesPerView: 2,
+			}
+		}
+	},
+
 }
 
 export default function initSwipers() {
-	const imageSwiper = new Swiper('.image__slider', config.imgs),
-		tidIngSwiper = new Swiper('.tidings__slider', config.tidIngs),
-		galleryThumbsOneSwiper = new Swiper('.gallery-thumbs', config.galleryThumbsOne);
-	config.galleryTop.thumbs = { swiper: galleryThumbsOneSwiper }
-	const galleryTopSwiper = new Swiper('.gallery-top', config.galleryTop),
-		galleryThumbsTwoSwiper = new Swiper('.location__slider', config.galleryThumbsTwo)
+	const imgsSwiper = new Swiper('.image__slider', config.imgs);
+	const tidIngSwiper = new Swiper('.tidings__slider', config.tidIngs);
+	const contactsSwiper = new Swiper('.location__slider', config.contacts);
+	const cardItemSidebarSwiper = new Swiper('.slider__sidebar', config.cardItemSidebar);
+	config.cardItemMain.thumbs = { swiper: cardItemSidebarSwiper };
+	const cardItemMainSwiper = new Swiper('.slider__main', config.cardItemMain);
+	const cardItemSeenSwiper = new Swiper('.card__seen_slider', config.cardItemSeen);
 }

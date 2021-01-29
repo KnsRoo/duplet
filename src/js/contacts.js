@@ -4,22 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     headerSearch()
 })
 
-
-import Swiper, { Navigation, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.css';
 import '../scss/contacts.scss';
+import initSwipers from './components/sliderConfig'
+import initGlobalScripts from './global'
 
-Swiper.use([Navigation, Pagination]);
-
-var galleryThumbs = new Swiper('.location__slider', {
-    slidesPerView: 1,
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+    initSwipers();
+    initGlobalScripts();
+})
 

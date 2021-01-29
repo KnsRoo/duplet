@@ -1,0 +1,112 @@
+.cart {
+
+    &__title {
+        font-family: FuturaBookC;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 125%;
+        margin-bottom: 40px;
+    }
+
+
+    &__order {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        .cards {
+            width: 70%;
+            margin-bottom: 40px;
+            margin-right: auto;
+            position: relative;
+            @import 'scrollbar';
+
+
+            &__titles {
+                font-family: FuturaBookC;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 20px;
+                color: #888888;
+                text-transform: uppercase;
+                height: 51px;
+                display: grid;
+                grid-template-columns: 400px 7% 14% 12% 12%;
+                justify-content: space-between;
+
+                &_text:nth-of-type(3) {
+                    text-align: center;
+                }
+
+                &_text:nth-of-type(4) {
+                    text-align: center;
+                }
+
+                &_text:last-child {
+                    text-align: end;
+                }
+
+            }
+
+            &__items {
+                max-height: 445px;
+                padding-top: 30px;
+                border-bottom: 1px solid #E0E0E0;
+                border-top: 1px solid #E0E0E0;
+                @import 'card';
+            }
+
+            .attention {
+                font-family: FuturaBookC;
+                font-style: normal;
+                font-weight: normal;
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+
+                &__block {
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                    line-height: 20px;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+
+                    .attention__icon {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        background-color: #9D2F2F;
+                        color: white;
+                        margin-right: 10px;
+                    }
+
+                    .attention__title {
+                        color: #9D2F2F;
+                    }
+                }
+
+                &__text {
+                    max-width: 775px;
+
+                    .attention__info {
+                        color: #000;
+                    }
+                }
+            }
+
+        }
+
+        @import 'confirm';
+        @import './cart__delivery';
+    }
+
+}
+
+@import './cart__media';

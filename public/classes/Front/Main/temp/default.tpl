@@ -50,15 +50,15 @@
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"><img class="product__img" src="/assets/img/gun.png" alt="Ружьё"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -68,15 +68,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -86,15 +86,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"><img class="product__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -104,15 +104,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -191,15 +191,15 @@
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"><img class="card__img" src="/assets/img/gun.png" alt="Ружьё"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"><img class="product__img" src="/assets/img/gun.png" alt="Ружьё"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -209,15 +209,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -227,15 +227,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"><img class="card__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"><img class="product__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
@@ -245,15 +245,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="card discount">
+								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="card__block"></div>
-									<div class="card__content">
-										<div class="card__content_title">
-											<div class="card__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
+									<div class="product__block"></div>
+									<div class="product__content">
+										<div class="product__content_title">
+											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
-											<div class="card__content_title_price">
+											<div class="product__content_title_price">
 												<div class="first__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>

@@ -84,6 +84,8 @@
       margin-bottom: 45px;
     }
 
+    @import '../mixins/mixin__card';
+
     @import "../slider/main-slider";
   }
 }

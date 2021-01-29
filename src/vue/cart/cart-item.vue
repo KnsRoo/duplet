@@ -1,25 +1,40 @@
 <template lang = "pug">
 .card
 	.card__act
-		.card__bookmark
-			img.card__icon(src='/assets/img/icons/bookmark.svg' alt='')
+		.card__favorite
+			figure.card__icon.icon-liked
 			.card__title Отложить
 		.card__delete(@click = "removeFromCart(cartItem.id)")
-			img.card__icon(src='/assets/img/icons/delete.svg' alt='')
+			figure.card__icon.icon-delete
 			.card__title Удалить
-	.card__des
+	.card__des.card__info
 		.card__img
-			img(:src="cartItem.picture" alt='')
+			.product.discount
+				.discount__percent 15%
+				.favorite__cross.icon-menu-cancel
+				.product__block
+					img.product__img(src=("/assets/img/gun.png"), alt="Ружьё")
 		card__text
-			.card__text_title 
-				.card__text_title_subtitle {{ cartItem.title }}
-				.card__important(v-if = "cartItem.status === 'reserved'")
-					.card__important_icon !
-					.card__important_text Товар доступен только для резервирования
-	.card__discount 100%
-	.card__price ₽ {{ cartItem.price }}
-	.card__number {{ cartItem.count }}
-	.card__in-all
+			.card__text_title {{ cartItem.title }}
+			.mobile__block_hidden
+				.card__number_mobile 100
+				.card__in-all__mobile
+					.card__in-all__mobile_price ₽99 739 000
+					.card__in-all__mobile_discount ₽99 739 00
+			.card__text_block
+				.card__brand
+					.card__brand_title Бренд:
+					.card__brand_name ТОЗ
+				.card__caliber
+					.card__caliber_title Калибр:
+					.card__caliber_name 12/70
+		.card__important(v-if = "cartItem.status === 'reserved'")
+			.card__important_icon !
+			.card__important_text Товар доступен только для резервирования
+	.card__discount.card__info 100%
+	.card__price.card__info ₽ {{ cartItem.price }}
+	.card__number.card__info {{ cartItem.count }}
+	.card__in-all.card__info
 		.card__in-all_price ₽ {{ fullPrice }}
 		.card__in-all_discount
 </template>

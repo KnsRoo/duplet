@@ -1,21 +1,21 @@
 <template lang = "pug">
-section.basket
+section.cart
 	.wrapper
-		p.basket__title Корзина
-		.basket__order
+		p.cart__title Корзина
+		.cart__order
 			.cards
 				.cards__titles
 					.cards__titles_text(v-for="item in ['ПРОДУКТ','СКИДКА','Цена','Количество','Итого']") {{ item }}
 				.cards__items
 					cartItem(v-for="item in getItems" :cartItem="item")
-				.basket__attention(v-if = "reservedExists")
-					.attention__title
-						.attention__title_important !
-						.attention__title_text Внимание!
+				.attention(v-if = "reservedExists")
+					.attention__block
+						.attention__icon !
+						.attention__title Внимание!
 					.attention__text В вашей корзине есть товары, которые доступны только для резервирования. Вы можете зарезервировать эти товары и приобрести в наших магазинах, предъявив лицензию на покупку оружия
 						a.attention__info(href='#') (подробнее об этом)
-			.put-in-order
-				.put-in-order__box
+			.confirm
+				.confirm__box
 					.for__payment
 						.order__title К оплате:
 						.order__price ₽ {{ getCartStat.sumTotal }}
@@ -36,14 +36,13 @@ section.basket
 					.in-all
 						.order__title Итого:
 						.order__price ₽ {{ getCartStat.sumTotal }}
-				a.order-link(href='#') оформить заказ
-		.basket__delivery
+				a.confirm__link(href='#') оформить заказ
 			.delivery__choose
 				.delivery__title Доставка
 				.delivery__take
-					input#mail.custom-radio(type='radio' value='1')
-					label.custom__label(for='mail') Почтой России
-					input#yourself.custom-radio(type='radio' value='2')
+					input#post.custom__radio(type='radio' value='1')
+					label.custom__label(for='post') Почтой России
+					input#yourself.custom__radio(type='radio' value='2')
 					label.custom__label(for='yourself') Самовывоз (г. Сыктывкар)
 				.delivery__mail
 					input.mail__input(v-model = "orderData.name" placeholder='ФИО')
@@ -53,7 +52,7 @@ section.basket
 			.delivery__payment
 				.delivery__payment_title Оплата
 				.delivery__payment_take
-					input#pay.custom-radio(type='radio' value='1')
+					input#pay.custom__radio(type='radio' value='1')
 					label.custom__label(for='pay') Картой онлайн
 				.delivery__payment_cards
 					.delivery__payment_cards_title Мы принимаем:
@@ -67,65 +66,65 @@ section.basket
 </template>
 
 <script>
-import ky from 'ky'
-import { required } from 'vuelidate/lib/validators'
-import cartItem from './cart-item.vue'
-import { mapActions, mapGetters } from 'vuex';
+import ky from "ky";
+import { required } from "vuelidate/lib/validators";
+import cartItem from "./cart-item.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-	data() {
-		return {
-			loaded: false,
-			orderData: {
-				name: null,
-				phone: null,
-				city: null,
-				address: null
-			}
-		}
-	},
-	components: {
-		cartItem
-	},
-	validations: {
-		orderData: {
-		 	name : {
-				required,
-			},
-		 	phone : {
-				required,
-			},
-		 	city : {
-				required,
-			},
-		 	address : {
-				required,
-			}
-		}
-	},
-	computed: {
-		...mapGetters("cart",["getItems", "getCartStat"]),
-		...mapGetters("user",["getUser"]),
-		reservedExists(){
-			let result = false;
-			this.getItems.forEach(val => {
-				if (val.status === 'reserved'){
-					result = true
-				}
-			})
-			return result
-		}
-	},
-	methods: {
-		...mapActions("cart", ["fetchItems"]),
-		...mapActions("user", ["fetchUser"])
-	},
-	async created() {
-		await this.fetchItems();
-		await this.fetchUser();
-		this.orderData.name = this.getUser.name
-		this.orderData.phone = this.getUser.phone
-		this.orderData.address = this.getUser.address
-	},
-}
+    data() {
+        return {
+            loaded: false,
+            orderData: {
+                name: null,
+                phone: null,
+                city: null,
+                address: null
+            }
+        };
+    },
+    components: {
+        cartItem
+    },
+    validations: {
+        orderData: {
+            name: {
+                required
+            },
+            phone: {
+                required
+            },
+            city: {
+                required
+            },
+            address: {
+                required
+            }
+        }
+    },
+    computed: {
+        ...mapGetters("cart", ["getItems", "getCartStat"]),
+        ...mapGetters("user", ["getUser"]),
+        reservedExists() {
+            let result = false;
+            this.getItems.forEach(val => {
+                if (val.status === "reserved") {
+                    result = true;
+                }
+            });
+            return result;
+        }
+    },
+    methods: {
+        ...mapActions("cart", ["fetchItems"]),
+        ...mapActions("user", ["fetchUser"])
+    },
+    async created() {
+        await this.fetchItems();
+        await this.fetchUser();
+        this.orderData.name = this.getUser.name;
+        this.orderData.phone = this.getUser.phone;
+        this.orderData.address = this.getUser.address;
+    }
+};
 </script>

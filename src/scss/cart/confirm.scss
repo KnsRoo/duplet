@@ -1,16 +1,15 @@
-.put-in-order {
+.confirm {
     font-family: FuturaBookC;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 125%;
     height: 417px;
-    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    .put-in-order__box {
+    &__box {
         border: 1px solid #E0E0E0;
         padding: 30px 20px;
 
@@ -26,6 +25,7 @@
                 text-transform: uppercase;
                 color: #888888;
                 display: flex;
+                margin-right: 20px;
 
                 .title__number {
                     display: flex;
@@ -73,7 +73,7 @@
         }
     }
 
-    .order-link {
+    &__link {
         width: 100%;
         height: 60px;
         text-transform: uppercase;

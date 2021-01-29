@@ -49,7 +49,7 @@
     "noty": "^3.2.0-beta",
     "pug-plain-loader": "^1.1.0",
     "svg-sprite-loader": "^5.2.1",
-    "swiper": "^6.3.5",
+    "swiper": "^6.4.8",
     "vue": "^2.6.12",
     "vue-the-mask": "^0.11.1",
     "vuex": "^3.6.0",

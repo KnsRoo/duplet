@@ -1,13 +1,13 @@
 <template lang="pug">
-.card
-	.discount__percent(v-if="product.props.discount") {{ product.props.discount.value }}
+.product
+	.product__percent(v-if="product.props.discount") {{ product.props.discount.value }}
 	.favorite__cross.icon-menu-cancel
-	.card__block
+	.product__block
 		img.card__img(:src = "product.picture")
-	.card__content
-		.card__content_title
-			.card__content_title_name {{ product.title }}
-			.card__content_title_price
+	.product__content
+		.product__content_title
+			.product__content_title_name {{ product.title }}
+			.product__content_title_price
 				.first__price {{ product.price+' ₽' }}
 				.discount__price(v-if= "product.props.discount") {{ product.props.discount.value+' ₽' }}
 		figure.icon-add(@click="addItemToCart")
@@ -50,6 +50,6 @@ export default {
         itemImage() {
             return this.product.picture;
         }
-    },
+    }
 };
 </script>

@@ -58,7 +58,7 @@
         .cart {
             width: 891px;
             //border: solid red;
-            @import '../basket/scrollbar';
+            @import '../cart/scrollbar';
 
             &__now {
                 font-size: 24px;

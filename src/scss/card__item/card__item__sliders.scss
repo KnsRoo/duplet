@@ -11,6 +11,8 @@
         margin-bottom: 40px;
     }
 
+    @import '../mixins/mixin__card';
+
     @import '../slider/main-slider';
 }
 
@@ -27,6 +29,8 @@
         color: #333333;
         margin-bottom: 40px;
     }
+
+    @import '../mixins/mixin__card';
 
     @import "../slider/main-slider";
 }
