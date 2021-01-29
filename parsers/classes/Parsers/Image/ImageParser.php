@@ -23,16 +23,18 @@ class ImageParser
 
     private $logfile = 'error.log';
 
-    public function errorLog($error, $data){
+    public function errorLog($error, $data = []){
         $text = '';
         $now = date("Y-m-d h:i:s");
         switch ($error){
+            case 0: $text = " start parsing ..."; break;
             case 1: $text = " ".$data['id']." ".$data['title']." WARNING! No Image founded for query ".$data['subject']; break;
-            case 2: $text = " ".$data['id']." ".$data['title']." WARNING! No Attributes founded in ".$data['subject']; break;
-            case 3: $text = " ".$data['id']." ".$data['title']." WARNING! No href founded in ".$data['subject']; break;
-            case 4: $text = " ".$data['id']." ".$data['title']." WARNING! Image has unsupported format ".$data['subject']; break;
+            case 2: $text = " ".$data['id']." ".$data['title']." WARNING! No Attributes founded in ".$data['subject']." Try next image"; break;
+            case 3: $text = " ".$data['id']." ".$data['title']." WARNING! No href founded in ".$data['subject']." Try next image"; break;
+            case 4: $text = " ".$data['id']." ".$data['title']." WARNING! Image has unsupported format ".$data['subject']." Try next image"; break;
             case 5: $text = " ".$data['id']." ".$data['title']." ERROR! Error for adding to SQlite Db Image ".$data['subject']; break;
-            case 6: $text = " ERROR! ".$data['id']." Error executing query ".$data['stm']." Details: ".$data['stm_error']; break;
+            case 6: $text = " ERROR! Error executing query ".var_export($data['subject'], true)." Details: ".var_export($data['stm_error'],true); break;
+            case 7: $text = " ".$data['id']." ".$data['title']." WARNING! Request failed for URL ".$data['subject']." Try next image"; break;
         }
         $text = $now.$text."\n";
         file_put_contents(__DIR__.'/'.$this->logfile, $text, FILE_APPEND);
@@ -69,7 +71,7 @@ class ImageParser
     private function addRowToQuery(string $productId, string $pictureName)
     {
         $params = [];
-        $params['id'] = (int)$productId;
+        $params['id'] = "'" . $productId . "'";
         $params['picture'] = "'" . $pictureName . "'";
 
         $sql = "(".implode(', ', $params)."),";
@@ -81,10 +83,21 @@ class ImageParser
         $this->batch++;
     }
 
+    public function findElement($string, $offset = 0){ 
+        $finded = mb_strpos($string,'<a class="thumb"', $offset);
+        if ($finded === false){
+            return false;
+        }
+        $newhtml = mb_substr($string, $finded);
+        $finded = mb_strpos($newhtml,"</a>");
+        $element = mb_substr($newhtml, 0, $finded+4); 
+        return [$finded+4+$offset, $element];
+}
+
     public function findImage($product){
         $productName = $product['title'];
         //$productName = str_replace(' ','+',$productName);
-        $productName = str_replace('\\\"','',$productName);
+        $productName = mb_ereg_replace('\\\"','',$productName);
         $newhtml = file_get_contents('https://www.bing.com/images/search?sp=-1&pq=%u0442%u0438%u0440%u043e%u043a%u0441%u0438%u043d&sc=8-8&cvid=D92F74779459403799EA96C297AC6C2C&tsc=ImageBasicHover&q='.urlencode($productName).'&qft=+filterui:imagesize-large&form=IRFLTR&first=1');
         #$newhtml = file_get_contents('https://www.bing.com/images/search?q='.urlencode($productName).'&form=QBLH&sp=-1&pq=%D1%82%D0%B8%D1%80%D0%BE%D0%BA%D1%81%D0%B8%D0%BD&sc=8-8&qs=n&cvid=D92F74779459403799EA96C297AC6C2C&first=1&tsc=ImageBasicHover');
         $noresults = mb_strpos($newhtml, 'не найдены.');
@@ -97,57 +110,96 @@ class ImageParser
             return;
         }
 
-        $finded = mb_strpos($newhtml,'<a class="thumb"');
+        // $finded = mb_strpos($newhtml,'<a class="thumb"');
         
-        $newhtml = mb_substr($newhtml, $finded);
+        // $newhtml = mb_substr($newhtml, $finded);
         
 
-        $finded = mb_strpos($newhtml,"</a>");
-        $newhtml = mb_substr($newhtml, 0, $finded+4);
+        // $finded = mb_strpos($newhtml,"</a>");
+        // $newhtml = mb_substr($newhtml, 0, $finded+4);
 
-        $file = file_put_contents(__DIR__.'/file.html',$newhtml);
+        $offset = 0;
+        $img = null;
+        $ext = null;
 
-        $xml = simplexml_load_string($newhtml);
-        $json = json_encode($xml);
-        $json = (array)json_decode($json);
+        while (true){
+            $element = $this->findElement($newhtml,$offset);
 
-        if (!$json['@attributes']){ 
-            $this->errorLog(2,['id' => $product['id'],
-                               'title' => $product['title'],
-                               'subject' => $xml
-                               ]);
-            return; 
-        }
+            //$file = file_put_contents(__DIR__.'/file.html',$element);
 
-        $json = (array)$json['@attributes'];
+            if (!$element) {
+                $this->errorLog(1,['id' => $product['id'],
+                                   'title' => $product['title'],
+                                   'subject' => $productName
+                                   ]);
+                break;
+            }
 
-        if (!$json['href']){ 
-            $this->errorLog(3,['id' => $product['id'],
-                               'title' => $product['title'],
-                               'subject' => $xml
-                               ]);
-            return; 
-        }
+            $xml = simplexml_load_string($element[1]);
+            $json = json_encode($xml);
+            $json = (array)json_decode($json);
 
-        $img = file_get_contents($json['href']);
 
-        $ext = NULL;
-        if (strpos($json['href'],'.jpg')){
-            $ext = ".jpg";
-        }  
-        if (strpos($json['href'],'.png')){
-            $ext = ".png";
-        }
-        if (strpos($json['href'],'.jpeg')){
-            $ext = ".jpeg";
-        }
+            if (!$json['@attributes']){
+                $this->errorLog(2,['id' => $product['id'],
+                                   'title' => $product['title'],
+                                   'subject' => $xml
+                                   ]);
+                $offset += $element[0];
+                continue;
+            }
 
-        if (!$ext){
-            $this->errorLog(4,['id' => $product['id'],
-                               'title' => $product['title'],
-                               'subject' => $json['href']
-                               ]);
-            return;       
+            $json = (array)$json['@attributes'];
+
+            if (!$json['href']){ 
+                $offset += $element[0];
+                $this->errorLog(3,['id' => $product['id'],
+                                   'title' => $product['title'],
+                                   'subject' => $xml
+                                   ]);
+                continue; 
+            }
+
+            $img = file_get_contents($json['href']);
+            if (!$img) {
+                $offset += $element[0];
+                $this->errorLog(7,['id' => $product['id'],
+                                   'title' => $product['title'],
+                                   'subject' => $json['href']
+                                   ]);
+                continue; 
+            }
+            $ext = NULL;
+
+            if (strpos($json['href'],'.JPG')){
+                $ext = ".jpg";
+            } 
+            else if (strpos($json['href'],'.PNG')){
+                $ext = ".png";
+            }
+            else if (strpos($json['href'],'.JPEG')){
+                $ext = ".jpeg";
+            }
+            else if (strpos($json['href'],'.jpg')){
+                $ext = ".jpg";
+            }  
+            else if (strpos($json['href'],'.png')){
+                $ext = ".png";
+            }
+            else if (strpos($json['href'],'.jpeg')){
+                $ext = ".jpeg";
+            }
+
+            if (!$ext){
+                $offset += $element[0];
+                $this->errorLog(4,['id' => $product['id'],
+                                   'title' => $product['title'],
+                                   'subject' => $json['href']
+                                   ]);
+                continue;       
+            }
+
+            break;
         }
 
         $newPathToPicture = self::DUPLET_DATA_PATH . "/" .md5(uniqid()).$ext;
@@ -175,6 +227,7 @@ class ImageParser
                                'title' => $product['title'],
                                'subject' => $newPathToPicture
                                ]);
+            unlink($newPathToPicture);
             return;
         }
 
@@ -183,7 +236,9 @@ class ImageParser
 
     public function parse()
     {
-        unlink(__DIR__.'/'.$this->logfile);
+        //unlink(__DIR__.'/'.$this->logfile);
+
+        $this->errorLog(0);
 
         $sqlQuery = 'SELECT `id`,`title` FROM `catalog_product` WHERE `picture` IS NULL';
 
@@ -202,16 +257,21 @@ class ImageParser
 
         foreach ($products as $product) {
             $this->findImage($product);
-
             $progressBar->makeStep();
         }
 
+        $progressBar->close();
+
         $files = glob(__DIR__.'/sql_images_*.txt');
+
+        $progressBar = new ProgressBar(count($files), 'files');
 
         foreach ($files as $file) {
              $this->saveProductsImages($file);
+             $progressBar->makeStep();
         }
 
         $progressBar->close();
+        
     }
 }
