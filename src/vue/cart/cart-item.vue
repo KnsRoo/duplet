@@ -8,7 +8,7 @@
 			figure.card__icon.icon-delete
 			.card__title Удалить
 	.card__des.card__info
-		.card__important(v-if = "cartItem.status === 'reserved'")
+		.card__important(v-if = "cartItem.status === 'reserved'" @click="showInfo" v-bind:class="{card__important_active: show}")
 			.card__important_icon !
 			.card__important_text Товар доступен только для резервирования
 		.card__img
@@ -21,11 +21,9 @@
 			.card__text_title {{ cartItem.title }}
 			.mobile__block_hidden
 				.card__number_mobile
-					input.button__minus#button__minus(type="button" value="-")
-					label.label__minus.icon-number(for="button__minus")
-					input.choose__number(type="number" step="1" min="1" max="9999" value="1")
-					input.button__plus#button__plus(type="button" value="+")
-					label.label__plus.icon-number(for="button__plus")
+					.btn__minus.icon-number(@click="downNumber")
+					.choose__number {{number}}
+					.btn__plus.icon-number(@click="upNumber")
 				.card__in-all__mobile ₽99 739 000
 			.card__text_block
 				.card__brand
@@ -38,11 +36,9 @@
 	.card__price.card__info ₽ {{ cartItem.price }}
 	<!-- .card__number.card__info {{ cartItem.count }} -->
 	.card__number.card__info
-		input.button__minus#button__minus(type="button" value="-")
-		label.label__minus.icon-number(for="button__minus")
-		input.choose__number(type="number" step="1" min="1" max="9999" value="1")
-		input.button__plus#button__plus(type="button" value="+")
-		label.label__plus.icon-number(for="button__plus")
+		.btn__minus.icon-number(@click="downNumber")
+		.choose__number {{number}}
+		.btn__plus.icon-number(@click="upNumber")
 	.card__in-all.card__info {{ fullPrice }}
 </template>
 
@@ -51,7 +47,10 @@ import { mapActions } from "vuex";
 
 export default {
     data() {
-        return {};
+        return {
+            number: 1,
+            show: false
+        };
     },
     computed: {
         fullPrice: function() {
@@ -61,7 +60,18 @@ export default {
         }
     },
     methods: {
-        ...mapActions("cart", ["removeFromCart"])
+        ...mapActions("cart", ["removeFromCart"]),
+        upNumber() {
+            this.number++;
+        },
+        downNumber() {
+            if (this.number > 1) {
+                this.number--;
+            }
+        },
+        showInfo() {
+            this.show = !this.show;
+        }
     },
     props: {
         cartItem: Object

@@ -154,13 +154,8 @@
                     align-items: center;
                     margin: 0 0 15px 0;
 
-                    .button__minus,
-                    .button__plus {
-                        display: none;
-                    }
-
-                    .label__minus,
-                    .label__plus {
+                    .btn__minus,
+                    .btn__plus {
                         display: flex;
                         cursor: pointer;
                         width: 15px;
@@ -171,13 +166,13 @@
                     }
 
                     .choose__number {
-                        width: 35px;
-                        height: 20px;
+                        text-align: center;
+                        width: 25px;
                         font-size: 16px;
                         margin: 0 15px 0 15px;
                     }
 
-                    .label__plus {
+                    .btn__plus {
                         transform: rotate(180deg);
                     }
                 }
@@ -227,13 +222,9 @@
         display: flex;
         align-items: center;
 
-        .button__minus,
-        .button__plus {
-            display: none;
-        }
 
-        .label__minus,
-        .label__plus {
+        .btn__minus,
+        .btn__plus {
             display: flex;
             cursor: pointer;
             width: 15px;
@@ -244,13 +235,13 @@
         }
 
         .choose__number {
-            width: 35px;
-            height: 20px;
+            text-align: center;
+            width: 25px;
             font-size: 16px;
             margin: 0 15px 0 15px;
         }
 
-        .label__plus {
+        .btn__plus {
             transform: rotate(180deg);
         }
     }
