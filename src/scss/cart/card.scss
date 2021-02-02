@@ -63,6 +63,7 @@
         .card__img {
             width: 70%;
             margin-right: 20px;
+            @import '../mixins/mixin__card';
 
             img {
                 width: 100%;
