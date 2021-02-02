@@ -8,19 +8,25 @@
 			figure.card__icon.icon-delete
 			.card__title Удалить
 	.card__des.card__info
+		.card__important(v-if = "cartItem.status === 'reserved'")
+			.card__important_icon !
+			.card__important_text Товар доступен только для резервирования
 		.card__img
-			.product.discount
+			.product
 				.discount__percent 15%
 				.favorite__cross.icon-menu-cancel
 				.product__block
 					img.product__img(src=("/assets/img/gun.png"), alt="Ружьё")
-		card__text
+		.card__text
 			.card__text_title {{ cartItem.title }}
 			.mobile__block_hidden
-				.card__number_mobile 100
-				.card__in-all__mobile
-					.card__in-all__mobile_price ₽99 739 000
-					.card__in-all__mobile_discount ₽99 739 00
+				.card__number_mobile
+					input.button__minus#button__minus(type="button" value="-")
+					label.label__minus.icon-number(for="button__minus")
+					input.choose__number(type="number" step="1" min="1" max="9999" value="1")
+					input.button__plus#button__plus(type="button" value="+")
+					label.label__plus.icon-number(for="button__plus")
+				.card__in-all__mobile ₽99 739 000
 			.card__text_block
 				.card__brand
 					.card__brand_title Бренд:
@@ -28,15 +34,16 @@
 				.card__caliber
 					.card__caliber_title Калибр:
 					.card__caliber_name 12/70
-		.card__important(v-if = "cartItem.status === 'reserved'")
-			.card__important_icon !
-			.card__important_text Товар доступен только для резервирования
 	.card__discount.card__info 100%
 	.card__price.card__info ₽ {{ cartItem.price }}
-	.card__number.card__info {{ cartItem.count }}
-	.card__in-all.card__info
-		.card__in-all_price ₽ {{ fullPrice }}
-		.card__in-all_discount
+	<!-- .card__number.card__info {{ cartItem.count }} -->
+	.card__number.card__info
+		input.button__minus#button__minus(type="button" value="-")
+		label.label__minus.icon-number(for="button__minus")
+		input.choose__number(type="number" step="1" min="1" max="9999" value="1")
+		input.button__plus#button__plus(type="button" value="+")
+		label.label__plus.icon-number(for="button__plus")
+	.card__in-all.card__info {{ fullPrice }}
 </template>
 
 <script>

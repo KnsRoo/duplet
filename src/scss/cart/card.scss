@@ -1,11 +1,10 @@
-@import '../mixins/mixin__card';
-
 .card {
     position: relative;
     margin-bottom: 30px;
     display: grid;
     grid-template-columns: 400px 7% 14% 12% 12%;
     justify-content: space-between;
+
 
     .card__info:nth-of-type(3) {
         text-align: center;
@@ -50,7 +49,7 @@
         }
 
         .card__favorite {
-            margin-right: 30px;
+            margin-right: 25px;
         }
 
     }
@@ -59,6 +58,50 @@
         display: flex;
         position: relative;
         width: 100%;
+
+        .card__important {
+            font-size: 14px;
+            line-height: 16px;
+            display: flex;
+            color: #fff;
+            overflow: hidden;
+            height: 25px;
+            cursor: pointer;
+            background: #9D2F2F;
+            border-radius: 50px;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: absolute;
+            top: 0;
+            left: 350px;
+            z-index: 100;
+
+            &_icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25px;
+                height: 25px;
+                font-size: 18px;
+                line-height: 20px;
+            }
+
+            &_text {
+                display: flex;
+                align-items: center;
+                width: 0;
+                border-radius: 50px;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+
+        }
+
+        .card__important_active {
+            .card__important_text {
+                width: 260px;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+        }
 
         .card__img {
             width: 70%;
@@ -97,29 +140,52 @@
                 display: inline-flex;
                 position: relative;
                 max-width: 170px;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
             }
 
             .mobile__block_hidden {
                 display: none;
-                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 15px;
 
                 .card__number_mobile {
                     display: none;
-                    margin: 15px 20px 15px 0;
+                    align-items: center;
+                    margin: 0 0 15px 0;
+
+                    .button__minus,
+                    .button__plus {
+                        display: none;
+                    }
+
+                    .label__minus,
+                    .label__plus {
+                        display: flex;
+                        cursor: pointer;
+                        width: 15px;
+
+                        &:hover {
+                            color: #9D2F2F;
+                        }
+                    }
+
+                    .choose__number {
+                        width: 35px;
+                        height: 20px;
+                        font-size: 16px;
+                        margin: 0 15px 0 15px;
+                    }
+
+                    .label__plus {
+                        transform: rotate(180deg);
+                    }
                 }
 
                 .card__in-all__mobile {
                     display: none;
                     flex-direction: column;
                     align-items: flex-end;
-
-                    &_discount {
-                        font-size: 14px;
-                        line-height: 125%;
-                        color: #888888;
-                        text-decoration: line-through;
-                    }
                 }
             }
 
@@ -146,48 +212,6 @@
             }
         }
 
-        .card__important {
-
-            display: none;
-            justify-content: center;
-            align-items: center;
-            color: #000;
-            overflow: hidden;
-            height: 25px;
-            cursor: pointer;
-            background: #9D2F2F;
-            border-radius: 50px;
-            color: #fff;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            position: absolute;
-            top: 0;
-            right: 0;
-
-            &_icon {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 25px;
-                height: 25px;
-                font-size: 18px;
-                line-height: 20px;
-            }
-
-            &_text {
-                display: flex;
-                align-items: center;
-                font-size: 14px;
-                line-height: 16px;
-                width: 0;
-                border-radius: 50px;
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            }
-
-            &:hover .card__important_text {
-                width: 330px;
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            }
-        }
     }
 
     &__discount,
@@ -199,15 +223,39 @@
         justify-content: center;
     }
 
-    &__in-all {
-        flex-direction: column;
-        align-items: flex-end;
+    &__number {
+        display: flex;
+        align-items: center;
 
-        &_discount {
-            font-size: 14px;
-            line-height: 125%;
-            color: #888888;
-            text-decoration: line-through;
+        .button__minus,
+        .button__plus {
+            display: none;
         }
+
+        .label__minus,
+        .label__plus {
+            display: flex;
+            cursor: pointer;
+            width: 15px;
+
+            &:hover {
+                color: #9D2F2F;
+            }
+        }
+
+        .choose__number {
+            width: 35px;
+            height: 20px;
+            font-size: 16px;
+            margin: 0 15px 0 15px;
+        }
+
+        .label__plus {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__in-all {
+        justify-content: flex-end;
     }
 }

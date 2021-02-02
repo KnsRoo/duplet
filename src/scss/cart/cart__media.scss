@@ -104,14 +104,20 @@
             .cards {
                 &__titles {
                     font-size: 16px;
-                    grid-template-columns: 350px 15% 17%;
+                    grid-template-columns: 330px 15% 17%;
                 }
 
                 &__items {
                     .card {
-                        grid-template-columns: 350px 15% 17%;
+                        grid-template-columns: 330px 15% 17%;
 
                         &__des {
+
+                            .card__important {
+                                top: 10px;
+                                left: 10px;
+                            }
+
                             .card__img {
                                 width: 100%;
                                 margin-right: 20px;
@@ -181,7 +187,7 @@
                                 .mobile__block_hidden {
 
                                     .card__number_mobile {
-                                        display: block;
+                                        display: flex;
                                     }
 
                                 }
@@ -262,7 +268,10 @@
 
                         &__des {
                             .card__text {
+                                justify-content: flex-start;
+
                                 .mobile__block_hidden {
+                                    display: flex;
 
                                     .card__in-all__mobile {
                                         display: flex;
@@ -274,7 +283,7 @@
 
                         &__act {
                             left: 53%;
-                            bottom: -15px;
+                            // bottom: -15px;
                         }
                     }
                 }
@@ -301,6 +310,28 @@
                             }
                         }
 
+                        &__des {
+
+                            .card__important {
+                                top: 5px;
+                                left: 5px;
+                                font-size: 12px;
+                            }
+
+                            .card__important_active {
+                                .card__important_text {
+                                    width: 230px;
+                                    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                                }
+                            }
+
+                            .card__text {
+                                &_title {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+
                     }
                 }
             }
@@ -312,6 +343,8 @@
                     padding: 30px 18px;
                 }
             }
+
+
 
         }
     }

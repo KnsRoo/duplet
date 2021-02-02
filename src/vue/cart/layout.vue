@@ -40,10 +40,14 @@ section.cart
 			.delivery__choose
 				.delivery__title Доставка
 				.delivery__take
-					input#post.custom__radio(type='radio' value='1')
-					label.custom__label(for='post') Почтой России
-					input#yourself.custom__radio(type='radio' value='2')
-					label.custom__label(for='yourself') Самовывоз (г. Сыктывкар)
+					input#post.custom__radio(type="radio" value="post" name="delivery" checked)
+					label.custom__label.label__post(for="post")
+						span.custom__label_icon
+						span.custom__label_title Почтой россии
+					input#yourself.custom__radio(type="radio" value="yourself" name="delivery")
+					label.custom__label.label__yourself(for="yourself")
+						span.custom__label_icon
+						span.custom__label_title Самовывоз (в г. Сыктывкар)
 				.delivery__mail
 					input.mail__input(v-model = "orderData.name" placeholder='ФИО')
 					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон')
@@ -52,8 +56,10 @@ section.cart
 			.delivery__payment
 				.delivery__payment_title Оплата
 				.delivery__payment_take
-					input#pay.custom__radio(type='radio' value='1')
-					label.custom__label(for='pay') Картой онлайн
+					input#pay.custom__radio(type="radio" value="1" checked)
+					label.custom__label.label__pay(for="pay")
+						span.custom__label_icon
+						span.custom__label_title Картой онлайн
 				.delivery__payment_cards
 					.delivery__payment_cards_title Мы принимаем:
 					.delivery__payment_cards_block

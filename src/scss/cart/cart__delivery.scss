@@ -5,23 +5,51 @@
 }
 
 .custom__label {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     user-select: none;
+    cursor: pointer;
 
-    &::before {
-        content: '';
-        display: inline-block;
-        background: url("../img/icons/slider.svg");
-        width: 40px;
-        height: 40px;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 50% 50%;
+    &_icon {
+        width: 10px;
+        height: 10px;
+        background: #888;
+        border-radius: 50%;
+        position: relative;
+        margin-right: 20px;
     }
+
+    &_title {
+        color: #888;
+    }
+
 }
 
-.custom__radio:checked+.custom__label::before {}
+
+.custom__radio:checked+.custom__label {
+
+    .custom__label_icon {
+        background: #333;
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            background: url("../img/icons/slider.svg");
+            width: 50px;
+            height: 50px;
+            top: -20px;
+            left: -20px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+    }
+
+    .custom__label_title {
+        color: #333;
+    }
+}
 
 /* стили при наведении курсора на checkbox */
 .custom__radio:not(:disabled):not(:checked)+.custom__label:hover::before {}
@@ -52,9 +80,13 @@
     }
 
     .delivery__take {
-        margin-bottom: 40px;
         display: flex;
         justify-content: space-between;
+
+        .label__post,
+        .label__yourself {
+            margin-bottom: 30px;
+        }
 
         .custom__label:first-of-type {
             margin-right: 6%;
@@ -96,6 +128,10 @@
 
     &_take {
         margin-bottom: 40px;
+
+        .label__pay {
+            margin-left: 15px;
+        }
     }
 
     &_cards {
