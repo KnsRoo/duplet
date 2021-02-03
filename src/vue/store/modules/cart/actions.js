@@ -13,8 +13,7 @@ export default {
 		let result = await ky.delete(`/api/cart/items/${itemId}`)
 		dispatch("fetchItems")
 	},
-	async updateItemCart({dispatch}, itemId){
-		let result = await ky.patch(`/api/cart/items/${itemId}`)
-		dispatch("fetchItems")
+	async updateItemCount({dispatch}, {id, count}){
+		let result = await ky.patch(`/api/cart/items/${id}`, { json: [{ op: "add", path: "/count", value: count }] })
 	}
 }
