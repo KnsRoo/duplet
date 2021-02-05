@@ -1,0 +1,103 @@
+include ../popup/lk__popup.pug
+section.lk
+    .wrapper
+        .lk__title Личный кабинет
+        .lk__block
+            .data
+                .data__title Информация
+                .data__box
+                    .input__wrap
+                        .input__title ФИО
+                        input#name.input__box.input__full__name(type="text", name="" placeholder="Укажите ФИО")
+                    .input__wrap
+                        .input__title Телефон
+                        input#phone.input__box.input__phone(type="text", name="" placeholder="Укажите Ваш Телефон")
+                    .input__wrap
+                        .input__title E-mail
+                        input#mail.input__box.input__email(type="text", name="" placeholder="Укажите Ваш e-mail")
+                    .input__wrap
+                        .input__title Номер дисконтной карты
+                        input#card.input__box.input__payment__card(type="text", name="" placeholder="Укажите Ваш номер карты")
+                    .btn.data__edit
+                        span.btn__name редактировать данные
+            .cart__now
+                .cart__now_title Корзина сейчас
+                .cart__wrap
+                    .cart__booked
+                        .cart__booked_title Бронирование
+                        .cart__booked_box
+                            .card
+                                .card__act
+                                    .card__favorite
+                                        figure.card__icon.icon-liked
+                                        .card__title Отложить
+                                    .card__delete
+                                        figure.card__icon.icon-delete
+                                        .card__title Удалить
+                                .card__des.card__info
+                                    .card__img
+                                        .product
+                                            .discount__percent 15%
+                                            .favorite__cross.icon-menu-cancel
+                                            .product__block
+                                                img.product__img(src=require("../../img/gun.png").default, alt="Ружьё")
+                                    .card__text
+                                        .card__text_title САПОГИ РЫБАЦКИЕ НАЗИЯ ЭВА С ЧУЛ. ТРИПЛЕКС АРТ. С095 (РАЗМЕР 46)
+                                        .mobile__block_hidden
+                                            .card__number_mobile
+                                                .btn__minus.icon-number
+                                                .choose__number 1
+                                                .btn__plus.icon-number
+                                            .card__in-all__mobile ₽99 739 000
+                                        .card__text_block
+                                            .card__brand
+                                                .card__brand_title Бренд:
+                                                .card__brand_name ТОЗ
+                                            .card__caliber
+                                                .card__caliber_title Калибр:
+                                                .card__caliber_name 12/70
+                                .card__number.card__info
+                                    .btn__minus.icon-number
+                                    .choose__number 1
+                                    .btn__plus.icon-number
+                                .card__in-all.card__info ₽99 739 000
+                    .cart__bought
+                        .cart__bought_title Покупка
+                        .cart__bought_box
+                            .card
+                                .card__act
+                                    .card__favorite
+                                        figure.card__icon.icon-liked
+                                        .card__title Отложить
+                                    .card__delete
+                                        figure.card__icon.icon-delete
+                                        .card__title Удалить
+                                .card__des.card__info
+                                    .card__img
+                                        .product
+                                            .discount__percent 15%
+                                            .favorite__cross.icon-menu-cancel
+                                            .product__block
+                                                img.product__img(src=require("../../img/gun.png").default, alt="Ружьё")
+                                    .card__text
+                                        .card__text_title САПОГИ РЫБАЦКИЕ НАЗИЯ ЭВА С ЧУЛ. ТРИПЛЕКС АРТ. С095 (РАЗМЕР 46)
+                                        .mobile__block_hidden
+                                            .card__number_mobile
+                                                .btn__minus.icon-number
+                                                .choose__number 1
+                                                .btn__plus.icon-number
+                                            .card__in-all__mobile ₽99 739 000
+                                        .card__text_block
+                                            .card__brand
+                                                .card__brand_title Бренд:
+                                                .card__brand_name ТОЗ
+                                            .card__caliber
+                                                .card__caliber_title Калибр:
+                                                .card__caliber_name 12/70
+                                .card__number.card__info
+                                    .btn__minus.icon-number
+                                    .choose__number 1
+                                    .btn__plus.icon-number
+                                .card__in-all.card__info ₽99 739 000
+include reserved.pug
+//- include buy__history.pug

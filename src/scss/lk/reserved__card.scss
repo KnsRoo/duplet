@@ -1,0 +1,194 @@
+.hidden {
+    display: none;
+}
+
+.card {
+    position: relative;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 340px 17% 20% 11% 12%;
+    justify-content: space-between;
+
+
+
+    .card__info:last-child {
+        text-align: center;
+    }
+
+    &__des {
+        // border: 1px solid #000;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+
+        .card__wrap {
+            width: 100%;
+            display: flex;
+
+            .card__img {
+                width: 100%;
+                margin-right: 20px;
+                @import '../mixins/mixin__card';
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+            }
+
+            .card__text {
+                font-family: FuturaBookC;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 125%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: relative;
+
+
+                &_title {
+                    font-family: FuturaBookC;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 24px;
+                    text-transform: uppercase;
+                    display: inline-flex;
+                    position: relative;
+                    max-width: 170px;
+                    margin-bottom: 15px;
+                }
+
+                &_block {
+                    .card__brand {
+                        display: flex;
+                        margin-bottom: 14px;
+
+                        &_title {
+                            color: #888888;
+                            margin-right: 29px;
+                        }
+                    }
+
+                    .card__caliber {
+                        display: flex;
+
+                        &_title {
+                            color: #888888;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+
+                .status__mobile {
+                    width: 100%;
+                    display: none;
+                    font-size: 16px;
+                    line-height: 18px;
+
+                    &_title {
+                        color: #888;
+                        margin-right: 15px;
+                    }
+
+                    &_wrap {
+                        .status__done {
+                            color: #5A9E08;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card__information {
+            width: 124px;
+            margin-top: 15px;
+            display: none;
+            align-items: center;
+            cursor: pointer;
+
+            .icon-info {
+                color: #888;
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__address {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+        .street {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .work__time {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &_title {
+                margin-bottom: 10px;
+            }
+
+            .date {
+                display: flex;
+
+                .week {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    &__reception {
+        line-height: 125%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+        .get__thing {
+            margin-bottom: 20px;
+
+            &_date {
+                margin-left: 5px;
+            }
+        }
+
+        .booked__thing {
+            &_date {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__status {
+        padding-top: 60px;
+
+        .status__done {
+            color: #5A9E08;
+        }
+
+        .hidden__status {
+            display: none;
+        }
+    }
+
+    &__cost {
+        font-size: 20px;
+        line-height: 125%;
+        padding-top: 60px;
+    }
+
+}
+
+@import './media/reserved__card-media';

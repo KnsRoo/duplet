@@ -3,7 +3,46 @@ mixin product(title)
         .discount__percent 15%
         .favorite__cross.icon-menu-cancel
         .product__block
-            img.product__img(src=require("../../img/gun.png").default, alt="Ружьё")
+            img.product__img(src=require("../../img/kto.jpg").default, alt="Ружьё")
+        .product__content
+            .product__content_title
+                .product__content_title_name= title
+                .product__content_title_price
+                    .first__price ₽ 77 900
+                    .discount__price ₽ 34 999
+            figure.icon-add
+mixin product__1(title)
+    .product.discount
+        .discount__percent 15%
+        .favorite__cross.icon-menu-cancel
+        .product__block
+            img.product__img(src=require("../../img/hidden.jpg").default, alt="Ружьё")
+        .product__content
+            .product__content_title
+                .product__content_title_name= title
+                .product__content_title_price
+                    .first__price ₽ 77 900
+                    .discount__price ₽ 34 999
+            figure.icon-add
+mixin product__2(title)
+    .product.discount
+        .discount__percent 15%
+        .favorite__cross.icon-menu-cancel
+        .product__block
+            img.product__img(src=require("../../img/spin.jpeg").default, alt="Ружьё")
+        .product__content
+            .product__content_title
+                .product__content_title_name= title
+                .product__content_title_price
+                    .first__price ₽ 77 900
+                    .discount__price ₽ 34 999
+            figure.icon-add
+mixin product__3(title)
+    .product.discount
+        .discount__percent 15%
+        .favorite__cross.icon-menu-cancel
+        .product__block
+            img.product__img(src=require("../../img/boots.jpg").default, alt="Ружьё")
         .product__content
             .product__content_title
                 .product__content_title_name= title

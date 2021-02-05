@@ -3,7 +3,7 @@
 	.product__percent(v-if="product.props.discount") {{ product.props.discount.value }}
 	.favorite__cross.icon-menu-cancel
 	.product__block
-		img.card__img(:src = "product.picture")
+		img.product__img(:src = "product.picture")
 	.product__content
 		.product__content_title
 			.product__content_title_name {{ product.title }}
