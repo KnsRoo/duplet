@@ -47,11 +47,7 @@
             <figure class="icon-menu-cancel"></figure>
           </div>
         </div>
-        <div class="profile"><a class="icon-profile js-login-btn"></a><a class="icon-liked" href="/favorite">
-            <div class="icon-liked_number">99</div>
-          </a><a class="icon-basket" href="/cart">
-            <div class="icon-basket_number">2</div>
-          </a></div>
+        <div id="profile"></div>
       </div>
     </div>
   </div>

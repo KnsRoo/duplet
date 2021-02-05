@@ -29,17 +29,17 @@ $catalogAPI = new API\Catalog\V3\Controller;
 $newsAPI = new API\News\V4\Controller;
 $cartAPI = new API\Cart\V1\Controller;
 $authAPI = new API\Auth\V1\Basic\Controller;
+$userAPI = $di->get('user-api');
 $jwtAPI = new API\Auth\V1\JWT\Controller;
-$userAPI = new API\User\V1\Controller;
-$dcAPI = new API\DiscountCards\V1\Controller;
+$ordersAPI = $di->get('orders-api');
 
 $router->mount('/api/catalog', $catalogAPI->getRoutes());
 $router->mount('/api/news', $newsAPI->getRoutes());
 $router->mount('/api/cart', $cartAPI->getRoutes());
 $router->mount('/api/auth/JWT', $jwtAPI->getRoutes());
 $router->mount('/api/auth/basic', $authAPI->getRoutes());
-$router->mount('/api/dicount', $dcAPI->getRoutes());
 $router->mount('/api/user', $userAPI->getRoutes());
+$router->mount('/api/orders', $ordersAPI->getRoutes());
 
 
 $router->mount('/news', (new Front\News\Controller)->getRoutes());

@@ -34,6 +34,33 @@ $di->addShared('sitemap', function () {
 })
     ->setReturnType(Sitemap::class);
 
+$di->addShared('user-api', function ($di) {
+    return new API\User\V1\Controller([
+        'verifyRecaptcha' => false,
+        'validationSchema' => [
+            'type' => 'object',
+            'properties' => [
+                'phone' => [
+                    'type' => 'string',
+                    'pattern' => '(?:7|8)\d{10}'
+                ],
+                'email' => [
+                    'type' => 'string',
+                    'pattern' => '^.+@.+\..+$'
+                ],
+                'fullName' => [
+                    'type' => 'string',
+                    'pattern' => '^.{1,150}$'
+                ],
+                'address' => [
+                    'type' => 'string',
+                    'pattern' => '^.{1,200}$'
+                ],
+            ],
+        ],
+    ]);
+});
+
 $di->addShared('feedback-api', function ($di) {
 
     return new API\Feedback\V1\Controller([

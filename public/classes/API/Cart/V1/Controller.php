@@ -63,6 +63,9 @@ class Controller extends Response
         $group->addGet('/items', [$this, 'getItems'])
             ->setName('api:cart:v1:items');
 
+        $group->addGet('/count', [$this, 'getCount'])
+            ->setName('api:cart:v1:count');
+
         $group->addPost('/items', [$this, 'appendItem']);
 
         $group->addGet('/items/:id', [$this, 'getItem'])
@@ -96,6 +99,20 @@ class Controller extends Response
         }
 
         return $statuses;
+    }
+
+    public function getCount(){
+        try {
+            $items = $this->cart->getItems();
+            $this->hal(["count" => count($items)]);
+        } catch (HTTPException $e){
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    ['message' => $e->getMessage()],
+                ],
+            ]);   
+        }
     }
 
     public function getItems($req, $next)

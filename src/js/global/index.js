@@ -3,9 +3,12 @@ import {
     searchToogler
 } from './tooglers.js'
 
+import ProfileIcons from '../../vue/profile-icons'
+
 import ModalLogin from '../../vue/ModalLogin'
 
 export default function initGlobalScripts() {
+    window.profile = new ProfileIcons('#profile')
     new burgerToogler()
     new searchToogler({
         box: '.search__box',

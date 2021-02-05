@@ -1,24 +1,33 @@
 <template lang = "pug">
-.cart
-	.cart__now Корзина сейчас
-	.cart__block
+.cart__now
+	.cart__now_title Корзина сейчас
+	.cart__wrap
 		.cart__booked
 			.cart__booked_title Бронирование
 			.cart__booked_box
 				.card
 					.card__act
-						.card__bookmark
-							img.card__icon(src="/assets/img/icons/bookmark.svg" alt="")
+						.card__favorite
+							figure.card__icon.icon-liked
 							.card__title Отложить
 						.card__delete
-							img.card__icon(src="/assets/img/icons/delete.svg" alt="")
+							figure.card__icon.icon-delete
 							.card__title Удалить
-					.card__des
+					.card__des.card__info
 						.card__img
-							img(src="/assets/img/big-gun.png" alt="")
+							.product
+								.discount__percent 15%
+								.favorite__cross.icon-menu-cancel
+								.product__block
+									img.product__img(src=("/assets/img/gun.png"), alt="Ружьё")
 						.card__text
-							.card__text_title
-								.card__text_title_subtitle ТОЗ-34Р (орех)
+							.card__text_title САПОГИ РЫБАЦКИЕ НАЗИЯ ЭВА С ЧУЛ. ТРИПЛЕКС АРТ. С095 (РАЗМЕР 46)
+							.mobile__block_hidden
+								.card__number_mobile
+									.btn__minus.icon-number
+									.choose__number 1
+									.btn__plus.icon-number
+								.card__in-all__mobile ₽99 739 000
 							.card__text_block
 								.card__brand
 									.card__brand_title Бренд:
@@ -26,10 +35,11 @@
 								.card__caliber
 									.card__caliber_title Калибр:
 									.card__caliber_name 12/70
-					.card__number 100
-					.card__in-all
-						.card__in-all_price ₽1 739 000
-						.card__in-all_discount ₽1 739 00
+					.card__number.card__info
+						.btn__minus.icon-number
+						.choose__number 1
+						.btn__plus.icon-number
+					.card__in-all.card__info ₽99 739 000
 		.cart__bought
 			.cart__bought_title Покупка
 			.cart__bought_box
@@ -37,10 +47,8 @@
 
 <script>
 export default {
-	data() {
-		return {
-
-		};
-	}
-}
+    data() {
+        return {};
+    }
+};
 </script>
