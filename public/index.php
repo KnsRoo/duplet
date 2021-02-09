@@ -32,6 +32,7 @@ $authAPI = new API\Auth\V1\Basic\Controller;
 $userAPI = $di->get('user-api');
 $jwtAPI = new API\Auth\V1\JWT\Controller;
 $ordersAPI = $di->get('orders-api');
+$favoritesAPI = new API\Favorites\Controller;
 
 $router->mount('/api/catalog', $catalogAPI->getRoutes());
 $router->mount('/api/news', $newsAPI->getRoutes());
@@ -40,6 +41,7 @@ $router->mount('/api/auth/JWT', $jwtAPI->getRoutes());
 $router->mount('/api/auth/basic', $authAPI->getRoutes());
 $router->mount('/api/user', $userAPI->getRoutes());
 $router->mount('/api/orders', $ordersAPI->getRoutes());
+$router->mount('/api/favorites', $favoritesAPI->getRoutes());
 
 
 $router->mount('/news', (new Front\News\Controller)->getRoutes());

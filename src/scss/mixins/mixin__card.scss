@@ -47,6 +47,7 @@
         &_title {
             display: grid;
             row-gap: 20px;
+            cursor: pointer;
 
             &_name {
                 font-size: 18px;
@@ -83,6 +84,7 @@
             align-items: center;
             color: white;
             margin-left: 20px;
+            cursor: pointer;
         }
     }
 }

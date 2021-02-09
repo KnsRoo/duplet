@@ -1,29 +1,36 @@
 <template lang = "pug">
 .profile
 	a.icon-profile.js-login-btn
-	a.icon-liked(href = "/favorite")
-		.icon-liked_number(:class = "{gray: liked_cnt == 0}") {{ liked_cnt }}
+	a.icon-liked.js-login-btn(href = "/favorite")
+		.icon-liked_number(:class = "{gray: count == 0}") {{ count }}
 	a.icon-basket(href = "/cart")
-		.icon-basket_number(:class = "{gray: cart_cnt == 0}") {{ cart_cnt }}
+		.icon-basket_number(:class = "{gray: getCartStat.countTotal == 0}") {{ getCartStat.countTotal }}
 		.js
 </template>
 
 <script>
 import ky from 'ky';
+import authfetch from '../../js/components/authfetch'
+import { mapActions,mapGetters } from 'vuex'
 
 export default {
 	data() {
 		return {
-			liked_cnt: 0,
-			cart_cnt: 0
+			show: false
 		}
 	},
+	computed: {
+		...mapGetters('favorites', ["count"]),
+		...mapGetters('cart', ["getCartStat"])
+	},
 	methods: {
+		...mapActions({
+			'fetchCartCount' : 'cart/fetchItems',
+			'fetchFavCount' : 'favorites/fetchItems',
+		}),
 		async update(){
-		  	let result = await ky.get(`${window.location.origin}/api/cart/count`).json()
-			if (result.count) {
-				this.cart_cnt = result.count
-			}	
+		  	this.fetchCartCount()
+		  	this.fetchFavCount()
 		}
 	},
 	async created(){

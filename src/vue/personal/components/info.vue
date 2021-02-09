@@ -12,6 +12,9 @@
 			.input__title e-mail
 			input.input__box(:disabled = "!editable" :class = "{ invalid: !emailValid  }" v-model="info.email")
 		.input
+			.input__title Город
+			input.input__box(:disabled = "!editable" v-model="info.city")
+		.input
 			.input__title Адрес
 			input.input__box(:disabled = "!editable" v-model="info.address")
 		.input
@@ -35,6 +38,7 @@ export default {
 				phone: '',
 				email: '',
 				discount: '',
+				city: '',
 				address: ''
 			}
 		};

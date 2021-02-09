@@ -27,9 +27,9 @@ class Controller extends Response
         $group->addGet('/', [$this, 'getDefault'])
             ->setName('catalog:default');
 
-        $group->addGet('/group-:groupId', [$this, 'getGroup'])
+        $group->addGet('/', [$this, 'getDefault'])
             ->setName('catalog:group');
-
+            
         $group->addGet('/product-:productId', [$this, 'getProduct'])
             ->setName('catalog:product');
 
@@ -38,36 +38,8 @@ class Controller extends Response
 
     public function getDefault($req)
     {
-        $groups = Group::find()
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
 
-        $data = [
-            'groups' => $groups,
-        ];
-
-        $html = $this->render(self::PATH . 'default.tpl', $data);
-
-        $this->layout
-            ->setSrc('catalog')
-            ->setContent($html);
-    }
-
-    public function getGroup($req)
-    {
-        $groupId = $req['groupId'];
-
-        $groups = Group::find(['cid' => $groupId])
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
-
-        $data = [
-            'groups' => $groups,
-        ];
-
-        $html = $this->render(self::PATH . 'group.tpl', $data);
+        $html = $this->render(self::PATH . 'default.tpl');
 
         $this->layout
             ->setSrc('catalog')
@@ -76,18 +48,15 @@ class Controller extends Response
 
     public function getProduct($req)
     {
-        $productId = $req['productId'];
-        $product = Product::find(['id' => $productId])
-            ->get();
-
         $data = [
-            'product' => $product,
+            'link' => Router::byName('api:catalog:v3:product')
+                    ->getURL(['id' => $req['productId']])
         ];
 
         $html = $this->render(self::PATH . 'product.tpl', $data);
 
         $this->layout
-            ->setSrc('card__item')
+            ->setSrc('product')
             ->setContent($html);
     }
 }

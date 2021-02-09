@@ -15,6 +15,8 @@ use Rs\Json\Patch\InvalidOperationException;
 
 use Websm\Framework\Di;
 
+use Model\Catalog\Favorite;
+
 class Controller extends Response {
 
     private $user;

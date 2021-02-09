@@ -34,11 +34,9 @@ $origin = Router::getOrigin();
                 'id' => $product->id
             ]);
             ?>
-
             <form action="<?= $this->url.($this->cat ? '/cat-'.$this->cat : '').'/update-visibility-product-'.$product->id; ?>" name="catalog-update-visibility-product-form-<?= $product->id;?>" method="POST" class="inline action">
-                <input type="hidden" name="_method" value="PUT" />
+            <input type="hidden" name="_method" value="PUT" />
             </form>
-
             <form action="<?= $action; ?>" name="catalog-form-<?= $product->id; ?>" method="POST">
                 <input type="hidden" name="_method" value="PUT" />
                 <div class="img-data inline relative">
@@ -89,13 +87,15 @@ $origin = Router::getOrigin();
                     <div class="mini-title">Название</div>
                     <div class="mini-content">
                         <input type="text" class="text-text" name="update[title]" value="<?= htmlspecialchars($product->title); ?>" placeholder="Название товара" />
-                        <span class="<?= $product->visible == false ? 'unvis' : ''; ?>">
-                            <span class="actions">
-                                <span onclick="catalog.post(document.forms['catalog-update-visibility-product-form-<?= $product->id;?>']); return false;" class="action inline visible">Видимость товара</span>
-                            </span>
+                       <span class="<?= $product->visible == false ? 'unvis' : ''; ?>">
+                        <span class="actions">
+                        <span onclick="catalog.post(document.forms['catalog-update-visibility-product-form-<?= $product->id;?>']); return false;" class="action inline visible">Видимость товара</span>
                         </span>
+                    </span>
+
                     </div>
 
+                 
                     <div class="mini-title">Мета тег TITLE</div>
                     <div class="mini-content">
                         <input type="text"
@@ -115,7 +115,15 @@ $origin = Router::getOrigin();
 
                     <div class="mini-title">Цена</div>
                     <div class="mini-content">
-                        <input type="text" class="text-text" name="update[price]" value="<?= $product->price; ?>" placeholder="Цена товара" />
+                        <input type="text" class="text-text" style="width:200px" name="update[price]" value="<?= $product->price; ?>" placeholder="Цена товара" />
+                        <label>Скидка
+                            <input type="text" class="text-text" style="width:60px" name="update[discount]" value="<?= $product->discount; ?>" placeholder="10" />
+                       % 
+                       </label>
+                       <label>Текст 
+                            <input type="text" class="text-text" style="width:300px" name="update[discount_text]" value="<?= $product->discount_text; ?>" placeholder="Текст на товаре" />
+                       %
+                       </label>
                     </div>
                     <div class="mini-title">Тэги</div>
                     <div class="mini-content tags">

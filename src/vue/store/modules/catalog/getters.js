@@ -22,5 +22,9 @@ export default {
 	},
 	current(state){
 		return state.current
+	},
+	product(state){
+		console.log("product getter",state.product)
+		return state.product
 	}
 };

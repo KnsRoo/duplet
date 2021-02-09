@@ -12,11 +12,11 @@ class Product {
 
         return [
             'self' => [
-                'href' => Router::byName('api:catalog:v2:product')
+                'href' => Router::byName('api:catalog:v3:product')
                     ->getURL([ 'id' => $item->id ]),
             ],
             'group' => [
-                'href' => Router::byName('api:catalog:v2:group')
+                'href' => Router::byName('api:catalog:v3:group')
                     ->getURL([ 'id' => $item->cid ]),
             ],
         ];
@@ -37,7 +37,7 @@ class Product {
         if ($tags[0] === "") $tags = [];
 
         $route = Router::byName('catalog:product');
-        $pageRef = $route->getURL([ 'chpu' => $item->chpu ]);
+        $pageRef = $route->getURL(['productId' => $item->id]);
 
         return [
             'id' => (String)$item->id,
@@ -45,6 +45,10 @@ class Product {
             'pageRef' => $pageRef,
             'code' => (String)$item->code,
             'price' => (float)$item->price,
+            'discount' => $item->discount,
+            'discount_price' => $item->getDiscountPrice(),
+            'category' => $item->getCategory(),
+            'discount_text' => (String)$item->discount_text,
             'preview' => (String)$item->preview,
             'about' => (String)$item->about,
             'picture' => $picture,
@@ -138,7 +142,7 @@ class Product {
 
             foreach($ids as $id) {
 
-                $route = \Websm\Framework\Router\Router::byName('api:catalog:v2:product');
+                $route = \Websm\Framework\Router\Router::byName('api:catalog:v3:product');
                 $urls[] = $route->getURL(['id' => $id]);
 
             }
