@@ -1,4 +1,3 @@
-<template lang="pug">
 section.reserved
     .wrapper
         .reserved__title Забронированные товары
@@ -18,7 +17,7 @@ section.reserved
                                     .discount__percent 15%
                                     .favorite__cross.icon-menu-cancel
                                     .product__block
-                                        img.product__img(src=("/assets/img/gun.png"), alt="Ружьё")
+                                        img.product__img(src=require("../../img/gun.png").default, alt="Ружьё")
                             .card__text
                                 .card__text_title САПОГИ РЫБАЦКИЕ НАЗИЯ ЭВА С ЧУЛ. ТРИПЛЕКС АРТ. С095 (РАЗМЕР 46)
                                 .card__text_block
@@ -55,11 +54,3 @@ section.reserved
                     .card__status.card__info
                         .status__done.hidden__status  Готово для получения
                         .status__building Сборка
-</template>
-<script>
-export default {
-    data() {
-        return {};
-    }
-};
-</script>

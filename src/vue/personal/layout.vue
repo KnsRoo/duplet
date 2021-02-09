@@ -1,13 +1,14 @@
 <template lang = "pug">
 .lk__wrapper
-    section.private-office
+    section.lk
         .wrapper
-            .private-office__title Личный кабинет
-            .private-office__flex
+            .lk__title Личный кабинет
+            .lk__block
                 Info
                 Cart
     Reserved
     History
+
 
 </template>
 
@@ -20,8 +21,7 @@ import History from "./components/history.vue";
 
 export default {
     data() {
-        return {
-        };
+        return {};
     },
     components: {
         Info,
@@ -29,14 +29,9 @@ export default {
         Reserved,
         History
     },
-    computed: {
-    },
-    methods: {
-    },
-    async mounted(){
-
-    },
-    async created() {
-    }
+    computed: {},
+    methods: {},
+    async mounted() {},
+    async created() {}
 };
 </script>
