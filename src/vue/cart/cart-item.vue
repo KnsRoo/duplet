@@ -1,7 +1,7 @@
 <template lang = "pug">
 .card
 	.card__act
-		.card__favorite
+		.card__favorite(@click = "addToFavorites(cartItem.id)")
 			figure.card__icon.icon-liked
 			.card__title Отложить
 		.card__delete(@click = "removeFromCart(cartItem.id)")
@@ -59,10 +59,16 @@ export default {
         }
     },
     methods: {
-        ...mapActions("cart", ["removeFromCart", "updateItemCount"]),
+        ...mapActions("cart", ["removeFromCart", "updateItemCount", "addToFavorites"]),
+        ...mapActions("favorites", ["appendItem"]),
         async upNumber() {
             this.number++;
             await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
+        },
+        async addToFavorites(itemId){
+        	if (await this.appendItem(itemId)){
+        		this.removeFromCart(itemId)
+        	}
         },
         async downNumber() {
             if (this.number > 1) {
@@ -80,7 +86,6 @@ export default {
     created(){
     	this.number = parseInt(this.$props.cartItem.count)
     	this.price  = parseFloat(this.$props.cartItem.price)
-    	console.log(this.$props.cartItem)
     }
 };
 </script>

@@ -235,7 +235,12 @@ export default {
                     result = await response.json();
                     localStorage.setItem("jwt", JSON.stringify(result));
                     this.closeSuccessfully();
-                    document.location.href = "/lk";
+                    if  (window.location.pathname == '/favorite'){
+                        document.location.href = "/favorite";
+                    } else {
+                        document.location.href = "/lk";
+                    }
+                    
                 } else {
                     result = await response.json();
                     throw result.errors[0].message;

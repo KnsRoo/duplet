@@ -1,5 +1,6 @@
 export default {
     catalogGroups: [],
+    product: undefined,
     catalogItems: [],
     filters: [],
     groupId: '',

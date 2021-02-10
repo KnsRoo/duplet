@@ -20,9 +20,9 @@ class Subproducts {
 
         $origin = $protocol . '://' . $_SERVER['HTTP_HOST'];
         $routes = [
-            'self' => Router::byName('api:catalog:v2:subproducts')
+            'self' => Router::byName('api:catalog:v3:subproducts')
                 ->getAbsolutePath([ 'id' => $group->id ]),
-            'api-base' => Router::byName('api:catalog:v2')
+            'api-base' => Router::byName('api:catalog:v3')
                 ->getAbsolutePath(),
         ];
 

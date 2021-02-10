@@ -18,6 +18,11 @@ export default {
 	},
 
 	setCurrent(state, link){
-		state.current = link;
+		state.current = link
+	},
+
+	setProduct(state, item){
+		console.log("product setter",item)
+		state.product = item
 	}
 };

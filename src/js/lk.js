@@ -1,12 +1,10 @@
 import '../scss/lk.scss';
-import headerSearch from './global';
-//import ModalLogin from '../vue/ModalLogin'
+import init from './global';
 import PersonalArea from '../vue/personal'
 import refreshToken from './components/refreshToken'
 
 document.addEventListener('DOMContentLoaded', async () => {
-    headerSearch()
-    //let modalLogin = new ModalLogin()
+    init()
     try {
     	await refreshToken();
     	new PersonalArea('#personal')

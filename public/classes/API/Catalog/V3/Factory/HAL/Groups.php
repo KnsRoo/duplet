@@ -19,9 +19,9 @@ class Groups {
 
         $origin = $protocol . '://' . $_SERVER['HTTP_HOST'];
         $routes = [
-            'self' => Router::byName('api:catalog:v2:groups')
+            'self' => Router::byName('api:catalog:v3:groups')
                 ->getAbsolutePath(),
-            'api-base' => Router::byName('api:catalog:v2')
+            'api-base' => Router::byName('api:catalog:v3')
                 ->getAbsolutePath(),
         ];
 

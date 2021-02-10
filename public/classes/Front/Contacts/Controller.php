@@ -25,13 +25,7 @@ class Controller extends Response
         $group = Router::group();
 
         $group->addGet('/', [$this, 'getDefault'])
-            ->setName('catalog:default');
-
-        $group->addGet('/group-:groupId', [$this, 'getGroup'])
-            ->setName('catalog:group');
-
-        $group->addGet('/product-:productId', [$this, 'getProduct'])
-            ->setName('catalog:product');
+            ->setName('contacts:default');
 
         return $group;
     }
@@ -48,43 +42,6 @@ class Controller extends Response
         ];
 
         $html = $this->render(self::PATH . 'contacts.tpl', $data);
-
-        $this->layout
-            ->setSrc('contacts')
-            ->setContent($html);
-    }
-
-    public function getGroup($req)
-    {
-        $groupId = $req['groupId'];
-
-        $groups = Group::find(['cid' => $groupId])
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
-
-        $data = [
-            'groups' => $groups,
-        ];
-
-        $html = $this->render(self::PATH . 'group.tpl', $data);
-
-        $this->layout
-            ->setSrc('contacts')
-            ->setContent($html);
-    }
-
-    public function getProduct($req)
-    {
-        $productId = $req['productId'];
-        $product = Product::find(['id' => $productId])
-            ->get();
-
-        $data = [
-            'product' => $product,
-        ];
-
-        $html = $this->render(self::PATH . 'product.tpl', $data);
 
         $this->layout
             ->setSrc('contacts')

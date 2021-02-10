@@ -73,6 +73,9 @@ export default {
         if (changed.address != ''){
             await dispatch('resetAddress',changed.address)
         }
+        if (changed.city != ''){
+            await dispatch('resetAddress',changed.city)
+        }
         if (changed.dicount != ''){
             await dispatch('resetCardNumber',changed.discount)
         }    
@@ -80,7 +83,6 @@ export default {
     },
 
     async resetPhone(ctx, phone){
-        console.log(phone)
         try {
             const response = await authfetch(`${window.location.origin}/api/user/phone`, {
                 method: 'PUT',
@@ -138,6 +140,24 @@ export default {
                     op: 'add',
                     path: '/address',
                     value: address,
+                }]),
+            })
+            if(response.errors) {
+                console.log(response.errors)
+            }
+        }
+        catch {
+            noty('error', 'Ошибка записи адреса')
+        }
+    },
+    async resetCity(ctx, city){
+        try {
+            const response = await authfetch(`${window.location.origin}/api/user/props`, {
+                method: 'PATCH',
+                body: JSON.stringify([{
+                    op: 'add',
+                    path: '/city',
+                    value: city,
                 }]),
             })
             if(response.errors) {

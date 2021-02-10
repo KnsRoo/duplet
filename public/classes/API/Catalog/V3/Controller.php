@@ -21,40 +21,40 @@ class Controller extends Response {
         $group = Router::group();
 
         $group->addGet('/', [ $this, 'default' ])
-              ->setName('api:catalog:v2');
+              ->setName('api:catalog:v3');
 
         $group->addGet('/base/products', [$this, 'getBaseProducts'])
-            ->setName('api:catalog:v2:base-products');
+            ->setName('api:catalog:v3:base-products');
 
         $group->addGet('/base/groups', [$this, 'getBaseGroups'])
-            ->setName('api:catalog:v2:base-groups');
+            ->setName('api:catalog:v3:base-groups');
 
         $group->addGet('/groups', [$this, 'getGroups'])
-            ->setName('api:catalog:v2:groups');
+            ->setName('api:catalog:v3:groups');
 
         $group->addGet('/struct', [$this, 'getStructure'])
-            ->setName('api:catalog:v2:structure');
+            ->setName('api:catalog:v3:structure');
 
         $group->addGet('/groups/:id', [$this, 'getGroup'])
-            ->setName('api:catalog:v2:group');
+            ->setName('api:catalog:v3:group');
 
         $group->addGet('/groups/:id/subgroups', [$this, 'getSubgroups'])
-            ->setName('api:catalog:v2:subgroups');
+            ->setName('api:catalog:v3:subgroups');
 
         $group->addGet('/groups/:id/subproducts', [$this, 'getAllSubproducts'])
-            ->setName('api:catalog:v2:subproducts');
+            ->setName('api:catalog:v3:subproducts');
 
         $group->addGet('/products', [$this, 'getProducts'])
-            ->setName('api:catalog:v2:products');
+            ->setName('api:catalog:v3:products');
 
         $group->addGet('/products/:id', [$this, 'getProduct'])
-            ->setName('api:catalog:v2:product');
+            ->setName('api:catalog:v3:product');
 
         $group->addGet('/search/:query', [$this, 'getFound'])
-            ->setName('api:catalog:v2:search');
+            ->setName('api:catalog:v3:search');
 
         $group->addGet('/doc/rels/:rel', [$this, 'getRelDoc'])
-            ->setName('api:catalog:v2:docs');
+            ->setName('api:catalog:v3:docs');
 
         return $group;
     }

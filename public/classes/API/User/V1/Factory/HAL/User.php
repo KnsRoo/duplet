@@ -24,7 +24,7 @@ class User {
             'phone' => Router::byName('api:user:v1:phone')->getURL(),
             'props' => Router::byName('api:user:v1:props')->getURL(),
             'orders' => Router::byName('api:user:v1:orders')->getURL(),
-            'discount-cards' => Router::byName('api:discount-cards:v1:cards')->getURL(),
+            //'discount-cards' => Router::byName('api:discount-cards:v1:cards')->getURL(),
         ];
 
         $res = [];

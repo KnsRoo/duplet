@@ -35,6 +35,9 @@
 			.input__title e-mail
 			input.input__box(:disabled = "!editable" :class = "{ invalid: !emailValid  }" v-model="info.email")
 		.input
+			.input__title Город
+			input.input__box(:disabled = "!editable" v-model="info.city")
+		.input
 			.input__title Адрес
 			input.input__box(:disabled = "!editable" v-model="info.address")
 		.input
@@ -49,51 +52,52 @@ import { mapActions, mapGetters } from "vuex";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
-    data() {
-        return {
-            editable: false,
-            loaded: false,
-            info: {
-                name: "",
-                phone: "",
-                email: "",
-                discount: "",
-                address: ""
-            }
-        };
-    },
-    validations: {
-        info: {
-            email: {
-                required,
-                email
-            }
-        }
-    },
-    computed: {
-        ...mapGetters("user", ["getUser"]),
-        emailValid() {
-            return this.$v.info.email.email && this.$v.info.email.required;
-        }
-    },
-    methods: {
-        ...mapActions("user", ["fetchUser", "saveUser"]),
-        toggleMode() {
-            if (this.editable) {
-                this.saveChanges();
-            }
-            this.editable = !this.editable;
-        },
-        async saveChanges() {
-            this.saveUser(this.info);
-        }
-    },
-    async created() {
-        await this.fetchUser();
-        this.info = Object.assign(this.getUser);
-        this.loaded = true;
-    }
-};
+	data() {
+		return {
+			editable: false,
+			loaded: false,
+			info: {
+				name: '',
+				phone: '',
+				email: '',
+				discount: '',
+				city: '',
+				address: ''
+			}
+		};
+	},
+	validations: {
+		info: {
+		 	email : {
+				required,
+				email
+			}
+		}
+	},
+	computed: {
+		...mapGetters('user',["getUser"]),
+		emailValid(){
+			return this.$v.info.email.email && this.$v.info.email.required
+		}
+	},
+	methods: {
+		...mapActions('user',["fetchUser", "saveUser"]),
+		toggleMode(){
+			if (this.editable){
+				this.saveChanges()
+			}
+			this.editable = !this.editable
+		},
+		async saveChanges(){
+			this.saveUser(this.info)
+		},
+	},
+	async created(){
+		await this.fetchUser()
+		this.info = Object.assign(this.getUser)
+		this.loaded = true
+	}
+}
 </script>
 
 <style lang = "scss">

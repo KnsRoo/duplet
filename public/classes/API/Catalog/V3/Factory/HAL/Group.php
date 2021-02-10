@@ -12,15 +12,15 @@ class Group {
 
         return [
             'self' => [
-                'href' => Router::byName('api:catalog:v2:group')
+                'href' => Router::byName('api:catalog:v3:group')
                     ->getURL([ 'id' => $item->id ]),
             ],
             'subproducts' => [
-                'href' => Router::byName('api:catalog:v2:subproducts')
+                'href' => Router::byName('api:catalog:v3:subproducts')
                     ->getURL([ 'id' => $item->id ]),
             ],
             'subgroups' => [
-                'href' => Router::byName('api:catalog:v2:subgroups')
+                'href' => Router::byName('api:catalog:v3:subgroups')
                     ->getURL([ 'id' => $item->id ]),
             ],
         ];

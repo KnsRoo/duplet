@@ -30,6 +30,8 @@ class Product extends ActiveRecord implements PathProviderInterface
     public $visible = true;
     public $sort = 1;
     public $chpu = '';
+    public $discount = 0;
+    public $discount_text = null;
 
     public $props;
 
@@ -76,7 +78,34 @@ class Product extends ActiveRecord implements PathProviderInterface
 
             ['props', 'pass'],
 
+            [ 'discount', ['native', 'numeric'] ],
+
+            [ 'discount_text', 'native' ],
+
         ];
+    }
+
+    public function getDiscountPrice() {
+        if($this->discount == null || $this->discount == 0)
+            return $this->price;
+
+        return $this->price - ($this->price * $this->discount/100);
+    }
+
+    public function getDiscountText() {
+        if($this->discount_text != null)
+            return $this->discount_text;
+
+        if($this->discount_text == null &&  $this->discount == 0)
+            return 'Эксклюзивная цена для интернет-магазина';
+            
+        return $this->discount_text;
+    }
+
+    public function getDiscount() {
+        if($this->discount == 0)
+            return '5';
+        return $this->discount;
     }
 
     public function getCategory()

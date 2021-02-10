@@ -64,5 +64,13 @@ export default {
 		let next = result._links.next ? result._links.next.href : null
 		commit('addCatalogProducts', { items, next})
 	},
+	async fetchProduct({commit}, link){
+		let result = await ky.get(link).json()
+		if (result.status === 'error') {
+			noty('error','Ошибка при получении данных. Код ошибки 1444')
+			return
+		}
+		commit('setProduct', result)
+	}
 
 };

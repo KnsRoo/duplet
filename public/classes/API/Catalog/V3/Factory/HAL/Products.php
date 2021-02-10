@@ -19,9 +19,9 @@ class Products {
         $origin = $protocol . '://' . $_SERVER['HTTP_HOST'];
 
         $routes = [
-            'self' => Router::byName('api:catalog:v2:products')
+            'self' => Router::byName('api:catalog:v3:products')
                 ->getAbsolutePath(),
-            'api-base' => Router::byName('api:catalog:v2')
+            'api-base' => Router::byName('api:catalog:v3')
                 ->getAbsolutePath(),
         ];
 
