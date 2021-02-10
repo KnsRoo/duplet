@@ -45,30 +45,55 @@
         margin-bottom: 60px;
         flex-wrap: wrap;
 
-        .price__discount {
+        .discount__price {
             font-weight: normal;
             font-size: 24px;
             line-height: 125%;
-            text-decoration: line-through;
-            margin-right: 30px;
+            margin-right: 20px;
+            color: #9d2f2f;
+            display: none;
         }
 
-        .price__box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price__cost {
+        .main__price {
             font-weight: normal;
             font-size: 48px;
             line-height: 125%;
-            color: #9d2f2f;
-            margin-right: 45px;
+            color: #333;
+            margin-right: 30px;
+            position: relative;
+
+            &_title {
+                position: relative;
+            }
         }
 
-        .price__available {
-            color: #5a9e08;
+        .status {
+
+            .available,
+            .unavailable {
+                position: relative;
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                line-height: 125%;
+
+                &__title {
+                    margin-left: 10px;
+                }
+            }
+
+            .available {
+                color: #5A9E08;
+            }
+
+            .unavailable {
+                color: #9D2F2F;
+            }
+
+            .icon-menu-cancel {
+                font-size: 30px;
+            }
+
         }
     }
 

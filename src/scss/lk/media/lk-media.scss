@@ -106,6 +106,8 @@
 
         &__block {
             .data {
+                min-width: 100%;
+
                 &__title {
                     font-size: 18px;
                 }

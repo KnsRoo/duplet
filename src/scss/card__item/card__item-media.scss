@@ -18,6 +18,20 @@
   }
 }
 
+@media(max-width: 1300px) {
+  .card__item {
+    .add__discount {
+      .card__benefits {
+        .card__item_price {
+          .main__price {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .card__item {
     .card__box {
@@ -113,11 +127,7 @@
         .card__item_price {
           margin-bottom: 20px;
 
-          .price__discount {
-            font-size: 18px;
-          }
-
-          .price__cost {
+          .discount__price {
             font-size: 34px;
           }
         }
@@ -194,6 +204,25 @@
       }
 
       .card__benefits {
+        .card__item_price {
+          .main__price {
+            font-size: 28px;
+          }
+
+          .status {
+
+            .available,
+            .unavailable {
+              font-size: 14px;
+            }
+
+            .icon-menu-cancel {
+              font-size: 20px;
+            }
+
+          }
+        }
+
         .order__box {
           flex-wrap: wrap;
 

@@ -1,5 +1,10 @@
+include ../mixins/product.pug
 article.buy__history
     .wrapper
         .history__title История покупок
-        input.history__input(type="text")
+        input.history__input(type="text" placeholder='поиск по покупкам')
         .history__box
+            +product('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +product__1('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +product__2('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            +product__3('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')

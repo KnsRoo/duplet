@@ -36,8 +36,8 @@
 
   .better__category {
     @import '../slider/main-slider';
-    @import '../mixins/mixin__card';
+    @import '../mixins/mixin__product';
   }
 }
 
-@import './catalog-media';
+@import './media/catalog-media';

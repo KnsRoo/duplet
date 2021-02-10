@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 312px;
   margin-top: 60px;
+  flex: 0 0 auto;
 
   &__content {
     display: flex;
@@ -161,4 +162,5 @@
     text-align: center;
   }
 }
-@import "./footer-media";
+
+@import "./media/footer-media";
