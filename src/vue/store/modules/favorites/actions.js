@@ -22,9 +22,7 @@ export default {
             } 
 
         } catch (e){
-            if (typeof e.message == "string"){
-                noty("error", e.message);
-            } else {
+            if (typeof e.message != "string"){
                 noty("error", "Неизвестная ошибка. Код ошибки 4441");
             }
         }

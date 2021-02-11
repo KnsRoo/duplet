@@ -134,10 +134,12 @@ export default {
     },
     async created() {
         await this.fetchItems();
-        await this.fetchUser();
-        this.orderData.name = this.getUser.name;
-        this.orderData.phone = this.getUser.phone;
-        this.orderData.address = this.getUser.address;
+        if (localStorage.getItem("jwt")){
+        	await this.fetchUser();
+	        this.orderData.name = this.getUser.name;
+	        this.orderData.phone = this.getUser.phone;
+	        this.orderData.address = this.getUser.address;
+    	}
     }
 };
 </script>

@@ -235,10 +235,10 @@ export default {
                     result = await response.json();
                     localStorage.setItem("jwt", JSON.stringify(result));
                     this.closeSuccessfully();
-                    if  (window.location.pathname == '/favorite'){
-                        document.location.href = "/favorite";
-                    } else {
+                    if (window.location.pathname == ""){
                         document.location.href = "/lk";
+                    } else {
+                        document.location.href = window.location.pathname
                     }
                     
                 } else {

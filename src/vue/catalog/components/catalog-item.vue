@@ -1,7 +1,7 @@
 <template lang="pug">
 .product(:class = "{ discount: 'product.discount != null && product.discount != 0'}")
 	.discount__percent(v-if="product.discount != null && product.discount != 0") {{ product.discount }} %
-	.favorite__cross.icon-menu-cancel
+	.favorite__cross.icon-menu-cancel(v-if = "favorite" @click = "removeItem(product.id)")
 	.product__block
 		img.product__img(:src = "product.picture")
 	.product__content
@@ -19,11 +19,16 @@
 import { mapActions } from "vuex";
 export default {
     props: {
-        product: Object
+        product: Object,
+        favorite: {
+            type: Boolean,
+            default: false
+        }
     },
 
     methods: {
         ...mapActions("cart", ["addToCart"]),
+        ...mapActions('favorites', ["removeItem"]),
         addItemToCart() {
             const dataItem = {
                 id: this.product.id,

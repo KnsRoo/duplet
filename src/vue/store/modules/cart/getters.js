@@ -14,5 +14,13 @@ export default {
 		let countTotal = state.items.length
 		let discount = sumReal - sumTotal
 		return { sumTotal, countTotal, sumReal, discount } 
+	},
+
+	reservedItems(state){
+		return state.items.filter(val => val.status === 'reserved');	
+	},
+
+	readyItems(state){
+		return state.items.filter(val => val.status === 'ready');	
 	}
 }

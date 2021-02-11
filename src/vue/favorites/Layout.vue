@@ -3,12 +3,12 @@ section.liked
 	.wrapper
 		p.liked__title Отложенные товары
 		.liked__wrap(v-if = "loaded")
-			FavItem(v-for="item in favorites" :item = "item")
+			FavItem(v-for="item in favorites" :product = "item" :favorite = "true")
 </template>
 
 <script>
 import ky from 'ky';
-import FavItem from './fav-item.vue'
+import FavItem from '../catalog/components/catalog-item.vue'
 import {mapActions, mapGetters} from 'vuex'
 
 export default {
@@ -28,7 +28,6 @@ export default {
 	},
 	async created(){
 		await this.fetchItems()
-		console.log('fetched')
 		this.loaded = true
 	}
 }
