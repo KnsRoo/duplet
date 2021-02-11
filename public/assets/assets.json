@@ -26,7 +26,7 @@
     "css": [
       "/assets/css/0.2e15af48.css",
       "/assets/css/1.328d3ef3.css",
-      "/assets/css/catalog.ee6ae4d2.css"
+      "/assets/css/catalog.21989877.css"
     ],
     "js": [
       "/assets/js/0.2e15af48.chunk.js",
@@ -37,12 +37,12 @@
   "contacts": {
     "css": [
       "/assets/css/0.2e15af48.css",
-      "/assets/css/3.85e423ad.css",
+      "/assets/css/3.b506b687.css",
       "/assets/css/contacts.1ed95df1.css"
     ],
     "js": [
       "/assets/js/0.2e15af48.chunk.js",
-      "/assets/js/3.85e423ad.chunk.js",
+      "/assets/js/3.b506b687.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
@@ -50,7 +50,7 @@
     "css": [
       "/assets/css/0.2e15af48.css",
       "/assets/css/1.328d3ef3.css",
-      "/assets/css/favorite.0d50f5fb.css"
+      "/assets/css/favorite.3882e273.css"
     ],
     "js": [
       "/assets/js/0.2e15af48.chunk.js",
@@ -61,12 +61,12 @@
   "index": {
     "css": [
       "/assets/css/0.2e15af48.css",
-      "/assets/css/3.85e423ad.css",
+      "/assets/css/3.b506b687.css",
       "/assets/css/index.bd26d89d.css"
     ],
     "js": [
       "/assets/js/0.2e15af48.chunk.js",
-      "/assets/js/3.85e423ad.chunk.js",
+      "/assets/js/3.b506b687.chunk.js",
       "/assets/js/index.js"
     ]
   },
