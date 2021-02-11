@@ -1,4 +1,4 @@
-@import "../vars/vars";
+@import "../class/class";
 @import "../popup/card__item__popup";
 
 .card__item {
@@ -79,34 +79,34 @@
         @import './card__benefits';
     }
 
-    .add__discount {
-        .card__benefits {
-            .card__item_price {
-                .discount__price {
-                    display: flex;
-                    font-size: 48px;
-                }
+    // .add__discount {
+    //     .card__benefits {
+    //         .card__item_price {
+    //             .discount__price {
+    //                 display: flex;
+    //                 font-size: 48px;
+    //             }
 
-                .main__price {
-                    font-size: 24px;
-                    order: -1;
+    //             .main__price {
+    //                 font-size: 24px;
+    //                 order: -1;
 
-                    .main__price_title {
-                        position: relative;
+    //                 .main__price_title {
+    //                     position: relative;
 
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            background: #333;
-                            width: 100%;
-                            height: 2px;
-                            top: 40%;
-                        }
-                    }
-                }
-            }
-        }
-    }
+    //                     &::before {
+    //                         content: "";
+    //                         position: absolute;
+    //                         background: #333;
+    //                         width: 100%;
+    //                         height: 2px;
+    //                         top: 40%;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
     @import "card__item__wrapper";
 }

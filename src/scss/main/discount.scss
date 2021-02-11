@@ -8,7 +8,6 @@
   .action__box {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
 
     .wrap {
       width: 660px;
@@ -123,7 +122,6 @@
     }
   }
 
-  @import '../vars/vars';
 
   .link__center {
     width: 103px;
@@ -132,6 +130,8 @@
     display: block;
     margin: 0 auto;
   }
+
+  @import '../class/class';
 }
 
 @import "./media/discount-media";

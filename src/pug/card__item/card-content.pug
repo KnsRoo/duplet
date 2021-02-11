@@ -2,7 +2,7 @@ include ../mixins/product.pug
 include ../popup/card__item__popup.pug
 section.card__item
     .wrapper
-        .card__box.add__discount
+        .card__box
             .card__item_name_mobile ТОЗ-34Р (орех)
             .slider__box
                 .swiper-container.slider__sidebar
@@ -46,7 +46,7 @@ section.card__item
                     разработанное  конструктором-оружейником Н. И. Коровяковым.
                 .card__item_price
                     .discount__price ₽ 39 999
-                    .main__price 
+                    .main__price.closed
                         span.main__price_title ₽ 66 999
                     .status
                         .available.hidden
@@ -57,7 +57,10 @@ section.card__item
                             span.unavailable__title Нет в наличии
                 .order__box
                     .order__container
-                        input.choose__number(type="number" min="1" max="50")
+                        .choose__number_box
+                            .btn__minus.icon-number
+                            .choose__number 99
+                            .btn__plus.icon-number-right
                         button.to__cart.add__to__cart(type="submit") в корзину
                     .to__favorite
                         figure.icon-liked

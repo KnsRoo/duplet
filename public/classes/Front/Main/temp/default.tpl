@@ -133,7 +133,7 @@
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
-				</div><a class="to__catalog_link" href="/catalog">Больше товаров</a>
+				</div><a class="link__to" href="/catalog">Больше товаров</a>
 			</div>
 		</div>
 	</section>
@@ -274,7 +274,7 @@
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
-				</div><a class="to__catalog_link" href="#">Больше товаров</a>
+				</div><a class="link__to" href="#">Больше товаров</a>
 			</div>
 		</div>
 	</section>
@@ -312,7 +312,7 @@
 						<div class="email__send"><input class="input_email" type="email" placeholder="Ваш e-mail" required><a class="btn" href="#"><span class="btn__name">Отправить</span></a></div>
 					</form>
 				</div>
-			</div><a class="to__catalog_link link__center" href="#">Больше акций</a>
+			</div><a class="link__to link__center" href="#">Больше акций</a>
 		</div>
 	</section>
 	<section class="tidings">
@@ -364,7 +364,7 @@
 					</div>
 				</div>
 				<div class="swiper-pagination"></div>
-			</div>
+			</div><a class="link__to more__news" href="#">Больше новостей</a>
 		</div>
 	</section>
 </main>
