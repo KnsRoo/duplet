@@ -1,95 +1,95 @@
 {
   "404": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/1.765c5507.css",
-      "/assets/css/404.964e492a.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/1.bdab5cd9.css",
+      "/assets/css/404.a83c0948.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
-      "/assets/js/1.765c5507.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
+      "/assets/js/1.bdab5cd9.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/cart.8d72a8d4.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/cart.c72bd062.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
       "/assets/js/2.440f5d0e.chunk.js",
       "/assets/js/cart.js"
     ]
   },
   "catalog": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/1.765c5507.css",
-      "/assets/css/catalog.3bc9f4a3.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/1.bdab5cd9.css",
+      "/assets/css/catalog.0cef1124.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
-      "/assets/js/1.765c5507.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
+      "/assets/js/1.bdab5cd9.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
   "contacts": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
+      "/assets/css/0.74da428f.css",
       "/assets/css/3.599d8b85.css",
-      "/assets/css/contacts.46e034b3.css"
+      "/assets/css/contacts.1f0a4645.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
       "/assets/js/3.599d8b85.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/1.765c5507.css",
-      "/assets/css/favorite.8a04c40b.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/1.bdab5cd9.css",
+      "/assets/css/favorite.72e7de09.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
-      "/assets/js/1.765c5507.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
+      "/assets/js/1.bdab5cd9.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
   "index": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
+      "/assets/css/0.74da428f.css",
       "/assets/css/3.599d8b85.css",
-      "/assets/css/index.9ce09d1b.css"
+      "/assets/css/index.21fd8ee6.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
       "/assets/js/3.599d8b85.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "lk": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/lk.6f0dbbb2.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/lk.eaa35a55.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
       "/assets/js/2.440f5d0e.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/1.765c5507.css",
-      "/assets/css/news.73e643b2.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/1.bdab5cd9.css",
+      "/assets/css/news.be37f7ca.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
-      "/assets/js/1.765c5507.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
+      "/assets/js/1.bdab5cd9.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -98,13 +98,13 @@
   },
   "product": {
     "css": [
-      "/assets/css/0.30d78ec4.css",
-      "/assets/css/1.765c5507.css",
-      "/assets/css/product.026d65fa.css"
+      "/assets/css/0.74da428f.css",
+      "/assets/css/1.bdab5cd9.css",
+      "/assets/css/product.f1c990d9.css"
     ],
     "js": [
-      "/assets/js/0.30d78ec4.chunk.js",
-      "/assets/js/1.765c5507.chunk.js",
+      "/assets/js/0.74da428f.chunk.js",
+      "/assets/js/1.bdab5cd9.chunk.js",
       "/assets/js/product.js"
     ]
   },

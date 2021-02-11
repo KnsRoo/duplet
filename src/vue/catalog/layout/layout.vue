@@ -1,7 +1,7 @@
 <template lang="pug">
 section.catalog
     .wrapper
-        catalog-cats(:mode = "mode" :query = "query" @switchToCatalog="switchCat")
+        catalog-cats(ref = "cats" :mode = "mode" :query = "query" @switchToCatalog="switchCat")
         .cards
             Product(
                 v-for="product in catalogItems"
@@ -70,6 +70,7 @@ section.catalog
 </template>
 
 <script>
+import ky from 'ky';
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Product from "../components/catalog-item.vue";
 import Cats from "../components/categories.vue";
@@ -110,8 +111,12 @@ export default {
     },
 
     async created() {
-        let query = new URL(document.location).searchParams.get("query");
+        let query = new URL(window.location.href).searchParams.get("query"),
+            groupId = new URL(window.location.href).searchParams.get("group"),
+            sort = new URL(window.location.href).searchParams.get("sort");
+
         this.mode = "catalog";
+        
         if (query) {
             await this.fetchCatalogItems(
                 `${window.location.origin}/api/catalog/products?query=${query}`
@@ -119,9 +124,18 @@ export default {
             this.mode = "search";
             this.query = query;
         } else {
-            await this.fetchCatalogItems(
-                `${window.location.origin}/api/catalog/products`
-            );
+            if (groupId){
+                let group = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
+                await this.$refs.cats.setGroup(group)
+                this.$refs.cats.toggleCats()
+            } else {
+                await this.fetchCatalogItems(
+                    `${window.location.origin}/api/catalog/products`
+                );
+            }
+            if (sort){
+                await this.$refs.cats.refreshSort(parseInt(sort))
+            }
         }
     },
     destroyed() {

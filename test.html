@@ -1,0 +1,56 @@
+<html>
+<p id = "state">default</p>
+<p>ADD</p>
+<input type = "button" value = "arg=1" onclick = "changeArg(1)">
+<input type = "button" value = "arg=2" onclick = "changeArg(2)">
+<input type = "button" value = "kwarg=1" onclick = "changeKwarg(1)">
+<input type = "button" value = "kwarg=2" onclick = "changeKwarg(2)">
+<p>Remove</p>
+<input type = "button" value = "arg" onclick = "removeArg()">
+<input type = "button" value = "kwarg" onclick = "removeKwarg()">
+<p id = "url">default</p>
+</html>
+<script>
+let query = new URL(document.location).searchParams.get("arg");
+if (query)
+document.querySelector('#state').innerHTML = query
+function changeArg(arg){
+	var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + get('?arg='+arg)
+	window.history.pushState({ path: refresh }, '', refresh);
+}
+function changeKwarg(arg){
+	let url = new URL(window.location.href)
+	var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + get('?kwarg='+arg)
+	window.history.pushState({ path: refresh }, '', refresh);
+}
+
+function removeArg(){
+	let url = new URL(window.location.href)
+	var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + remove('arg')
+	window.history.pushState({ path: refresh }, '', refresh);
+}
+
+function removeKwarg(){
+	let url = new URL(window.location.href)
+	var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + remove('kwarg')
+	window.history.pushState({ path: refresh }, '', refresh);
+}
+
+function remove(param){
+	let url = new URL(window.location.href)
+	let currentParams = new URLSearchParams(url.search)
+	currentParams.delete(param)
+	let string = currentParams.toString()
+	return (string != '') ? '?'+string : string
+}
+function get(param){
+	let url = new URL(window.location.href)
+	let currentParams = new URLSearchParams(url.search)
+	let extendParams = new URLSearchParams(param)
+	for (let [key, value] of extendParams.entries()){
+		currentParams.set(key, value)
+	}
+	let string = currentParams.toString()
+	return (string != '') ? '?'+string : string
+}
+</script>

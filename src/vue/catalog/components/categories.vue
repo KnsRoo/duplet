@@ -18,12 +18,12 @@
             .catalog__sort_title Сортировка по:
             .catalog__sort_type
                 .sort__name(@click = "toggleSort('name')")
-                    .sort__name_title  Названию
+                    .sort__name_title(:class = "{sort_active: [1,2].includes(sortType)}")  Названию
                     img(v-if = "[0,3,4].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
                     img(v-else-if = "sortType == 1" src="/assets/img/icons/sort_down.svg")
                     img(v-else-if = "sortType == 2" src = "/assets/img/icons/sort_up.svg")
                 .sort__price(@click = "toggleSort('price')")
-                    .sort__price_title  Цене
+                    .sort__price_title(:class = "{sort_active: [3,4].includes(sortType)}")  Цене
                     img(v-if = "[0,1,2].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
                     img(v-else-if = "sortType == 3" src="/assets/img/icons/sort_down.svg")
                     img(v-else-if = "sortType == 4" src = "/assets/img/icons/sort_up.svg")
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import URLHistory from '../../../js/components/URLHistory'
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
@@ -72,6 +73,18 @@ export default {
             4 | price ∞-0
         */
 
+        async refreshSort(type){
+            try{
+                if (![0,1,2,3,4].includes(type)){
+                    throw new Error(`Unsupported sort type (${type})`);
+                }
+                this.sortType = type
+                await this.sortItems(this.sortType);
+            } catch (e) {
+                console.error(e.message)
+            }
+        },
+
         async toggleSort(type) {
             try {
                 switch (this.sortType){
@@ -83,6 +96,7 @@ export default {
                     default: throw new Error(`Unsupported sort type (${this.sortType})`); break;
                 }
                 await this.sortItems(this.sortType);
+                new URLHistory().add('sort',this.sortType)
             } catch (e) {
                 console.error(e.message)
             }
@@ -94,6 +108,7 @@ export default {
 
         async setDefault() {
             this.title = "Каталог";
+            new URLHistory().remove('group')
             this.breadCrumbs = [];
             await this.fetchCatalogGroups(
                 `${window.location.origin}/api/catalog/base/groups`
@@ -108,22 +123,22 @@ export default {
         async back(index, item) {
             let diff = this.breadCrumbs.length - index - 1;
             for (let i = 0; i < diff; i++) this.breadCrumbs.pop();
-            await this.fetchCatalogGroups(item._links.subgroups.href);
+            await this.fetchCatalogGroups(item.subgroups);
             if (this.sortType){
-                await this.fetchSortedCatalogItems({ link: item._links.subproducts.href, sort: this.sortType });
+                await this.fetchSortedCatalogItems({ link: item.subproducts, sort: this.sortType });
             } else {
-                await this.fetchCatalogItems(item._links.subproducts.href);
+                await this.fetchCatalogItems(item.subproducts);
             }
             this.active = "";
         },
 
         async setGroup(item) {
+            new URLHistory().add('group',item.id)
+
             this.title = item.title;
             this.active = item.title;
-            if (this.isEnd) {
-                this.breadCrumbs.pop();
-            }
-            this.breadCrumbs.push(item);
+            this.breadCrumbs = item.path
+
             await this.fetchCatalogGroups(item._links.subgroups.href);
             if (this.sortType){
                 await this.fetchSortedCatalogItems({ link: item._links.subproducts.href, sort: this.sortType });
@@ -147,3 +162,9 @@ export default {
     }
 };
 </script>
+
+<style scoped lang = "scss">
+.sort_active {
+  color: #9d2f2f;
+}
+</style>

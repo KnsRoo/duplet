@@ -4,6 +4,8 @@ namespace API\Catalog\V3\Factory\HAL;
 
 use Websm\Framework\Router\Router;
 
+use Model\Catalog\Group as ModelGroup;
+
 class Group {
 
     public static function getLinks($params) {
@@ -41,8 +43,38 @@ class Group {
         $route = Router::byName('catalog:group');
         $pageRef = $route->getURL([ 'chpu' => $item->chpu ]);
 
+        $id = $item->cid;
+
+        $parent = $item;
+
+        $path[] = [
+            'id' => $item->id,
+            'title' => $item->title,
+            'subproducts' => Router::byName('api:catalog:v3:subproducts')->getURL(['id' => $item->id]),
+        ];
+
+        while ($id != NULL){
+            $parent = ModelGroup::find(['id' => $id])->get();
+            $id = $parent->cid;
+            $path[] = [ 
+                'id' => $parent->id,
+                'title' => $parent->title,
+                'subgroups' => Router::byName('api:catalog:v3:subgroups')->getURL(['id' => $parent->id]),
+                'subproducts' => Router::byName('api:catalog:v3:subproducts')->getURL(['id' => $parent->id]),
+                //'child' => $path,
+            ];
+        }
+
+        // $path[] = [
+        //     'id' => 'root',
+        //     'title' => 'Все категории',
+        //     'subproducts' => Router::byName('api:catalog:v3:groups')->getURL(),
+        //     //'child' => $path
+        // ];
+
         return [
             'id' => $item->id,
+            'path' => array_reverse($path),
             'title' => $item->title,
             'code' => $item->code,
             'preview' => $item->preview,
