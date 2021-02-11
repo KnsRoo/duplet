@@ -17,7 +17,7 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
 }
 
-const PAGES_DIR = `${PATHS.src}/pug/card__item`
+const PAGES_DIR = `${PATHS.src}/pug/main`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 const PUBLIC_PATH = path.join(__dirname, '..', 'public', 'assets');
 
@@ -115,7 +115,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|gif|svg|jpeg)$/,
                 loader: 'file-loader',
                 options: {
                     name: `img/[name].[ext]`

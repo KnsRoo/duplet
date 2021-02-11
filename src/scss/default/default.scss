@@ -11,10 +11,15 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
   font-family: "FuturaBookC";
+  height: 100%;
 }
 
 .lock__scroll {
@@ -38,10 +43,9 @@ footer {
 
 .wrapper {
   width: 82.3%;
-  height: 100%;
   margin: 0 auto;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }

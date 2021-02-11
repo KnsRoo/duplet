@@ -32,8 +32,9 @@
 				.card__caliber
 					.card__caliber_title Калибр:
 					.card__caliber_name 12/70
-	.card__discount.card__info 100%
-	.card__price.card__info ₽ {{ cartItem.price }}
+	.card__discount.card__info(v-if = "cartItem.discount") {{ cartItem.discount}} %
+	.card__discount.card__info(v-else)
+	.card__price.card__info ₽ {{ cartItem.price.toFixed(2) }}
 	<!-- .card__number.card__info {{ cartItem.count }} -->
 	.card__number.card__info
 		.btn__minus.icon-number(@click="downNumber")
@@ -46,46 +47,49 @@
 import { mapActions } from "vuex";
 
 export default {
-    data() {
-        return {
-            number: 1,
-            price: 0,
-            show: false
-        };
-    },
-    computed: {
-        fullPrice() {
-            return (this.number * this.price).toFixed(2);
-        }
-    },
-    methods: {
-        ...mapActions("cart", ["removeFromCart", "updateItemCount", "addToFavorites"]),
-        ...mapActions("favorites", ["appendItem"]),
-        async upNumber() {
-            this.number++;
-            await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
-        },
-        async addToFavorites(itemId){
-        	if (await this.appendItem(itemId)){
-        		this.removeFromCart(itemId)
-        	}
-        },
-        async downNumber() {
-            if (this.number > 1) {
-                this.number--;
-            }
-            await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
-        },
-        showInfo() {
-            this.show = !this.show;
-        }
-    },
-    props: {
-        cartItem: Object
-    },
-    created(){
-    	this.number = parseInt(this.$props.cartItem.count)
-    	this.price  = parseFloat(this.$props.cartItem.price)
-    }
+	data() {
+		return {
+			number: 1,
+			price: 0,
+			discountPrice: null,
+			show: false
+		};
+	},
+	computed: {
+		fullPrice() {
+			let price = (this.discountPrice) ? this.discountPrice : this.price
+			return (this.number * price).toFixed(2);
+		}
+	},
+	methods: {
+		...mapActions("cart", ["removeFromCart", "updateItemCount", "addToFavorites"]),
+		...mapActions("favorites", ["appendItem"]),
+		async upNumber() {
+			this.number++;
+			await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
+		},
+		async addToFavorites(itemId){
+			if (await this.appendItem(itemId)){
+				this.removeFromCart(itemId)
+			}
+		},
+		async downNumber() {
+			if (this.number > 1) {
+				this.number--;
+			}
+			await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
+		},
+		showInfo() {
+			this.show = !this.show;
+		}
+	},
+	props: {
+		cartItem: Object
+	},
+	created(){
+		this.number = parseInt(this.$props.cartItem.count)
+		this.price  = parseFloat(this.$props.cartItem.price)
+		this.discountPrice  = parseFloat(this.$props.cartItem.discount_price)
+	}
 };
 </script>

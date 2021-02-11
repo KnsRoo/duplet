@@ -71,7 +71,7 @@
                         .card__img {
                             width: 100%;
                             margin-right: 20px;
-                            @import '../mixins/mixin__card';
+                            @import '../mixins/mixin__product';
 
                             img {
                                 width: 100%;
@@ -186,4 +186,4 @@
     }
 }
 
-@import './lk__popup-media';
+@import './media/lk__popup-media';

@@ -2,7 +2,7 @@
 section.cart
 	.wrapper
 		p.cart__title Корзина
-		.cart__order
+		.cart__order(v-if = "getItems.length != 0")
 			.cards
 				.cards__titles
 					.cards__titles_text(v-for="item in ['ПРОДУКТ','СКИДКА','Цена','Количество','Итого']") {{ item }}
@@ -18,7 +18,7 @@ section.cart
 				.confirm__box
 					.for__payment
 						.order__title К оплате:
-						.order__price ₽ {{ getCartStat.sumTotal }}
+						.order__price ₽ {{ getCartStat.sumTotal.toFixed(2) }}
 					.order__box
 						.products
 							.order__title
@@ -26,16 +26,16 @@ section.cart
 								.title__number
 									.title__number_sum {{ getCartStat.countTotal }}
 									.title__number_text шт.
-							.order__price ₽ 20 109 110
+							.order__price ₽ {{ getCartStat.sumReal.toFixed(2) }}
 						.discount
 							.order__title скидка
-							.order__price ₽ 20 109 110
+							.order__price ₽ {{ getCartStat.discount.toFixed(2) }}
 						.payment__delivery
 							.order__title доставка
-							.order__price ₽ 20 109 110
+							.order__price ₽ ???
 					.in-all
 						.order__title Итого:
-						.order__price ₽ {{ getCartStat.sumTotal }}
+						.order__price ₽ {{ getCartStat.sumTotal.toFixed(2) }}
 				a.confirm__link(href='#') оформить заказ
 			.delivery__choose
 				.delivery__title Доставка
@@ -67,6 +67,13 @@ section.cart
 						img.payment-card(src='/assets/img/card-mastercard.png' alt='')
 						img.payment-card(src='/assets/img/card-maestro.png' alt='')
 						img.payment-card(src='/assets/img/card-mir.png' alt='')
+		.cart__empty(v-else)
+			.cart__empty__wrapper
+				img(src = "/assets/img/icons/mdi-light_cart.svg")
+				.cart__empty__notification Ваша корзина пока пуста
+				.cart__empty__motivator Начните свои покупки прямо сейчас
+				a.btn.btn__to(href = "/catalog")
+					span.btn__name в каталог
 
 
 </template>

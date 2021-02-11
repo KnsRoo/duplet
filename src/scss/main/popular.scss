@@ -57,10 +57,12 @@
           color: #888888;
           cursor: pointer;
           position: relative;
+          transition: 0.25s;
 
           &:hover {
-            background: #333;
-            color: white;
+            box-shadow: inset 0 -3.25em 0 0 #333;
+            color: #fff;
+            transition: 0.25s;
           }
 
           &::before {
@@ -95,7 +97,7 @@
         display: none;
       }
 
-      @import '../mixins/mixin__card';
+      @import '../mixins/mixin__product';
       @import '../slider/main-slider';
     }
 
@@ -103,4 +105,4 @@
   }
 }
 
-@import "./popular-media";
+@import "./media/popular-media";

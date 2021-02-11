@@ -203,9 +203,12 @@ class Controller extends Response
 
             $item->title = $product->title;
             $item->price = $product->price;
+            $item->discount = $product->discount;
+            $item->discount_price = $product->getDiscountPrice();
             $item->preview = $product->preview;
             $item->about = $product->about;
             $item->product = $product;
+
 
             $productRoute = Router::byName('catalog:product');
             $path = $productRoute->getAbsolutePath(['chpu' => $product->chpu]);

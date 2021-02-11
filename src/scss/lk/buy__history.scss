@@ -6,6 +6,26 @@
     }
 
     .history__input {
-        width: 315px;
+        width: 345px;
+        height: 31px;
+        padding: 2px 0 9px 10px;
+        font-size: 18px;
+        line-height: 20px;
+        color: #888;
+        font-family: FuturaBookC;
+        margin-bottom: 30px;
+    }
+
+    .history__box {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 350px));
+        justify-content: center;
+        column-gap: 30px;
+        row-gap: 40px;
+        margin-bottom: 60px;
+
     }
 }
+
+@import './media/buy__history-media';

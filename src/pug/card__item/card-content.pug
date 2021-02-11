@@ -1,9 +1,8 @@
-include ../mixins/test.pug
 include ../mixins/product.pug
 include ../popup/card__item__popup.pug
 section.card__item
     .wrapper
-        .card__box
+        .card__box.add__discount
             .card__item_name_mobile ТОЗ-34Р (орех)
             .slider__box
                 .swiper-container.slider__sidebar
@@ -46,10 +45,16 @@ section.card__item
                     предназначенное для промысловой и любительской охоты, 
                     разработанное  конструктором-оружейником Н. И. Коровяковым.
                 .card__item_price
-                    .price__discount ₽ 45 999
-                    .price__box
-                        .price__cost ₽ 39 999
-                        .price__available В наличии
+                    .discount__price ₽ 39 999
+                    .main__price 
+                        span.main__price_title ₽ 66 999
+                    .status
+                        .available.hidden
+                            figure.icon-available
+                            span.available__title В наличии
+                        .unavailable
+                            figure.icon-menu-cancel
+                            span.unavailable__title Нет в наличии
                 .order__box
                     .order__container
                         input.choose__number(type="number" min="1" max="50")

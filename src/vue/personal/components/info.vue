@@ -11,16 +11,16 @@
 		.input__wrap
 			.input__title E-mail
 			input.input__box.input__email(type="text", name="" placeholder="Укажите Ваш e-mail" :disabled = "!editable" :class = "{ invalid: !emailValid  }" v-model="info.email")
-		.input
+		.input__wrap
 			.input__title Адрес
-			input.input__box(:disabled = "!editable" v-model="info.address")
+			input.input__box(:disabled = "!editable" v-model="info.address" placeholder="Укажите Ваш адрес")
 		.input__wrap
 			.input__title Номер дисконтной карты
 			the-mask.input__box.input__payment__card(type="text", name="" placeholder="Укажите Ваш номер карты" :disabled = "!editable" :mask="['#### #### #### ####']" v-model="info.discount")
 		.btn.data__edit(v-if = "!editable" :disabled = "!loaded" @click = "toggleMode()")
 			span.btn__name редактировать данные
 		.btn.data__edit(v-else :disabled = "!loaded || !emailValid" @click = "toggleMode()")
-			span.btn__name редактировать данные
+			span.btn__name сохранить данные
 
 <!-- .info
 	.info__title Информация

@@ -17,5 +17,6 @@ export default {
 	},
 	async updateItemCount({dispatch}, {id, count}){
 		let result = await ky.patch(`${window.location.origin}/api/cart/items/${id}`, { json: [{ op: "add", path: "/count", value: count }] })
+		await dispatch('fetchItems')
 	}
 }

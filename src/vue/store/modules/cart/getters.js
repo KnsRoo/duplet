@@ -5,10 +5,14 @@ export default {
 
 	getCartStat(state){
 		let sumTotal = 0;
-		state.items.forEach(val => {
-			sumTotal+=parseInt(val.count)*parseFloat(val.price)
+		let sumReal = 0
+		state.items.forEach(val => {	
+			let price = (val.discount_price) ? parseFloat(val.discount_price) : parseFloat(val.price)
+			sumTotal+=parseInt(val.count)*parseFloat(price)
+			sumReal+=parseInt(val.count)*parseFloat(val.price)
 		});
 		let countTotal = state.items.length
-		return { sumTotal, countTotal } 
+		let discount = sumReal - sumTotal
+		return { sumTotal, countTotal, sumReal, discount } 
 	}
 }

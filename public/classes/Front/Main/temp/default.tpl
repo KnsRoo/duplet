@@ -2,7 +2,7 @@
 	<section class="welcome">
 		<div class="welcome__catalog hidden__992">
 			<div class="welcome__title">
-				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn" href="#"><span class="btn__name">в каталог</span></a>
+				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="#"><span class="btn__name">в каталог</span></a>
 			</div>
 			<div class="welcome__image">
 				<div class="example">
@@ -18,7 +18,7 @@
 		<div class="welcome__laptop">
 			<div class="welcome__laptop__image">
 				<div class="welcome__laptop__title">
-					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn" href="#"><span class="btn__name">в каталог</span></a>
+					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="#"><span class="btn__name">в каталог</span></a>
 				</div>
 			</div>
 			<div class="example__laptop">
@@ -37,29 +37,38 @@
 			</div>
 		</div>
 	</section>
-	<section class="novelty">
+	<section class="new">
 		<div class="wrapper">
-			<div class="novelty__block">
-				<div class="novelty__block_title">
+			<div class="new__block">
+				<div class="new__block_title">
 					<h2 class="title_main">Новинки</h2>
 					<p class="title_description">Лучшие новинки отчественных и зарубежных производителей</p>
 				</div>
-				<div class="novelty__block_cards">
+				<div class="new__block_cards">
 					<form class="choose" action=""><input class="for__all custom-radio" id="for__all" type="radio" name="take"> <label class="for__all_label" for="for__all">Все товары</label> <input class="for__hunting custom-radio" id="for__hunting" type="radio" name="take"> <label class="for__hunting_label" for="for__hunting">Для охоты</label> <input class="for__fishing custom-radio" id="for__fishing" type="radio" name="take"> <label class="for__fishing_label" for="for__fishing">Для рыбалки</label> <input class="for__tourism custom-radio" id="for__tourism" type="radio" name="take"> <label class="for__tourism_label" for="for__tourism">Для рыбалки</label></form>
-					<div class="choose__mobile">Все товары</div>
+					<div class="choose__mobile">
+						<div class="choose__wrap"><span class="choose__mobile_title">Все товары</span>
+							<figure class="icon-number"></figure>
+						</div>
+						<form class="choose__form" action=""><input class="for__all custom__radio" id="for__all" type="radio" name="take"> <label class="for__all_label custom__label" for="for__all"><span class="custom__label_icon"></span><span class="custom__label_title">Все товары</span></label> <input class="for__hunting custom__radio" id="for__hunting" type="radio" name="take">
+							<label class="for__hunting_label custom__label" for="for__hunting"><span class="custom__label_icon"></span><span class="custom__label_title">Для
+									охоты</span></label> <input class="for__fishing custom__radio" id="for__fishing" type="radio" name="take"> <label class="for__fishing_label custom__label" for="for__fishing"><span class="custom__label_icon"></span><span class="custom__label_title">Для рыбалки</span></label> <input class="for__tourism custom__radio" id="for__tourism" type="radio" name="take">
+							<label class="for__tourism_label custom__label" for="for__tourism"><span class="custom__label_icon"></span><span class="custom__label_title">Для
+									туризма</span></label></form>
+					</div>
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
 							<div class="swiper-slide">
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/gun.png" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/hidden.jpg" alt="Ружьё"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -77,7 +86,7 @@
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -89,13 +98,13 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/spin.jpeg" alt="Ружьё"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -107,13 +116,13 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/boots.jpg" alt="Ружьё"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -191,16 +200,16 @@
 					<div class="image__slider swiper-container">
 						<div class="image__slider_wrapper swiper-wrapper">
 							<div class="swiper-slide">
-								<div class="product discount">
+								<div class="product">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/gun.png" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/kto.jpg" alt="Ружьё"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -218,7 +227,7 @@
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -236,7 +245,7 @@
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -254,7 +263,7 @@
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
 												СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)</div>
 											<div class="product__content_title_price">
-												<div class="first__price">₽ 77 900</div>
+												<div class="main__price">₽ 77 900</div>
 												<div class="discount__price">₽ 34 999</div>
 											</div>
 										</div>
@@ -269,9 +278,9 @@
 			</div>
 		</div>
 	</section>
-	<section class="action">
+	<section class="discount__block">
 		<div class="wrapper">
-			<div class="action__blocks">
+			<div class="action__box">
 				<div class="wrap">
 					<div class="title">
 						<h1 class="title__text">Акции и скидки</h1>

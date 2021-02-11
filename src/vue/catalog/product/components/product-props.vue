@@ -8,15 +8,20 @@
 	h1.card__item_name {{ product.title }}
 	p.card__item_text {{ product.preview }}
 	.card__item_price(v-if = "product.discount != null && product.discount != 0")
-		.price__discount ₽ {{ product.price }}
-		.price__box
-			.price__cost ₽ {{ product.discount_price }}
-			.price__available В наличии
+		.discount__price ₽ {{ product.price }}
+		.main__price 
+			span.main__price_title ₽ {{ product.discount_price }}
+		.status
+			.available.hidden
+				figure.icon-available
+				span.available__title В наличии
+			.unavailable
+				figure.icon-menu-cancel
+				span.unavailable__title Нет в наличии
 	.card__item_price(v-else)
-		.price__cost ₽ {{ product.price }}
+		.discount__price ₽ {{ product.price }}
 	.order__box
 		.order__container
-			input.choose__number(type='number' min='1' max='50')
 			button.to__cart.add__to__cart(type='submit') в корзину
 		.to__favorite
 			figure.icon-liked
@@ -28,20 +33,17 @@
 
 <script>
 export default {
-	data(){
-		return {}
-	},
-	props: {
-		product: Object,
-	},
-	computed: {
-
-	},
-	methods: {
-
-	},
-	created(){
-
-	}
-}
+    data() {
+        return {};
+    },
+    props: {
+        product: Object
+    },
+    computed: {},
+    methods: {},
+    created() {}
+};
 </script>
+
+<style>
+</style>
