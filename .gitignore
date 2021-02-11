@@ -12,3 +12,4 @@ public/admin/tests
 Sync/*
 !Sync/.gitkeep
 .vscode
+test.html
