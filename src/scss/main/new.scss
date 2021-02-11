@@ -1,4 +1,5 @@
 .new {
+    margin-bottom: 80px;
 
     &__block {
         display: flex;
@@ -31,7 +32,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 40px;
 
             .choose {
                 max-width: 620px;
@@ -162,7 +162,7 @@
             @import "../slider/main-slider";
         }
 
-        @import '../vars/vars';
+        @import '../class/class';
     }
 }
 

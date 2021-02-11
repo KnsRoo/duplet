@@ -1,6 +1,7 @@
+@import './vars/vars';
 @import "./fonts/fonts";
 @import "./default/default";
-@import './vars/vars';
+@import './class/class';
 @import "./header/header";
 @import "./footer/footer";
 @import "./main/welcome";
@@ -8,4 +9,4 @@
 @import "./main/class";
 @import "./main/discount";
 @import "./main/popular";
-@import "./main/tidings";
+@import "./main/news";

@@ -146,6 +146,41 @@
   }
 }
 
+@media(max-width: 768px) {
+  .card__item {
+    .card__box {
+      .card__benefits {
+
+        .card__item_price {
+          .closed {
+            .main__price {
+              &_title {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+
+        .order__box {
+          .order__container {
+            .choose__number_box {
+
+              .btn__minus,
+              .btn__plus {
+                font-size: 25px;
+              }
+
+              .choose__number {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 663px) {
   .card__item {
     margin-bottom: 20px;
@@ -164,6 +199,16 @@
 
       .card__benefits {
         width: 100%;
+
+        .card__item_price {
+          .closed {
+            .main__price {
+              &_title {
+                font-size: 18px;
+              }
+            }
+          }
+        }
 
         .card__title {
           display: none;

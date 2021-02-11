@@ -8,9 +8,9 @@
 	h1.card__item_name {{ product.title }}
 	p.card__item_text {{ product.preview }}
 	.card__item_price(v-if = "product.discount != null && product.discount != 0")
-		.discount__price ₽ {{ product.price }}
-		.main__price 
-			span.main__price_title ₽ {{ product.discount_price }}
+		.discount__price ₽ {{ product.discount_price }}
+		.main__price.closed
+			span.main__price_title ₽ {{ product.price }}
 		.status
 			.available.hidden
 				figure.icon-available
@@ -22,7 +22,10 @@
 		.price__cost ₽ {{ product.price }}
 	.order__box
 		.order__container
-			input.choose__number(type='number' min='1' max='50')
+			.choose__number_box
+				.btn__minus.icon-number
+				.choose__number 99
+				.btn__plus.icon-number-right
 			button.to__cart.add__to__cart(type='submit') в корзину
 		.to__favorite
 			figure.icon-liked

@@ -6,8 +6,8 @@
 
 @font-face {
   font-family: 'fontello';
-  src: url('../fonts/fontello.woff2?48253142') format('woff2'),
-    url('../fonts/fontello.woff?48253142') format('woff');
+  src: url('../fonts/fontello.woff2?64432253') format('woff2'),
+    url('../fonts/fontello.woff?64432253') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -43,32 +43,32 @@
 }
 
 /* '' */
-.icon-available:before {
+.icon-basket:before {
   content: '\e801';
 }
 
 /* '' */
-.icon-basket:before {
+.icon-bookmark:before {
   content: '\e802';
 }
 
 /* '' */
-.icon-booked:before {
+.icon-delete:before {
   content: '\e803';
 }
 
 /* '' */
-.icon-bookmark:before {
+.icon-available:before {
   content: '\e804';
 }
 
 /* '' */
-.icon-data:before {
+.icon-booked:before {
   content: '\e805';
 }
 
 /* '' */
-.icon-delete:before {
+.icon-data:before {
   content: '\e806';
 }
 
@@ -88,37 +88,37 @@
 }
 
 /* '' */
-.icon-inst:before {
+.icon-liked:before {
   content: '\e80a';
 }
 
 /* '' */
-.icon-liked:before {
+.icon-location:before {
   content: '\e80b';
 }
 
 /* '' */
-.icon-location:before {
+.icon-logo:before {
   content: '\e80c';
 }
 
 /* '' */
-.icon-logo:before {
+.icon-menu-burger:before {
   content: '\e80d';
 }
 
 /* '' */
-.icon-menu-burger:before {
+.icon-menu-cancel:before {
   content: '\e80e';
 }
 
 /* '' */
-.icon-menu-cancel:before {
+.icon-number:before {
   content: '\e80f';
 }
 
 /* '' */
-.icon-number:before {
+.icon-number-right:before {
   content: '\e810';
 }
 
@@ -128,53 +128,58 @@
 }
 
 /* '' */
-.icon-phone:before {
+.icon-profile:before {
   content: '\e812';
 }
 
 /* '' */
-.icon-profile:before {
+.icon-search:before {
   content: '\e813';
 }
 
 /* '' */
-.icon-search:before {
+.icon-slider__mini:before {
   content: '\e814';
 }
 
 /* '' */
-.icon-slider:before {
+.icon-sort_down:before {
   content: '\e815';
 }
 
 /* '' */
-.icon-slider__mini:before {
+.icon-sort_up:before {
   content: '\e816';
 }
 
 /* '' */
-.icon-sort_down:before {
+.icon-vk:before {
   content: '\e817';
 }
 
 /* '' */
-.icon-sort_neitral:before {
+.icon-working-time:before {
   content: '\e818';
 }
 
 /* '' */
-.icon-sort_up:before {
+.icon-sort_neitral:before {
   content: '\e819';
 }
 
 /* '' */
-.icon-vk:before {
+.icon-inst:before {
   content: '\e81a';
 }
 
 /* '' */
-.icon-working-time:before {
+.icon-phone:before {
   content: '\e81b';
 }
 
 /* '' */
+.icon-slider:before {
+  content: '\e81c';
+}
+
+/* '' */

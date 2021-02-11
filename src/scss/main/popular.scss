@@ -33,7 +33,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 60px;
 
       .choose {
         max-width: 620px;
@@ -101,7 +100,7 @@
       @import '../slider/main-slider';
     }
 
-    @import '../vars/vars';
+    @import '../class/class';
   }
 }
 

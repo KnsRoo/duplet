@@ -1,5 +1,6 @@
 @media (max-width: 767px) {
     .new {
+        margin-bottom: 60px;
 
         &__block {
             &_title {
@@ -60,6 +61,7 @@
 
 @media (max-width: 480px) {
     .new {
+        margin-bottom: 40px;
 
         &__block {
             &_title {
