@@ -7,8 +7,7 @@ import Layout from './layout.vue';
 Vue.use(Vuelidate)
 Vue.use(VueTheMask)
 
-
-export default class News {
+export default class Cart {
 	constructor(selector) {
 		const el = document.querySelector(selector);
 		new Vue({

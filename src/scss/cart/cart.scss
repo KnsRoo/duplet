@@ -106,6 +106,34 @@
         @import './cart__delivery';
     }
 
+    &__empty{
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__notification {
+            font-size: 24px;
+            margin-top: 40px;
+        }
+
+        &__motivator {
+            font-size: 18px;
+            color: #888;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn__to {
+            width: 230px;
+            height: 70px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+    }
+
+
 }
 
 @import './media/cart__media';

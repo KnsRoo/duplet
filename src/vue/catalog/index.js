@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Layout from './layout/layout.vue';
+import Layout from './Layout.vue';
 import store from '../store';
 
 

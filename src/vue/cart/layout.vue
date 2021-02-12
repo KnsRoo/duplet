@@ -2,7 +2,8 @@
 section.cart
 	.wrapper
 		p.title__page Корзина
-		.cart__order(v-if = "getItems.length != 0")
+		loader(v-if = "!loaded")
+		.cart__order(v-if = "getItems.length != 0 && loaded")
 			.cards
 				.cards__titles
 					.cards__titles_text(v-for="item in ['ПРОДУКТ','СКИДКА','Цена','Количество','Итого']") {{ item }}
@@ -67,7 +68,7 @@ section.cart
 						img.payment-card(src='/assets/img/card-mastercard.png' alt='')
 						img.payment-card(src='/assets/img/card-maestro.png' alt='')
 						img.payment-card(src='/assets/img/card-mir.png' alt='')
-		.cart__empty(v-else)
+		.cart__empty(v-if = "getItems.length == 0 && loaded")
 			.cart__empty__wrapper
 				img(src = "/assets/img/icons/mdi-light_cart.svg")
 				.cart__empty__notification Ваша корзина пока пуста
@@ -82,6 +83,7 @@ section.cart
 import ky from "ky";
 import { required } from "vuelidate/lib/validators";
 import cartItem from "./cart-item.vue";
+import loader from "../loader/index.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -92,12 +94,14 @@ export default {
                 name: null,
                 phone: null,
                 city: null,
-                address: null
+                address: null,
+                loaded: false
             }
         };
     },
     components: {
-        cartItem
+        cartItem,
+        loader
     },
     validations: {
         orderData: {
@@ -134,12 +138,13 @@ export default {
     },
     async created() {
         await this.fetchItems();
-        if (localStorage.getItem("jwt")) {
-            await this.fetchUser();
-            this.orderData.name = this.getUser.name;
-            this.orderData.phone = this.getUser.phone;
-            this.orderData.address = this.getUser.address;
-        }
+        if (localStorage.getItem("jwt")){
+        	await this.fetchUser();
+	        this.orderData.name = this.getUser.name;
+	        this.orderData.phone = this.getUser.phone;
+	        this.orderData.address = this.getUser.address;
+    	}
+    	this.loaded = true
     }
 };
 </script>

@@ -3,11 +3,12 @@
     section.lk
         .wrapper
             .title__page Личный кабинет
-            .lk__block
-                Info
-                Cart
-    Reserved
-    History
+            loader(v-if = "!loaded")
+            .lk__block(v-show = "loaded")
+                Info(@toggleLoad="toggleLoad")
+                Cart(@toggleLoad = "toggleLoad")
+    Reserved(v-show = "loaded" @toggleLoad = "toggleLoad")
+    History(v-show = "loaded" @toggleLoad = "toggleLoad")
 
 
 </template>
@@ -18,20 +19,42 @@ import Info from "./components/info.vue";
 import Cart from "./components/cart.vue";
 import Reserved from "./components/reserved.vue";
 import History from "./components/history.vue";
+import loader from "../loader/index.vue";
 
 export default {
     data() {
-        return {};
+        return {
+            awaits: {
+                'info': false,
+                'cart': false,
+                'reserved': false,
+                'history': false
+            }
+        };
+    },
+    methods: {
+        toggleLoad(object){
+            this.awaits[object.component] = object.value
+        }
+    },
+    computed: {
+        loaded(){
+            if ((Object.values(this.awaits).filter(val => val == false)).length){
+                return false
+            } else {
+                return true
+            }
+        }
     },
     components: {
         Info,
         Cart,
         Reserved,
-        History
+        History,
+        loader
     },
-    computed: {},
-    methods: {},
     async mounted() {},
-    async created() {}
+    async created() {
+    }
 };
 </script>

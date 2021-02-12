@@ -96,6 +96,7 @@ export default {
 		await this.fetchUser()
 		this.info = Object.assign(this.getUser)
 		this.loaded = true
+		this.$emit('toggleLoad', { component: 'info', value: true})
 	}
 }
 </script>
