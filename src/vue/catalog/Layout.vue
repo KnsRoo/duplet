@@ -72,7 +72,7 @@ section.catalog
 </template>
 
 <script>
-import ky from 'ky';
+import ky from "ky";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Product from "./components/catalog-item.vue";
 import Cats from "./components/categories.vue";
@@ -108,10 +108,10 @@ export default {
     },
     methods: {
         ...mapActions("catalog", ["fetchCatalogItems", "nextItems"]),
-        async next(){
-            this.fetched = false
-            await this.nextItems()
-            this.fetched = true
+        async next() {
+            this.fetched = false;
+            await this.nextItems();
+            this.fetched = true;
         },
         handleResize() {
             this.resizeConut = document.body.clientWidth;
@@ -119,8 +119,8 @@ export default {
         loadProducts() {
             window.addEventListener("resize", this.handleResize);
         },
-        toggleLoad(value){
-            this.loaded = value
+        toggleLoad(value) {
+            this.loaded = value;
         }
     },
 
@@ -130,7 +130,7 @@ export default {
             sort = new URL(window.location.href).searchParams.get("sort");
 
         this.mode = "catalog";
-        
+
         if (query) {
             await this.fetchCatalogItems(
                 `${window.location.origin}/api/catalog/products?query=${query}`
@@ -138,21 +138,25 @@ export default {
             this.mode = "search";
             this.query = query;
         } else {
-            if (groupId){
-                let group = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
-                await this.$refs.cats.setGroup(group)
-                this.$refs.cats.toggleCats()
+            if (groupId) {
+                let group = await ky
+                    .get(
+                        `${window.location.origin}/api/catalog/groups/${groupId}`
+                    )
+                    .json();
+                await this.$refs.cats.setGroup(group);
+                this.$refs.cats.toggleCats();
             } else {
                 await this.fetchCatalogItems(
                     `${window.location.origin}/api/catalog/products`
                 );
             }
-            if (sort){
-                await this.$refs.cats.refreshSort(parseInt(sort))
+            if (sort) {
+                await this.$refs.cats.refreshSort(parseInt(sort));
             }
         }
 
-        this.loaded = true
+        this.loaded = true;
     },
     destroyed() {
         window.removeEventListener("resize", this.handleResize);

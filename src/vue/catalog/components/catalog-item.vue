@@ -4,7 +4,7 @@
 	.favorite__cross.icon-menu-cancel(v-if = "favorite" @click = "removeItem(product.id)")
 	.product__block
 		img.product__img(v-if = "product.picture" :src = "product.picture")
-        img.product__img(v-else src = "/assets/")
+		img.product__img(v-else src ="/assets/img/default.png")
 	.product__content
 		.product__content_title(@click = "getProduct")
 			.product__content_title_name {{ product.title }}

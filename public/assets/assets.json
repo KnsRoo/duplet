@@ -14,7 +14,7 @@
   "cart": {
     "css": [
       "/assets/css/0.425c8ec0.css",
-      "/assets/css/cart.eddfd9ed.css"
+      "/assets/css/cart.998d873d.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
@@ -26,7 +26,7 @@
     "css": [
       "/assets/css/0.425c8ec0.css",
       "/assets/css/1.ac403ba3.css",
-      "/assets/css/catalog.73a1756e.css"
+      "/assets/css/catalog.82d76eeb.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
@@ -37,12 +37,12 @@
   "contacts": {
     "css": [
       "/assets/css/0.425c8ec0.css",
-      "/assets/css/3.4ee5121b.css",
-      "/assets/css/contacts.1f8ad1be.css"
+      "/assets/css/3.d32abe4f.css",
+      "/assets/css/contacts.06dda9f2.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/3.4ee5121b.chunk.js",
+      "/assets/js/3.d32abe4f.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
@@ -50,7 +50,7 @@
     "css": [
       "/assets/css/0.425c8ec0.css",
       "/assets/css/1.ac403ba3.css",
-      "/assets/css/favorite.45a28d78.css"
+      "/assets/css/favorite.4e223855.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
@@ -61,19 +61,19 @@
   "index": {
     "css": [
       "/assets/css/0.425c8ec0.css",
-      "/assets/css/3.4ee5121b.css",
-      "/assets/css/index.5ac33e18.css"
+      "/assets/css/3.d32abe4f.css",
+      "/assets/css/index.000ae5be.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/3.4ee5121b.chunk.js",
+      "/assets/js/3.d32abe4f.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "lk": {
     "css": [
       "/assets/css/0.425c8ec0.css",
-      "/assets/css/lk.09570295.css"
+      "/assets/css/lk.08c17428.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
@@ -85,7 +85,7 @@
     "css": [
       "/assets/css/0.425c8ec0.css",
       "/assets/css/1.ac403ba3.css",
-      "/assets/css/news.ae938f24.css"
+      "/assets/css/news.d1ef2e9c.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
@@ -100,7 +100,7 @@
     "css": [
       "/assets/css/0.425c8ec0.css",
       "/assets/css/1.ac403ba3.css",
-      "/assets/css/product.ca847ac5.css"
+      "/assets/css/product.66fd3229.css"
     ],
     "js": [
       "/assets/js/0.425c8ec0.chunk.js",
