@@ -9,7 +9,7 @@ section.catalog
                 :product="product"
                 )
         .catalog__next(v-if="isNext")
-            .to__catalog_link.show__more(@click="nextItems()") Загрузить еще
+            .link__to.show__more(@click="nextItems()") Загрузить еще
     //- article.better__category
     //-     .wrapper
     //-         .image__slider.swiper-container
@@ -70,7 +70,7 @@ section.catalog
 </template>
 
 <script>
-import ky from 'ky';
+import ky from "ky";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 import Product from "../components/catalog-item.vue";
 import Cats from "../components/categories.vue";
@@ -116,7 +116,7 @@ export default {
             sort = new URL(window.location.href).searchParams.get("sort");
 
         this.mode = "catalog";
-        
+
         if (query) {
             await this.fetchCatalogItems(
                 `${window.location.origin}/api/catalog/products?query=${query}`
@@ -124,17 +124,21 @@ export default {
             this.mode = "search";
             this.query = query;
         } else {
-            if (groupId){
-                let group = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
-                await this.$refs.cats.setGroup(group)
-                this.$refs.cats.toggleCats()
+            if (groupId) {
+                let group = await ky
+                    .get(
+                        `${window.location.origin}/api/catalog/groups/${groupId}`
+                    )
+                    .json();
+                await this.$refs.cats.setGroup(group);
+                this.$refs.cats.toggleCats();
             } else {
                 await this.fetchCatalogItems(
                     `${window.location.origin}/api/catalog/products`
                 );
             }
-            if (sort){
-                await this.$refs.cats.refreshSort(parseInt(sort))
+            if (sort) {
+                await this.$refs.cats.refreshSort(parseInt(sort));
             }
         }
     },
