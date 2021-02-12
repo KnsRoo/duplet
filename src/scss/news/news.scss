@@ -2,17 +2,6 @@
   width: 100%;
   margin-top: 60px;
 
-  .news__link {
-    margin-right: 15px;
-  }
-
-  &__title {
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 125%;
-    margin-bottom: 40px;
-  }
-
   &_wrapper {
     margin-bottom: 40px;
   }
@@ -108,15 +97,15 @@
         .news__data {
           position: relative;
           padding-left: 25px;
+          margin-left: 15px;
+          vertical-align: middle;
+          display: flex;
+          align-items: center;
 
-          &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: url("../img/icons/data.svg");
-            width: 20px;
-            height: 20px;
+          .icon-data {
+            font-size: 22px;
+            margin-right: 5px;
+            color: $red;
           }
         }
       }

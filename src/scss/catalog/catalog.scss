@@ -2,14 +2,6 @@
   width: 100wh;
   margin-bottom: 60px;
 
-  .catalog-guns__title {
-    text-align: center;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 125%;
-    color: #333333;
-  }
-
   @import "filter";
 
   .cards {
@@ -21,8 +13,6 @@
     row-gap: 40px;
     margin-bottom: 60px;
   }
-
-  @import '../class/class';
 
   .show__more {
     font-size: 18px;

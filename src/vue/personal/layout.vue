@@ -2,7 +2,7 @@
 .lk__wrapper
     section.lk
         .wrapper
-            .lk__title Личный кабинет
+            .title__page Личный кабинет
             loader(v-if = "!loaded")
             .lk__block(v-show = "loaded")
                 Info(@toggleLoad="toggleLoad")

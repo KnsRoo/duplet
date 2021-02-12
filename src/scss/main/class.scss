@@ -21,24 +21,24 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 660px;
+      width: 49%;
       height: 890px;
 
       .card__catalog_link {
-        @include card__catalog_link(660px, 360px, "../img/guns.png");
+        @include card__catalog_link(100%, 360px, "../img/guns.png");
       }
 
       .block__cards {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 30px;
+        grid-template-columns: 48.5% 48.5%;
+        justify-content: space-between;
 
         .card__catalog_link:first-child {
-          @include card__catalog_link(315px, 500px, "../img/bait.png");
+          @include card__catalog_link(100%, 500px, "../img/bait.png");
         }
 
         .card__catalog_link:last-child {
-          @include card__catalog_link(315px, 500px, "../img/ammo.png");
+          @include card__catalog_link(100%, 500px, "../img/ammo.png");
         }
       }
 
@@ -46,16 +46,16 @@
         flex-direction: column-reverse;
 
         .card__catalog_link {
-          @include card__catalog_link(660px, 360px, "../img/wearing.png");
+          @include card__catalog_link(100%, 360px, "../img/wearing.png");
         }
 
         .block__cards {
           .card__catalog_link:first-child {
-            @include card__catalog_link(315px, 500px, "../img/spinning.png");
+            @include card__catalog_link(100%, 500px, "../img/spinning.png");
           }
 
           .card__catalog_link:last-child {
-            @include card__catalog_link(315px, 500px, "../img/rod.png");
+            @include card__catalog_link(100%, 500px, "../img/rod.png");
           }
         }
       }

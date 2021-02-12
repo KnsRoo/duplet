@@ -1,8 +1,8 @@
 <template lang = "pug">
 section.cart
 	.wrapper
-		p.cart__title Корзина
-		loader(v-if="!loaded")
+		p.title__page Корзина
+		loader(v-if = "!loaded")
 		.cart__order(v-if = "getItems.length != 0 && loaded")
 			.cards
 				.cards__titles

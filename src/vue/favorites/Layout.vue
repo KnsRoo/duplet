@@ -1,7 +1,7 @@
 <template lang = "pug">
 section.liked
 	.wrapper
-		p.liked__title Отложенные товары
+		p.title__page Отложенные товары
 		loader(v-if = "!loaded")
 		.liked__wrap(v-else)
 			FavItem(v-for="item in favorites" :product = "item" :favorite = "true")
