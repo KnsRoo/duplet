@@ -1,7 +1,7 @@
 <template lang = "pug">
 section.news
 	.wrapper(v-if="loaded")
-		.news__title Новости
+		.title__page Новости
 		newItem(v-for="item in newsChunked" :newsItem = "item")
 		.news__next
 			a.link(v-if="urls.next" @click="next") Загрузить еще
@@ -27,21 +27,21 @@ export default {
         newItem
     },
     computed: {
-        newsChunked(){
+        newsChunked() {
             let arr = [...this.news],
                 result = [];
-            let i = parseInt(arr.length / 4)+1
-            let temp = [...Array(i)]
+            let i = parseInt(arr.length / 4) + 1;
+            let temp = [...Array(i)];
             temp.forEach(val => {
-                result.push(arr.splice(0,4))
-            })
-            return result        
+                result.push(arr.splice(0, 4));
+            });
+            return result;
         }
     },
     methods: {
         async fetchNews() {
             let result = await ky.get("/api/news/lines").json();
-            this.news = result._embedded.items
+            this.news = result._embedded.items;
             this.urls.next = result._links.next;
             this.loaded = true;
         },

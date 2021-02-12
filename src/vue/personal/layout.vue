@@ -2,7 +2,7 @@
 .lk__wrapper
     section.lk
         .wrapper
-            .lk__title Личный кабинет
+            .title__page Личный кабинет
             .lk__block
                 Info
                 Cart

@@ -7,7 +7,7 @@
 			.news__block_instruction_flex
 				.instruction__title {{ newsItem[0].title }}
 				.instruction__text {{ newsItem[0].announce }}
-				a.news__link.btn(:href='newsItem[0].pageRef')
+				a.btn(:href='newsItem[0].pageRef')
 					span.btn__name Читать
 	.news__cards
 		.news__card(v-for="(item, index) in newsItem" v-if = "index !=0")
@@ -15,9 +15,11 @@
 				img.img__news(:src="item.picture" alt='')
 			.news__card_title {{ item.title }}
 			.news__card_read
-				a.news__link.btn(:href='item.pageRef')
+				a.btn(:href='item.pageRef')
 					span.btn__name Читать
-				span.news__data {{ format(item.creationDate) }}
+				span.news__data
+					figure.icon-data
+					span.news__data_title {{ format(item.creationDate) }}
 </template>
 
 <script>

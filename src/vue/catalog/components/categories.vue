@@ -1,6 +1,6 @@
 <template lang="pug">
 .filter_wrapper
-    .catalog__title {{ title }}
+    .title__page {{ title }}
     .catalog__cat(v-if = "mode == 'catalog'")
         .catalog__cat__show(@click = "toggleCats()")
             .menu__btn(v-bind:class='{menu__btn_active: show }')
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import URLHistory from '../../../js/components/URLHistory'
+import URLHistory from "../../../js/components/URLHistory";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
@@ -56,7 +56,12 @@ export default {
     },
 
     methods: {
-        ...mapActions("catalog", ["fetchCatalogGroups", "fetchCatalogItems", "fetchSortedCatalogItems", "sortItems"]),
+        ...mapActions("catalog", [
+            "fetchCatalogGroups",
+            "fetchCatalogItems",
+            "fetchSortedCatalogItems",
+            "sortItems"
+        ]),
         ...mapMutations("catalog", ["setFilterGroupId", "setGroupId"]),
 
         toggleCats() {
@@ -73,32 +78,46 @@ export default {
             4 | price ∞-0
         */
 
-        async refreshSort(type){
-            try{
-                if (![0,1,2,3,4].includes(type)){
+        async refreshSort(type) {
+            try {
+                if (![0, 1, 2, 3, 4].includes(type)) {
                     throw new Error(`Unsupported sort type (${type})`);
                 }
-                this.sortType = type
+                this.sortType = type;
                 await this.sortItems(this.sortType);
             } catch (e) {
-                console.error(e.message)
+                console.error(e.message);
             }
         },
 
         async toggleSort(type) {
             try {
-                switch (this.sortType){
-                    case 0: this.sortType = (type == 'name') ? 1 : 4; break
-                    case 1: this.sortType = (type == 'name') ? 2 : 4; break
-                    case 2: this.sortType = (type == 'name') ? 1 : 3; break
-                    case 3: this.sortType = (type == 'name') ? 2 : 4; break
-                    case 4: this.sortType = (type == 'name') ? 1 : 3; break
-                    default: throw new Error(`Unsupported sort type (${this.sortType})`); break;
+                switch (this.sortType) {
+                    case 0:
+                        this.sortType = type == "name" ? 1 : 4;
+                        break;
+                    case 1:
+                        this.sortType = type == "name" ? 2 : 4;
+                        break;
+                    case 2:
+                        this.sortType = type == "name" ? 1 : 3;
+                        break;
+                    case 3:
+                        this.sortType = type == "name" ? 2 : 4;
+                        break;
+                    case 4:
+                        this.sortType = type == "name" ? 1 : 3;
+                        break;
+                    default:
+                        throw new Error(
+                            `Unsupported sort type (${this.sortType})`
+                        );
+                        break;
                 }
                 await this.sortItems(this.sortType);
-                new URLHistory().add('sort',this.sortType)
+                new URLHistory().add("sort", this.sortType);
             } catch (e) {
-                console.error(e.message)
+                console.error(e.message);
             }
         },
 
@@ -108,15 +127,20 @@ export default {
 
         async setDefault() {
             this.title = "Каталог";
-            new URLHistory().remove('group')
+            new URLHistory().remove("group");
             this.breadCrumbs = [];
             await this.fetchCatalogGroups(
                 `${window.location.origin}/api/catalog/base/groups`
             );
-            if (this.sortType){
-                await this.fetchSortedCatalogItems({ link: `${window.location.origin}/api/catalog/products`, sort: this.sortType });
+            if (this.sortType) {
+                await this.fetchSortedCatalogItems({
+                    link: `${window.location.origin}/api/catalog/products`,
+                    sort: this.sortType
+                });
             } else {
-                await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`);
+                await this.fetchCatalogItems(
+                    `${window.location.origin}/api/catalog/products`
+                );
             }
         },
 
@@ -124,8 +148,11 @@ export default {
             let diff = this.breadCrumbs.length - index - 1;
             for (let i = 0; i < diff; i++) this.breadCrumbs.pop();
             await this.fetchCatalogGroups(item.subgroups);
-            if (this.sortType){
-                await this.fetchSortedCatalogItems({ link: item.subproducts, sort: this.sortType });
+            if (this.sortType) {
+                await this.fetchSortedCatalogItems({
+                    link: item.subproducts,
+                    sort: this.sortType
+                });
             } else {
                 await this.fetchCatalogItems(item.subproducts);
             }
@@ -133,15 +160,18 @@ export default {
         },
 
         async setGroup(item) {
-            new URLHistory().add('group',item.id)
+            new URLHistory().add("group", item.id);
 
             this.title = item.title;
             this.active = item.title;
-            this.breadCrumbs = item.path
+            this.breadCrumbs = item.path;
 
             await this.fetchCatalogGroups(item._links.subgroups.href);
-            if (this.sortType){
-                await this.fetchSortedCatalogItems({ link: item._links.subproducts.href, sort: this.sortType });
+            if (this.sortType) {
+                await this.fetchSortedCatalogItems({
+                    link: item._links.subproducts.href,
+                    sort: this.sortType
+                });
             } else {
                 await this.fetchCatalogItems(item._links.subproducts.href);
             }
@@ -165,6 +195,6 @@ export default {
 
 <style scoped lang = "scss">
 .sort_active {
-  color: #9d2f2f;
+    color: #9d2f2f;
 }
 </style>

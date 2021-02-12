@@ -1,7 +1,7 @@
 <template lang = "pug">
 section.cart
 	.wrapper
-		p.cart__title Корзина
+		p.title__page Корзина
 		.cart__order(v-if = "getItems.length != 0")
 			.cards
 				.cards__titles
@@ -134,12 +134,12 @@ export default {
     },
     async created() {
         await this.fetchItems();
-        if (localStorage.getItem("jwt")){
-        	await this.fetchUser();
-	        this.orderData.name = this.getUser.name;
-	        this.orderData.phone = this.getUser.phone;
-	        this.orderData.address = this.getUser.address;
-    	}
+        if (localStorage.getItem("jwt")) {
+            await this.fetchUser();
+            this.orderData.name = this.getUser.name;
+            this.orderData.phone = this.getUser.phone;
+            this.orderData.address = this.getUser.address;
+        }
     }
 };
 </script>

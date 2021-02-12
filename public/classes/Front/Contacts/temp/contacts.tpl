@@ -1,7 +1,7 @@
 <mian>
-  <section class="contacats">
+  <section class="contacts">
     <div class="wrapper">
-      <div class="contacts__title">Контакты</div>
+      <div class="title__page">Контакты</div>
       <div class="contacts__text">Оружейный магазин Дуплет находится в городе Сыктывкар. На сайте нашего
         магазина Вы можете посмотреть весь ассортимент, а также почитать интересные и полезные статьи на
         тему охоты и рыбалки.</div>
