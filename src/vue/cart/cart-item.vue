@@ -4,7 +4,7 @@
 		.card__favorite(@click = "addToFavorites(cartItem.id)")
 			figure.card__icon.icon-liked
 			.card__title Отложить
-		.card__delete(@click = "removeFromCart(cartItem.id)")
+		.card__delete(@click = "removeCart(cartItem.id)")
 			figure.card__icon.icon-delete
 			.card__title Удалить
 	.card__des.card__info
@@ -45,6 +45,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import noty from '../../js/components/noty'
 
 export default {
 	data() {
@@ -68,10 +69,15 @@ export default {
 			this.number++;
 			await this.updateItemCount({ id: this.$props.cartItem.id, count: this.number})
 		},
+		async removeCart(itemId){
+			await this.removeFromCart(itemId)
+			noty('sucсess', 'Товар удален из корзины')
+		},
 		async addToFavorites(itemId){
 			if (await this.appendItem(itemId)){
 				this.removeFromCart(itemId)
 			}
+			noty('sucсess', 'Товар добавлен в избранное')
 		},
 		async downNumber() {
 			if (this.number > 1) {

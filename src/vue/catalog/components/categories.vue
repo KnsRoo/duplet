@@ -160,7 +160,7 @@ export default {
         title() {
             return this.$props.mode == "catalog"
                 ? "Каталог"
-                : `Результаты поиска по запросу ${this.$props.query}`;
+                : `Результаты поиска по запросу "${this.$props.query}"`;
         }
     },
     async created() {

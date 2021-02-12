@@ -26,7 +26,6 @@ export default {
 	async removeFromCart({dispatch}, itemId){
 		let result = await ky.delete(`/api/cart/items/${itemId}`)
 		dispatch("fetchItems")
-		noty('sucсess', 'Товар удален из корзины')
 	},
 	async updateItemCount({dispatch}, {id, count}){
 		let result = await ky.patch(`${window.location.origin}/api/cart/items/${id}`, { json: [{ op: "add", path: "/count", value: count }] })
