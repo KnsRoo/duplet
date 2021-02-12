@@ -12,5 +12,8 @@ export default {
         return {
         };
     },
+    async created(){
+    	this.$emit('toggleLoad', { component: 'history', value: true})
+    }
 }
 </script>

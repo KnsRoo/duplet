@@ -87,6 +87,7 @@ export default {
 
         async toggleSort(type) {
             try {
+                this.$emit('toggleLoad',false)
                 switch (this.sortType){
                     case 0: this.sortType = (type == 'name') ? 1 : 4; break
                     case 1: this.sortType = (type == 'name') ? 2 : 4; break
@@ -97,6 +98,7 @@ export default {
                 }
                 await this.sortItems(this.sortType);
                 new URLHistory().add('sort',this.sortType)
+                this.$emit('toggleLoad',true)
             } catch (e) {
                 console.error(e.message)
             }
@@ -107,6 +109,7 @@ export default {
         },
 
         async setDefault() {
+            this.$emit('toggleLoad',false)
             this.title = "Каталог";
             new URLHistory().remove('group')
             this.breadCrumbs = [];
@@ -118,9 +121,11 @@ export default {
             } else {
                 await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`);
             }
+            this.$emit('toggleLoad',true)
         },
 
         async back(index, item) {
+            this.$emit('toggleLoad',false)
             let diff = this.breadCrumbs.length - index - 1;
             for (let i = 0; i < diff; i++) this.breadCrumbs.pop();
             await this.fetchCatalogGroups(item.subgroups);
@@ -130,9 +135,11 @@ export default {
                 await this.fetchCatalogItems(item.subproducts);
             }
             this.active = "";
+            this.$emit('toggleLoad',true)
         },
 
         async setGroup(item) {
+            this.$emit('toggleLoad',false)
             new URLHistory().add('group',item.id)
 
             this.title = item.title;
@@ -145,6 +152,7 @@ export default {
             } else {
                 await this.fetchCatalogItems(item._links.subproducts.href);
             }
+            this.$emit('toggleLoad',true)
         }
     },
     computed: {

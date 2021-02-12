@@ -1,15 +1,17 @@
 <template lang="pug">
 section.catalog
     .wrapper
-        catalog-cats(ref = "cats" :mode = "mode" :query = "query" @switchToCatalog="switchCat")
-        .cards
+        catalog-cats(@toggleLoad = "toggleLoad" ref = "cats" :mode = "mode" :query = "query" @switchToCatalog="switchCat")
+        loader(v-if = "!loaded")
+        .cards(v-else)
             Product(
                 v-for="product in catalogItems"
                 :key="product.id"
                 :product="product"
                 )
-        .catalog__next(v-if="isNext")
-            .to__catalog_link.show__more(@click="nextItems()") Загрузить еще
+        loader(v-if="!fetched")
+        .catalog__next(v-if="isNext && loaded && fetched")
+            .to__catalog_link.show__more(@click="next") Загрузить еще
     //- article.better__category
     //-     .wrapper
     //-         .image__slider.swiper-container
@@ -72,10 +74,11 @@ section.catalog
 <script>
 import ky from 'ky';
 import { mapGetters, mapActions, mapMutations } from "vuex";
-import Product from "../components/catalog-item.vue";
-import Cats from "../components/categories.vue";
-import Pager from "../components/pager.vue";
-import MobileItems from "../components/mobile-items.vue";
+import Product from "./components/catalog-item.vue";
+import Cats from "./components/categories.vue";
+import Pager from "./components/pager.vue";
+import MobileItems from "./components/mobile-items.vue";
+import loader from "../loader/index.vue";
 
 export default {
     data() {
@@ -87,14 +90,17 @@ export default {
             offset: 0,
             limit: 30,
             filterGroupId: "",
-            query: null
+            query: null,
+            loaded: false,
+            fetched: true
         };
     },
     components: {
         Product,
         "catalog-cats": Cats,
         "catalog-pager": Pager,
-        MobileItems
+        MobileItems,
+        loader
     },
     watch: {},
     computed: {
@@ -102,11 +108,19 @@ export default {
     },
     methods: {
         ...mapActions("catalog", ["fetchCatalogItems", "nextItems"]),
+        async next(){
+            this.fetched = false
+            await this.nextItems()
+            this.fetched = true
+        },
         handleResize() {
             this.resizeConut = document.body.clientWidth;
         },
         loadProducts() {
             window.addEventListener("resize", this.handleResize);
+        },
+        toggleLoad(value){
+            this.loaded = value
         }
     },
 
@@ -137,6 +151,8 @@ export default {
                 await this.$refs.cats.refreshSort(parseInt(sort))
             }
         }
+
+        this.loaded = true
     },
     destroyed() {
         window.removeEventListener("resize", this.handleResize);

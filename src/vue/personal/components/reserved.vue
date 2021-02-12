@@ -60,6 +60,9 @@ section.reserved
 export default {
     data() {
         return {};
+    },
+    async created(){
+        this.$emit('toggleLoad', { component: 'reserved', value: true})
     }
 };
 </script>

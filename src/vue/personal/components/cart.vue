@@ -36,6 +36,7 @@ export default {
     },
     async created(){
     	await this.fetchItems()
+    	this.$emit('toggleLoad', { component: 'cart', value: true})
     }
 };
 </script>
