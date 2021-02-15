@@ -1,95 +1,103 @@
 {
   "404": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/1.ac403ba3.css",
-      "/assets/css/404.b300d70b.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/404.47f83593.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/1.ac403ba3.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/cart.998d873d.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/cart.f4b7168b.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/2.38808c3b.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/3.b994c0e4.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/cart.js"
     ]
   },
   "catalog": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/1.ac403ba3.css",
-      "/assets/css/catalog.82d76eeb.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/catalog.933b545c.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/1.ac403ba3.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
   "contacts": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/3.d32abe4f.css",
-      "/assets/css/contacts.06dda9f2.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/2.3b0f8b3e.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/contacts.f7cffe2d.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/3.d32abe4f.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/2.3b0f8b3e.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/1.ac403ba3.css",
-      "/assets/css/favorite.4e223855.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/favorite.17260ddd.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/1.ac403ba3.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
   "index": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/3.d32abe4f.css",
-      "/assets/css/index.000ae5be.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/2.3b0f8b3e.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/index.cadc05a6.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/3.d32abe4f.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/2.3b0f8b3e.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "lk": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/lk.08c17428.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/lk.e79baafe.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/2.38808c3b.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/3.b994c0e4.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/1.ac403ba3.css",
-      "/assets/css/news.d1ef2e9c.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/news.dbea29d5.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/1.ac403ba3.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -98,13 +106,15 @@
   },
   "product": {
     "css": [
-      "/assets/css/0.425c8ec0.css",
-      "/assets/css/1.ac403ba3.css",
-      "/assets/css/product.66fd3229.css"
+      "/assets/css/1.4b4c2509.css",
+      "/assets/css/2.3b0f8b3e.css",
+      "/assets/css/0.e79561c2.css",
+      "/assets/css/product.97b6a2c4.css"
     ],
     "js": [
-      "/assets/js/0.425c8ec0.chunk.js",
-      "/assets/js/1.ac403ba3.chunk.js",
+      "/assets/js/1.4b4c2509.chunk.js",
+      "/assets/js/2.3b0f8b3e.chunk.js",
+      "/assets/js/0.e79561c2.chunk.js",
       "/assets/js/product.js"
     ]
   },

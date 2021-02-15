@@ -7,5 +7,5 @@ export default {
     filterGroupId:'',
     next: undefined,
     current: undefined,
-    end: false
+    end: false,
   };

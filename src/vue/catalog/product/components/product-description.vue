@@ -4,34 +4,11 @@
 		.title__description Описание
 		.title__characteristic Характеристики
 	.card__description
-		p.card__description_text
-			| Бескурковое двуствольное охотничье ружьё с вертикально
-			| расположенными стволами 12, 16, 20 и 28-го калибров. Явилось первой отечественной
-			| моделью серийного бокфлинта, имеющего малый вес. Ружья отличаются современными строгими
-			| формами, имеют хорошие баланс и прикладистость и высокую кучность боя. Ружья малых
-			| калибров имеют такие же размеры колодки, как и у ружей 12-го калибра.
-		p.card__description_text
-			| Стволы ружья отъёмные, расположены в вертикальной
-			| плоскости, имеют стандартные дульные сужения: нижний ствол — получок, верхний — чок.
-		p.card__description_text
-			| Ударно-спусковой механизм с внутренними курками и двумя
-			| спусками расположен на отдельном основании.
-		p.card__description_text
-			| Взведение курков осуществляется в процессе открывания
-			| стволов. Для исключения случайных выстрелов имеются перехватыватели курков и
-			| неавтоматический предохранитель. Извлечение стреляных гильз в ружьях ТОЗ-34, ТОЗ-34-20,
-			| ТОЗ-34-28 — неавтоматическое (общим выталкивателем), в ружье ТОЗ-34Е имеется эжекторный
-			| механизм.
-		p.card__description_text
-			| Цевьё — неотъёмное, состоит из двух частей, закреплённых
-			| на стволах винтами.
-		p.card__description_text
-			| Приклад с пистолетной формой шейки с выступом под щёку
-			| выполнен из берёзовой, ореховой или буковой древесины.
+		p.card__description_text(ref="desc")
 	.card__characteristic.hidden
-		.characteristic__brand.characteristic__box
+		.characteristic__brand.characteristic__box(v-if = "brand")
 			.characteristic__title Бренд:
-			.characteristic__desc Тульский оружейный завод (ТОЗ)
+			.characteristic__desc {{ brand }}
 		.characteristic__model.characteristic__box
 			.characteristic__title Модель:
 			.characteristic__desc 34Р
@@ -74,16 +51,21 @@ export default {
 		product: Object
 	},
 	computed: {
+		brand(){
+			let brand = this.$props.product.props["Бренд"]
+			if (brand) return brand.value
+			 return false
+		}
 
 	},
 	methods: {
 
 	},
+	mounted(){
+		this.$refs.desc.innerHTML = this.$props.product.about
+	},
 	created(){
-
+		
 	}
 }
 </script>
-
-<style scoped lang = "scss">
-</style>

@@ -12,9 +12,9 @@ const config = {
 			el: '.swiper-pagination',
 			clickable: true
 		},
-		scrollbar: {
-			el: '.swiper-scrollbar',
-		},
+		// scrollbar: {
+		// 	el: '.swiper-scrollbar',
+		// },
 		breakpoints: {
 			220: {
 				slidesPerView: 1,
@@ -114,12 +114,19 @@ const config = {
 
 }
 
-export default function initSwipers() {
+export function getConfig(){
+	return config
+}
+
+export function initSwipers() {
 	const imgsSwiper = new Swiper('.image__slider', config.imgs);
 	const tidIngSwiper = new Swiper('.tidings__slider', config.tidIngs);
 	const contactsSwiper = new Swiper('.location__slider', config.contacts);
-	const cardItemSidebarSwiper = new Swiper('.slider__sidebar', config.cardItemSidebar);
-	config.cardItemMain.thumbs = { swiper: cardItemSidebarSwiper };
-	const cardItemMainSwiper = new Swiper('.slider__main', config.cardItemMain);
-	const cardItemSeenSwiper = new Swiper('.card__seen_slider', config.cardItemSeen);
 }
+
+// export function initSwipersProduct(){
+// 	const cardItemSidebarSwiper = new Swiper('.slider__sidebar', config.cardItemSidebar);
+// 	config.cardItemMain.thumbs = { swiper: cardItemSidebarSwiper };
+// 	const cardItemMainSwiper = new Swiper('.slider__main', config.cardItemMain);
+// 	const cardItemSeenSwiper = new Swiper('.card__seen_slider', config.cardItemSeen);
+// }

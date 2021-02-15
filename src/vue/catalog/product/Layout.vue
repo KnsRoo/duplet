@@ -5,27 +5,28 @@
 		.wrapper
 			.card__box
 				.card__item_name_mobile {{ product.title }}
-				ImagesSlider(:images = "images")
+				ImagesSlider(v-if = "images" :images = "images")
 				ProductProps(:product = "product")
 			.card__wrapper
 				Description(:product = "product")
 				article.card__seen
 					.card__seen_title С этим товаром смотрят
-					ChainProductsSlider(:products = "chainProducts")
+					ChainProductsSlider(v-if = "chainProducts" :links = "chainProducts")
 					a.link__to(href='/catalog') Смотреть все
 	.wrapper
 		article.similar__things
 			.similar__things_title Похожие товары
-			SimilarProductsSlider(:products = "similarProducts")
+			SimilarProductsSlider(v-if = "similarProducts" :links = "similarProducts")
 			a.link__to(href='/catalog') Смотреть всё
 	.wrapper
 		article.recently__seen
 			.recently__seen_title Вы недавно просматривали
-			SeenProductsSlider(:products = "seenProducts")
+			SeenProductsSlider
 			a.link__to(href='/catalog') Смотреть всё
 </template>
 
 <script>
+import Seen from '../../../js/components/seenStore'
 import Popup from "./components/popup.vue";
 import ImagesSlider from "./components/images-slider.vue";
 import ProductProps from "./components/product-props.vue";
@@ -40,9 +41,6 @@ export default {
     data() {
         return {
             showPopup: false,
-            chainProducts: [],
-            similarProducts: [],
-            seenProducts: [],
             loaded: false
         };
     },
@@ -56,7 +54,26 @@ export default {
         SeenProductsSlider
     },
     computed: {
-        ...mapGetters("catalog", ["product"])
+        ...mapGetters("catalog", ["product"]),
+        chainProducts(){
+            let chain = this.product.props["с этим товаром покупают"]
+            if (chain) return chain.value
+            return false
+        },
+        similarProducts(){
+            let chain = this.product.props["похожие товары"]
+            if (chain) return chain.value
+            return false
+        },
+        images(){
+            let images = this.product.props["изображения"]
+            if (images) {
+                images.value.push(this.product.picture)
+                return images.value
+            }
+            return false
+        },
+
     },
     methods: {
         ...mapActions("catalog", ["fetchProduct"])
@@ -64,6 +81,7 @@ export default {
     async created() {
         await this.fetchProduct(this.$parent.$options.link);
         this.loaded = true;
+        new Seen('seenList').push(this.$parent.$options.link)
     }
 };
 </script>

@@ -100,7 +100,7 @@ class Product {
 
             foreach($ids as $id) {
 
-                $file = \Back\Files\File::find(['id' => $id])
+                $file = \Model\Fileman\File::find(['id' => $id])
                     ->get();
 
                 $protocol = 'http';
