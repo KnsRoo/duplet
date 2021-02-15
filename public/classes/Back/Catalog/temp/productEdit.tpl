@@ -41,7 +41,7 @@ $origin = Router::getOrigin();
                 <input type="hidden" name="_method" value="PUT" />
                 <div class="img-data inline relative">
 
-                    <?php $picture = $product->getPicture('150x150'); ?>
+                    <?php $picture = $product->getPicture('250x250'); ?>
 
                     <?= $picture; ?>
 
