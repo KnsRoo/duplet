@@ -26,7 +26,7 @@
 				.btn__minus.icon-number(@click = "rem")
 				.choose__number {{ count }}
 				.btn__plus.icon-number-right(@click = "add")
-			button.to__cart.add__to__cart(type='submit') в корзину
+			input.to__cart.add__to__cart(type="button" value = "в корзину" @click = "addToCart({ id: product.id, count})") 
 		.to__favorite
 			figure.icon-liked
 			span.to__favorite_title Добавить в избранное
@@ -49,21 +49,16 @@ export default {
     },
     computed: {},
     methods: {
-    	...mapActions("cart", ["removeFromCart", "updateItemCount", "addToFavorites"]),
-		async add() {
+    	...mapActions("cart", ["removeFromCart", "addToFavorites", "addToCart"]),
+		add() {
 			this.count++;
-			await this.updateItemCount({ id: this.$props.item.id, count: this.count})
 		},
-		async rem() {
+		rem() {
 			if (this.count > 1) {
 				this.count--;
 			}
-			await this.updateItemCount({ id: this.$props.item.id, count: this.count})
 		},
     },
     created() {}
 };
 </script>
-
-<style>
-</style>

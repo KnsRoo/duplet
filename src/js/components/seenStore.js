@@ -22,6 +22,10 @@ export default class Store{
 		localStorage.setItem(this.name, this.store)
 	}
 
+	isEmpty(){
+		return this.store.length == 0
+	}
+
 	get = () => {
 		return this.store
 	}
