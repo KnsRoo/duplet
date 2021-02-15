@@ -75,7 +75,7 @@ $count = isset($extraProps['Количество']) ? $extraProps['Количе�
 
     </div>
 
-    <?php $picture = $product->getPicture('250x250'); ?>
+    <?php $picture = $product->getPicture('500x500'); ?>
 
     <div class="search">
         <form action="https://www.google.ru/search" method="GET">
