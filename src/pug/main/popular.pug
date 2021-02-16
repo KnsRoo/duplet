@@ -1,0 +1,30 @@
+include ../mixins/product.pug
+section.popular
+    .wrapper
+        .popular__block    
+            .popular__block_title
+                h2.title_main Популярные товары
+                p.title_description Проверенное качество товаров для наших покупателей
+            .popular__block_cards
+                form(action="").choose
+                    input#for__all_popular.for__all.custom-radio(type="radio", name="take")
+                    label.for__all_label(for="for__all_popular") Все товары
+                    input#for__hunting_popular.for__hunting.custom-radio(type="radio", name="take" )
+                    label.for__hunting_label(for="for__hunting_popular") Для охоты
+                    input#for__fishing_popular.for__fishing.custom-radio(type="radio", name="take" )
+                    label.for__fishing_label(for="for__fishing_popular") Для рыбалки
+                    input#for__tourism_popular.for__tourism.custom-radio(type="radio", name="take" )
+                    label.for__tourism_label(for="for__tourism_popular") Для туризма
+                .choose__mobile Все товары
+                .image__slider.swiper-container
+                    .image__slider_wrapper.swiper-wrapper
+                        .swiper-slide
+                            +product('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                        .swiper-slide
+                            +product__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                        .swiper-slide
+                            +product__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                        .swiper-slide
+                            +product__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                    .swiper-pagination
+            a.link__to(href="#") Больше товаров

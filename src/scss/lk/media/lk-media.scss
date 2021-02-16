@@ -1,0 +1,141 @@
+@media(max-width: 1200px) {
+    .lk {
+        &__block {
+            flex-direction: column;
+
+            .data {
+                width: 100%;
+
+                &__box {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    .input__wrap {
+                        width: 350px;
+                        margin-right: 20px;
+
+                        &:nth-of-type(even) {
+                            margin-right: 0;
+                        }
+                    }
+
+                    .data__edit {
+                        margin-top: 32px;
+                        width: 350px;
+                    }
+                }
+            }
+
+            .cart__now {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .lk {
+        &__block {
+            .data {
+                &__box {
+
+                    .input__wrap {
+                        width: 47%;
+                    }
+
+                    .data__edit {
+                        width: 47%;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+// @media(max-width: 768px) {
+//     .lk {
+//         &__block {
+//             .data {
+//                 &__box {
+
+//                     .data__edit {
+//                         width: 260px;
+//                         margin: 0 auto;
+//                     }
+//                 }
+//             }
+
+//         }
+//     }
+// }
+
+@media(max-width: 650px) {
+    .lk {
+        &__block {
+            .data {
+                &__box {
+
+                    .input__wrap {
+                        width: 80%;
+
+                        &:nth-of-type(odd) {
+                            margin-right: 0;
+                        }
+                    }
+
+                    .data__edit {
+                        margin-top: 0;
+                        width: 80%;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .lk {
+        &__title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        &__block {
+            .data {
+                min-width: 100%;
+
+                &__title {
+                    font-size: 18px;
+                }
+
+                &__box {
+
+                    .input__wrap {
+                        width: 100%;
+
+                        .input__box {
+                            width: 100%;
+                            padding: 16px 0 16px 16px;
+                            font-size: 14px;
+                            line-height: 16px;
+                        }
+
+                    }
+
+                    .input__title {
+                        font-size: 16px;
+                    }
+
+                    .data__edit {
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+}

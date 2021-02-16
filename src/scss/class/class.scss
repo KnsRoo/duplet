@@ -1,0 +1,116 @@
+.link__to {
+    text-decoration: none;
+    color: #888888;
+    padding-bottom: 5px;
+    position: relative;
+    display: block;
+    min-width: 87px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: #888;
+    }
+
+    &:hover::before {
+        width: 100%;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 30px;
+    }
+}
+
+
+
+.btn {
+    text-decoration: none;
+    color: $lightgray;
+    background: #333;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 20px;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &__name {
+        position: relative;
+    }
+
+    &__name::before {
+        content: "";
+        background: $lightgray;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &:hover .btn__name::before {
+        width: 100%;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+
+// icon-add
+
+.icon-add {
+    font-size: 44px;
+    border-radius: 50%;
+    background: #333333;
+    width: 44px;
+    height: 44px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background: none;
+        box-shadow: 0px 0px 0px 2px #9D2F2F;
+        color: #9D2F2F;
+    }
+
+}
+
+.title__page {
+    font-size: 48px;
+    line-height: 125%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: $dark;
+    text-align: center;
+
+    @media(max-width: $md) {
+        margin-top: 40px;
+    }
+
+    @media(max-width: $sm) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 30px;
+    }
+}

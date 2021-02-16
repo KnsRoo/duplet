@@ -1,0 +1,16 @@
+include ../mixins/product.pug
+.wrapper
+    article.recently__seen
+        .recently__seen_title Вы недавно просматривали
+        .image__slider.swiper-container.recently__seen_slider
+            .image__slider_wrapper.swiper-wrapper
+                .swiper-slide
+                    +product('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                .swiper-slide
+                    +product__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                .swiper-slide
+                    +product__termos('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+                .swiper-slide
+                    +product__widthout('КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК. СМЕСОВАЯ ЦВ. ЛЕС (РАЗМЕР 36-38/134-140)')
+            .swiper-pagination
+        a.link__to(href="#") Смотреть всё

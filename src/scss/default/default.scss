@@ -1,0 +1,51 @@
+@import './auth';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "FuturaBookC";
+  height: 100%;
+}
+
+.lock__scroll {
+  overflow: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-top: 90px;
+  // @media (max-width: 768px) {
+  //   padding-top: 130px;
+  // }
+  // @media (max-width: 480px) {
+  //   padding-top: 120px;
+  // }
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+.wrapper {
+  width: 82.3%;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none !important;
+}

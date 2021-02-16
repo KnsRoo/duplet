@@ -1,0 +1,26 @@
+@media(max-width: 480px) {
+    .lk__popup {
+        .popup__body {
+            .popup__content {
+                .card {
+                    .card__title {
+                        font-size: 16px;
+                        margin-bottom: 15px;
+                    }
+
+                    &__wrap {
+                        .card__text {
+                            &_title {
+                                font-size: 16px;
+                            }
+
+                            &_cost {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

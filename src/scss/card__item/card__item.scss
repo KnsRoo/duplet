@@ -1,0 +1,117 @@
+@import "../class/class";
+@import "../popup/card__item__popup";
+
+.card__item {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+    .card__box {
+        height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 60px;
+
+        .card__item_name_mobile {
+            display: none;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .slider__box {
+            display: flex;
+            height: 573px;
+            width: 53%;
+
+
+            .slider__main {
+                width: 80%;
+                height: 100%;
+
+                &_box {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: url("../img/default.png") 50% 50% no-repeat;
+                    background-size: cover;
+                    padding: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .slider__main_img {
+                        background: #e0e0e0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: auto;
+                    }
+                }
+            }
+
+            .slider__sidebar {
+                margin-right: 20px;
+                width: 20%;
+                max-width: 136px;
+                height: 100%;
+
+                .swiper-wrapper {
+                    height: 100%;
+                }
+
+                &_box {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: url("../img/default.png") 50% 50% no-repeat;
+                    background-size: cover;
+
+                    .slider__sidebar_img {
+                        background: #e0e0e0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        @import './card__benefits';
+    }
+
+    // .add__discount {
+    //     .card__benefits {
+    //         .card__item_price {
+    //             .discount__price {
+    //                 display: flex;
+    //                 font-size: 48px;
+    //             }
+
+    //             .main__price {
+    //                 font-size: 24px;
+    //                 order: -1;
+
+    //                 .main__price_title {
+    //                     position: relative;
+
+    //                     &::before {
+    //                         content: "";
+    //                         position: absolute;
+    //                         background: #333;
+    //                         width: 100%;
+    //                         height: 2px;
+    //                         top: 40%;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    @import "card__item__wrapper";
+}
+
+
+@import "./card__item__sliders";
+
+@import "./card__item-media";

@@ -1,0 +1,186 @@
+.welcome {
+  width: 100%;
+  height: 940px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 90px;
+
+  .hidden__992 {
+    display: flex;
+  }
+
+  .btn__to {
+    width: 230px;
+    height: 70px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  &__catalog {
+    width: 1635px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 40.3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .main__title {
+      font-weight: normal;
+      font-size: 72px;
+      line-height: 125%;
+      color: #333333;
+      margin-bottom: 60px;
+    }
+
+  }
+
+  &__image {
+    width: 57.79%;
+    background: url("../img/welcome.png") 100% 100% no-repeat;
+    background-size: auto;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .example {
+    width: 375px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+
+    &__block {
+      max-width: 198px;
+      height: 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 87px;
+      margin-left: 20px;
+
+      &_title {
+        font-size: 24px;
+        line-height: 27px;
+        text-transform: uppercase;
+        color: #333333;
+      }
+
+      &_price {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 18px;
+        color: #888888;
+      }
+    }
+  }
+
+  .welcome__laptop {
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    &__image {
+      position: relative;
+      width: 100%;
+      height: 90%;
+      background: url("../img/welcome.png") 50% 0 no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.65);
+      }
+
+      .welcome__laptop__title {
+        margin-top: 200px;
+        opacity: 1;
+        z-index: 1;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .main__title {
+          font-weight: normal;
+          font-size: 72px;
+          line-height: 125%;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .welcome__to-catalog {
+          width: 230px;
+          height: 70px;
+          color: white;
+          text-decoration: none;
+          background: #333333;
+          text-align: center;
+          font-size: 18px;
+          line-height: 70px;
+          text-transform: uppercase;
+
+          &:hover {
+            background: #9d2f2f;
+          }
+        }
+      }
+    }
+
+    .example__laptop {
+      width: 100%;
+      height: 100px;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .laptop__block {
+        display: flex;
+
+        .example__laptop__block {
+          width: 198px;
+          height: 55px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-right: 60px;
+
+          .example__block_title {
+            font-size: 24px;
+            line-height: 27px;
+            text-transform: uppercase;
+            color: #333333;
+          }
+
+          .example__block_price {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 18px;
+            color: #888888;
+          }
+        }
+      }
+
+      .laptop__number {
+        height: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@import "./media/welcome-media";

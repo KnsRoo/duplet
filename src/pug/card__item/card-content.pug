@@ -1,0 +1,76 @@
+include ../mixins/product.pug
+include ../popup/card__item__popup.pug
+section.card__item
+    .wrapper
+        .card__box
+            .card__item_name_mobile ТОЗ-34Р (орех)
+            .slider__box
+                .swiper-container.slider__sidebar
+                    .swiper-wrapper
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/gun.png").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/termos.jpg").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/ammo.png").default, alt="")
+                        .swiper-slide
+                            .slider__sidebar_box
+                                img.slider__sidebar_img(src=require("../../img/bear.png").default, alt="")
+                .swiper-container.slider__main
+                    .swiper-wrapper
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/gun.png").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/termos.jpg").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/ammo.png").default, alt="")
+                        .swiper-slide
+                            .slider__main_box
+                                img.slider__main_img(src=require("../../img/bear.png").default, alt="")
+            .card__benefits
+                .card__title 
+                    .card__title_name Гладкоствольное ружье 
+                    .card__title_brand
+                        .brand__title Бренд:
+                        .brand__name Тульский оружейный завод
+                h1.card__item_name ТОЗ-34Р (орех)
+                p.card__item_text.
+                    Двухствольное охотничье ружьё лёгкого типа с низкой посадкой стволов,
+                    предназначенное для промысловой и любительской охоты, 
+                    разработанное  конструктором-оружейником Н. И. Коровяковым.
+                .card__item_price
+                    .discount__price ₽ 39 999
+                    .main__price.closed
+                        span.main__price_title ₽ 66 999
+                    .status
+                        .available.hidden
+                            figure.icon-available
+                            span.available__title В наличии
+                        .unavailable
+                            figure.icon-menu-cancel
+                            span.unavailable__title Нет в наличии
+                .order__box
+                    .order__container
+                        .choose__number_box
+                            .btn__minus.icon-number
+                            .choose__number 99
+                            .btn__plus.icon-number-right
+                        button.to__cart.add__to__cart(type="submit") в корзину
+                    .to__favorite
+                        figure.icon-liked
+                        span.to__favorite_title Добавить в избранное
+                .card__item_category
+                    .category__title Категория:
+                    .category__name Ружья
+        include card__wrapper.pug
+include card-similar-things.pug
+include card-recently-seen.pug
+
+
+

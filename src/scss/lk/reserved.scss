@@ -1,0 +1,37 @@
+.reserved {
+    font-family: FuturaBookC;
+    font-style: normal;
+    font-weight: normal;
+
+    &__title {
+        font-size: 24px;
+        line-height: 125%;
+        margin-bottom: 30px;
+    }
+
+    &__box {
+        .name__box {
+            display: grid;
+            grid-template-columns: 340px 17% 20% 11% 12%;
+            justify-content: space-between;
+            font-size: 18px;
+            line-height: 125%;
+            color: #888888;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+
+            .subtitles__status {
+                text-align: right;
+            }
+
+        }
+
+        .reserved__things {
+            border-top: 1px solid #E0E0E0;
+            padding-top: 20px;
+            @import 'reserved__card';
+        }
+    }
+}
+
+@import './media/reserved-media';

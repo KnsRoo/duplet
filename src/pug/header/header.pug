@@ -1,0 +1,60 @@
+header.header
+    .wrapper
+        include ../popup/header__popup.pug
+        .header__flex
+            .mobile__block
+                .menu__btn
+                    span
+                    span
+                    span
+                .search__box_mobile
+                    input.input__search_mobile(type="text" placeholder="Введите для поиска ...")
+                    .search__btn_mobile
+                        figure.icon-search
+                    .cancel__btn_mobile
+                        figure.icon-menu-cancel
+            .block__first
+                a.logo(href="../main/index.html")
+                    img.logo__img(src=require("../../img/icons/logo.svg").default, alt="Логотип")
+                nav.nav
+                    ul.nav__list
+                        li.nav__title
+                            a.nav__list_link.menu(href="../catalog/catalog.html") Каталог
+                        li.nav__title
+                            a.nav__list_link(href="../actions/actions.html") Акции
+                        li.nav__title
+                            a.nav__list_link(href="../news/news.html") Новости
+                        li.nav__title
+                            a.nav__list_link(href="#") Контакты
+            .block__second
+                .phone
+                    .phone__number 8 (8212) 40-00-70
+                    .phone__number 8 (8212) 26-40-00
+                .search__box
+                    input.input__search(type="text" placeholder="Введите для поиска ...")
+                    .search__btn
+                        figure.icon-search
+                    .cancel__btn
+                        figure.icon-menu-cancel
+                .profile
+                    a.icon-profile(href="../private-office/private-office.html")
+                    a.icon-liked(href="#")
+                        .icon-liked_number 99
+                    a.icon-basket(href="../basket/basket.html")
+                        .icon-basket_number 2
+//- .header__popup
+//-     a(href="#").private-office
+//-         figure.icon-profile
+//-         .private-office__text Личный кабинет
+//-     ul.mobile__links
+//-         li
+//-             a(href="#") Каталог
+//-         li
+//-             a(href="#") Акции
+//-         li
+//-             a(href="#") Новости
+//-         li
+//-             a(href="#") Контакты
+//-     .contacts
+//-         .contacts_number 8 (8212) 26-40-00
+//-         .contacts_number 8 (8212) 40-00-70
