@@ -1,9 +1,10 @@
 export default class Store{
 	constructor(name){
 		this.name = name
-		this.store = localStorage.getItem(name).split(',')
-		console.log(this.store)
-		if (!this.store){
+		let store = localStorage.getItem(name)
+		if (store) {
+			this.store = store.split(',')
+		} else {
 			this.store = []
 		}
 	}
@@ -22,7 +23,7 @@ export default class Store{
 		localStorage.setItem(this.name, this.store)
 	}
 
-	isEmpty(){
+	isEmpty = () => {
 		return this.store.length == 0
 	}
 

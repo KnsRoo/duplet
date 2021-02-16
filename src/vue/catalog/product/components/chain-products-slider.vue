@@ -9,7 +9,7 @@
 <script>
 import ky from 'ky'
 import { getConfig } from '../../../../js/components/sliderConfig'
-import Product from './slider-inner.vue'
+import Product from '../../components/catalog-item.vue'
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
