@@ -37,23 +37,24 @@ section.cart
 					.in-all
 						.order__title Итого:
 						.order__price ₽ {{ getCartStat.sumTotal.toFixed(2) }}
-				a.confirm__link(href='#') оформить заказ
+				a.confirm__link(@click = "sendOrder") оформить заказ
 			.delivery__choose
 				.delivery__title Доставка
 				.delivery__take
-					input#post.custom__radio(type="radio" value="post" name="delivery" checked)
+					input#post.custom__radio(v-model = "orderData.delivery" type="radio" value="Доставка" name="delivery" checked)
 					label.custom__label.label__post(for="post")
 						span.custom__label_icon
 						span.custom__label_title Почтой россии
-					input#yourself.custom__radio(type="radio" value="yourself" name="delivery")
+					input#yourself.custom__radio(v-model = "orderData.delivery" type="radio" value="Самовывоз" name="delivery")
 					label.custom__label.label__yourself(for="yourself")
 						span.custom__label_icon
 						span.custom__label_title Самовывоз (в г. Сыктывкар)
 				.delivery__mail
-					input.mail__input(v-model = "orderData.name" placeholder='ФИО')
-					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон')
-					input.mail__input(v-model = "orderData.city" placeholder='Город')
-					input.mail__input(v-model = "orderData.address" placeholder='Адрес')
+					input.mail__input(v-model = "orderData.name" placeholder='ФИО' :class = "{ invalid: !nameValid  }")
+					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон' :class = "{ invalid: !phoneValid }")
+					input.mail__input(v-model="orderData.email" placeholder="E-mail" :class = "{ invalid: !emailValid }")
+					input.mail__input(v-if = "orderData.delivery == 'Доставка'" v-model = "orderData.city" placeholder='Город' :class = "{ invalid: !cityValid  }")
+					input.mail__input(v-if = "orderData.delivery == 'Доставка'" v-model = "orderData.address" placeholder='Адрес' :class = "{ invalid: !addressValid }")
 			.delivery__payment
 				.delivery__payment_title Оплата
 				.delivery__payment_take
@@ -81,21 +82,26 @@ section.cart
 
 <script>
 import ky from "ky";
-import { required } from "vuelidate/lib/validators";
+import { required, email } from "vuelidate/lib/validators";
 import cartItem from "./cart-item.vue";
 import loader from "../loader/index.vue";
 import { mapActions, mapGetters } from "vuex";
+import refreshToken from '../../js/components/refreshToken'
+import noty from '../../js/components/noty'
 
 export default {
     data() {
         return {
             loaded: false,
+            validationsActive: false,
             orderData: {
                 name: null,
                 phone: null,
                 city: null,
                 address: null,
-                loaded: false
+                email: null,
+                delivery: 'Доставка',
+                paytype: 'Онлайн'
             }
         };
     },
@@ -111,12 +117,16 @@ export default {
             phone: {
                 required
             },
+            email: {
+            	required,
+            	email
+            },
             city: {
                 required
             },
             address: {
                 required
-            }
+            },
         }
     },
     computed: {
@@ -130,11 +140,65 @@ export default {
                 }
             });
             return result;
-        }
+        },
+        nameValid(){
+        	if (!this.validationsActive) return true
+        	return this.$v.orderData.name.required
+        },
+        phoneValid(){
+        	if (!this.validationsActive) return true
+        	return this.$v.orderData.phone.required
+        },
+        emailValid(){
+        	if (!this.validationsActive) return true
+        	return this.$v.orderData.email.required && this.$v.orderData.email.email
+        },
+        cityValid(){
+        	if (!this.validationsActive) return true
+        	return this.$v.orderData.city.required
+        },
+        addressValid(){
+        	if (!this.validationsActive) return true
+        	return this.$v.orderData.address.required
+        },
     },
     methods: {
-        ...mapActions("cart", ["fetchItems"]),
-        ...mapActions("user", ["fetchUser"])
+        ...mapActions("cart", ["fetchItems", "addOrder"]),
+        ...mapActions("user", ["fetchUser"]),
+        async isAuth(){
+        	try {
+    			let response = await refreshToken();
+    			return true
+    		} catch (err){
+    			return false
+    		}
+        },
+        async sendOrder(){
+        	let auth = await this.isAuth()
+        	if (!auth){
+        		window.modalLogin.toggle()
+        		return
+        	}
+        	this.validationsActive = true
+        	if (this.nameValid && 
+        		this.phoneValid &&
+        		this.emailValid &&
+        		this.cityValid &&
+        		this.addressValid){
+        		let body = {
+                    'ФИО': this.orderData.name,
+                    'Телефоны': [this.orderData.phone],
+                    'Электронные почты': [this.orderData.email],
+                    'Адрес': `${this.orderData.city} ${this.orderData.address}`,
+                    'Способ получения': this.orderData.delivery,
+                    'Способ оплаты': this.orderData.paytype,
+        		}
+                this.addOrder(body)
+        	} else {
+        		noty('error', 'Проверьте правильность заполнения полей')
+        	}
+
+        }
     },
     async created() {
         await this.fetchItems();
@@ -148,3 +212,9 @@ export default {
     }
 };
 </script>
+
+<style lang = "scss">
+.invalid {
+    border: 1px solid #9d2f2f;
+}
+</style>

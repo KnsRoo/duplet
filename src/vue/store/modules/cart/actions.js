@@ -30,5 +30,20 @@ export default {
 	async updateItemCount({dispatch}, {id, count}){
 		let result = await ky.patch(`${window.location.origin}/api/cart/items/${id}`, { json: [{ op: "add", path: "/count", value: count }] })
 		await dispatch('fetchItems')
+	},
+	async addOrder(ctx, order){
+		try{
+            const response = await authfetch(`${window.location.origin}/api/user/orders`, {
+                method: 'POST',
+                body: JSON.stringify(order),
+            })
+            if(response.errors) {
+                return false
+            } else {
+                return true
+            }
+        } catch (err){
+            console.log("error "+err.message)
+        }
 	}
 }
