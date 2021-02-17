@@ -8,16 +8,39 @@ section.lk
                 .data__box
                     .input__wrap
                         .input__title ФИО
-                        input#name.input__box.input__full__name(type="text", name="" placeholder="Укажите ФИО")
+                        .input
+                            input.for__input(type="text", name="" placeholder="Укажите ФИО")
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого телефона не существует
                     .input__wrap
                         .input__title Телефон
-                        input#phone.input__box.input__phone(type="text", name="" placeholder="Укажите Ваш Телефон")
+                        .input
+                            input.for__input(type="text", name="" placeholder="Укажите Ваш Телефона")
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого телефона не существует
                     .input__wrap
                         .input__title E-mail
-                        input#mail.input__box.input__email(type="text", name="" placeholder="Укажите Ваш e-mail")
+                        .input
+                            input.for__input(type="text", name="" placeholder="Укажите Ваш e-mail")
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого телефона не существует
+                    .input__wrap
+                        .input__title Адрес
+                        .input
+                            input.for__input(type="text", name="" placeholder="Укажите Ваш номер адрес")
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого телефона не существует
                     .input__wrap
                         .input__title Номер дисконтной карты
-                        input#card.input__box.input__payment__card(type="text", name="" placeholder="Укажите Ваш номер карты")
+                        .input
+                            input.for__input(type="text", name="" placeholder="Укажите Ваш номер карты")
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого телефона не существует
                     .btn.data__edit
                         span.btn__name редактировать данные
             .cart__now

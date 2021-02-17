@@ -10,10 +10,26 @@
             span.custom__label_icon
             span.custom__label_title Самовывоз (в г. Сыктывкар)
     .delivery__mail
-        input.mail__input(type="text" placeholder="ФИО")
-        input.mail__input(type="text" placeholder="Телефон")
-        input.mail__input(type="text" placeholder="Город")
-        input.mail__input(type="text" placeholder="Адрес") 
+        .input
+            input.for__input(type="text" placeholder="ФИО")
+            .mistake__info
+                figure.icon-info
+                .mistake__info_title Ой, кажется такого e-mail не существует
+        .input
+            input.for__input(type="text" placeholder="Телефон")
+            .mistake__info
+                figure.icon-info
+                .mistake__info_title Ой, кажется такого телефона не существует
+        .input
+            input.for__input(type="text" placeholder="Город")
+            .mistake__info
+                figure.icon-info
+                .mistake__info_title Ой, кажется такого города не существует
+        .input
+            input.for__input(type="text" placeholder="Адрес") 
+            .mistake__info
+                figure.icon-info
+                .mistake__info_title Ой, кажется такого адреса не существует
 .delivery__payment
     .delivery__payment_title оплата
     .delivery__payment_take

@@ -1,8 +1,11 @@
 import { initSwipers } from './components/sliderConfig';
-import initGlobalScripts from './global';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    initGlobalScripts();
+    // initGlobalScripts();
     initSwipers()
 })
+
+
+let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item + 'suck');
+console.log(lengths);

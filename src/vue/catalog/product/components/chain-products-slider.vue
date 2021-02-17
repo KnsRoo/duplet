@@ -7,47 +7,47 @@
 </template>
 
 <script>
-import ky from 'ky'
-import { getConfig } from '../../../../js/components/sliderConfig'
-import Product from './slider-inner.vue'
-import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
+import ky from "ky";
+import { getConfig } from "../../../../js/components/sliderConfig";
+import Product from "../../components/catalog-item.vue";
+import Swiper from "swiper/bundle";
+import "swiper/swiper-bundle.css";
 
 export default {
-	data(){
-		return {
-			products: [],
-			seenSlider: undefined
-		}
-	},
-	props: {
-		links: Array
-	},
-	components: {
-		Product
-	},
-	computed: {
-
-	},
-	methods: {
-		initSlider(){
-			this.seenSlider = new Swiper(this.$refs["slider"], getConfig().cardItemSeen)
-		}
-	},
-	mounted(){
-		this.initSlider()
+    data() {
+        return {
+            products: [],
+            seenSlider: undefined
+        };
+    },
+    props: {
+        links: Array
+    },
+    components: {
+        Product
+    },
+    computed: {},
+    methods: {
+        initSlider() {
+            this.seenSlider = new Swiper(
+                this.$refs["slider"],
+                getConfig().cardItemSeen
+            );
+        }
+    },
+    mounted() {
+        this.initSlider();
         setTimeout(() => {
             this.seenSlider.update();
         }, 500);
-	},
-	async created(){
-		if (this.$props.links){
-			this.$props.links.forEach(async val => {
-				let product = await ky.get(val).json()
-				this.products.push(product)
-			})
-		}
-
-	}
-}
+    },
+    async created() {
+        if (this.$props.links) {
+            this.$props.links.forEach(async val => {
+                let product = await ky.get(val).json();
+                this.products.push(product);
+            });
+        }
+    }
+};
 </script>

@@ -96,20 +96,9 @@
     .delivery__mail {
         display: flex;
         flex-direction: column;
-        //border: solid green;
 
-        .mail__input {
-            border: 1px solid #888888;
-            height: 50px;
+        .input:not(:last-child) {
             margin-bottom: 20px;
-
-            &::placeholder {
-                padding-left: 20px;
-            }
-        }
-
-        .mail__input:last-child {
-            margin-bottom: 0;
         }
     }
 

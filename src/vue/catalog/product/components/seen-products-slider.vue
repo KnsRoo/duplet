@@ -10,7 +10,7 @@
 import ky from 'ky'
 import { getConfig } from '../../../../js/components/sliderConfig'
 import Seen from '../../../../js/components/seenStore'
-import Product from './slider-inner.vue'
+import Product from '../../components/catalog-item.vue'
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
@@ -36,7 +36,7 @@ export default {
 		this.initSlider()
         setTimeout(() => {
             this.productsSlider.update();
-        }, 500);
+        }, 1000);
 	},
 	async created(){
 		let products = new Seen('seenList').get()

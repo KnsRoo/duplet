@@ -50,10 +50,26 @@ section.cart
 						span.custom__label_icon
 						span.custom__label_title Самовывоз (в г. Сыктывкар)
 				.delivery__mail
-					input.mail__input(v-model = "orderData.name" placeholder='ФИО')
-					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон')
-					input.mail__input(v-model = "orderData.city" placeholder='Город')
-					input.mail__input(v-model = "orderData.address" placeholder='Адрес')
+					.input
+						input.for__input(v-model = "orderData.name" type="text" placeholder="ФИО")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого e-mail не существует
+					.input
+						input.for__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" type="text" placeholder="Телефон")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого телефона не существует
+					.input
+						input.for__input(v-model = "orderData.city" type="text" placeholder="Город")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого города не существует
+					.input
+						input.for__input(v-model = "orderData.address" type="text" placeholder="Адрес") 
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого адреса не существует
 			.delivery__payment
 				.delivery__payment_title Оплата
 				.delivery__payment_take
@@ -138,13 +154,13 @@ export default {
     },
     async created() {
         await this.fetchItems();
-        if (localStorage.getItem("jwt")){
-        	await this.fetchUser();
-	        this.orderData.name = this.getUser.name;
-	        this.orderData.phone = this.getUser.phone;
-	        this.orderData.address = this.getUser.address;
-    	}
-    	this.loaded = true
+        if (localStorage.getItem("jwt")) {
+            await this.fetchUser();
+            this.orderData.name = this.getUser.name;
+            this.orderData.phone = this.getUser.phone;
+            this.orderData.address = this.getUser.address;
+        }
+        this.loaded = true;
     }
 };
 </script>
