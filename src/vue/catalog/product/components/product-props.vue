@@ -19,7 +19,15 @@
 				figure.icon-menu-cancel
 				span.unavailable__title Нет в наличии
 	.card__item_price(v-else)
-		.discount__price ₽ {{ product.price }}
+		.main__price
+			span.main__price_title ₽ {{ product.price }}
+		.status
+			.available.hidden
+				figure.icon-available
+				span.available__title В наличии
+			.unavailable
+				figure.icon-menu-cancel
+				span.unavailable__title Нет в наличии
 	.order__box
 		.order__container
 			.choose__number_box
@@ -36,12 +44,12 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from "vuex";
 
 export default {
     data() {
         return {
-        	count: 1
+            count: 1
         };
     },
     props: {
@@ -49,15 +57,19 @@ export default {
     },
     computed: {},
     methods: {
-    	...mapActions("cart", ["removeFromCart", "addToFavorites", "addToCart"]),
-		add() {
-			this.count++;
-		},
-		rem() {
-			if (this.count > 1) {
-				this.count--;
-			}
-		},
+        ...mapActions("cart", [
+            "removeFromCart",
+            "addToFavorites",
+            "addToCart"
+        ]),
+        add() {
+            this.count++;
+        },
+        rem() {
+            if (this.count > 1) {
+                this.count--;
+            }
+        }
     },
     created() {}
 };

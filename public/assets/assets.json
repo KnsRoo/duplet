@@ -1,95 +1,102 @@
 {
   "404": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/1.f981a038.css",
-      "/assets/css/404.b300d70b.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/1.5e8be7df.css",
+      "/assets/css/404.f112fb16.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/1.f981a038.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/1.5e8be7df.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/cart.137cae9a.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/cart.2a2f9b8b.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/3.c49bdf1d.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/3.f0398ce0.chunk.js",
       "/assets/js/cart.js"
     ]
   },
   "catalog": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/1.f981a038.css",
-      "/assets/css/catalog.de957613.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/1.5e8be7df.css",
+      "/assets/css/catalog.efb7ed58.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/1.f981a038.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/1.5e8be7df.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
   "contacts": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/2.bf830b86.css",
-      "/assets/css/contacts.f69a89ba.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/2.325c9a32.css",
+      "/assets/css/contacts.81ec5f7b.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/2.bf830b86.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/1.f981a038.css",
-      "/assets/css/favorite.64c4074d.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/1.5e8be7df.css",
+      "/assets/css/favorite.a52df603.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/1.f981a038.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/1.5e8be7df.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
   "index": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/2.bf830b86.css",
-      "/assets/css/index.a77874b1.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/2.325c9a32.css",
+      "/assets/css/index.8fee6587.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/2.bf830b86.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/index.js"
+    ]
+  },
+  "killreal": {
+    "css": "/assets/css/2.325c9a32.css",
+    "js": [
+      "/assets/js/2.325c9a32.chunk.js",
+      "/assets/js/killreal.js"
     ]
   },
   "lk": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/lk.3fdcd107.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/lk.87b580a5.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/3.c49bdf1d.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/3.f0398ce0.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/1.f981a038.css",
-      "/assets/css/news.33f4dedb.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/1.5e8be7df.css",
+      "/assets/css/news.b2daa831.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/1.f981a038.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/1.5e8be7df.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -98,13 +105,13 @@
   },
   "product": {
     "css": [
-      "/assets/css/0.a54d74e8.css",
-      "/assets/css/2.bf830b86.css",
-      "/assets/css/product.19b88a88.css"
+      "/assets/css/0.7bbde1fb.css",
+      "/assets/css/2.325c9a32.css",
+      "/assets/css/product.376a0609.css"
     ],
     "js": [
-      "/assets/js/0.a54d74e8.chunk.js",
-      "/assets/js/2.bf830b86.chunk.js",
+      "/assets/js/0.7bbde1fb.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/product.js"
     ]
   },

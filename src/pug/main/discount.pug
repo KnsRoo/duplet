@@ -9,25 +9,33 @@ section.discount__block
                         чтобы первым получать уведомления о 
                         новых поступлениях, товарах, которые 
                         продаются по скидке, а также об акциях
-                a.discount-first(href="#")
-                    .title
-                        .title_company Палатки фирмы Outventure 
-                        .title_sale Скидки до 25% только до конца сентября
-                        .title_buy Купить сейчас
-                    .title__img
+                .discount__item.green
+                    .discount__box
+                        .block__wrap
+                            .discount__box_title Палатки фирмы Outventure 
+                            .discount__box_text Скидки до 25% только до конца сентября
+                            .discount__box_link.link Купить сейчас
+                        .img__wrap
+                            img.discount__box_img(src=require("../../img/tent.png").default, alt="")
             .wrap
-                a.discount-second(href="#")
-                    .title
-                        .title_company Палатка Trespass Torrisdale
-                        .title_sale Скидка 10% только до 19.09.2020
-                        .title_buy Купить сейчас
-                    .title__img
+                .discount__item.gray
+                    .discount__box
+                        .block__wrap
+                            .discount__box_title Палатки фирмы Outventure 
+                            .discount__box_text Скидки до 25% только до конца сентября
+                            .discount__box_link.link Купить сейчас
+                        .img__wrap
+                            img.discount__box_img(src=require("../../img/kam.png").default, alt="")
                 form.email(action="", method="")
                     .email__title
                         .email__title_main Оставьте свой e-mail
                         .email__title_notification И получайте уведомления
                     .email__send
-                        input.input_email(type="email" placeholder="Ваш e-mail" required)
+                        .input
+                            input.for__input(type="email" placeholder="Ваш e-mail" required)
+                            .mistake__info
+                                figure.icon-info
+                                .mistake__info_title Ой, кажется такого e-mail не существует
                         a.btn(href="#")
                             span.btn__name Отправить
         a.link__to.link__center(href="#") Больше акций

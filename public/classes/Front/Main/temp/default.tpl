@@ -287,29 +287,44 @@
 						<p class="title__description">Подпишитесь на нашу рассылку, чтобы первым получать
 							уведомления о новых поступлениях, товарах, которые продаются по скидке, а также об
 							акциях</p>
-					</div><a class="discount-first" href="#">
-						<div class="title">
-							<div class="title_company">Палатки фирмы Outventure</div>
-							<div class="title_sale">Скидки до 25% только до конца сентября</div>
-							<div class="title_buy">Купить сейчас</div>
+					</div>
+					<div class="discount__item green">
+						<div class="discount__box">
+							<div class="block__wrap">
+								<div class="discount__box_title">Палатки фирмы Outventure</div>
+								<div class="discount__box_text">Скидки до 25% только до конца сентября</div>
+								<div class="discount__box_link link">Купить сейчас</div>
+							</div>
+							<div class="img__wrap"><img class="discount__box_img" src="/assets/img/tent.png" alt="">
+							</div>
 						</div>
-						<div class="title__img"></div>
-					</a>
+					</div>
 				</div>
-				<div class="wrap"><a class="discount-second" href="#">
-						<div class="title">
-							<div class="title_company">Палатка Trespass Torrisdale</div>
-							<div class="title_sale">Скидка 10% только до 19.09.2020</div>
-							<div class="title_buy">Купить сейчас</div>
+				<div class="wrap">
+					<div class="discount__item gray">
+						<div class="discount__box">
+							<div class="block__wrap">
+								<div class="discount__box_title">Палатки фирмы Outventure</div>
+								<div class="discount__box_text">Скидки до 25% только до конца сентября</div>
+								<div class="discount__box_link link">Купить сейчас</div>
+							</div>
+							<div class="img__wrap"><img class="discount__box_img" src="/assets/img/kam.png" alt="">
+							</div>
 						</div>
-						<div class="title__img"></div>
-					</a>
+					</div>
 					<form class="email" action="" method="">
 						<div class="email__title">
 							<div class="email__title_main">Оставьте свой e-mail</div>
 							<div class="email__title_notification">И получайте уведомления</div>
 						</div>
-						<div class="email__send"><input class="input_email" type="email" placeholder="Ваш e-mail" required><a class="btn" href="#"><span class="btn__name">Отправить</span></a></div>
+						<div class="email__send">
+							<div class="input"><input class="for__input" type="email" placeholder="Ваш e-mail" required>
+								<div class="mistake__info">
+									<figure class="icon-info"></figure>
+									<div class="mistake__info_title">Ой, кажется такого e-mail не существует</div>
+								</div>
+							</div><a class="btn" href="#"><span class="btn__name">Отправить</span></a>
+						</div>
 					</form>
 				</div>
 			</div><a class="link__to link__center" href="#">Больше акций</a>

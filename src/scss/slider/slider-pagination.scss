@@ -10,6 +10,10 @@
     height: 10px;
     background-repeat: 50%;
 
+    &:hover {
+        background: #333;
+        opacity: 1;
+    }
 }
 
 .swiper-pagination-bullet-active {
@@ -23,6 +27,7 @@
         width: 30px;
         height: 30px;
         background: url("../img/icons/slider.svg");
+
     }
 }
 

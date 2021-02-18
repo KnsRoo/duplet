@@ -90,8 +90,8 @@
 
     &:hover {
         background: none;
-        box-shadow: 0px 0px 0px 2px #9D2F2F;
-        color: #9D2F2F;
+        box-shadow: 0px 0px 0px 2px $red;
+        color: $red;
     }
 
 }
@@ -112,5 +112,71 @@
         margin-top: 30px;
         margin-bottom: 30px;
         font-size: 30px;
+    }
+}
+
+//input
+
+.input {
+    width: 100%;
+
+    .for__input {
+        font-family: FuturaBookC;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 18px;
+        color: #333;
+        background: none;
+        padding: 16px 20px;
+        outline: none;
+        border: 1px solid $gray;
+        width: 100%;
+
+        &::placeholder {
+            color: $gray;
+        }
+
+        &:focus {
+            box-shadow: 0 0 5px $dark;
+        }
+    }
+
+    .mistake__info {
+        display: none;
+    }
+
+    @media(max-width: $sm) {
+        .for__input {
+            padding: 16px;
+        }
+    }
+}
+
+
+.mistake {
+    .for__input {
+        color: $red;
+        border: 1px solid $red;
+        box-shadow: 0 0 5px $red;
+
+        &:focus {
+            border: 1px solid $red;
+            box-shadow: 0 0 5px $red;
+        }
+    }
+
+    .mistake__info {
+        display: flex;
+        margin-top: 10px;
+
+        .icon-info {
+            color: $red;
+        }
+
+        &_title {
+            margin-left: 10px;
+            color: $red;
+        }
     }
 }

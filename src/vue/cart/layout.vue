@@ -50,11 +50,31 @@ section.cart
 						span.custom__label_icon
 						span.custom__label_title Самовывоз (в г. Сыктывкар)
 				.delivery__mail
-					input.mail__input(v-model = "orderData.name" placeholder='ФИО' :class = "{ invalid: !nameValid  }")
-					the-mask.mail__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" placeholder='Телефон' :class = "{ invalid: !phoneValid }")
-					input.mail__input(v-model="orderData.email" placeholder="E-mail" :class = "{ invalid: !emailValid }")
-					input.mail__input(v-if = "orderData.delivery == 'Доставка'" v-model = "orderData.city" placeholder='Город' :class = "{ invalid: !cityValid  }")
-					input.mail__input(v-if = "orderData.delivery == 'Доставка'" v-model = "orderData.address" placeholder='Адрес' :class = "{ invalid: !addressValid }")
+					.input(:class = "{ mistake: !nameValid }")
+						input.for__input(v-model = "orderData.name" type="text" placeholder="ФИО")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого имени не существует
+					.input(:class = "{ mistake: !emailValid }")
+						input.for__input(v-model = "orderData.email" type="text" placeholder="E-mail")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого e-mail не существует
+					.input(:class = "{ mistake: !phoneValid }")
+						the-mask.for__input(v-model = "orderData.phone" :mask="['+7 (###) ###-##-##']" type="text" placeholder="Телефон")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого телефона не существует
+					.input(:class = "{ mistake: !cityValid }")
+						input.for__input(v-model = "orderData.city" type="text" placeholder="Город")
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого города не существует
+					.input(:class = "{ mistake: !addressValid }")
+						input.for__input(v-model = "orderData.address" type="text" placeholder="Адрес") 
+						.mistake__info
+							figure.icon-info
+							.mistake__info_title Ой, кажется такого адреса не существует
 			.delivery__payment
 				.delivery__payment_title Оплата
 				.delivery__payment_take
@@ -90,131 +110,131 @@ import refreshToken from '../../js/components/refreshToken'
 import noty from '../../js/components/noty'
 
 export default {
-    data() {
-        return {
-            loaded: false,
-            validationsActive: false,
-            orderData: {
-                name: null,
-                phone: null,
-                city: null,
-                address: null,
-                email: null,
-                delivery: 'Доставка',
-                paytype: 'Онлайн'
-            }
-        };
-    },
-    components: {
-        cartItem,
-        loader
-    },
-    validations: {
-        orderData: {
-            name: {
-                required
-            },
-            phone: {
-                required
-            },
-            email: {
-            	required,
-            	email
-            },
-            city: {
-                required
-            },
-            address: {
-                required
-            },
-        }
-    },
-    computed: {
-        ...mapGetters("cart", ["getItems", "getCartStat"]),
-        ...mapGetters("user", ["getUser"]),
-        reservedExists() {
-            let result = false;
-            this.getItems.forEach(val => {
-                if (val.status === "reserved") {
-                    result = true;
-                }
-            });
-            return result;
-        },
-        nameValid(){
-        	if (!this.validationsActive) return true
-        	return this.$v.orderData.name.required
-        },
-        phoneValid(){
-        	if (!this.validationsActive) return true
-        	return this.$v.orderData.phone.required
-        },
-        emailValid(){
-        	if (!this.validationsActive) return true
-        	return this.$v.orderData.email.required && this.$v.orderData.email.email
-        },
-        cityValid(){
-        	if (!this.validationsActive) return true
-        	return this.$v.orderData.city.required
-        },
-        addressValid(){
-        	if (!this.validationsActive) return true
-        	return this.$v.orderData.address.required
-        },
-    },
-    methods: {
-        ...mapActions("cart", ["fetchItems", "addOrder"]),
-        ...mapActions("user", ["fetchUser"]),
-        async isAuth(){
-        	try {
-    			let response = await refreshToken();
-    			return true
-    		} catch (err){
-    			return false
-    		}
-        },
-        async sendOrder(){
-        	let auth = await this.isAuth()
-        	if (!auth){
-        		window.modalLogin.toggle()
-        		return
-        	}
-        	this.validationsActive = true
-        	if (this.nameValid && 
-        		this.phoneValid &&
-        		this.emailValid &&
-        		this.cityValid &&
-        		this.addressValid){
-        		let body = {
-                    'ФИО': this.orderData.name,
-                    'Телефоны': [this.orderData.phone],
-                    'Электронные почты': [this.orderData.email],
-                    'Адрес': `${this.orderData.city} ${this.orderData.address}`,
-                    'Способ получения': this.orderData.delivery,
-                    'Способ оплаты': this.orderData.paytype,
-        		}
-                this.addOrder(body)
-        	} else {
-        		noty('error', 'Проверьте правильность заполнения полей')
-        	}
+	data() {
+		return {
+			loaded: false,
+			validationsActive: false,
+			orderData: {
+				name: null,
+				phone: null,
+				city: null,
+				address: null,
+				email: null,
+				delivery: 'Доставка',
+				paytype: 'Онлайн'
+			}
+		};
+	},
+	components: {
+		cartItem,
+		loader
+	},
+	validations: {
+		orderData: {
+			name: {
+				required
+			},
+			phone: {
+				required
+			},
+			email: {
+				required,
+				email
+			},
+			city: {
+				required
+			},
+			address: {
+				required
+			},
+		}
+	},
+	computed: {
+		...mapGetters("cart", ["getItems", "getCartStat"]),
+		...mapGetters("user", ["getUser"]),
+		reservedExists() {
+			let result = false;
+			this.getItems.forEach(val => {
+				if (val.status === "reserved") {
+					result = true;
+				}
+			});
+			return result;
+		},
+		nameValid(){
+			if (!this.validationsActive) return true
+			return this.$v.orderData.name.required
+		},
+		phoneValid(){
+			if (!this.validationsActive) return true
+			return this.$v.orderData.phone.required && this.orderData.phone.length == 10
+		},
+		emailValid(){
+			if (!this.validationsActive) return true
+			return this.$v.orderData.email.required && this.$v.orderData.email.email
+		},
+		cityValid(){
+			if (!this.validationsActive) return true
+			return this.$v.orderData.city.required
+		},
+		addressValid(){
+			if (!this.validationsActive) return true
+			return this.$v.orderData.address.required
+		},
+	},
+	methods: {
+		...mapActions("cart", ["fetchItems", "addOrder"]),
+		...mapActions("user", ["fetchUser"]),
+		async isAuth(){
+			try {
+				let response = await refreshToken();
+				return true
+			} catch (err){
+				return false
+			}
+		},
+		async sendOrder(){
+			let auth = await this.isAuth()
+			if (!auth){
+				window.modalLogin.toggle()
+				return
+			}
+			this.validationsActive = true
+			if (this.nameValid && 
+				this.phoneValid &&
+				this.emailValid &&
+				this.cityValid &&
+				this.addressValid){
+				let body = {
+					'ФИО': this.orderData.name,
+					'Телефоны': [this.orderData.phone],
+					'Электронные почты': [this.orderData.email],
+					'Адрес': `${this.orderData.city} ${this.orderData.address}`,
+					'Способ получения': this.orderData.delivery,
+					'Способ оплаты': this.orderData.paytype,
+				}
+				this.addOrder(body)
+			} else {
+				noty('error', 'Проверьте правильность заполнения полей')
+			}
 
-        }
-    },
-    async created() {
-        await this.fetchItems();
-        if (localStorage.getItem("jwt")){
-        	await this.fetchUser();
-	        this.orderData.name = this.getUser.name;
-	        this.orderData.phone = this.getUser.phone;
-	        this.orderData.address = this.getUser.address;
-    	}
-    	this.loaded = true
-    }
+		}
+	},
+	async created() {
+		await this.fetchItems();
+		if (localStorage.getItem("jwt")) {
+			await this.fetchUser();
+			this.orderData.name = this.getUser.name;
+			this.orderData.phone = this.getUser.phone;
+			this.orderData.address = this.getUser.address;
+		}
+		this.loaded = true;
+	}
 };
 </script>
 
 <style lang = "scss">
 .invalid {
-    border: 1px solid #9d2f2f;
+	border: 1px solid #9d2f2f;
 }
 </style>

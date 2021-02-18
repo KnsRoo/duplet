@@ -114,9 +114,9 @@ const config = {
 
 }
 
-export function getConfig(){
-	return config
-}
+// export function getConfig() {
+// 	return config
+// }
 
 export function initSwipers() {
 	const imgsSwiper = new Swiper('.image__slider', config.imgs);
@@ -124,7 +124,7 @@ export function initSwipers() {
 	const contactsSwiper = new Swiper('.location__slider', config.contacts);
 }
 
-// export function initSwipersProduct(){
+// export function initSwipersProduct() {
 // 	const cardItemSidebarSwiper = new Swiper('.slider__sidebar', config.cardItemSidebar);
 // 	config.cardItemMain.thumbs = { swiper: cardItemSidebarSwiper };
 // 	const cardItemMainSwiper = new Swiper('.slider__main', config.cardItemMain);

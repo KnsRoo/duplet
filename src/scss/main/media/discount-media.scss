@@ -1,19 +1,43 @@
-@media(max-width: 1200px) {
+@media(max-width:$xxl) {
+    .discount__block {
+        .action__box {
+            .wrap {
+                .discount__item {
+                    .discount__box {
+                        &_text {
+                            font-size: 40px;
+                        }
+
+                        .img__wrap {
+                            max-width: 55%;
+                            height: 45%;
+                        }
+                    }
+                }
+
+                .email {
+                    &__send {
+                        .input {
+                            max-width: 100%;
+                        }
+
+                        .btn {
+                            min-width: 140px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: $xl) {
     .discount__block {
         .action__box {
             .wrap {
                 .title {
                     &__text {
                         font-size: 62px;
-                    }
-                }
-
-                .discount-first,
-                .discount-second {
-                    .title {
-                        &_sale {
-                            font-size: 36px;
-                        }
                     }
                 }
 
@@ -25,9 +49,7 @@
                     }
 
                     &__send {
-                        .input_email {
-                            width: 80%;
-                        }
+                        flex-wrap: wrap;
 
                     }
                 }
@@ -36,7 +58,7 @@
     }
 }
 
-@media(max-width: 992px) {
+@media(max-width: $lg) {
     .discount__block {
         height: auto;
 
@@ -46,7 +68,7 @@
             .wrap {
                 width: 100%;
                 height: auto;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
 
                 &:first-child {
                     margin-right: 0;
@@ -61,13 +83,41 @@
                     }
                 }
 
-                .discount-first {
-                    height: 400px;
+                .discount__item {
+                    .discount__box {
+                        padding: 30px 20px;
 
+                        &_text {
+                            margin-bottom: 25px;
+                        }
+
+                        .img__wrap {
+                            max-width: 65%;
+                            height: 54%;
+                        }
+                    }
                 }
 
-                .discount-second {
-                    margin-bottom: 20px;
+                .discount__item:last-child {
+
+                    .discount__box {
+                        height: 300px;
+                    }
+                }
+
+                .discount__item:first-child {
+
+                    .discount__box {
+                        height: 300px;
+                    }
+                }
+
+                .email {
+                    &__send {
+                        .input {
+                            max-width: 60%;
+                        }
+                    }
                 }
 
             }
@@ -75,14 +125,46 @@
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: $md) {
     .discount__block {
         margin-bottom: 60px;
+
+        .action__box {
+            .wrap {
+                .discount__item {
+                    .discount__box {
+
+                        &_text {
+                            font-size: 30px;
+                        }
+
+                        .img__wrap {
+                            bottom: 10px;
+                            right: 10px;
+                        }
+                    }
+                }
+
+                .email {
+                    &__send {
+
+                        .input {
+                            max-width: 80%;
+                            margin-right: 0;
+                        }
+
+                        .btn {
+                            min-width: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 
-@media(max-width: 480px) {
+@media(max-width: $sm) {
     .discount__block {
         margin-bottom: 40px;
 
@@ -97,26 +179,18 @@
                     }
                 }
 
-                .discount-first,
-                .discount-second {
-                    height: 250px;
-
-                    .title {
-                        top: 20px;
-                        font-size: 16px;
-                        height: auto;
-                        left: 10px;
-
-                        &_company {
+                .discount__item {
+                    .discount__box {
+                        &_text {
+                            font-size: 24px;
                             margin-bottom: 20px;
                         }
 
-                        &_sale {
-                            margin-bottom: 20px;
-                            font-size: 24px;
+                        .img__wrap {
+                            max-width: 40%;
+                            height: 35%;
                         }
                     }
-
                 }
 
                 .email {
@@ -136,27 +210,12 @@
 
                     &__send {
                         max-width: 495px;
-                        height: 120px;
-                        display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        align-items: center;
 
-                        .input_email {
-                            width: 100%;
-                            height: 50px;
-                            border: 1px solid #888888;
-                            outline: none;
-                            background-color: #e0e0e0;
-                            padding-left: 20px;
-                            margin-right: 20px;
-
-                            &::placeholder {
-                                color: #888888;
-                            }
-
-                            &:focus {
-                                box-shadow: 0 0 10px 5px #9D2F2F;
-                            }
+                        .input {
+                            max-width: 100%;
                         }
 
                     }
