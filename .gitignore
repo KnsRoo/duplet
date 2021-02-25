@@ -1,6 +1,10 @@
 node_modules
 dist
 public/admin/pl
+public/cache
+public/admin/OLD
+public/admin/admin-order-vue
+parsers/classes/Parsers/Image/error.log
 public/admin/node_modules
 public/data/*
 !public/data/.gitkeep
