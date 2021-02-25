@@ -136,6 +136,36 @@ class Controller extends Response
         ]);
     }
 
+    private function newOrder($props, $type){
+        $order = new \Model\Order;
+        $order->user_id = $this->userId;
+        $order->props = $props;
+
+        $props = json_decode($order->props, true);
+        $props['Статус'] = [
+            'type' => 'string',
+            'value' => 'принят',
+        ];
+
+        $props['Тип'] = [
+            'type' => 'string',
+            'value' => $type,
+        ];
+
+        $order->props = json_encode($props);
+
+        if (!$order->save())
+            throw new BaseException('unable to save order');
+
+        $orderId = \Model\Order::getDb()
+            ->lastInsertId();
+
+        $order = \Model\Order::find(['id' => $orderId])
+            ->get(); 
+
+        return $order;
+    }
+
     public function appendOrder($req, $next)
     {
         try {
@@ -144,35 +174,20 @@ class Controller extends Response
             $bodyArr = json_decode($body, true);
             $paymentType = &$bodyArr['Способ оплаты'];
 
-            if ($paymentType !== 'При получении')
+            if ($paymentType !== 'При получении' && $paymentType !== 'Онлайн')
                 throw new HTTPException('unable to process payment type', 422);
 
             $props = Factory\Filters\Body::filterProps($body, [
                 'validationScheme' => $this->params['validationScheme'],
             ]);
 
-            $order = new \Model\Order;
-            $order->user_id = $this->userId;
-            $order->props = $props;
+            $ready = $this->newOrder($props['ready'], 'Покупка');
+            $reserved = $this->newOrder($props['reserved'], 'Бронирование');
 
-            $props = json_decode($order->props, true);
-            $props['Статус'] = [
-                'type' => 'string',
-                'value' => 'принят',
+            $result = [
+                "ready" => Factory\HAL\Order::get(['item' => $ready]),
+                "reserved" => Factory\HAL\Order::get(['item' => $reserved]),
             ];
-
-            $order->props = json_encode($props);
-
-            if (!$order->save())
-                throw new BaseException('unable to save order');
-
-            $orderId = \Model\Order::getDb()
-                ->lastInsertId();
-
-            $order = \Model\Order::find(['id' => $orderId])
-                ->get();
-
-            $result = Factory\HAL\Order::get(['item' => $order]);
 
             /* $this->sendReceiptMail($order->id); */
             /* $this->sendReceiptAdminMail($order->id); */

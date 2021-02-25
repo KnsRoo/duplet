@@ -87,6 +87,7 @@
     color: white;
     transition: all .3s ease-in-out;
     cursor: pointer;
+    z-index: 3;
 
     &:hover {
         background: none;

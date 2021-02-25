@@ -3,6 +3,11 @@
     text-decoration: none;
     color: #333;
 
+    &:hover {
+        background: #e0e0e0;
+        outline: 6px solid #e0e0e0;
+    }
+
     .discount__percent {
         display: none;
     }

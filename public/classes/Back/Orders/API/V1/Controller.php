@@ -88,13 +88,19 @@ class Controller extends Response
     {
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
+        $type = Factory\QueryParams::getType();
 
         $qb = \Model\Order::find();
         $qbCnt = clone $qb;
 
         $orders = $qb->order('JSON_EXTRACT(props, \'$."Дата".value\') DESC')
-            ->limit([$offset, $limit])
-            ->getAll();
+            ->limit([$offset, $limit]);
+
+        if ($type){
+            $qb->andWhere("JSON_EXTRACT(`props`, '$.\"Тип\".\"value\"') = ".$type);
+        }
+            
+        $orders = $qb->getAll();
 
         $total = (int) $qbCnt->count();
 

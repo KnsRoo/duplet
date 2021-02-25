@@ -1,5 +1,6 @@
 <template lang = "pug">
 section.cart
+	Popup(v-if="show" :type = "type" @close = "closePopup")
 	.wrapper
 		p.title__page Корзина
 		loader(v-if = "!loaded")
@@ -41,11 +42,11 @@ section.cart
 			.delivery__choose
 				.delivery__title Доставка
 				.delivery__take
-					input#post.custom__radio(v-model = "orderData.delivery" type="radio" value="Доставка" name="delivery" checked)
+					input#post.custom__radio(v-model = "orderData.delivery" type="radio" value="Доставка")
 					label.custom__label.label__post(for="post")
 						span.custom__label_icon
 						span.custom__label_title Почтой россии
-					input#yourself.custom__radio(v-model = "orderData.delivery" type="radio" value="Самовывоз" name="delivery")
+					input#yourself.custom__radio(v-model = "orderData.delivery" type="radio" value="Самовывоз")
 					label.custom__label.label__yourself(for="yourself")
 						span.custom__label_icon
 						span.custom__label_title Самовывоз (в г. Сыктывкар)
@@ -65,12 +66,12 @@ section.cart
 						.mistake__info
 							figure.icon-info
 							.mistake__info_title Ой, кажется такого телефона не существует
-					.input(:class = "{ mistake: !cityValid }")
+					.input(v-if = "orderData.delivery = 'Доставка'" :class = "{ mistake: !cityValid }")
 						input.for__input(v-model = "orderData.city" type="text" placeholder="Город")
 						.mistake__info
 							figure.icon-info
 							.mistake__info_title Ой, кажется такого города не существует
-					.input(:class = "{ mistake: !addressValid }")
+					.input(v-if = "orderData.delivery = 'Доставка'" :class = "{ mistake: !addressValid }")
 						input.for__input(v-model = "orderData.address" type="text" placeholder="Адрес") 
 						.mistake__info
 							figure.icon-info
@@ -108,12 +109,14 @@ import loader from "../loader/index.vue";
 import { mapActions, mapGetters } from "vuex";
 import refreshToken from '../../js/components/refreshToken'
 import noty from '../../js/components/noty'
+import Popup from './popup.vue'
 
 export default {
 	data() {
 		return {
 			loaded: false,
 			validationsActive: false,
+			type: null,
 			orderData: {
 				name: null,
 				phone: null,
@@ -127,6 +130,7 @@ export default {
 	},
 	components: {
 		cartItem,
+		Popup,
 		loader
 	},
 	validations: {
@@ -193,6 +197,14 @@ export default {
 				return false
 			}
 		},
+		showPopup(type){
+			this.type = type
+			this.show = true
+		},
+		closePopup(){
+			this.show = false
+			this.type = null
+		},
 		async sendOrder(){
 			let auth = await this.isAuth()
 			if (!auth){
@@ -200,24 +212,35 @@ export default {
 				return
 			}
 			this.validationsActive = true
+			let result = false;
 			if (this.nameValid && 
 				this.phoneValid &&
-				this.emailValid &&
-				this.cityValid &&
-				this.addressValid){
+				this.emailValid){
 				let body = {
 					'ФИО': this.orderData.name,
-					'Телефоны': [this.orderData.phone],
+					'Телефоны': ['7'+this.orderData.phone],
 					'Электронные почты': [this.orderData.email],
-					'Адрес': `${this.orderData.city} ${this.orderData.address}`,
 					'Способ получения': this.orderData.delivery,
 					'Способ оплаты': this.orderData.paytype,
 				}
-				this.addOrder(body)
+				if (this.orderData.delivery == 'Доставка'){
+					if (this.cityValid && this.addressValid){
+						body['Адрес'] = `${this.orderData.city} ${this.orderData.address}`,
+						result = this.addOrder(body)
+					} else {
+						noty('error', 'Проверьте правильность заполнения полей')
+					}
+				} else {
+					result = this.addOrder(body)
+				}
 			} else {
 				noty('error', 'Проверьте правильность заполнения полей')
 			}
-
+			if (result){
+				this.showPopup('success')
+			} else {
+				this.showPopup('error')
+			}
 		}
 	},
 	async created() {
@@ -233,8 +256,3 @@ export default {
 };
 </script>
 
-<style lang = "scss">
-.invalid {
-	border: 1px solid #9d2f2f;
-}
-</style>

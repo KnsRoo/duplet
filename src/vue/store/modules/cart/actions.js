@@ -33,17 +33,18 @@ export default {
 	},
 	async addOrder(ctx, order){
 		try{
-            const response = await authfetch(`${window.location.origin}/api/user/orders`, {
+            const response = await authfetch(`${window.location.origin}/api/orders/orders`, {
                 method: 'POST',
                 body: JSON.stringify(order),
             })
             if(response.errors) {
-                return false
+                throw new Error(response.errors.message[0])
             } else {
                 return true
             }
         } catch (err){
             console.log("error "+err.message)
+            return false
         }
 	}
 }

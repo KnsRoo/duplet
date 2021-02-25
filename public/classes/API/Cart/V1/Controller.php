@@ -203,7 +203,7 @@ class Controller extends Response
 
             $item->title = $product->title;
             $item->price = $product->price;
-            $item->discount = $product->discount;
+            $item->discount = $product->discount."%" ?? "0%";
             $item->discount_price = $product->getDiscountPrice();
             $item->preview = $product->preview;
             $item->about = $product->about;
