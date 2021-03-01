@@ -37,12 +37,12 @@
   "contacts": {
     "css": [
       "/assets/css/0.08e625c4.css",
-      "/assets/css/2.0c39ad25.css",
+      "/assets/css/2.325c9a32.css",
       "/assets/css/contacts.112699a3.css"
     ],
     "js": [
       "/assets/js/0.08e625c4.chunk.js",
-      "/assets/js/2.0c39ad25.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
@@ -61,19 +61,19 @@
   "index": {
     "css": [
       "/assets/css/0.08e625c4.css",
-      "/assets/css/2.0c39ad25.css",
+      "/assets/css/2.325c9a32.css",
       "/assets/css/index.f0c79c2b.css"
     ],
     "js": [
       "/assets/js/0.08e625c4.chunk.js",
-      "/assets/js/2.0c39ad25.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "killreal": {
-    "css": "/assets/css/2.0c39ad25.css",
+    "css": "/assets/css/2.325c9a32.css",
     "js": [
-      "/assets/js/2.0c39ad25.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/killreal.js"
     ]
   },
@@ -106,12 +106,12 @@
   "product": {
     "css": [
       "/assets/css/0.08e625c4.css",
-      "/assets/css/2.0c39ad25.css",
+      "/assets/css/2.325c9a32.css",
       "/assets/css/product.641deff9.css"
     ],
     "js": [
       "/assets/js/0.08e625c4.chunk.js",
-      "/assets/js/2.0c39ad25.chunk.js",
+      "/assets/js/2.325c9a32.chunk.js",
       "/assets/js/product.js"
     ]
   },
