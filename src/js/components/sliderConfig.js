@@ -44,6 +44,7 @@ const config = {
 		loop: true,
 		slidesPerView: 1,
 		loop: true,
+		spaceBetween: 20,
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true

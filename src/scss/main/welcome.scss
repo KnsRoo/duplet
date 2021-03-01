@@ -5,10 +5,6 @@
   justify-content: flex-end;
   margin-bottom: 90px;
 
-  .hidden__992 {
-    display: flex;
-  }
-
   .btn__to {
     width: 230px;
     height: 70px;
@@ -42,7 +38,7 @@
   &__image {
     width: 57.79%;
     background: url("../img/welcome.png") 100% 100% no-repeat;
-    background-size: auto;
+    background-size: cover;
     display: flex;
     align-items: flex-end;
   }

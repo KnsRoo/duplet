@@ -167,8 +167,8 @@
 
 .catalog__cat__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
-    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 200px));
+    justify-content: space-between;
     row-gap: 20px;
     column-gap: 30px;
     margin-bottom: 30px;

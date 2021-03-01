@@ -1,3 +1,12 @@
+@media (min-width: 1681px) {
+  .catalog {
+    .cards {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 300px));
+      column-gap: 20px;
+    }
+  }
+}
+
 @media (max-width: 1680px) {
   .catalog {
     .cards {
@@ -33,7 +42,7 @@
 @media (max-width: 549px) {
   .catalog {
     .cards {
-      grid-template-columns: repeat(1, minmax(220px, 315px));
+      grid-template-columns: repeat(1, minmax(220px, 100%));
     }
   }
 }
@@ -41,9 +50,5 @@
 @media (max-width: 480px) {
   .catalog {
     margin-bottom: 40px;
-
-    .cards {
-      grid-template-columns: repeat(1, minmax(220px, 315px));
-    }
   }
 }

@@ -21,11 +21,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 49%;
+      width: 49.5%;
       height: 890px;
 
       .card__catalog_link {
-        @include card__catalog_link(100%, 360px, "../img/guns.png");
+        @include card__catalog_link(100%, 370px, "../img/guns.png");
       }
 
       .block__cards {
@@ -46,7 +46,7 @@
         flex-direction: column-reverse;
 
         .card__catalog_link {
-          @include card__catalog_link(100%, 360px, "../img/wearing.png");
+          @include card__catalog_link(100%, 370px, "../img/wearing.png");
         }
 
         .block__cards {

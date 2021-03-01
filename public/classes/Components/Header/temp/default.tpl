@@ -1,6 +1,6 @@
 <div id="modal-login"></div>
 <header class="header">
-  <div class="wrapper">
+  <div class="wrapper__header">
     <div class="header__popup">
       <div class="wrapper"><a class="private-office" href="/lk">
           <figure class="icon-profile"></figure>

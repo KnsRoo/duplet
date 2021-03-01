@@ -1,15 +1,15 @@
 <main>
 	<section class="welcome">
-		<div class="welcome__catalog hidden__992">
+		<div class="welcome__catalog">
 			<div class="welcome__title">
-				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="#"><span class="btn__name">в каталог</span></a>
+				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="/catalog"><span class="btn__name">в каталог</span></a>
 			</div>
 			<div class="welcome__image">
 				<div class="example">
 					<div class="example__block">
 						<div class="example__block_title">Tedna Prime S12С</div>
 						<div class="example__block_price">стоимость от 39990 руб</div>
-					</div><a class="example__link" href="#">
+					</div><a class="example__link" href="/catalog">
 						<figure class="icon-add"></figure>
 					</a>
 				</div>
@@ -18,7 +18,7 @@
 		<div class="welcome__laptop">
 			<div class="welcome__laptop__image">
 				<div class="welcome__laptop__title">
-					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="#"><span class="btn__name">в каталог</span></a>
+					<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="/catalog"><span class="btn__name">в каталог</span></a>
 				</div>
 			</div>
 			<div class="example__laptop">
@@ -26,7 +26,7 @@
 					<div class="example__laptop__block">
 						<div class="example__block_title">Tedna Prime S12С</div>
 						<div class="example__block_price">стоимость от 39990 руб</div>
-					</div><a class="example__laptop__link" href="#">
+					</div><a class="example__laptop__link" href="/catalog">
 						<figure class="icon-add"></figure>
 					</a>
 				</div>
@@ -62,7 +62,7 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/hidden.jpg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/hidden.jpg" alt="Продукт"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
@@ -98,7 +98,7 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/spin.jpeg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/spin.jpeg" alt="Продукт"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
@@ -116,7 +116,7 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/boots.jpg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/boots.jpg" alt="Продукт"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
@@ -141,20 +141,20 @@
 		<div class="wrapper">
 			<h3 class="class__title">Категории товаров</h3>
 			<div class="class__flex">
-				<div class="main__block"><a class="card__catalog_link" href="#">
+				<div class="main__block"><a class="card__catalog_link" href="/catalog">
 						<div class="block__title">
 							<div class="block__title_number">01</div>
 							<div class="block__title_main">Ружья</div>
 							<div class="block__title_to-catalog">В каталог</div>
 						</div>
 					</a>
-					<div class="block__cards"><a class="card__catalog_link" href="#">
+					<div class="block__cards"><a class="card__catalog_link" href="/catalog">
 							<div class="block__title">
 								<div class="block__title_number">04</div>
 								<div class="block__title_main">Приманки</div>
 								<div class="block__title_to-catalog">В каталог</div>
 							</div>
-						</a><a class="card__catalog_link" href="#">
+						</a><a class="card__catalog_link" href="/catalo/catalog">
 							<div class="block__title">
 								<div class="block__title_number">05</div>
 								<div class="block__title_main">Боеприпасы</div>
@@ -162,20 +162,20 @@
 							</div>
 						</a></div>
 				</div>
-				<div class="main__block"><a class="card__catalog_link" href="#">
+				<div class="main__block"><a class="card__catalog_link" href="/catalog">
 						<div class="block__title">
 							<div class="block__title_number">06</div>
 							<div class="block__title_main">Одежда и обувь</div>
 							<div class="block__title_to-catalog">В каталог</div>
 						</div>
 					</a>
-					<div class="block__cards"><a class="card__catalog_link" href="#">
+					<div class="block__cards"><a class="card__catalog_link" href="/catalog">
 							<div class="block__title">
 								<div class="block__title_number">02</div>
 								<div class="block__title_main">Спиннинги</div>
 								<div class="block__title_to-catalog">В каталог</div>
 							</div>
-						</a><a class="card__catalog_link" href="#">
+						</a><a class="card__catalog_link" href="/catalog">
 							<div class="block__title">
 								<div class="block__title_number">03</div>
 								<div class="block__title_main">Удочки</div>
@@ -203,7 +203,7 @@
 								<div class="product">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/kto.jpg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/kto.jpg" alt="Продукт"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
@@ -239,7 +239,7 @@
 								<div class="product discount">
 									<div class="discount__percent">15%</div>
 									<div class="favorite__cross icon-menu-cancel"></div>
-									<div class="product__block"><img class="product__img" src="/assets/img/termos.jpg" alt="Ружьё"></div>
+									<div class="product__block"><img class="product__img" src="/assets/img/termos.jpg" alt="Продукт"></div>
 									<div class="product__content">
 										<div class="product__content_title">
 											<div class="product__content_title_name">КОСТЮМ АНТИГНУС ДЕТСКИЙ ТК.
@@ -336,44 +336,50 @@
 			<div class="tidings__slider swiper-container">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<div class="tidings__block">
-							<div class="tidings__block_img"><img class="tiding__img" src="/assets/img/bear.png" alt=""></div>
-							<div class="tidings__block_instruction">
-								<div class="tidings__block_instruction_flex">
-									<div class="instruction__title">Что делать при встрече с медведем?</div>
-									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
-										встреча всё же состоялась, то будет полезным знать несколько несложных
-										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
-								</div>
+						<div class="news__block">
+							<div class="img__item"><img class="img__news" src="/assets/img/bear.png" alt=""></div>
+							<div class="news__block_instruction">
+								<div class="news__title">Что делать при встрече с медведем?</div>
+								<div class="news__text">Встречи с медведем лучше избегать. Если же встреча всё же
+									состоялась, то будет полезным знать несколько несложных правил, способных
+									сохранить ваше здоровье и жизнь. Посмотрите ответ на этот вопрос в нашем новом
+									видео.</div>
+								<div class="news__card_read"><a class="btn" href="#"><span class="btn__name">Читать</span></a><span class="news__data">
+										<figure class="icon-data"></figure>
+										<div class="news__data_title">30.09.2020</div>
+									</span></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide">
-						<div class="tidings__block">
-							<div class="tidings__block_img"><img class="tiding__img" src="/assets/img/bear.png" alt=""></div>
-							<div class="tidings__block_instruction">
-								<div class="tidings__block_instruction_flex">
-									<div class="instruction__title">Что делать при встрече с медведем?</div>
-									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
-										встреча всё же состоялась, то будет полезным знать несколько несложных
-										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
-								</div>
+						<div class="news__block">
+							<div class="img__item"><img class="img__news" src="/assets/img/bear.png" alt=""></div>
+							<div class="news__block_instruction">
+								<div class="news__title">Что делать при встрече с медведем?</div>
+								<div class="news__text">Встречи с медведем лучше избегать. Если же встреча всё же
+									состоялась, то будет полезным знать несколько несложных правил, способных
+									сохранить ваше здоровье и жизнь. Посмотрите ответ на этот вопрос в нашем новом
+									видео.</div>
+								<div class="news__card_read"><a class="btn" href="#"><span class="btn__name">Читать</span></a><span class="news__data">
+										<figure class="icon-data"></figure>
+										<div class="news__data_title">30.09.2020</div>
+									</span></div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide">
-						<div class="tidings__block">
-							<div class="tidings__block_img"><img class="tiding__img" src="/assets/img/bear.png" alt=""></div>
-							<div class="tidings__block_instruction">
-								<div class="tidings__block_instruction_flex">
-									<div class="instruction__title">Что делать при встрече с медведем?</div>
-									<div class="instruction__text">Встречи с медведем лучше избегать. Если же
-										встреча всё же состоялась, то будет полезным знать несколько несложных
-										правил, способных сохранить ваше здоровье и жизнь. Посмотрите ответ на этот
-										вопрос в нашем новом видео.</div><a class="btn" href="#"><span class="btn__name">Читать</span></a>
-								</div>
+						<div class="news__block">
+							<div class="img__item"><img class="img__news" src="/assets/img/bear.png" alt=""></div>
+							<div class="news__block_instruction">
+								<div class="news__title">Что делать при встрече с медведем?</div>
+								<div class="news__text">Встречи с медведем лучше избегать. Если же встреча всё же
+									состоялась, то будет полезным знать несколько несложных правил, способных
+									сохранить ваше здоровье и жизнь. Посмотрите ответ на этот вопрос в нашем новом
+									видео.</div>
+								<div class="news__card_read"><a class="btn" href="#"><span class="btn__name">Читать</span></a><span class="news__data">
+										<figure class="icon-data"></figure>
+										<div class="news__data_title">30.09.2020</div>
+									</span></div>
 							</div>
 						</div>
 					</div>

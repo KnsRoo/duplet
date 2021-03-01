@@ -11,7 +11,7 @@ section.catalog
                 )
         loader(v-if="!fetched")
         .catalog__next(v-if="isNext && loaded && fetched")
-            .to__catalog_link.show__more(@click="next") Загрузить еще
+            .link__to(@click="next") Загрузить еще
     //- article.better__category
     //-     .wrapper
     //-         .image__slider.swiper-container
