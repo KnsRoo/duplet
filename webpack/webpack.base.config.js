@@ -190,32 +190,6 @@ module.exports = {
                     }
                 }],
             },
-            // {
-            //     test:/\.s[ac]ss$/,
-            //     use: [
-            //         'style-loader',
-            //         MiniCssExtractPlugin.loader,
-            //         {
-            //             loader: 'css-loader',
-            //             options: {sourceMap: true}
-            //         },
-            //         {
-            //             loader: 'postcss-loader',
-            //             options: {
-            //                 postcssOptions:{
-            //                     plugins:[
-            //                         'autoprefixer',
-            //                         'cssnano'
-            //                     ]
-            //                 }
-            //             }
-            //         },
-            //         {
-            //             loader: 'sass-loader',
-            //             options: {sourceMap: true}
-            //         }
-            //     ]
-            // },
         ]
     }
 }

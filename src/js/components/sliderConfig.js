@@ -115,9 +115,9 @@ const config = {
 
 }
 
-// export function getConfig() {
-// 	return config
-// }
+export function getConfig() {
+	return config
+}
 
 export function initSwipers() {
 	const imgsSwiper = new Swiper('.image__slider', config.imgs);
