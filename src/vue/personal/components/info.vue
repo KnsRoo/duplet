@@ -123,7 +123,7 @@ export default {
 
 <style lang = "scss">
 .invalid {
-    border: 1px solid red;
+    border: 1px solid #9d2f2f;
     border-radius: 6px;
 }
 </style>

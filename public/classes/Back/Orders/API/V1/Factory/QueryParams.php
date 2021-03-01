@@ -19,6 +19,12 @@ class QueryParams {
 
     }
 
+    public static function getType() {
+
+        $type = isset($_GET['type']) ? "'".(String)$_GET['type']."'" : null;
+        return $type;
+    }
+
     public static function getEmbed() {
 
         $embed = isset($_GET['embed']) ? $_GET['embed'] : [];

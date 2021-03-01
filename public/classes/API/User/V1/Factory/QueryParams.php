@@ -37,4 +37,10 @@ class QueryParams {
         $order = (Object)json_decode($_GET['order'] ?? null);
         return $order;
     }
+
+    public static function getType() {
+
+        $type = isset($_GET['type']) ? "'".(String)$_GET['type']."'" : null;
+        return $type;
+    }
 }

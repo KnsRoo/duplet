@@ -221,8 +221,13 @@ class Controller extends Response {
         $offset = Factory\QueryParams::getOffset();
         $limit = Factory\QueryParams::getLimit();
         $order = Factory\QueryParams::getOrder();
+        $type = Factory\QueryParams::getType();
 
         $qb = \Model\Order::find([ 'user_id' => $user->id ]);
+
+        if ($type)
+            $qb->andWhere("JSON_EXTRACT(`props`, '$.\"Тип\".\"value\"') = ".$type);
+
         $qb = Factory\Filters\QB\OrderOrders::filter($qb, $order);
 
         $qbCnt = clone $qb;
