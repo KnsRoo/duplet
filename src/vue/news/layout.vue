@@ -1,6 +1,6 @@
 <template lang = "pug">
 section.news
-	.wrapper(v-if="loaded")
+	.wrapper
 		.title__page Новости
 		loader(v-if = "!loaded")
 		newItem(v-if = "loaded" v-for="item in newsChunked" :newsItem = "item")

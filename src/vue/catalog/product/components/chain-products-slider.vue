@@ -1,53 +1,49 @@
 <template lang = "pug">
-.card__seen_slider.swiper-container(ref="slider")
-	.image__slider_wrapper.swiper-wrapper
-		.swiper-slide(v-for = "item in products")
-			Product(:product = "item")
-	.swiper-pagination
+swiper(ref="slider" :options = "options")
+	swiper-slide(v-for = "(item, key) in products" :key = "key")
+		Product(:product = "item")
+	.swiper-pagination(slot = "pagination")
 </template>
 
 <script>
 import ky from "ky";
 import { getConfig } from "../../../../js/components/sliderConfig";
 import Product from "../../components/catalog-item.vue";
-import Swiper from "swiper/bundle";
-import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
 
 export default {
-    data() {
-        return {
-            products: [],
-            seenSlider: undefined
-        };
-    },
-    props: {
-        links: Array
-    },
-    components: {
-        Product
-    },
-    computed: {},
-    methods: {
-        initSlider() {
-            this.seenSlider = new Swiper(
-                this.$refs["slider"],
-                getConfig().cardItemSeen
-            );
-        }
-    },
-    mounted() {
-        this.initSlider();
-        setTimeout(() => {
-            this.seenSlider.update();
-        }, 500);
-    },
-    async created() {
-        if (this.$props.links) {
-            this.$props.links.forEach(async val => {
-                let product = await ky.get(val).json();
-                this.products.push(product);
-            });
-        }
-    }
+	data() {
+		return {
+			products: [],
+		};
+	},
+	props: {
+		links: Array
+	},
+	components: {
+		Product,
+		Swiper,
+		SwiperSlide
+	},
+	directives: {
+		swiper: directive
+	},
+	computed: {
+	  swiper() {
+		return this.$refs.slider.$swiper
+	  },
+	  options(){
+	  	return getConfig().cardItemSeen
+	  }
+	},
+	async created() {
+		if (this.$props.links) {
+			this.$props.links.forEach(async val => {
+				let product = await ky.get(val).json();
+				this.products.push(product);
+			});
+		}
+	}
 };
 </script>
