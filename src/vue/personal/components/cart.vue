@@ -6,7 +6,7 @@
 			.cart__empty__wrapper
 				img(src = "/assets/img/icons/mdi-light_cart.svg")
 				.cart__empty__notification Ваша корзина пока пуста
-				.cart__empty__motivator Начните свои покупки прямо сейчас
+				.cart__empty__motivator Начните свои покупки прямо сейчасcc
 				a.btn.btn__to(href = "/catalog")
 					span.btn__name в каталог
 		.cart__booked(v-if="reservedItems.length != 0")
@@ -18,25 +18,25 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
-import cartItem from './cart-item.vue'
+import { mapActions, mapGetters } from "vuex";
+import cartItem from "./cart-item.vue";
 
 export default {
     data() {
         return {};
     },
     components: {
-    	cartItem
+        cartItem
     },
     computed: {
-    	...mapGetters('cart', ["reservedItems", "readyItems", "getItems"])
+        ...mapGetters("cart", ["reservedItems", "readyItems", "getItems"])
     },
     methods: {
-    	...mapActions('cart', ["fetchItems"])
+        ...mapActions("cart", ["fetchItems"])
     },
-    async created(){
-    	await this.fetchItems()
-    	this.$emit('toggleLoad', { component: 'cart', value: true})
+    async created() {
+        await this.fetchItems();
+        this.$emit("toggleLoad", { component: "cart", value: true });
     }
 };
 </script>

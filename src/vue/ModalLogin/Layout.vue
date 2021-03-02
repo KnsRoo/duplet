@@ -29,7 +29,7 @@ transition(name="fade")
                 .registration__button_wrapper
                     button.registration__btn.button(:disabled ="!isValidMail || password.length < 6" @click="login") ВОЙТИ
             .registration__wrapper(v-else-if = "mode == 'restore'")
-                a#close_btn_avtorisation.js-close(@click = "close")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                     img.registration__close(src="/assets/img/icons/close.svg")
                 .registration__title.long Введите новый пароль
                 .registration__inner
@@ -42,7 +42,7 @@ transition(name="fade")
                 .registration__button_wrapper
                         button.registration__btn.button.save(:disabled ="!isValidPass || !agree || !equal" @click="changePassword") СОХРАНИТЬ
             .registration__wrapper(v-else-if = "mode == 'registration'")
-                a#close_btn_avtorisation.js-close(@click = "close")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                     img.registration__close(src="/assets/img/icons/close.svg")
                 .registration__title.long Регистрация
                 .registration__inner
@@ -64,13 +64,13 @@ transition(name="fade")
                     .registration__button_wrapper
                         button.registration__btn.button(:disabled ="!isValidMail || !isValidPass || !agree || !equal" @click="register") ЗАРЕГИСТРИРОВАТЬСЯ
             .registration__wrapper(v-else-if = "mode == 'info'")
-                a#close_btn_avtorisation.js-close(@click = "close")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                     img.registration__close(src="/assets/img/icons/close.svg")
                 .registration__title.long Подтвердите E-mail
                 .registration__inner
                     .registration__label На Вашу почту выслан код с подтверждением
             .registration__wrapper(v-else-if = "mode == 'success'")
-                a#close_btn_avtorisation.js-close(@click = "close")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                     svg.registration__close
                         use(href="/assets/icons/icons.svg#close")
                 .registration__title.long Подтверждение E-mail
@@ -79,7 +79,7 @@ transition(name="fade")
                 .registration__button_wrapper
                     button.registration__btn.button(@click= "switchMode('login')") ВОЙТИ
             .registration__wrapper(v-else-if = "mode == 'request'")
-                a#close_btn_avtorisation.js-close(@click = "close")
+                a#close_btn_avtorisation.js-close.icon-menu-cancel(@click = "close")
                     img.registration__close(src="/assets/img/icons/close.svg")
                 .registration__title.long Введите E-mail
                 .registration__inner
@@ -176,10 +176,9 @@ export default {
         },
 
         close() {
-            if (this.mode === "login"){
+            if (this.mode === "login") {
                 window.location.href = "/";
-            }
-            else if (
+            } else if (
                 this.mode == "info" ||
                 this.mode == "success" ||
                 this.mode == "request"
@@ -235,12 +234,11 @@ export default {
                     result = await response.json();
                     localStorage.setItem("jwt", JSON.stringify(result));
                     this.closeSuccessfully();
-                    if (window.location.pathname == ""){
+                    if (window.location.pathname == "") {
                         document.location.href = "/lk";
                     } else {
-                        document.location.href = window.location.pathname
+                        document.location.href = window.location.pathname;
                     }
-                    
                 } else {
                     result = await response.json();
                     throw result.errors[0].message;

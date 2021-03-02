@@ -2,19 +2,19 @@
   "404": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/1.5e3a9f80.css",
+      "/assets/css/1.448cc4bb.css",
       "/assets/css/404.203b576b.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
-      "/assets/js/1.5e3a9f80.chunk.js",
+      "/assets/js/1.448cc4bb.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/cart.bc4fd329.css"
+      "/assets/css/cart.ab498dc2.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
@@ -25,12 +25,12 @@
   "catalog": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/1.5e3a9f80.css",
+      "/assets/css/1.448cc4bb.css",
       "/assets/css/catalog.a03bf194.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
-      "/assets/js/1.5e3a9f80.chunk.js",
+      "/assets/js/1.448cc4bb.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
@@ -38,7 +38,7 @@
     "css": [
       "/assets/css/0.1a7757d5.css",
       "/assets/css/2.0c39ad25.css",
-      "/assets/css/contacts.8e40bad3.css"
+      "/assets/css/contacts.3ad436af.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
@@ -49,12 +49,12 @@
   "favorite": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/1.5e3a9f80.css",
+      "/assets/css/1.448cc4bb.css",
       "/assets/css/favorite.5e414834.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
-      "/assets/js/1.5e3a9f80.chunk.js",
+      "/assets/js/1.448cc4bb.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
@@ -62,7 +62,7 @@
     "css": [
       "/assets/css/0.1a7757d5.css",
       "/assets/css/2.0c39ad25.css",
-      "/assets/css/index.082eadb5.css"
+      "/assets/css/index.6d084e62.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
@@ -80,7 +80,7 @@
   "lk": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/lk.4e448eda.css"
+      "/assets/css/lk.94593568.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
@@ -91,12 +91,12 @@
   "news": {
     "css": [
       "/assets/css/0.1a7757d5.css",
-      "/assets/css/1.5e3a9f80.css",
+      "/assets/css/1.448cc4bb.css",
       "/assets/css/news.660649dc.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
-      "/assets/js/1.5e3a9f80.chunk.js",
+      "/assets/js/1.448cc4bb.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -107,7 +107,7 @@
     "css": [
       "/assets/css/0.1a7757d5.css",
       "/assets/css/2.0c39ad25.css",
-      "/assets/css/product.1335a826.css"
+      "/assets/css/product.a23544bc.css"
     ],
     "js": [
       "/assets/js/0.1a7757d5.chunk.js",
