@@ -11,15 +11,15 @@
 					span.btn__name Читать
 				span.news__data
 					figure.icon-data
-					.news__data_title {{ format(item.creationDate) }}
+					.news__data_title {{ format(newsItem[0].creationDate) }}
 	.news__cards
 		.news__card(v-for="(item, index) in newsItem" v-if = "index !=0")
 			.img__item
 				img.img__news(:src="item.picture" alt='')
 			.news__title {{ item.title }}
-			.news__text {{ newsItem[0].announce }}
+			.news__text {{ item.announce }}
 			.news__card_read
-				a.btn(:href='newsItem[0].pageRef')
+				a.btn(:href='item.pageRef')
 					span.btn__name Читать
 				span.news__data
 					figure.icon-data

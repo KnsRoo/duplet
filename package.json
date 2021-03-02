@@ -4,7 +4,7 @@
   "description": "my webpack 4th",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config ./webpack/webpack.dev.config.js",
+    "dev": "webpack-dev-server --open --config ./webpack/webpack.config.dev.js",
     "prod": "webpack --config ./webpack/webpack.build.config.js"
   },
   "browserslist": [
