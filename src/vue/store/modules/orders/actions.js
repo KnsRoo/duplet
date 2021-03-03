@@ -1,15 +1,44 @@
 import ky from 'ky'
+import authfetch from '../../../../js/components/authfetch'
 
 export default {
 	async appendOrder(ctx, order){
 		let result = await ky.post(`${window.location.origin}/api/orders`, { json: order })
 	},
 	async fetchOrders({commit}, type){
-		let result = await ky.get(`${window.location.origin}/api/user/orders`).json()
-		commit("setOrders", result._embedded.items)
+    	try {
+            const response = await authfetch(`${window.location.origin}/api/user/orders?type=${type}`, {
+                method: 'GET',
+            })
+
+            if(response.errors) {
+                console.warn(response.errors)
+            }
+            else {
+                const result = await response.json();
+                commit("setOrders", result)
+            }
+        }
+        catch {
+            noty("error", "Ошибка получения данных. Код ошибки 5441");
+        }
 	},
 	async fetchNextOrders({getters, commit}){
-		let result = await ky.get(`${getters.next}`).json()
-		commit("addOrders", result._embedded.items)	
+    	try {
+            const response = await authfetch(`${getters.next}`, {
+                method: 'GET',
+            })
+
+            if(response.errors) {
+                console.warn(response.errors)
+            }
+            else {
+                const result = await response.json();
+                commit("addOrders", result)	
+            }
+        }
+        catch {
+            noty("error", "Ошибка получения данных. Код ошибки 5442");
+        }
 	}
 }

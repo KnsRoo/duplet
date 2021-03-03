@@ -9,7 +9,7 @@ export default {
 			discount: (state.properties.discountCard) ? state.properties.discountCard : ''
 		}
 	},
-	getOrders(state) {
+	orders(state) {
 		return {
 			items: state.orders._embedded.items,
 			next: (state.orders._links.next) ? state.orders._links.next : null
