@@ -1,45 +1,41 @@
 <template lang = "pug">
-.card__seen_slider.swiper-container(ref="slider")
-	.image__slider_wrapper.swiper-wrapper
-		.swiper-slide(v-for = "item in products")
-			Product(:product = "item")
-	.swiper-pagination
+swiper(ref="slider" :options = "options")
+	swiper-slide(v-for = "(item, key) in products" :key = "key")
+		Product(:product = "item")
+	.swiper-pagination(slot = "pagination")
 </template>
 
 <script>
 import ky from "ky";
 import { getConfig } from "../../../../js/components/sliderConfig";
 import Product from "../../components/catalog-item.vue";
-import Swiper from "swiper/bundle";
+import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
 
 export default {
     data() {
         return {
-            products: [],
-            seenSlider: undefined
+            products: []
         };
     },
     props: {
         links: Array
     },
     components: {
-        Product
+        Product,
+        Swiper,
+        SwiperSlide
     },
-    computed: {},
-    methods: {
-        initSlider() {
-            this.seenSlider = new Swiper(
-                this.$refs["slider"],
-                getConfig().cardItemSeen
-            );
+    directives: {
+        swiper: directive
+    },
+    computed: {
+        swiper() {
+            return this.$refs.slider.$swiper;
+        },
+        options() {
+            return getConfig().cardItemSeen;
         }
-    },
-    mounted() {
-        this.initSlider();
-        setTimeout(() => {
-            this.seenSlider.update();
-        }, 500);
     },
     async created() {
         if (this.$props.links) {

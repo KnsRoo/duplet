@@ -17,7 +17,7 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
 }
 
-const PAGES_DIR = `${PATHS.src}/pug/catalog`
+const PAGES_DIR = `${PATHS.src}/pug/discount`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 const PUBLIC_PATH = path.join(__dirname, '..', 'public', 'assets');
 
@@ -77,12 +77,6 @@ module.exports = {
             template: `${PAGES_DIR}/${page}`,
             filename: `./${page.replace(/\.pug/, '.html')}`
         })),
-        // new HtmlWebpackPlugin({
-        //     //template: `${PATHS.src}/index.html`,
-        //     //filename: './index.html'
-        //     template: `${PAGES_DIR}/${page}`,
-        //     filename: `./${page.replace(/\.pug/,'.html')}`
-        // }),
         new AssetsPlugin({
             filename: 'assets.json',
             path: PUBLIC_PATH,
@@ -93,10 +87,6 @@ module.exports = {
             filename: 'css/[name].[chunkhash:8].css',
             chunkFilename: 'css/[name].[chunkhash:8].css',
         }),
-        // new MiniCssExtractPlugin({
-        //     filename: `[name].[hash].css`
-        // }),
-        // new ManifestPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
