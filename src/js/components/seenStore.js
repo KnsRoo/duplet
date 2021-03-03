@@ -1,10 +1,11 @@
 export default class Store{
 	constructor(name){
 		this.name = name
-		this.store = localStorage.getItem(name).split(',')
-		console.log(this.store)
-		if (!this.store){
+		let store = localStorage.getItem(name)
+		if (!store){
 			this.store = []
+		} else {
+			this.store = store.split(',')
 		}
 	}
 

@@ -41,7 +41,7 @@
                     align-items: center;
 
                     .slider__main_img {
-                        background: #e0e0e0;
+                        background: white;
                         width: 100%;
                         height: 100%;
                         object-fit: contain;
@@ -72,9 +72,10 @@
                     background-size: cover;
 
                     .slider__sidebar_img {
-                        background: #e0e0e0;
+                        background: white;
                         width: 100%;
                         height: 100%;
+                        object-fit: contain;
                     }
                 }
             }
