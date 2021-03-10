@@ -77,9 +77,9 @@ class Controller extends Response {
     }
 
     public function isFavorite($req){
-        $record = Favorite::find(['product_id' => $req->id])
+        $record = Favorite::find(['product_id' => $req['id']])
             ->andWhere(['user_id' => $this->user->id])
-            ->get();  
+            ->get();
 
         $response = [
             "favorite" => true

@@ -48,6 +48,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import authfetch from '../../../../js/components/authfetch'
+import refreshToken from '../../../../js/components/refreshToken'
 
 export default {
     data() {
@@ -78,6 +79,12 @@ export default {
             }
         },
         async addFavorite() {
+        	try {
+        		refreshToken()
+        	} catch {
+        		window.modalLogin.toggle()
+        		return
+        	}
         	if (!this.favorite){
         		await this.appendItem(this.$props.product.id)
         	} else {
