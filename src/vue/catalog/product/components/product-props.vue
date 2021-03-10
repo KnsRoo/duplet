@@ -79,7 +79,7 @@ export default {
         }
     },
     async created() {
-        const response = await authfetch(`${window.location.origin}/api/favorites/${product.id}`, {
+        const response = await authfetch(`${window.location.origin}/api/favorites/${this.$props.product.id}`, {
             method: 'GET',
         }) 
         if (response.ok){

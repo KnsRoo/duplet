@@ -75,6 +75,7 @@ export default {
 				images = images.concat(this.product.props["изображения"])
 			if (this.product.picture)
 				images.push(this.product.picture)
+			return images
 		},
 
 	},
