@@ -1,7 +1,6 @@
 <template lang="pug">
 section.reserved
     .wrapper
-        .reserved__title Забронированные товары
         .reserved__box
             .name__box
                 .subtitles__thing.name__title Товар

@@ -1,7 +1,6 @@
 <template lang="pug">
 section.reserved
 	.wrapper(v-if = "loaded")
-		.reserved__title История покупок
 		OrderItem(v-for="item in orders.items" :orderProps = "item.props")
 </template>
 

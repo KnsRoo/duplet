@@ -62,6 +62,12 @@ export default {
 </script>
 
 <style scoped lang = "scss">
+
+.name__title {
+    display: flex;
+    justify-content: center;
+}
+
 .order {
 	&__wrapper {
 		display: flex;

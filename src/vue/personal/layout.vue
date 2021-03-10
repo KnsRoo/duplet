@@ -7,8 +7,11 @@
             .lk__block(v-show = "loaded")
                 Info(@toggleLoad="toggleLoad")
                 Cart(@toggleLoad = "toggleLoad")
-    Reserved(v-show = "loaded" @toggleLoad = "toggleLoad")
-    History(v-show = "loaded" @toggleLoad = "toggleLoad")
+    .defs
+        .catalog__cat__item(v-show = "loaded" v-for="item in defs" @click = "setActive(item)" :class = "{active: item == active}")
+            .catalog__cat__item_title {{ item }}
+    Reserved(v-show = "loaded && active == 'Забронированные товары'" @toggleLoad = "toggleLoad")
+    History(v-show = "loaded && active == 'История покупок'" @toggleLoad = "toggleLoad")
 
 
 </template>
@@ -29,12 +32,17 @@ export default {
                 'cart': false,
                 'reserved': false,
                 'history': false
-            }
+            },
+            defs: ['История покупок', 'Забронированные товары'],
+            active: 'История покупок'
         };
     },
     methods: {
         toggleLoad(object){
             this.awaits[object.component] = object.value
+        },
+        setActive(item){
+            this.active = item
         }
     },
     computed: {
@@ -58,3 +66,40 @@ export default {
     }
 };
 </script>
+
+<style scoped lang="scss">
+.defs{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .catalog__cat__item {
+        width: 185px;
+        height: 70px;
+        border: 1px solid #888;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &:hover {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        &_title {
+            font-family: FuturaBookC;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22.5px;
+        }
+    }
+}
+
+.active {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+</style>
