@@ -124,10 +124,3 @@ export function initSwipers() {
 	const tidIngSwiper = new Swiper('.tidings__slider', config.tidIngs);
 	const contactsSwiper = new Swiper('.location__slider', config.contacts);
 }
-
-// export function initSwipersProduct() {
-// 	const cardItemSidebarSwiper = new Swiper('.slider__sidebar', config.cardItemSidebar);
-// 	config.cardItemMain.thumbs = { swiper: cardItemSidebarSwiper };
-// 	const cardItemMainSwiper = new Swiper('.slider__main', config.cardItemMain);
-// 	const cardItemSeenSwiper = new Swiper('.card__seen_slider', config.cardItemSeen);
-// }

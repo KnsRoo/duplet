@@ -140,10 +140,13 @@
                 background: #333;
                 opacity: 0.9;
                 height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             .swiper-pagination-bullet {
-                top: 20px;
+                //top: 20px;
                 background: #fff;
                 position: relative;
                 margin-right: 30px;

@@ -34,6 +34,25 @@
             font-size: 18px;
             line-height: 20px;
             justify-content: flex-start;
+            position: relative;
+            padding-bottom: 5px;
+            color: $dark;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                background: $dark;
+                width: 0;
+                transition: all .2s;
+            }
+
+            &:hover::before {
+                width: 100%;
+                transition: all .2s;
+            }
         }
 
         .img__wrap {

@@ -1,110 +1,102 @@
 {
   "404": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/404.3420992b.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/1.c7cd55fe.css",
+      "/assets/css/404.c74612bf.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/1.c7cd55fe.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/cart.549c2867.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/cart.30f56267.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/3.b994c0e4.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/3.cbdcf758.chunk.js",
       "/assets/js/cart.js"
     ]
   },
   "catalog": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/catalog.66c88061.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/1.c7cd55fe.css",
+      "/assets/css/catalog.b0121de2.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/1.c7cd55fe.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
   "contacts": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/2.155f117e.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/contacts.b9a2aa08.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/2.f3c27322.css",
+      "/assets/css/contacts.b8fd5f8c.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/2.155f117e.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/2.f3c27322.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/favorite.1f92dbf6.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/1.c7cd55fe.css",
+      "/assets/css/favorite.5e2eb58b.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/1.c7cd55fe.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
   "index": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/2.155f117e.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/index.f035c76b.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/2.f3c27322.css",
+      "/assets/css/index.6a5595b9.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/2.155f117e.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/2.f3c27322.chunk.js",
       "/assets/js/index.js"
     ]
   },
   "killreal": {
-    "css": "/assets/css/2.155f117e.css",
+    "css": "/assets/css/2.f3c27322.css",
     "js": [
-      "/assets/js/2.155f117e.chunk.js",
+      "/assets/js/2.f3c27322.chunk.js",
       "/assets/js/killreal.js"
     ]
   },
   "lk": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/lk.20405a3b.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/lk.e4ea0f5a.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/3.b994c0e4.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/3.cbdcf758.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/news.2e16bbca.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/1.c7cd55fe.css",
+      "/assets/css/news.c0dfc75b.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/1.c7cd55fe.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -113,28 +105,25 @@
   },
   "product": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/2.155f117e.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/product.a3511d1a.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/2.f3c27322.css",
+      "/assets/css/product.ca151fff.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/2.155f117e.chunk.js",
-      "/assets/js/4.d640aec1.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/2.f3c27322.chunk.js",
       "/assets/js/product.js"
     ]
   },
   "stocks": {
     "css": [
-      "/assets/css/1.4b4c2509.css",
-      "/assets/css/0.1c4b2533.css",
-      "/assets/css/stocks.cb41927e.css"
+      "/assets/css/0.2721c443.css",
+      "/assets/css/1.c7cd55fe.css",
+      "/assets/css/stocks.d6c1cb1b.css"
     ],
     "js": [
-      "/assets/js/1.4b4c2509.chunk.js",
-      "/assets/js/0.1c4b2533.chunk.js",
+      "/assets/js/0.2721c443.chunk.js",
+      "/assets/js/1.c7cd55fe.chunk.js",
       "/assets/js/stocks.js"
     ]
   }
