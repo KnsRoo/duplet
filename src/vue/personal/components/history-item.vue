@@ -1,11 +1,21 @@
 <template lang="pug">
 .order__wrapper
 	.order__info
-		.title Заказчик: {{ customer }}
-		.title Дата заказа: {{ date }}
-		.title Адрес доставки: {{ orderProps['Адрес'].value }}
-		.title Сумма: {{ summ }}
-		.title Статус заказа: {{ orderProps['Статус'].value }}
+		.order__info__wrapper
+			.title.static ЗАКАЗЧИК:
+			.title {{ customer }}
+		.order__info__wrapper
+			.title.static ДАТА ЗАКАЗА:
+			.title {{ date }}
+		.order__info__wrapper
+			.title.static АДРЕС ДОСТАВКИ:
+			.title {{ orderProps['Адрес'].value }}
+		.order__info__wrapper
+			.title.static СУММА:
+			.title {{ summ }}
+		.order__info__wrapper
+			.title.static СТАТУС ЗАКАЗА:
+			.title {{ orderProps['Статус'].value }}
 	.mini__wrapper(v-if = "!detailed")
 		.mini__box
 			img.mini__image(v-for = "item in orderProps['Товары'].value.slice(0,6)" :src="item.picture")
@@ -82,8 +92,18 @@ export default {
 		grid-gap: 10px;
 		margin-bottom: 20px;
 
-		.title {
-			font-weight: bold;
+		&__wrapper{
+			display: flex;
+
+			.title {
+				font-size: 18px;
+				line-height: 125%;
+				margin-left: 10px;
+			}
+
+			.static {
+				color: #888;
+			}
 		}
 	}
 }

@@ -43,6 +43,10 @@ export default {
 
 <style scoped lang = "scss">
 .cart {
+    &__wrap{
+        margin-top: 80px;
+    }
+
     &__now{
         &_title{
             display: flex;
