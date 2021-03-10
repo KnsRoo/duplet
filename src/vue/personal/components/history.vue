@@ -1,11 +1,8 @@
 <template lang="pug">
-article.buy__history
-	.wrapper
-		.history__title История покупок
+section.reserved
+	.wrapper(v-if = "loaded")
+		.reserved__title История покупок
 		OrderItem(v-for="item in orders.items" :orderProps = "item.props")
-		//- input.history__input
-		//- .history__box
-		//- 	Item(v-for="item in orders")
 </template>
 
 <script>
@@ -15,20 +12,21 @@ import OrderItem from './history-item.vue'
 export default {
 	data() {
 		return {
+			loaded: false
 		};
 	},
 	components: {
 		OrderItem
 	},
 	computed: {
-		...mapGetters("user", ["orders"])
+		...mapGetters("orders", ["orders"])
 	},
 	methods: {
-		...mapActions("user", ["fetchOrders", "fetchNextOrders"])
+		...mapActions("orders", ["fetchOrders", "fetchNextOrders"])
 	},
 	async created(){
 		await this.fetchOrders('Покупка')
-		console.log(this.orders.items)
+		this.loaded = true
 		this.$emit('toggleLoad', { component: 'history', value: true})
 	}
 }

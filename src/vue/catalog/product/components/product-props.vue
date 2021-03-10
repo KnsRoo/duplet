@@ -34,9 +34,11 @@
 				.btn__minus.icon-number(@click = "rem")
 				.choose__number {{ count }}
 				.btn__plus.icon-number-right(@click = "add")
-			input.to__cart.add__to__cart(type="button" value = "в корзину" @click = "addToCart({ id: product.id, count})") 
-		.to__favorite
-			figure.icon-liked
+			.btn.btn__to.to__cart( @click = "addToCart({ id: product.id, count})")
+				span.btn__name в корзину
+		.to__favorite(@click="addFavorite")
+			figure.icon-liked(v-if ="favorite === false" )
+			figure.icon-liked-fill(v-else)
 			span.to__favorite_title Добавить в избранное
 	.card__item_category
 		.category__title Категория:
@@ -45,11 +47,13 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import authfetch from '../../../../js/components/authfetch'
 
 export default {
     data() {
         return {
-            count: 1
+            count: 1,
+            favorite: false
         };
     },
     props: {
@@ -69,8 +73,20 @@ export default {
             if (this.count > 1) {
                 this.count--;
             }
+        },
+        addFavorite() {
+            this.favorite = !this.favorite;
         }
     },
-    created() {}
+    async created() {
+        const response = await authfetch(`${window.location.origin}/api/favorites/${product.id}`, {
+            method: 'GET',
+        }) 
+        if (response.ok){
+        	let data = await response.json()
+        	this.favorite = data.favorite
+        } 
+
+    }
 };
 </script>

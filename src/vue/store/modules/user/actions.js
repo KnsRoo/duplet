@@ -16,7 +16,6 @@ export default {
                 const data = await response.json();
                 commit('setUser', data)
                 await dispatch('fetchProps', data._links.props.href)
-                await dispatch('fetchOrders', data._links.orders.href)
             }
         }
         catch {
@@ -39,24 +38,6 @@ export default {
         }
         catch {
             noty("error", "Ошибка получения данных Код ошибки 2442");
-        } 
-    },
-    async fetchOrders({commit}, link){
-        try {
-            const response = await authfetch(link, {
-                method: 'GET',
-            })
-
-            if(response.errors) {
-                console.log(response.errors)
-            }
-            else {
-                const data = await response.json();
-                commit('setUserOrders', data)
-            }
-        }
-        catch {
-            noty("error", "Ошибка получения данных Код ошибки 2443");
         } 
     },
 

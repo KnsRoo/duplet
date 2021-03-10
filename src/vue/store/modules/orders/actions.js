@@ -1,5 +1,6 @@
 import ky from 'ky'
 import authfetch from '../../../../js/components/authfetch'
+import noty from "../../../../js/components/noty";
 
 export default {
 	async appendOrder(ctx, order){

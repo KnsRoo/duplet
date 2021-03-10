@@ -10,7 +10,6 @@ export default async (url, params = {}, jwtKey = "jwt") => {
     if (!localStorageJSON)
         throw new AuthError("Вы не авторизованы");
     const localStorageJwt = JSON.parse(localStorageJSON);
-    console.log(localStorageJwt);
 
         const apiLink = new URL(url);
         apiLink.searchParams.set(jwtKey, localStorageJwt.accessToken);

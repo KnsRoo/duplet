@@ -8,11 +8,5 @@ export default {
 			city: (state.properties.city) ? state.properties.city : '',
 			discount: (state.properties.discountCard) ? state.properties.discountCard : ''
 		}
-	},
-	orders(state) {
-		return {
-			items: state.orders._embedded.items,
-			next: (state.orders._links.next) ? state.orders._links.next : null
-		}
-	},
+	}
 }

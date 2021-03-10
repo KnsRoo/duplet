@@ -23,6 +23,9 @@ class Controller extends Response {
         $group->addDelete('/:id', [ $this, 'removeFavorite'])
             ->setName('api:favorites:remove');
 
+        $group->addGet('/:id', [$this, 'isFavorite'])
+            ->setName('api:favorites:check');
+
         $group->addGet('/', [$this, 'getFavorites'])
             ->setName('api:favorites:get');
 
@@ -71,6 +74,22 @@ class Controller extends Response {
                 ]
             ]);
         }
+    }
+
+    public function isFavorite($req){
+        $record = Favorite::find(['product_id' => $req->id])
+            ->andWhere(['user_id' => $this->user->id])
+            ->get();  
+
+        $response = [
+            "favorite" => true
+        ];
+
+        if ($record->isNew()){
+            $response["favorite"] = false;
+        }  
+
+        $this->json($response);
     }
 
     public function appendFavorite(){

@@ -45,7 +45,7 @@ class Product {
             'pageRef' => $pageRef,
             'code' => (String)$item->code,
             'price' => (float)$item->price,
-            'discount' => $item->discount ?? "0",
+            'discount' => $item->discount ? $item->discount : "0",
             'discount_price' => $item->getDiscountPrice(),
             'category' => $item->getCategory(),
             'discount_text' => $item->discount_text ? (String)$item->discount_text : "",

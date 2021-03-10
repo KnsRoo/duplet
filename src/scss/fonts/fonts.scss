@@ -6,8 +6,8 @@
 
 @font-face {
   font-family: 'fontello';
-  src: url('../fonts/fontello.woff2?64432253') format('woff2'),
-    url('../fonts/fontello.woff?64432253') format('woff');
+  src: url('../fonts/fontello.woff2?91375985') format('woff2'),
+    url('../fonts/fontello.woff?91375985') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -38,148 +38,134 @@
   display: inline-block;
 }
 
-.icon-add:before {
+.icon-working-time:before {
   content: '\e800';
 }
 
-/* '' */
-.icon-basket:before {
+.icon-vk:before {
   content: '\e801';
 }
 
-/* '' */
-.icon-bookmark:before {
+.icon-sort_up:before {
   content: '\e802';
 }
 
-/* '' */
-.icon-delete:before {
+.icon-sort_neitral:before {
   content: '\e803';
 }
 
-/* '' */
-.icon-available:before {
+.icon-sort_down:before {
   content: '\e804';
 }
 
-/* '' */
-.icon-booked:before {
+.icon-slider__mini:before {
   content: '\e805';
 }
 
-/* '' */
-.icon-data:before {
+.icon-slider:before {
   content: '\e806';
 }
 
-/* '' */
-.icon-fb:before {
+.icon-search:before {
   content: '\e807';
 }
 
-/* '' */
-.icon-filter:before {
+.icon-profile:before {
   content: '\e808';
 }
 
-/* '' */
-.icon-info:before {
+.icon-phone:before {
   content: '\e809';
 }
 
-/* '' */
-.icon-liked:before {
+.icon-payment:before {
   content: '\e80a';
 }
 
-/* '' */
-.icon-location:before {
+.icon-order_success:before {
   content: '\e80b';
 }
 
-/* '' */
-.icon-logo:before {
+.icon-order_error:before {
   content: '\e80c';
 }
 
-/* '' */
-.icon-menu-burger:before {
+.icon-number-right:before {
   content: '\e80d';
 }
 
-/* '' */
 .icon-menu-cancel:before {
   content: '\e80e';
 }
 
-/* '' */
-.icon-number:before {
+.icon-logo:before {
   content: '\e80f';
 }
 
-/* '' */
-.icon-number-right:before {
+.icon-location:before {
   content: '\e810';
 }
 
-/* '' */
-.icon-payment:before {
+.icon-liked-fill:before {
   content: '\e811';
 }
 
-/* '' */
-.icon-profile:before {
+.icon-liked:before {
   content: '\e812';
 }
 
-/* '' */
-.icon-search:before {
+.icon-delete:before {
   content: '\e813';
 }
 
-/* '' */
-.icon-slider__mini:before {
+.icon-number:before {
   content: '\e814';
 }
 
-/* '' */
-.icon-sort_down:before {
+.icon-info:before {
   content: '\e815';
 }
 
-/* '' */
-.icon-sort_up:before {
+.icon-data:before {
   content: '\e816';
 }
 
-/* '' */
-.icon-vk:before {
+.icon-inst:before {
   content: '\e817';
 }
 
-/* '' */
-.icon-working-time:before {
+.icon-menu-burger:before {
   content: '\e818';
 }
 
-/* '' */
-.icon-sort_neitral:before {
+.icon-filter:before {
   content: '\e819';
 }
 
-/* '' */
-.icon-inst:before {
+.icon-fb:before {
   content: '\e81a';
 }
 
-/* '' */
-.icon-phone:before {
+.icon-mdi-light_cart:before {
   content: '\e81b';
 }
 
-/* '' */
-.icon-slider:before {
+.icon-bookmark:before {
   content: '\e81c';
 }
 
-/* '' */
+.icon-booked:before {
+  content: '\e81d';
+}
+
+.icon-basket:before {
+  content: '\e81e';
+}
+
+.icon-available:before {
+  content: '\e81f';
+}
+
+.icon-add:before {
+  content: '\e820';
+}

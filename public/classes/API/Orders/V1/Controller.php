@@ -152,6 +152,15 @@ class Controller extends Response
             'value' => $type,
         ];
 
+        if ($type = "Бронирование") {
+            $props['Способ получения'] = "Самовывоз";
+            $props['Бронь до'] = date('d.m.Y',strtotime('+7 days'));
+        }
+
+        if ($props['Способ получения'] == "Самовывоз") {
+            $props['Доступен с'] = date('d.m.Y',strtotime('+3 days'));
+        }
+
         $order->props = json_encode($props);
 
         if (!$order->save())

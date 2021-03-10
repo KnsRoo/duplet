@@ -6,6 +6,7 @@ export default {
 		state.properties = data
 	},
 	setUserOrders(state, data) {
+		console.log('setting data')
 		state.orders = data
 	},
 }

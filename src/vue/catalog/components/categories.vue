@@ -153,13 +153,16 @@ export default {
 
         async setGroup(item) {
             this.$emit('toggleLoad',false)
-            new URLHistory().add('group',item.id)
+            
 
             this.title = item.title;
             this.active = item.title;
             this.breadCrumbs = item.path;
 
             await this.fetchCatalogGroups(item._links.subgroups.href);
+            
+            if (!this.isEnd) new URLHistory().add('group',item.id)
+
             if (this.sortType) {
                 await this.fetchSortedCatalogItems({
                     link: item._links.subproducts.href,

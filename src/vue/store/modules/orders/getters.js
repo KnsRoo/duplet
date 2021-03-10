@@ -1,8 +1,8 @@
 export default {
-	orders(state){
-		return state.orders
+	orders(state) {
+		return {
+			items: state.orders._embedded.items,
+			next: (state.orders._links.next) ? state.orders._links.next : null
+		}
 	},
-	next(state){
-		return state.next
-	}
 }
