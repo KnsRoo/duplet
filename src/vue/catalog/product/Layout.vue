@@ -70,12 +70,11 @@ export default {
 			return new Seen('seenList').isEmpty()
 		},
 		images(){
-			let images = this.product.props["изображения"]
-			if (images) {
-				images.value.push(this.product.picture)
-				return images.value
-			}
-			return false
+			let images = []
+			if (this.product.props["изображения"])
+				images = images.concat(this.product.props["изображения"])
+			if (this.product.picture)
+				images.push(this.product.picture)
 		},
 
 	},
