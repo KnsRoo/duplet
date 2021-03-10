@@ -63,8 +63,11 @@ export default {
     methods: {
         ...mapActions("cart", [
             "removeFromCart",
-            "addToFavorites",
             "addToCart"
+        ]),
+        ...mapActions("favorites", [
+            "appendItem",
+            "removeItem"
         ]),
         add() {
             this.count++;
@@ -74,7 +77,12 @@ export default {
                 this.count--;
             }
         },
-        addFavorite() {
+        async addFavorite() {
+        	if (!this.favorite){
+        		await this.appendItem(this.$props.product.id)
+        	} else {
+        		await this.removeItem(this.$props.product.id)
+        	}
             this.favorite = !this.favorite;
         }
     },
