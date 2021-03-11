@@ -49,6 +49,7 @@
 import { mapActions, mapGetters } from "vuex";
 import authfetch from '../../../../js/components/authfetch'
 import refreshToken from '../../../../js/components/refreshToken'
+import noty from '../../../../js/components/noty'
 
 export default {
     data() {
@@ -87,8 +88,10 @@ export default {
         	}
         	if (!this.favorite){
         		await this.appendItem(this.$props.product.id)
+                noty('sucсess', 'Товар добавлен в избранное')
         	} else {
         		await this.removeItem(this.$props.product.id)
+                noty('sucсess', 'Товар исключен из избранного')
         	}
             this.favorite = !this.favorite;
         }

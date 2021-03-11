@@ -10,13 +10,14 @@
     .defs
         .catalog__cat__item(v-show = "loaded" v-for="item in defs" @click = "setActive(item)" :class = "{active: item == active}")
             .catalog__cat__item_title {{ item }}
-    Reserved(v-show = "loaded && active == 'Забронированные товары'" @toggleLoad = "toggleLoad")
-    History(v-show = "loaded && active == 'История покупок'" @toggleLoad = "toggleLoad")
+    Reserved(v-if = "loaded && active == 'Забронированные товары'" @toggleLoad = "toggleLoad")
+    History(v-if = "loaded && active == 'История покупок'" @toggleLoad = "toggleLoad")
 
 
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ky from "ky";
 import Info from "./components/info.vue";
 import Cart from "./components/cart.vue";
@@ -30,18 +31,21 @@ export default {
             awaits: {
                 'info': false,
                 'cart': false,
-                'reserved': false,
-                'history': false
+                'reserved': true,
+                'history': true
             },
             defs: ['История покупок', 'Забронированные товары'],
             active: 'История покупок'
         };
     },
     methods: {
+        ...mapActions("orders", ["fetchOrders", "fetchNextOrders"]),
         toggleLoad(object){
             this.awaits[object.component] = object.value
         },
-        setActive(item){
+        async setActive(item){
+            // let target = (this.active == "История покупок") ? 'Покупка' : 'Бронирование'
+            // await this.fetchOrders(target)
             this.active = item
         }
     },

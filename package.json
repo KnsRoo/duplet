@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config ./webpack/webpack.config.dev.js",
+    "dev-noserver": "webpack --config ./webpack/webpack.config.dev.js",
     "prod": "webpack --config ./webpack/webpack.build.config.js"
   },
   "browserslist": [
