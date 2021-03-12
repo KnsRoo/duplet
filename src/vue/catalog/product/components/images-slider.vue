@@ -1,6 +1,6 @@
 <template lang = "pug">
 .slider__box
-    .swiper-container.slider__sidebar(ref="slider-sidebar")
+    .swiper-container.slider__sidebar(ref="slider-sidebar" v-if = "images.length > 1")
         .swiper-wrapper
             .swiper-slide(v-for = "item in images")
                 .slider__sidebar_box
@@ -32,10 +32,12 @@ export default {
     computed: {},
     methods: {
         initSlider() {
-            this.cardItemSidebarSwiper = new Swiper(
-                this.$refs["slider-sidebar"],
-                getConfig().cardItemSidebar
-            );
+            if (this.$props.images.length > 1){
+                this.cardItemSidebarSwiper = new Swiper(
+                    this.$refs["slider-sidebar"],
+                    getConfig().cardItemSidebar
+                );
+            }
             let config = getConfig().cardItemMain;
             config.thumbs = { swiper: this.cardItemSidebarSwiper };
             this.cardItemMainSwiper = new Swiper(
@@ -47,7 +49,9 @@ export default {
     mounted() {
         this.initSlider();
         setTimeout(() => {
-            this.cardItemSidebarSwiper.update();
+            if (this.$props.images.length > 1){
+                this.cardItemSidebarSwiper.update();
+            }
             this.cardItemMainSwiper.update();
         }, 500);
     },
