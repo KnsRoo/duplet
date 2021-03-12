@@ -10,8 +10,8 @@
             .swiper-slide(v-for = "item in images")
                 .slider__main_box
                     img.slider__main_img(:src="item" alt='')
-        .swiper-button-prev
-        .swiper-button-next
+        .swiper-button-prev(v-show = "images.length > 1")
+        .swiper-button-next(v-show = "images.length > 1")
 </template>
 
 <script>
