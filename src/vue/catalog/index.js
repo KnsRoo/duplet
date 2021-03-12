@@ -16,10 +16,10 @@ export default class Catalog {
     new Vue({
       el: selector,
       render: h => h(Layout),
-       store,
-      async created() {
-        this.$store.dispatch('catalog/init', el.getAttribute('data-filter-link'));
-    }
+      store,
+    //   async created() {
+    //     this.$store.dispatch('catalog/init', el.getAttribute('data-filter-link'));
+    // }
     });
   }
 

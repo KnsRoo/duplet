@@ -4,12 +4,12 @@
 		.card__wrap
 			.card__img
 				.product
-					.discount__percent 15%
+					.discount__percent {{ order['Товар'].discount }}
 					.favorite__cross.icon-menu-cancel
 					.product__block
-						img.product__img(:src="product.picture", alt="Ружьё")
+						img.product__img(:src="order['Товар'].picture", alt="")
 			.card__text
-				.card__text_title {{ product.title }}
+				.card__text_title {{ order['Товар'].title }}
 				.card__text_block
 					.card__brand
 						.card__brand_title Бренд:
@@ -20,8 +20,8 @@
 				.status__mobile
 					.status__mobile_title Статус:
 					.status__mobile_wrap
-						.status__done  Готово для получения
-						.status__building.hidden Сборка
+						.status__done {{ order['Статус'] }}
+						.status__building.hidden {{ order['Статус'] }}
 		.card__information
 			figure.icon-info
 			.card__information__text Информация
@@ -40,10 +40,10 @@
 			span.get__thing_date 25.09.2020
 		.booked__thing  Бронь закрепляется за Вами до
 			span.booked__thing_date 25.09.2020
-	.card__cost.card__info ₽ 3 000 000
+	.card__cost.card__info ₽ {{ order['Товар'].price }}
 	.card__status.card__info
-		.status__done.hidden__status  Готово для получения
-		.status__building Сборка
+		.status__done.hidden__status  {{ order['Статус'] }}
+		.status__building {{ order['Статус'] }}
 </template>
 <script>
 export default {
@@ -52,7 +52,10 @@ export default {
 		}
 	},
 	props: {
-		product: Object
+		order: Object
+	},
+	created(){
+		console.log(this.$props.product)
 	}
 }
 </script>

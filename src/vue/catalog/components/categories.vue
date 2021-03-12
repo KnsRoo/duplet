@@ -32,7 +32,7 @@
             img.cat_button( src="/assets/img/icons/menu-cancel.svg")
             .catalog__cat__title В каталог
     .catalog__cat__list(v-if="show")
-        .catalog__cat__item(v-for="item in catalogGroups" @click = "setGroup(item)" :class = "{active: item.title == active}")
+        a.catalog__cat__item.noevents(v-for="item in catalogGroups" :href = "'/Catalog?group='+item.id" @click.prevent = "setGroup(item)" :class = "{active: item.title == active}")
             .catalog__cat__item_title {{ item.title }}
 
 </template>
@@ -194,4 +194,10 @@ export default {
 .sort_active {
     color: #9d2f2f;
 }
+.noevents, .noevents:hover, .noevents:visited, .noevents:active {
+    color: inherit;
+    text-decoration: none;
+    cursor: ponter;
+}
+
 </style>

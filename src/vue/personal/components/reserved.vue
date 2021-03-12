@@ -9,19 +9,23 @@ section.reserved
                 .subtitles__cost.name__title Стоимость
                 .subtitles__status.name__title Статус заказа
             .reserved__things(v-if = "loaded")
-                ProductItem(v-for="item in orders.items" :product = "item.props")
+                loader(v-if = "converting")
+                ProductItem(v-for="item in orderItems" :order = "item")
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ProductItem from './reserved-item.vue'
+import loader from "../../loader/index.vue";
 
 export default {
     data() {
         return {
-            loaded: false
+            loaded: false,
+            converting: true
         };
     },
     components: {
+        loader,
         ProductItem
     },
     computed: {
@@ -29,10 +33,17 @@ export default {
         orderItems(){
             let orders = []
             this.orders.items.forEach(val => {
-                let temp = {
-                    
-                }
+                console.log("val", val)
+                console.log("props", val.props)
+                val.props['Товары'].value.forEach(v => {
+                    orders.push({
+                        "Статус": val.props['Статус'].value,
+                        "Товар": v
+                    })
+                })
             })
+            this.converting = false
+            return orders
         }
     },
     methods: {
@@ -46,3 +57,9 @@ export default {
     }
 };
 </script>
+
+<style scoped lang = "scss">
+.reserved__box {
+    margin-top: 20px;
+}
+</style>

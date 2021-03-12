@@ -1,7 +1,7 @@
 <template lang="pug">
 section.catalog
     .wrapper
-        catalog-cats(@toggleLoad = "toggleLoad" ref = "cats" :mode = "mode" :query = "query" @switchToCatalog="switchCat")
+        catalog-cats(@toggleLoad = "toggleLoad" ref = "cats" :mode = "mode" :query = "query")
         loader(v-if = "!loaded")
         .cards(v-else)
             Product(

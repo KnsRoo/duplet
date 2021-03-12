@@ -6,8 +6,8 @@
 		img.product__img(v-if = "product.picture" :src = "product.picture")
 		img.product__img(v-else src ="/assets/img/default.png")
 	.product__content
-		.product__content_title(@click = "getProduct")
-			.product__content_title_name {{ product.title }}
+		.product__content_title
+			a.product__content_title_name(:href = "this.$props.product.pageRef") {{ product.title }}
 			.product__content_title_price
 				.main__price ₽ {{ product.price }}
 				.discount__price(v-if= "product.discount != null && product.discount != 0") ₽ {{ product.discount_price }}

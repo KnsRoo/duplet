@@ -1,5 +1,5 @@
 <template lang = "pug">
-swiper(ref="slider" :options = "options")
+swiper(v-if = "loaded" ref="slider" :options = "options")
     swiper-slide(v-for = "(item, key) in products" :key = "key")
         Product(:product = "item")
     .swiper-pagination(slot = "pagination")
@@ -16,6 +16,7 @@ import 'swiper/swiper-bundle.css'
 export default {
     data() {
         return {
+            loaded: false,
             products: [],
         };
     },
@@ -40,6 +41,7 @@ export default {
                 this.products.push(product);
             });
         }
+        this.loaded = true
     }
 };
 </script>
