@@ -39,7 +39,9 @@ export default {
                 );
             }
             let config = getConfig().cardItemMain;
-            config.thumbs = { swiper: this.cardItemSidebarSwiper };
+            if (this.$props.images.length > 1){
+                config.thumbs = { swiper: this.cardItemSidebarSwiper };
+            }
             this.cardItemMainSwiper = new Swiper(
                 this.$refs["slider-main"],
                 config
