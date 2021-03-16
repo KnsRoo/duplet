@@ -33,6 +33,8 @@ class Controller extends Response
     public function getDefault($req)
     {
 
+        \Components\Seo\Seo::setContent('Личный кабинет - Оружейный магазин "Дуплет"');
+
         $html = $this->render(self::PATH . 'lk.tpl');
 
         $this->layout

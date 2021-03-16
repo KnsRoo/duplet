@@ -2,11 +2,11 @@
 
 namespace Front\Contacts;
 
-use Model\Catalog\Group;
-use Model\Catalog\Product;
 use Websm\Framework\Di\Container as Di;
 use Websm\Framework\Response;
 use Websm\Framework\Router\Router;
+
+use Model\Page;
 
 class Controller extends Response
 {
@@ -32,16 +32,12 @@ class Controller extends Response
 
     public function getDefault($req)
     {
-        $groups = Group::find()
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
 
-        $data = [
-            'groups' => $groups,
-        ];
+        $page = Page::find(['chpu' => '/Contacts'])->get();
 
-        $html = $this->render(self::PATH . 'contacts.tpl', $data);
+        \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
+
+        $html = $this->render(self::PATH . 'contacts.tpl', []);
 
         $this->layout
             ->setSrc('contacts')

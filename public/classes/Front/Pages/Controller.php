@@ -43,6 +43,8 @@ class Controller extends Response
             'page' => $page,
         ];
 
+        \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
+
         $html = $this->render(__DIR__ . '/temp/default.tpl', $data);
 
         $this->layout
@@ -53,6 +55,8 @@ class Controller extends Response
     public function render404()
     {
         $this->code(404);
+
+        \Components\Seo\Seo::setContent('404 - Страница не найдена');
 
         $html = $this->render(__DIR__ . '/temp/404.tpl');
 

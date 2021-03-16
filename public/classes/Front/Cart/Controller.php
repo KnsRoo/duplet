@@ -44,6 +44,8 @@ class Controller extends Response
             'items' => $items,
         ];
 
+        \Components\Seo\Seo::setContent('Корзина - Оружейный магазин "Дуплет"');
+
         $html = $this->render(self::PATH . 'cart.tpl', $data);
 
         $this->layout

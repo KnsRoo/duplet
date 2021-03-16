@@ -6,10 +6,10 @@ use Websm\Framework\Response;
 
 class Seo {
 
-    private static $title = 'engine.ru';
-    private static $keywords = 'engine.ru';
-    private static $description = 'engine.ru';
-    private static $meta_title = 'engine.ru';
+    private static $title = 'Оружейный магазин "Дуплет"';
+    private static $keywords = 'Дуплет';
+    private static $description = 'Оружейный магазин "Дуплет"';
+    private static $meta_title = 'Оружейный магазин "Дуплет"';
 
     public function __toString()
     {

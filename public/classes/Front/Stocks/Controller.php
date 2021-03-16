@@ -2,8 +2,7 @@
 
 namespace Front\Stocks;
 
-use Model\Catalog\Group;
-use Model\Catalog\Product;
+use Model\Page;
 use Websm\Framework\Di\Container as Di;
 use Websm\Framework\Response;
 use Websm\Framework\Router\Router;
@@ -32,16 +31,12 @@ class Controller extends Response
 
     public function getDefault($req)
     {
-        $groups = Group::find()
-            ->andWhere(['visible' => true])
-            ->order('`sort`')
-            ->getAll();
+        $page = Page::find(['chpu' => 'Stocks'])
+            ->get();
 
-        $data = [
-            'groups' => $groups,
-        ];
+        \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(self::PATH . 'stocks.tpl', $data);
+        $html = $this->render(self::PATH . 'stocks.tpl', []);
 
         $this->layout
             ->setSrc('stocks')

@@ -4,6 +4,7 @@ namespace Front\Catalog;
 
 use Model\Catalog\Group;
 use Model\Catalog\Product;
+use Model\Page;
 use Websm\Framework\Di\Container as Di;
 use Websm\Framework\Response;
 use Websm\Framework\Router\Router;
@@ -39,6 +40,8 @@ class Controller extends Response
     public function getDefault($req)
     {
 
+        \Components\Seo\Seo::setContent('Каталог товаров - Оружейный магазин "Дуплет"');
+
         $html = $this->render(self::PATH . 'default.tpl');
 
         $this->layout
@@ -52,6 +55,10 @@ class Controller extends Response
             'link' => Router::byName('api:catalog:v3:product')
                     ->getURL(['id' => $req['productId']])
         ];
+
+        $product = Product::find(['id' => $req['productId']])->get();
+
+        \Components\Seo\Seo::setContent($product->title, $product->keywords, $product->preview);
 
         $html = $this->render(self::PATH . 'product.tpl', $data);
 

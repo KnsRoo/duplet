@@ -12,7 +12,7 @@ use Model\Page;
 
 class Controller extends Response
 {
-    private const PAGE_ID = 'db9de48a6b97da4e1cb488008e6efdb2';
+    private const PAGE_ID = 'e813e4e7e7d947c5b0c14b75d82fa6a4';
     private const ITEMS_ON_PAGE = 2;
 
     private $di;
@@ -45,6 +45,9 @@ class Controller extends Response
             ->andWhere([ 'visible' => true ])
             ->order('`sort`');
 
+        $page = Page::find(['id' => self::PAGE_ID])
+            ->get();
+
         $pager = new Pager(
             $newsQb,
             self::ITEMS_ON_PAGE,
@@ -59,6 +62,8 @@ class Controller extends Response
             'news' => $news,
             'pager' => $pagerHtml,
         ];
+
+        \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
         $html = $this->render(__DIR__.'/temp/news.tpl', $data);
 
