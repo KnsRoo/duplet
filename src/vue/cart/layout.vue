@@ -32,7 +32,7 @@ section.cart
 						.discount
 							.order__title скидка
 							.order__price ₽ {{ getCartStat.discount.toFixed(2) }}
-						.payment__delivery
+						.payment__delivery(v-show = "delivery == 'Доставка'")
 							.order__title доставка
 							.order__price ₽ ???
 					.in-all
@@ -42,15 +42,24 @@ section.cart
 			.delivery__choose
 				.delivery__title Доставка
 				.delivery__take
-					input#post.custom__radio(v-model = "orderData.delivery" type="radio" value="Доставка")
+					input#post.custom__radio(v-model = "delivery" type="radio" value="Доставка")
 					label.custom__label.label__post(for="post")
 						span.custom__label_icon
 						span.custom__label_title Почтой россии
-					input#yourself.custom__radio(v-model = "orderData.delivery" type="radio" value="Самовывоз")
+					input#yourself.custom__radio(v-model = "delivery" type="radio" value="Самовывоз")
 					label.custom__label.label__yourself(for="yourself")
 						span.custom__label_icon
 						span.custom__label_title Самовывоз (в г. Сыктывкар)
 				.delivery__mail
+					.delivery__take(v-if = "delivery == 'Самовывоз'")
+						input#shop1.custom__radio( v-model = "shopAddress" type="radio" value="Южная, 6")
+						label.custom__label.label__post(for="shop1")
+							span.custom__label_icon
+							span.custom__label_title Южная, 6
+						input#shop2.custom__radio(v-model = "shopAddress" type="radio" value="Гаражная, 27")
+						label.custom__label.label__yourself(for="shop2")
+							span.custom__label_icon
+							span.custom__label_title Гаражная, 27
 					.input(:class = "{ mistake: !nameValid }")
 						input.for__input(v-model = "orderData.name" type="text" placeholder="ФИО")
 						.mistake__info
@@ -66,12 +75,12 @@ section.cart
 						.mistake__info
 							figure.icon-info
 							.mistake__info_title Ой, кажется такого телефона не существует
-					.input(v-if = "orderData.delivery = 'Доставка'" :class = "{ mistake: !cityValid }")
+					.input(v-if = "delivery == 'Доставка'" :class = "{ mistake: !cityValid }")
 						input.for__input(v-model = "orderData.city" type="text" placeholder="Город")
 						.mistake__info
 							figure.icon-info
 							.mistake__info_title Ой, кажется такого города не существует
-					.input(v-if = "orderData.delivery = 'Доставка'" :class = "{ mistake: !addressValid }")
+					.input(v-if = "delivery == 'Доставка'" :class = "{ mistake: !addressValid }")
 						input.for__input(v-model = "orderData.address" type="text" placeholder="Адрес") 
 						.mistake__info
 							figure.icon-info
@@ -117,13 +126,14 @@ export default {
 			loaded: false,
 			validationsActive: false,
 			type: null,
+			delivery: 'Доставка',
+			shopAddress: 'Южная, 6',
 			orderData: {
 				name: null,
 				phone: null,
 				city: null,
 				address: null,
 				email: null,
-				delivery: 'Доставка',
 				paytype: 'Онлайн'
 			}
 		};
@@ -220,10 +230,10 @@ export default {
 					'ФИО': this.orderData.name,
 					'Телефоны': ['7'+this.orderData.phone],
 					'Электронные почты': [this.orderData.email],
-					'Способ получения': this.orderData.delivery,
+					'Способ получения': this.delivery,
 					'Способ оплаты': this.orderData.paytype,
 				}
-				if (this.orderData.delivery == 'Доставка'){
+				if (this.delivery == 'Доставка'){
 					if (this.cityValid && this.addressValid){
 						body['Адрес'] = `${this.orderData.city} ${this.orderData.address}`,
 						result = this.addOrder(body)
@@ -231,6 +241,7 @@ export default {
 						noty('error', 'Проверьте правильность заполнения полей')
 					}
 				} else {
+					body['Магазин'] = this.shopAddress
 					result = this.addOrder(body)
 				}
 			} else {

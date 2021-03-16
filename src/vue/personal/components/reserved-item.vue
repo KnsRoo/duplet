@@ -37,10 +37,10 @@
 				.time 10:00 - 17:00
 	.card__reception.card__info
 		.get__thing  Товар будет доступен для получения с
-			span.get__thing_date 25.09.2020
+			span.get__thing_date {{ order['Доступен с'] }}
 		.booked__thing  Бронь закрепляется за Вами до
-			span.booked__thing_date 25.09.2020
-	.card__cost.card__info ₽ {{ order['Товар'].price }}
+			span.booked__thing_date {{ order['Бронь до'] }}
+	.card__cost.card__info ₽ {{ order['Товар'].price.toFixed(2) }}
 	.card__status.card__info
 		.status__done.hidden__status  {{ order['Статус'] }}
 		.status__building {{ order['Статус'] }}

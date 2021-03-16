@@ -38,6 +38,8 @@ export default {
                 val.props['Товары'].value.forEach(v => {
                     orders.push({
                         "Статус": val.props['Статус'].value,
+                        "Бронь до": val.props['Бронь до'].value,
+                        "Доступен с": val.props['Доступен с'].value,
                         "Товар": v
                     })
                 })

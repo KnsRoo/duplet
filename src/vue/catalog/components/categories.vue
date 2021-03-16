@@ -31,6 +31,19 @@
         .catalog__cat__show(@click = "switchToCatalog")
             img.cat_button( src="/assets/img/icons/menu-cancel.svg")
             .catalog__cat__title В каталог
+        .catalog__sort
+            .catalog__sort_title Сортировка по:
+            .catalog__sort_type
+                .sort__name(@click = "toggleSort('name')")
+                    .sort__name_title(:class = "{sort_active: [1,2].includes(sortType)}")  Названию
+                    img(v-if = "[0,3,4].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
+                    img(v-else-if = "sortType == 1" src="/assets/img/icons/sort_down.svg")
+                    img(v-else-if = "sortType == 2" src = "/assets/img/icons/sort_up.svg")
+                .sort__price(@click = "toggleSort('price')")
+                    .sort__price_title(:class = "{sort_active: [3,4].includes(sortType)}")  Цене
+                    img(v-if = "[0,1,2].includes(sortType)" src = "/assets/img/icons/sort_neitral.svg")
+                    img(v-else-if = "sortType == 3" src="/assets/img/icons/sort_down.svg")
+                    img(v-else-if = "sortType == 4" src = "/assets/img/icons/sort_up.svg")
     .catalog__cat__list(v-if="show")
         a.catalog__cat__item.noevents(v-for="item in catalogGroups" :href = "'/Catalog?group='+item.id" @click.prevent = "setGroup(item)" :class = "{active: item.title == active}")
             .catalog__cat__item_title {{ item.title }}
