@@ -1,5 +1,6 @@
 <main>
-    <section class="discount">
+    <div id = "stocks" data-page-link = "<?=$link?>"/>
+<!--     <section class="discount">
         <div class="wrapper">
             <div class="title__page">Акции</div>
             <div class="discount__items">
@@ -41,5 +42,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </main>

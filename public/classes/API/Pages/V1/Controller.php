@@ -48,12 +48,40 @@ class Controller extends Response {
             ->setName('api:pages:v1:pages');
         $group->addGet('/pages/:id', [$this, 'getPage'])
             ->setName('api:pages:v1:page');
+        $group->addGet('/pages/:id/props', [$this, 'getPageProps'])
+            ->setName('api:pages:v1:props');
         $group->addGet('/pages/:id/subpages', [$this, 'getSubpages'])
             ->setName('api:pages:v1:subpages');
 
         $group->addGet('/doc/rels/:rel', [$this, 'getRelDoc']);
 
         return $group;
+    }
+
+    public function getPageProps($req){
+
+        try {
+
+            $page = \Model\Page::find(['id' => $req['id']])
+                    ->get();
+
+            if ($page->isNew())
+                throw new HTTPException('page not found', 404);
+
+            $response = Factory\HAL\Props::get([
+                'item' => $page,
+            ]);
+
+            $this->hal($response);
+
+        } catch (HTTPException $e){
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
+        }
     }
 
     public function getPages($req, $next) {

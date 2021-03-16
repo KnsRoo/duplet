@@ -27,6 +27,7 @@ $router = Router::init();
 
 $catalogAPI = new API\Catalog\V3\Controller;
 $newsAPI = new API\News\V4\Controller;
+$pagesAPI = new API\Pages\V1\Controller;
 $cartAPI = new API\Cart\V1\Controller;
 $authAPI = new API\Auth\V1\Basic\Controller;
 $userAPI = $di->get('user-api');
@@ -36,6 +37,7 @@ $favoritesAPI = new API\Favorites\Controller;
 
 $router->mount('/api/catalog', $catalogAPI->getRoutes());
 $router->mount('/api/news', $newsAPI->getRoutes());
+$router->mount('/api/pages', $pagesAPI->getRoutes());
 $router->mount('/api/cart', $cartAPI->getRoutes());
 $router->mount('/api/auth/JWT', $jwtAPI->getRoutes());
 $router->mount('/api/auth/basic', $authAPI->getRoutes());

@@ -20,6 +20,8 @@ class Page {
         $routes = [
             'self' => Router::byName('api:pages:v1:page')
                 ->getAbsolutePath(['id' => $item->id]),
+            'props' => Router::byName('api:pages:v1:props')
+                ->getAbsolutePath(['id' => $item->id]),
             'subpages' => Router::byName('api:pages:v1:subpages')
                 ->getAbsolutePath(['id' => $item->id]),
         ];
@@ -27,6 +29,9 @@ class Page {
         return [
             'self' => [
                 'href' => $origin . $routes['self'],
+            ],
+            'props' => [
+                'href' => $origin . $routes['props'],
             ],
             'subpages' => [
                 'href' => $origin . $routes['subpages'],

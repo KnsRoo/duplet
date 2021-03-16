@@ -31,12 +31,16 @@ class Controller extends Response
 
     public function getDefault($req)
     {
-        $page = Page::find(['chpu' => 'Stocks'])
+        $page = Page::find(['chpu' => '/Stocks'])
             ->get();
 
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(self::PATH . 'stocks.tpl', []);
+        $data = [
+            'link' => Router::byName('api:pages:v1:subpages')->getURL(['id' => $page->id])
+        ];
+
+        $html = $this->render(self::PATH . 'stocks.tpl', $data);
 
         $this->layout
             ->setSrc('stocks')
