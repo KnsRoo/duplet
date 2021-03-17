@@ -46,6 +46,7 @@ class Product {
             'code' => (String)$item->code,
             'price' => (float)$item->price,
             'discount' => $item->discount ? $item->discount : "0",
+            'exists' => self::checkExists(['item' => $item]),
             'discount_price' => $item->getDiscountPrice(),
             'category' => $item->getCategory(),
             'discount_text' => $item->discount_text ? (String)$item->discount_text : "",
@@ -61,6 +62,23 @@ class Product {
         ];
     }
 
+    public static function checkExists($params) {
+        $item = $params['item'];
+        $props = (Object)json_decode($item->props);
+        if (!(array_key_exists('Остатки', $props))){
+            return false;
+        }
+        $remains = $props->Остатки->value; 
+        if (!$remains) return false;
+        $result = false;
+        foreach ($remains as $key => $value) {
+            if ((int)$value > 0){
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
     public static function getProps($params) {
 
         $item = $params['item'];
@@ -73,6 +91,10 @@ class Product {
                 $prop = self::getImages(['prop' => $prop]);
             } elseif ($prop->type == 'products') {
                 $prop = self::getProducts(['prop' => $prop]);
+            }
+
+            if ($prop == "Остатки"){
+
             }
 
             $result->$key = $prop;

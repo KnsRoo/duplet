@@ -12,20 +12,20 @@
 		.main__price.closed
 			span.main__price_title ₽ {{ product.price }}
 		.status
-			.available.hidden
+			.available(v-if = "product.exists")
 				figure.icon-available
 				span.available__title В наличии
-			.unavailable
+			.unavailable(v-else)
 				figure.icon-menu-cancel
 				span.unavailable__title Нет в наличии
 	.card__item_price(v-else)
 		.main__price
 			span.main__price_title ₽ {{ product.price }}
 		.status
-			.available.hidden
+			.available(v-if = "product.exists")
 				figure.icon-available
 				span.available__title В наличии
-			.unavailable
+			.unavailable(v-else)
 				figure.icon-menu-cancel
 				span.unavailable__title Нет в наличии
 	.order__box
