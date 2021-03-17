@@ -128,8 +128,8 @@ class Props {
 
             foreach($ids as $id) {
 
-                $route = \Websm\Framework\Router\Router::byName('api:catalog:v3:product');
-                $urls[] = $route->getURL(['id' => $id]);
+                $route = \Websm\Framework\Router\Router::byName('catalog:product');
+                $urls[] = $route->getURL(['productId' => $id]);
 
             }
 

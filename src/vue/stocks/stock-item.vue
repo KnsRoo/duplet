@@ -1,6 +1,6 @@
 <template lang = "pug">
 .discount__item(:style = "{ background }")
-	.discount__box
+	.discount__box(v-if = "loaded")
 		.block__wrap
 			.discount__box_title {{ item.title }}
 			.discount__box_text {{ item.announce }}
@@ -15,18 +15,22 @@ import ky from "ky";
 export default {
     data() {
         return {
+            loaded: false,
         	extra: undefined
         };
     },
     computed: {
     	background(){
-    		let colors = this.extra["Цвет"].value.colors.filter(val => {
-    			val.checked == true
-    		})
+            if (!this.extra) return ''
+            console.log(this.extra["цвет"].value.colors)
+    		let colors = this.extra["цвет"].value.colors.filter(val => val.checked)
+            console.log(colors)
     		let color = "#fff"
     		if (colors){
     			color = colors[0];
-    		}
+    		} else {
+                return color
+            }
     		if (color.type == 'static'){
     			return color.color
     		} else {
@@ -34,6 +38,7 @@ export default {
     		}
     	},
     	image(){
+            if (!(this.extra && this.extra['Изображение'])) return '/assets/img/tent.png'
     		let images = this.extra['Изображение'].value.value
     		if (images){
     			return images[0]
@@ -41,6 +46,7 @@ export default {
     		return '/assets/img/tent.png'
     	},
     	good(){
+            if (!(this.extra && this.extra['Товар'])) return '/Catalog'
     		let good = this.extra['Товар'].value.value
     		if (good){
     			return good[0]
@@ -52,8 +58,10 @@ export default {
         item: Object
     },
     async created(){
-    	let response = await ky.get(this.$props.item._links.props).json()
+    	let response = await ky.get(this.$props.item._links.props.href).json()
     	this.extra = response._embedded.props
+        console.log(this.extra)
+        this.loaded = true
     }
 };
 </script>
