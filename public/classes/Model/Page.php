@@ -109,6 +109,39 @@ class Page extends ActiveRecord implements PathProviderInterface
             ->format($format);
     }
 
+    public function getProp(String $name){
+        $props = (Object)json_decode($this->props, true);
+        $prop = (Object)$props->$name;
+        if (!$prop) return undefined;
+        switch ($prop->type) {
+            case 'string':
+            case 'array':
+                return $prop->value;
+                break;
+            case 'color':
+                $object = (Array)json_decode($prop->value, true);
+                $checked = array_filter($object['colors'], function($v) {
+                    return $v['checked'] == true;
+                }, ARRAY_FILTER_USE_BOTH );
+                $params = (Object)$checked[array_key_first($checked)];
+                if (!$params) return undefined;
+                if ($params->type == "static"){
+                    return $params->color;
+                } else if ($params->type == "gradient"){
+                    return "linear-gradient({$params->angle}deg,{$params->color1},{$params->color2})";
+                }
+                break;
+            case 'products':
+                $object = (Object)$prop;
+                return $prop->value;
+            
+            default:
+                # code...
+                break;
+        }
+
+    }
+
     public function getExtraPropertiesArray()
     {
         $res = json_decode($this->props, true);

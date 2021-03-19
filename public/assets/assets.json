@@ -1,71 +1,71 @@
 {
   "404": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/1.4dc02f7e.css",
-      "/assets/css/404.1747af8a.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/1.fc8d1e0c.css",
+      "/assets/css/404.89973e67.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
-      "/assets/js/1.4dc02f7e.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
+      "/assets/js/1.fc8d1e0c.chunk.js",
       "/assets/js/404.js"
     ]
   },
   "cart": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/cart.af56d1e2.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/cart.560f3ddd.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
       "/assets/js/3.7259d4d0.chunk.js",
       "/assets/js/cart.js"
     ]
   },
   "catalog": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/1.4dc02f7e.css",
-      "/assets/css/catalog.8e2b4a1c.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/1.fc8d1e0c.css",
+      "/assets/css/catalog.2af4cb46.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
-      "/assets/js/1.4dc02f7e.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
+      "/assets/js/1.fc8d1e0c.chunk.js",
       "/assets/js/catalog.js"
     ]
   },
   "contacts": {
     "css": [
-      "/assets/css/0.71016363.css",
+      "/assets/css/0.bbce824c.css",
       "/assets/css/2.0011d61b.css",
-      "/assets/css/contacts.341d95b8.css"
+      "/assets/css/contacts.0cde169b.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
       "/assets/js/2.0011d61b.chunk.js",
       "/assets/js/contacts.js"
     ]
   },
   "favorite": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/1.4dc02f7e.css",
-      "/assets/css/favorite.df4ff7f9.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/1.fc8d1e0c.css",
+      "/assets/css/favorite.d6227a51.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
-      "/assets/js/1.4dc02f7e.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
+      "/assets/js/1.fc8d1e0c.chunk.js",
       "/assets/js/favorite.js"
     ]
   },
   "index": {
     "css": [
-      "/assets/css/0.71016363.css",
+      "/assets/css/0.bbce824c.css",
       "/assets/css/2.0011d61b.css",
-      "/assets/css/index.d33c4906.css"
+      "/assets/css/index.fee21ba2.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
       "/assets/js/2.0011d61b.chunk.js",
       "/assets/js/index.js"
     ]
@@ -79,24 +79,24 @@
   },
   "lk": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/lk.fe83b306.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/lk.c49597d5.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
       "/assets/js/3.7259d4d0.chunk.js",
       "/assets/js/lk.js"
     ]
   },
   "news": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/1.4dc02f7e.css",
-      "/assets/css/news.1c49be22.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/1.fc8d1e0c.css",
+      "/assets/css/news.2d543ed9.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
-      "/assets/js/1.4dc02f7e.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
+      "/assets/js/1.fc8d1e0c.chunk.js",
       "/assets/js/news.js"
     ]
   },
@@ -105,25 +105,25 @@
   },
   "product": {
     "css": [
-      "/assets/css/0.71016363.css",
+      "/assets/css/0.bbce824c.css",
       "/assets/css/2.0011d61b.css",
-      "/assets/css/product.8aaba956.css"
+      "/assets/css/product.d0090503.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
       "/assets/js/2.0011d61b.chunk.js",
       "/assets/js/product.js"
     ]
   },
   "stocks": {
     "css": [
-      "/assets/css/0.71016363.css",
-      "/assets/css/1.4dc02f7e.css",
-      "/assets/css/stocks.a2c5783a.css"
+      "/assets/css/0.bbce824c.css",
+      "/assets/css/1.fc8d1e0c.css",
+      "/assets/css/stocks.24ab893b.css"
     ],
     "js": [
-      "/assets/js/0.71016363.chunk.js",
-      "/assets/js/1.4dc02f7e.chunk.js",
+      "/assets/js/0.bbce824c.chunk.js",
+      "/assets/js/1.fc8d1e0c.chunk.js",
       "/assets/js/stocks.js"
     ]
   }
