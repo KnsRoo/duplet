@@ -24,7 +24,7 @@
 					.btn__minus.icon-number(@click="downNumber")
 					.choose__number {{number}}
 					.btn__plus.icon-number(@click="upNumber")
-				.card__in-all__mobile ₽99 739 000
+				.card__in-all__mobile ₽ {{ fullPrice }}
 			.card__text_block
 				.card__brand
 					.card__brand_title Бренд:

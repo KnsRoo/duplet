@@ -71,7 +71,6 @@ export default {
 				let response = await ky.get(val._links.subproducts.href, { timeout: false }).json()
 				this.$set(this.counts, val.id, this.what(response.total))
 			})
-			console.log(this.counts)
 		}
 	},
 	async created(){
@@ -176,24 +175,27 @@ export default {
 	}
 }
 
-@media(max-width: 1580px){
+@media(max-width: 1480px){
 	.category__wrapper {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-gap: 20px;
 	}		
 }
-@media(max-width: 1024px){
+@media(max-width: 1224px){
+	.category__wrapper {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-gap: 15px;
+	}		
+}
+@media(max-width: 868px){
 	.category__wrapper {
 		grid-template-columns: 1fr 1fr 1fr;
 	}		
 }
-@media(max-width: 768px){
-	.category__wrapper {
-		grid-template-columns: 1fr 1fr;
-	}		
-}
 @media(max-width: 500px){
 	.category__wrapper {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 10px;
 	}		
 }
 
