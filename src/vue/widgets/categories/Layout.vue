@@ -1,26 +1,33 @@
 <template lang = "pug">
-.wrapper
+.category__content
 	h3.title Категории товаров
 	.category__wrapper
-		a.category(v-for = "cat in cats")
+		a.category(v-for = "cat in cats" :href = "`/Catalog?group=${cat.id}`")
 			.category__inner
 				img.category__image(v-if = "cat.picture" :src = "cat.picture")
 				img.category__image(v-else src = "/assets/img/default.png")
-			.category__title_wrapper
-				.category__title {{ cat.title.toUpperCase() }}
-			.category__count 1432 Товаров
-	center
-		input.button_load(v-if = "limit" type = "button" value = "Показать еще" @click = "toggleLimit")
+				.category__title_wrapper
+					.category__title {{ cat.title.toUpperCase() }}
+				.category__count(v-if = "counts[cat.id]") {{ counts[cat.id] }}
+				loader(v-else)
+	input.button_load(v-if = "limit" type = "button" value = "Показать еще" @click = "toggleLimit")
 </template>
 
 <script>
+import ky from 'ky'
 import { mapActions, mapGetters } from 'vuex'
+import loader from '../../loader/catalog.vue'
 
 export default {
 	data(){
 		return {
-			limit: true
+			limit: true,
+			loaded: false,
+			counts: {},
 		}
+	},
+	components: {
+		loader
 	},
 	computed: {
 		...mapGetters("catalog", ["catalogGroups"]),
@@ -32,10 +39,45 @@ export default {
 		...mapActions('catalog', ['fetchCatalogGroups']),
 		toggleLimit(){
 			this.limit = !this.limit
+		},
+		what(count){
+
+		  if ((count.toString().endsWith('11')) ||
+		  (count.toString().endsWith('12')) ||
+		  (count.toString().endsWith('13')) ||
+		  (count.toString().endsWith('14'))){
+		  	return `${count} Товаров`
+		  }
+
+		  switch (count % 10){
+		    case 1: return `${count} Товар`; break;
+		    case 2:
+		    case 3:
+		    case 4: return `${count} Товара`; break;
+		    case 0:
+		    case 5:
+		    case 6:
+		    case 7:
+		    case 8:
+		    case 9: return `${count} Товаров`; break;
+		  }
+
+		  return `${count} Товаров`
+
+		},
+		async calcualteCounts(){
+			this.catalogGroups.forEach(async val => {
+				//console.log(val._links.subproducts.href)
+				let response = await ky.get(val._links.subproducts.href, { timeout: false }).json()
+				this.$set(this.counts, val.id, this.what(response.total))
+			})
+			console.log(this.counts)
 		}
 	},
 	async created(){
-        await this.fetchCatalogGroups(this.$parent.options.link);
+        await this.fetchCatalogGroups(this.$parent.$options.link);
+        await this.calcualteCounts();
+        this.loaded = true
 	}
 }
 
@@ -75,6 +117,16 @@ export default {
 }
 
 .category {
+
+	&__content {
+		display: flex;
+		width: 82.3%;
+		margin: 0 auto;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
+
 	&__inner {
 		display: flex;
 		background: rgba(242, 242, 242, 0.7);
@@ -83,7 +135,11 @@ export default {
 		align-items: center;
 		text-align: center;
 		width: 100%;
-		height: 360px;		
+		height: 360px;	
+
+		&:hover {
+			background: #e0e0e0;
+		}	
 	}
 
 	&__title {

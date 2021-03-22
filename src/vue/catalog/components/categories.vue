@@ -174,8 +174,32 @@ export default {
 
             await this.fetchCatalogGroups(item._links.subgroups.href);
             
-            if (!this.isEnd) new URLHistory().add('group',item.id)
+            if (this.isEnd){
+                new URLHistory().add('child',item.id)
+            } else {
+                new URLHistory().add('group',item.id)
+            }
 
+            if (this.sortType) {
+                await this.fetchSortedCatalogItems({
+                    link: item._links.subproducts.href,
+                    sort: this.sortType
+                });
+            } else {
+                await this.fetchCatalogItems(item._links.subproducts.href);
+            }
+            this.$emit('toggleLoad',true)
+        },
+        async setActiveGroup(parent, item) {
+            this.$emit('toggleLoad',false)
+            
+
+            this.title = item.title;
+            this.active = item.title;
+            this.breadCrumbs = item.path;
+
+            await this.fetchCatalogGroups(parent._links.subgroups.href);
+            
             if (this.sortType) {
                 await this.fetchSortedCatalogItems({
                     link: item._links.subproducts.href,

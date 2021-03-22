@@ -70,6 +70,7 @@ export default {
     async created() {
         let query = new URL(window.location.href).searchParams.get("query"),
             groupId = new URL(window.location.href).searchParams.get("group"),
+            childId = new URL(window.location.href).searchParams.get("child"),
             sort = new URL(window.location.href).searchParams.get("sort");
 
         this.mode = "catalog";
@@ -81,18 +82,26 @@ export default {
             this.mode = "search";
             this.query = query;
         } else {
-            if (groupId) {
-                let group = await ky
-                    .get(
-                        `${window.location.origin}/api/catalog/groups/${groupId}`
-                    )
-                    .json();
-                await this.$refs.cats.setGroup(group);
-                this.$refs.cats.toggleCats();
+            if (childId){
+                if (groupId) {
+                    let parent = await ky.get(`${window.location.origin}/api/catalog/groups/${childId}`).json();
+                    let group = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
+                    await this.$refs.cats.setActiveGroup(group, parent);
+                    this.$refs.cats.toggleCats();
+                } else {
+                    let parent = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
+                    let group = await ky.get(`${window.location.origin}/api/catalog/base/groups`).json();  
+                    await this.$refs.cats.setActiveGroup(group, parent);
+                    this.$refs.cats.toggleCats();       
+                }
             } else {
-                await this.fetchCatalogItems(
-                    `${window.location.origin}/api/catalog/products`
-                );
+                if (groupId) {
+                    let group = await ky.get(`${window.location.origin}/api/catalog/groups/${groupId}`).json();
+                    await this.$refs.cats.setGroup(group);
+                    this.$refs.cats.toggleCats();
+                } else {
+                    await this.fetchCatalogItems(`${window.location.origin}/api/catalog/products`);
+                }
             }
             if (sort) {
                 await this.$refs.cats.refreshSort(parseInt(sort));

@@ -72,9 +72,9 @@ class Controller extends Response
 
         $data = [ 
             'new' => $new,
-            'news' => $news,
-            'stocks' => $stocks,
-            'sliders' => $sliders,
+            'newsWidget' => $this->render(__DIR__ . '/temp/news-widget.tpl', ['news' => $news]),
+            'stocksWidget' => $this->render(__DIR__ . '/temp/stocks-widget.tpl', ['stocks' => $stocks]),
+            'slidersWidget' => $this->render(__DIR__ . '/temp/sliders-widget.tpl', ['sliders' => $sliders]),
             'numbers' => Setting::get('Телефоны') ?? []
         ];
 

@@ -20,7 +20,7 @@ section.popular
 							Product(:product = "item")
 					.swiper-pagination
 			a.link__to(href='/Catalog') Больше товаров
-</tempalte>
+</template>
 
 <script>
 import Product from '../catalog/components/catalog-item.vue'
