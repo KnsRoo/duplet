@@ -39,7 +39,7 @@ class Controller extends Response
 
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(self::PATH . 'contacts.tpl', ['shops' => $shops]);
+        $html = $this->render(self::PATH . 'contacts.tpl', ['page' => $page, 'shops' => $shops]);
 
         $this->layout
             ->setSrc('contacts')

@@ -1,12 +1,9 @@
 <mian>
 	<section class="contacts">
 		<div class="wrapper">
-			<div class="title__page">Контакты</div>
-			<div class="contacts__text">Оружейный магазин Дуплет находится в городе Сыктывкар. На сайте нашего
-				магазина Вы можете посмотреть весь ассортимент, а также почитать интересные и полезные статьи на
-				тему охоты и рыбалки.</div>
-			<div class="contacts__text">Ассортимент нашего магазина не ограничивается только оружием, Вы также
-				можете приобрести инвентарь для рыбалки и туризма, одежду и обувь, боеприпасы и аксессуары.</div>
+			<div class="title__page"><?= $page->title ?></div>
+			<div class="contacts__text"><?= $page->announce ?></div>
+			<div class="contacts__text"><?= $page->text ?></div>
 			<div class="contacts__location">
 				<div class="location__title">Наши магазины находятся по адресам:</div>
 				<?php foreach ($shops as $shop) : ?>
