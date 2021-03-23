@@ -47,9 +47,9 @@ export default {
     	},
     	good(){
             if (!(this.extra && this.extra['Товар'])) return '/Catalog'
-    		let good = this.extra['Товар'].value.value
+    		let good = this.extra['Товар'].value
     		if (good){
-    			return good[0]
+    			return good[0].pageRef
     		}
     		return '/Catalog'
     	}
@@ -60,7 +60,6 @@ export default {
     async created(){
     	let response = await ky.get(this.$props.item._links.props.href).json()
     	this.extra = response._embedded.props
-        console.log(this.extra)
         this.loaded = true
     }
 };

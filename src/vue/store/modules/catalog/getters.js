@@ -5,6 +5,9 @@ export default {
 	catalogItems(state) {
 		return state.catalogItems
 	},
+	catalogCounts(state){
+		return state.counts
+	},
 	catalogFilters(state) {
 		return state.filters
 	},

@@ -30,17 +30,17 @@ export default {
 		loader
 	},
 	computed: {
-		...mapGetters("catalog", ["catalogGroups"]),
+		...mapGetters("catalog", ["catalogGroups", "catalogCounts"]),
 		cats(){
 			return (this.limit) ? this.catalogGroups.slice(0,12) : this.catalogGroups
 		}
 	},
 	methods: {
-		...mapActions('catalog', ['fetchCatalogGroups']),
+		...mapActions('catalog', ['fetchCatalogGroups', 'fetchCatalogCounts']),
 		toggleLimit(){
 			this.limit = !this.limit
 		},
-		what(count){
+		format(count){
 
 		  if ((count.toString().endsWith('11')) ||
 		  (count.toString().endsWith('12')) ||
@@ -65,17 +65,13 @@ export default {
 		  return `${count} Товаров`
 
 		},
-		async calcualteCounts(){
-			this.catalogGroups.forEach(async val => {
-				//console.log(val._links.subproducts.href)
-				let response = await ky.get(val._links.subproducts.href, { timeout: false }).json()
-				this.$set(this.counts, val.id, this.what(response.total))
-			})
-		}
 	},
 	async created(){
         await this.fetchCatalogGroups(this.$parent.$options.link);
-        await this.calcualteCounts();
+		await this.fetchCatalogCounts();
+		Object.entries(this.catalogCounts).forEach(([k,v]) => {
+			this.$set(this.counts, k, this.format(v))
+		})
         this.loaded = true
 	}
 }
@@ -106,13 +102,12 @@ export default {
   font-family: FuturaBookC;	
   margin-top: 66px;
   margin-bottom: 90px;
-}
 
-.button_load:hover {
-    box-shadow: inset 0 -3.25em 0 0 #333;
+  &:hover {
+  	box-shadow: inset 0 -3.25em 0 0 #333;
     color: #fff;
     transition: 0.25s;
-    font-family: FuturaBookC;
+  }
 }
 
 .category {

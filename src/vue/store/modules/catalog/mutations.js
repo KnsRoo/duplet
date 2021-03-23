@@ -12,6 +12,10 @@ export default {
 		state.next = next
 	},
 
+	setCatalogCounts(state, data){
+		state.counts = data
+	},
+
 	addCatalogProducts(state, {items, next}) {
 		state.catalogItems = state.catalogItems.concat(items)
 		state.next = next
@@ -22,7 +26,6 @@ export default {
 	},
 
 	setProduct(state, item){
-		console.log("product setter",item)
 		state.product = item
 	}
 };

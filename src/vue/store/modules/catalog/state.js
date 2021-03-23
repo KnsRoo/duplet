@@ -8,4 +8,5 @@ export default {
     next: undefined,
     current: undefined,
     end: false,
+    counts: {}
   };

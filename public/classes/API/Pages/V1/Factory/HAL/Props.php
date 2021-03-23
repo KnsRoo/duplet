@@ -4,6 +4,8 @@ namespace API\Pages\V1\Factory\HAL;
 
 use Websm\Framework\Router\Router;
 
+use Model\Catalog\Product as ProductItem;
+
 class Props {
 
     public static function getLinks($params) {
@@ -46,7 +48,7 @@ class Props {
             } elseif ($prop['type'] == 'images') {
                 $result[$key]['value'] = self::getImages(['prop' => $prop]);
             } elseif ($prop['type'] == 'products') {
-                $result[$key]['value'] = self::getProducts(['prop' => $prop]);
+                $result[$key] = self::getProducts(['prop' => $prop]);
             } else {
                 $result[$key]['value'] = $prop;
             }  
@@ -128,14 +130,11 @@ class Props {
 
             foreach($ids as $id) {
 
-                $route = \Websm\Framework\Router\Router::byName('catalog:product');
-                $urls[] = $route->getURL(['productId' => $id]);
+                $item = ProductItem::find(['id' => $id])->get();
 
+                $res->value[] = \API\Catalog\V3\Factory\HAL\Product::get(['item' => $item]);
             }
-
-            $res->value = $urls;
         }
-
         return $res;
     }
 }

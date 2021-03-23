@@ -1,4 +1,6 @@
 export default {
-    popularItems: undefined,
-    newItems: undefined
+    popularItems: {},
+    newItems: {},
+    activePopular: 'all',
+    activeNovelty: 'all'
 };

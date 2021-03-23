@@ -12,6 +12,15 @@ export default {
 		commit('setCatalogGroups', result._embedded.items)
 	},
 
+	async fetchCatalogCounts({commit}){
+		let result = await ky.get(`${window.location.origin}/api/catalog/basegroups/count`).json()
+		if (result.status === 'error') {
+			noty('error','Ошибка при получении данных. Код ошибки 1445')
+			return
+		}
+		commit('setCatalogCounts', result.total)
+	},
+
 	async sortItems({dispatch, getters}, type){
 		let params = null;
 		switch(type){

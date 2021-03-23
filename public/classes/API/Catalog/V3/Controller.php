@@ -44,6 +44,12 @@ class Controller extends Response {
         $group->addGet('/groups/:id/subproducts', [$this, 'getAllSubproducts'])
             ->setName('api:catalog:v3:subproducts');
 
+        $group->addGet('/groups/:id/count', [$this, 'getCountGroupWithSubgroups'])
+            ->setName('api:catalog:v3:group:count');
+
+        $group->addGet('/basegroups/count', [$this, 'getCountBaseGroups'])
+            ->setName('api:catalog:v3:basegroups:count');
+
         $group->addGet('/products', [$this, 'getProducts'])
             ->setName('api:catalog:v3:products');
 
@@ -390,6 +396,62 @@ class Controller extends Response {
             $groups = $this->getChildrenGroups($group, $groups);
         }
         return $groups;
+    }
+
+    public function getCountBaseGroups($req, $next){
+
+        $result = [];
+
+        $groups = Group::find([ 'cid' => NULL, 'visible' => true ])
+            ->getAll();
+
+        foreach ($groups as $group) {
+            $childs = Childs::find(['id' => $group->id])
+                        ->get();
+
+            $qb = Product::find()
+                ->where("`cid` IN ".$childs->childs)
+                ->andWhere(['visible' => true])
+                ->count();
+
+            $result[$group->id] = $qb;
+        }
+
+        $this->hal(['total' => $result]);       
+    }
+
+    public function getCountGroupWithSubgroups($req, $next) {
+        
+        $groupId = $req['id'];
+
+        $group = Group::find([ 'id' => $groupId, 'visible' => true ])
+            ->get();
+
+        try {
+
+            if ($group->isNew())
+                throw new Exceptions\HTTP('group not found', 404);
+
+        } catch(Exceptions\HTTP $e) {
+
+            $this->code($e->getHttpCode());
+            $this->json([
+                'errors' => [
+                    [ 'message' => $e->getMessage() ],
+                ],
+            ]);
+        }
+
+        $childs = Childs::find(['id' => $groupId])
+                    ->get();
+
+        $qb = Product::find()
+            ->where("`cid` IN ".$childs->childs)
+            ->andWhere(['visible' => true])
+            ->count();
+
+        $this->hal(['total' => (Integer)$qb]);
+
     }
 
     public function getAllSubproducts($req, $next) {
