@@ -7,7 +7,7 @@
 				<div class="swiper-slide">
 					<div class="news__block">
 						<div class="img__item"><img class="img__news" 
-							src="<?= $new->picture ? $new->getPicture('1000x1000') : '/assets/img/default.png' ?>" alt=""></div>
+							src="<?= ($new->picture) ? $new->getPicture('1000x1000') : '/assets/img/default.png' ?>" alt=""></div>
 						<div class="news__block_instruction">
 							<div class="news__title"><?= $new->title ?></div>
 							<div class="news__text"><?= $new->announce ?></div>
