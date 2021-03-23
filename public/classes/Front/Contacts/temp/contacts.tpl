@@ -64,7 +64,7 @@
 					                $prefix = $origin . \Back\Files\Config::PREFIX_PATH.'/';
 
 					                if ($file->isPicture()) {
-					                    $images[] = $prefix . $file->getPicture();
+					                    $images[] = $prefix . $file->getPicture('1000x1000');
 					                } else if($file->isVPicture()) {
 					                    $images[] = $prefix . $file->getPicture('');
 					                }
