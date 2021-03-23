@@ -35,9 +35,11 @@ class Controller extends Response
 
         $page = Page::find(['chpu' => '/Contacts'])->get();
 
+        $shops = Page::find(['cid' => $page->id])->getAll();
+
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(self::PATH . 'contacts.tpl', []);
+        $html = $this->render(self::PATH . 'contacts.tpl', ['shops' => $shops]);
 
         $this->layout
             ->setSrc('contacts')

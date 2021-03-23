@@ -134,9 +134,14 @@ class Page extends ActiveRecord implements PathProviderInterface
             case 'products':
                 $object = (Object)$prop;
                 return $prop->value;
-            
+                break;
+            case 'boolean':
+                $object = (Object)$prop;
+                return ($prop->value == 'да') ? true : false;
+                break;
             default:
-                # code...
+                $object = (Object)$prop;
+                return $prop->value;
                 break;
         }
 
