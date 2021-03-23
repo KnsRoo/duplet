@@ -36,7 +36,7 @@ export class searchToogler{
 
     goSearch = () => {
         let value = document.querySelector(this.selectors.input).value
-        if (value.length > 3){
+        if (value.length > 1){
             window.location.href = `/catalog?query=${value}`
         }
     }

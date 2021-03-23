@@ -48,6 +48,6 @@
         </div>
       </div>
     </div>
-    <p class="duplet__now">@ 2020 ООО “Дуплет”</p>
+    <p class="duplet__now"><?= $options['copyright'] ?></p>
   </div>
 </footer>

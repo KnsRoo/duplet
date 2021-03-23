@@ -30,7 +30,7 @@ class Widget extends Response
         $social['instagram'] = Setting::get('instagram') ?? '';
         $social['Одноклассники'] = Setting::get('Одноклассники') ?? '';
 
-        $options['copyright'] = Setting::get('copyright') ?? '';
+        $options['copyright'] = Setting::get('Copyright') ?? '';
         $options['Почты'] = Setting::get('Почты') ?? [];
         $options['Телефоны'] = Setting::get('Телефоны') ?? [];
         $options['Адрес'] = Setting::get('Адрес') ?? '';
