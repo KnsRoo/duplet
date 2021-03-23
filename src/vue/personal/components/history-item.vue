@@ -18,7 +18,9 @@
 			.title {{ orderProps['Статус'].value }}
 	.mini__wrapper(v-if = "!detailed")
 		.mini__box
-			img.mini__image(v-for = "item in orderProps['Товары'].value.slice(0,6)" :src="item.picture")
+			img.mini__image(
+				v-for = "item in orderProps['Товары'].value.slice(0,6)" 
+				:src="item.picture ? item.picture : '/assets/img/default.png'")
 			.title(v-if = "orderProps['Товары'].value.length > 6") ...
 		.details
 			.text(@click="detailed = !detailed") Развернуть
@@ -66,7 +68,6 @@ export default {
 		orderProps: Object
 	},
 	created(){
-		console.log(this.$props.orderProps['Товары'])
 	}
 }
 </script>

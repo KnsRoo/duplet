@@ -33,8 +33,6 @@ export default {
         orderItems(){
             let orders = []
             this.orders.items.forEach(val => {
-                console.log("val", val)
-                console.log("props", val.props)
                 val.props['Товары'].value.forEach(v => {
                     orders.push({
                         "Статус": val.props['Статус'].value,
@@ -53,7 +51,6 @@ export default {
     },
     async created(){
         await this.fetchOrders('Бронирование')
-        console.log(this.orders)
         this.loaded = true
         this.$emit('toggleLoad', { component: 'reserved', value: true})
     }

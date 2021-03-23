@@ -3,7 +3,8 @@
 	.card
 		.card__act
 			.card__favorite(@click = "addToFavorites(item.id)")
-				figure.card__icon.icon-liked
+				figure.icon-liked(v-if ="favorite === false" )
+				figure.icon-liked-fill(v-else)
 				.card__title Отложить
 			.card__delete(@click = "removeFromCart(item.id)")
 				figure.card__icon.icon-delete
@@ -14,7 +15,8 @@
 					.discount__percent 15%
 					.favorite__cross.icon-menu-cancel
 					.product__block
-						img.product__img(:src="item.picture" alt="")
+						img.product__img(v-if = "item.picture" :src="item.picture" alt="")
+						img.product__img(v-else src="/assets/img/default.png" alt="")
 			.card__text
 				.card__text_title {{ item.title }}
 				.mobile__block_hidden
@@ -39,11 +41,13 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import authfetch from '../../../js/components/authfetch'
 
 export default {
 	data(){
 		return {
-			count: 1
+			count: 1,
+			favorite: false
 		}
 	},
 	methods: {
@@ -54,8 +58,10 @@ export default {
 			await this.updateItemCount({ id: this.$props.item.id, count: this.count})
 		},
 		async addToFavorites(itemId){
-			if (await this.appendItem(itemId)){
-				this.removeFromCart(itemId)
+			if (!this.favorite){
+				if (await this.appendItem(itemId)){
+					this.removeFromCart(itemId)
+				}
 			}
 		},
 		async rem() {
@@ -67,6 +73,19 @@ export default {
 	},
 	props: {
 		item: Object
+	},
+	async created(){
+		try {
+			const response = await authfetch(`${window.location.origin}/api/favorites/${this.$props.item.id}`, {
+	            method: 'GET',
+	        }) 
+	        if (response.ok){
+	        	let data = await response.json()
+	        	this.favorite = data.favorite
+	        }
+		} catch (e){
+
+		}
 	}
 }
 </script>

@@ -7,7 +7,8 @@
 					.discount__percent {{ order['Товар'].discount }}
 					.favorite__cross.icon-menu-cancel
 					.product__block
-						img.product__img(:src="order['Товар'].picture", alt="")
+						img.product__img(v-if = "order['Товар'].picture" :src="order['Товар'].picture", alt="")
+						img.product__img(v-else src="/assets/img/default.png", alt="")
 			.card__text
 				.card__text_title {{ order['Товар'].title }}
 				.card__text_block
