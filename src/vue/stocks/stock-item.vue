@@ -22,9 +22,7 @@ export default {
     computed: {
     	background(){
             if (!this.extra) return ''
-            console.log(this.extra["цвет"].value.colors)
     		let colors = this.extra["цвет"].value.colors.filter(val => val.checked)
-            console.log(colors)
     		let color = "#fff"
     		if (colors){
     			color = colors[0];

@@ -39,33 +39,13 @@ class Controller extends Response
 
     public function getNews($req)
     {
-        $pageNum = $req->query['page'] ?? 1;
-
-        $newsQb = Page::find([ 'cid' => self::PAGE_ID ])
-            ->andWhere([ 'visible' => true ])
-            ->order('`sort`');
 
         $page = Page::find(['id' => self::PAGE_ID])
             ->get();
 
-        $pager = new Pager(
-            $newsQb,
-            self::ITEMS_ON_PAGE,
-            $pageNum
-        );
-
-        $news = $pager->getItems();
-
-        $pagerHtml = $pager->getHtml();
-
-        $data = [
-            'news' => $news,
-            'pager' => $pagerHtml,
-        ];
-
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);
 
-        $html = $this->render(__DIR__.'/temp/news.tpl', $data);
+        $html = $this->render(__DIR__.'/temp/news.tpl', []);
 
         $this->layout
             ->setSrc('news')
@@ -77,11 +57,21 @@ class Controller extends Response
         $route = Router::instance();
         $chpu = $route->getAbsolutePath();
 
+        $newsQb = Page::find([ 'cid' => self::PAGE_ID ])
+            ->andWhere([ 'visible' => true ])
+            ->order('`date` DESC')
+            ->getAll();
+
         $page = Page::find(['chpu' => $chpu])
             ->get();
 
+        $key = array_search($page, $newsQb);
+
+        $next = $newsQb[$key+1];
+
         $data = [
-            'page' => $page
+            'page' => $page,
+            'next' => $next ? $next : false
         ];
         
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);

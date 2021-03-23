@@ -13,7 +13,9 @@
           <div class="date__news">
              <p class="date__news_title"><?= $page->getDate() ?></p>
           </div>
-          <a class="next__news" href="#"><img class="next__news_img" src="img/next__news.png" alt="Следующая новость"><span class="next__news_title">Следующая новость</span></a>
+          <?php if ($next) : ?>
+          <a class="next__news" href="<?= $next->chpu ?>"><img class="next__news_img" src="<?= $next->getPicture() ?>" alt="Следующая новость"><span class="next__news_title">Следующая новость</span></a>
+          <?php endif ?>
        </div>
     </div>
  </section>
