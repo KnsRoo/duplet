@@ -6,8 +6,9 @@
 				<?php foreach ($news as $new) : ?>
 				<div class="swiper-slide">
 					<div class="news__block">
+						<?php $picture = ($new->picture) ? $new->getPicture('1000x1000') : '/assets/img/default.png' ?>
 						<div class="img__item"><img class="img__news" 
-							src="<?= ($new->picture) ? $new->getPicture('1000x1000') : '/assets/img/default.png' ?>" alt=""></div>
+							src="<?= $picture ?>" alt=""></div>
 						<div class="news__block_instruction">
 							<div class="news__title"><?= $new->title ?></div>
 							<div class="news__text"><?= $new->announce ?></div>
