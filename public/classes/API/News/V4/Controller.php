@@ -89,7 +89,7 @@ class Controller extends Response {
             $qb = $qb->andWhere(['visible' => true]);
             $qbCnt = clone $qb;
 
-            $lines = $qb->order($order)
+            $lines = $qb->order("`date` DESC")
                 ->limit([ $offset, $limit ])
                 ->getAll();
 

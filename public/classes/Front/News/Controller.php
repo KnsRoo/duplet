@@ -59,7 +59,7 @@ class Controller extends Response
 
         $newsQb = Page::find([ 'cid' => self::PAGE_ID ])
             ->andWhere([ 'visible' => true ])
-            ->order('`date` DESC')
+            ->order("`date` DESC")
             ->getAll();
 
         $page = Page::find(['chpu' => $chpu])
@@ -67,11 +67,11 @@ class Controller extends Response
 
         $key = array_search($page, $newsQb);
 
-        $next = $newsQb[$key+1];
+        $next = ($key+1 < count($newsQb)) ? $newsQb[$key+1] : false;
 
         $data = [
             'page' => $page,
-            'next' => $next ? $next : false
+            'next' => $next
         ];
         
         \Components\Seo\Seo::setContent($page->title, $page->keywords, $page->announce);

@@ -21,6 +21,6 @@
 				<?php endforeach; ?>
 			</div>
 			<div class="swiper-pagination"></div>
-		</div><a class="link__to more__news" href="#">Больше новостей</a>
+		</div><a class="link__to more__news" href="/news">Больше новостей</a>
 	</div>
 </section>
