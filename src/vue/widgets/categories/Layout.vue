@@ -10,7 +10,7 @@
 					.category__title {{ cat.title.toUpperCase() }}
 				.category__count(v-if = "counts[cat.id]") {{ counts[cat.id] }}
 				loader(v-else)
-	input.button_load(v-if = "limit" type = "button" value = "Показать еще" @click = "toggleLimit")
+	//-input.button_load(v-if = "limit" type = "button" value = "Показать еще" @click = "toggleLimit")
 </template>
 
 <script>
@@ -21,7 +21,7 @@ import loader from '../../loaders/line.vue'
 export default {
 	data(){
 		return {
-			limit: true,
+			limit: false,
 			loaded: false,
 			counts: {},
 		}
@@ -119,6 +119,7 @@ export default {
 		justify-content: center;
 		flex-direction: column;
 		align-items: center;
+		margin-bottom: 80px;
 	}
 
 	&__inner {

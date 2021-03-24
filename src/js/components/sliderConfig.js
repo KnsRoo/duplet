@@ -6,7 +6,7 @@ const config = {
 	imgs: {
 		direction: 'horizontal',
 		loop: true,
-		slidesPerView: 4,
+		slidesPerView: 6,
 		spaceBetween: 20,
 		pagination: {
 			el: '.swiper-pagination',
@@ -15,28 +15,28 @@ const config = {
 		// scrollbar: {
 		// 	el: '.swiper-scrollbar',
 		// },
-		breakpoints: {
-			220: {
-				slidesPerView: 1,
-				spaceBetween: 20,
-			},
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 40,
-			},
-			992: {
-				slidesPerView: 3,
-				spaceBetween: 20,
-			},
-			1200: {
-				slidesPerView: 4,
-				spaceBetween: 15,
-			},
-		}
+		// breakpoints: {
+		// 	220: {
+		// 		slidesPerView: 1,
+		// 		spaceBetween: 20,
+		// 	},
+		// 	640: {
+		// 		slidesPerView: 2,
+		// 		spaceBetween: 20,
+		// 	},
+		// 	768: {
+		// 		slidesPerView: 2,
+		// 		spaceBetween: 40,
+		// 	},
+		// 	992: {
+		// 		slidesPerView: 3,
+		// 		spaceBetween: 20,
+		// 	},
+		// 	1200: {
+		// 		slidesPerView: 4,
+		// 		spaceBetween: 15,
+		// 	},
+		// }
 	},
 
 	tidIngs: {

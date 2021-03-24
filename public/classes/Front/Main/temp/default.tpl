@@ -7,7 +7,7 @@ use Websm\Framework\Router\Router;
 			<div class="welcome__title">
 				<h1 class="main__title">ОРУЖЕЙНЫЙ МАГАЗИН “ДУПЛЕТ”</h1><a class="btn btn__to" href="/catalog"><span class="btn__name">в каталог</span></a>
 			</div>
-			<div class="welcome__image">
+<!-- 			<div class="welcome__image">
 				<div class="example">
 					<div class="example__block">
 						<div class="example__block_title">Tedna Prime S12С</div>
@@ -16,7 +16,7 @@ use Websm\Framework\Router\Router;
 						<figure class="icon-add"></figure>
 					</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="welcome__laptop">
 			<div class="welcome__laptop__image">
