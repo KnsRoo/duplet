@@ -1,3 +1,28 @@
+<template lang = "pug">
+.loader-wrapper
+	.lds-default
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+		div
+</template>
+<script>
+export default {
+	data(){
+		return {}
+	}
+}
+</script>
+
+<style scoped lang = "scss">
 @keyframes "lds-default" {
 	0%,20%,80%,100% {
 		transform: scale(1);
@@ -86,3 +111,4 @@
 		}
 	}
 }
+</style>

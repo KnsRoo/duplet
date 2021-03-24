@@ -12,7 +12,7 @@ section.discount
 
 <script>
 import ky from "ky";
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 import stockItem from "./stock-item.vue";
 
 export default {

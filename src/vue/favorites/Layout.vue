@@ -10,7 +10,7 @@ section.liked
 <script>
 import ky from 'ky';
 import FavItem from '../catalog/components/catalog-item.vue'
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 import {mapActions, mapGetters} from 'vuex'
 
 export default {

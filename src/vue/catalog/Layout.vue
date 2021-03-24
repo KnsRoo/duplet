@@ -21,7 +21,7 @@ import Product from "./components/catalog-item.vue";
 import Cats from "./components/categories.vue";
 import Pager from "./components/pager.vue";
 import MobileItems from "./components/mobile-items.vue";
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 
 export default {
     data() {

@@ -30,7 +30,7 @@ section.popular
 <script>
 import Product from '../../catalog/components/catalog-item.vue'
 import { getConfig } from "../../../js/components/sliderConfig";
-import loader from "../../loader/index.vue"
+import loader from "../../loaders/ellipse.vue"
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
 import { mapActions, mapGetters } from 'vuex'

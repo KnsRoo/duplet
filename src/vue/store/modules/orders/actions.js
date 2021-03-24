@@ -26,7 +26,7 @@ export default {
 	},
 	async fetchNextOrders({getters, commit}){
     	try {
-            const response = await authfetch(`${getters.next}`, {
+            const response = await authfetch(`${getters.orders.next}`, {
                 method: 'GET',
             })
 

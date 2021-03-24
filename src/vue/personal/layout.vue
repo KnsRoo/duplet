@@ -23,7 +23,7 @@ import Info from "./components/info.vue";
 import Cart from "./components/cart.vue";
 import Reserved from "./components/reserved.vue";
 import History from "./components/history.vue";
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 
 export default {
     data() {

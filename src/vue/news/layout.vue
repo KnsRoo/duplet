@@ -11,7 +11,7 @@ section.news
 
 <script>
 import ky from "ky";
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 import newItem from "./new-item.vue";
 
 export default {

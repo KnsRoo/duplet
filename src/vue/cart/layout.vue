@@ -114,7 +114,7 @@ section.cart
 import ky from "ky";
 import { required, email } from "vuelidate/lib/validators";
 import cartItem from "./cart-item.vue";
-import loader from "../loader/index.vue";
+import loader from "../loaders/ellipse.vue";
 import { mapActions, mapGetters } from "vuex";
 import refreshToken from '../../js/components/refreshToken'
 import noty from '../../js/components/noty'

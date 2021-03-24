@@ -16,7 +16,7 @@
 <script>
 import ky from 'ky'
 import { mapActions, mapGetters } from 'vuex'
-import loader from '../../loader/catalog.vue'
+import loader from '../../loaders/line.vue'
 
 export default {
 	data(){
