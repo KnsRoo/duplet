@@ -1,5 +1,5 @@
 <html>
-<html lang="en">
+<!-- <html lang="en"> -->
   <head>
   	<?= $seo ?>
     <?= $css ?>
