@@ -11,6 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     new CatsWidget('#categories');
     new Slider('#novelty');
     new Slider('#popular');
-    document.getElementById('warning').style = "display: flex; width: 100%; justify-content: right; background: #9d2f2f;"
-    document.getElementById('closeWarning').onclick = function (){ document.querySelector('#warning').style = "display: none; width: 100%; justify-content: right; background: #9d2f2f;" }
+  //  document.getElementById('warning').style = "display: flex; width: 100%; justify-content: right; background: #9d2f2f;"
+  //  document.getElementById('closeWarning').onclick = function (){ document.querySelector('#warning').style = "display: none; width: 100%; justify-content: right; background: #9d2f2f;" }
 })

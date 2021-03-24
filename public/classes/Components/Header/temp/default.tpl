@@ -1,11 +1,11 @@
 <div id="modal-login"></div>
 <header class="header">
-  <div id = "warning" style = "display: none; width: 100%; justify-content: right; background: #9d2f2f;">
+<!--   <div id = "warning" style = "display: none; width: 100%; justify-content: right; background: #9d2f2f;">
     <div style = "margin-right: 22%; display: flex; align-items:center; color: white; height: 40px;">
         Уважаемые посетители! Сайт находится на стадии разработки. Некоторые функции могут работать не в полном объеме.
     </div>
       <img id = "closeWarning" style = "cursor: pointer;" src = "/assets/img/icons/menu-cancel.svg"></img>
-  </div>
+  </div> -->
   <div class="wrapper__header">
     <div class="header__popup">
       <div class="wrapper"><a class="private-office" href="/lk">
