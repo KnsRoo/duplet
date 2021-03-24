@@ -1,7 +1,10 @@
 <div id="modal-login"></div>
 <header class="header">
-  <div style = "display: flex; justify-content: center; align-items:center; background: #9d2f2f; color: white; height: 40px;">
-      Уважаемые посетители! Сайт находится на стадии разработки. Некоторые функции могут работать не в полном объеме.
+  <div id = "warning" style = "display: none; width: 100%; justify-content: right; background: #9d2f2f;">
+    <div style = "margin-right: 22%; display: flex; align-items:center; color: white; height: 40px;">
+        Уважаемые посетители! Сайт находится на стадии разработки. Некоторые функции могут работать не в полном объеме.
+    </div>
+      <img id = "closeWarning" style = "cursor: pointer;" src = "/assets/img/icons/menu-cancel.svg"></img>
   </div>
   <div class="wrapper__header">
     <div class="header__popup">
