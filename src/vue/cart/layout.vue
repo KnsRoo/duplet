@@ -124,6 +124,7 @@ export default {
 	data() {
 		return {
 			loaded: false,
+			show: false,
 			validationsActive: false,
 			type: null,
 			delivery: 'Доставка',
