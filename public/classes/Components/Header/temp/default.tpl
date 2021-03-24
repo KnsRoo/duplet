@@ -1,5 +1,8 @@
 <div id="modal-login"></div>
 <header class="header">
+  <div style = "display: flex; justify-content: center; align-items:center; background: #9d2f2f; color: white; height: 40px;">
+      Уважаемые посетители! Сайт находится на стадии разработки. Некоторые функции могут работать не в полном объеме.
+  </div>
   <div class="wrapper__header">
     <div class="header__popup">
       <div class="wrapper"><a class="private-office" href="/lk">
